@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="bg" data-lang="bg">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Menu — Kiwi's</title>
+  <meta name="description" content="Kiwi's full menu — protein sandwiches, cloud foam drinks, fresh salads & desserts.">
+  <meta name="theme-color" content="#1B2E1E">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <link rel="icon" type="image/png" href="images/logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/menu.css">
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="header-inner">
+      <a href="index.html" class="header-back" aria-label="Back">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M15 18l-6-6 6-6"/></svg>
+      </a>
+      <div class="header-brand">
+        <img src="images/kiwi-icon.jpg" alt="Kiwi's" width="34" height="34">
+        <div>
+          <span class="header-name">KiWi'S</span>
+          <span class="header-sub" data-en="Menu">Меню</span>
+        </div>
+      </div>
+      <div class="header-right">
+        <div class="lang-toggle">
+          <button class="lang-btn is-active" data-lang="bg" aria-label="Bulgarian">BG</button>
+          <button class="lang-btn" data-lang="en" aria-label="English">EN</button>
+        </div>
+        <a href="tel:+359892632470" class="header-call">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.86 19.86 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.86 19.86 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.12.96.36 1.9.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.91.34 1.85.58 2.81.7A2 2 0 0122 16.92z"/></svg>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Category Pills -->
+  <nav class="pills" id="pills">
+    <button class="pill is-active" data-cat="cloud" data-en="Cloud Foam">Клауд Фоум</button>
+    <button class="pill" data-cat="sandwich" data-en="Sandwiches">Сандвичи</button>
+    <button class="pill" data-cat="portion" data-en="Portions">Порции</button>
+    <button class="pill" data-cat="salad" data-en="Salads">Салати</button>
+    <button class="pill" data-cat="dessert" data-en="Desserts">Десерти</button>
+    <button class="pill" data-cat="coffee" data-en="Drinks">Напитки</button>
+  </nav>
+
+  <!-- Menu -->
+  <main class="menu">
+
+    <!-- ========== CLOUD FOAM ========== -->
+    <section class="cat" id="cloud" data-category="cloud">
+      <div class="cat-head">
+        <h2 data-en="Cloud Foam & Matcha">Cloud Foam & Matcha</h2>
+        <span class="cat-badge" data-en="Popular">Популярно</span>
+      </div>
+      <div class="items items--cards">
+        <div class="card">
+          <img src="images/matcha-cloud.jpg" alt="Matcha Latte" class="card-img" loading="lazy">
+          <div class="card-body">
+            <h3 data-en="Matcha Latte">Matcha Late</h3>
+            <p data-en="Japanese matcha, milk, cloud foam topping">Японско матча, мляко, клауд фоум топинг</p>
+            <span class="card-price">4.50 &euro;</span>
+          </div>
+        </div>
+        <div class="card card--featured">
+          <div class="card-badge" data-en="Popular">Популярно</div>
+          <img src="images/cloud-caramel.jpg" alt="Caramel Cloud Foam" class="card-img" loading="lazy">
+          <div class="card-body">
+            <h3 data-en="Caramel Cloud Foam">Карамел Cloud Foam</h3>
+            <p data-en="Caramel syrup, milk, cloud foam topping">Карамелен сироп, мляко, клауд фоум топинг</p>
+            <span class="card-price">5.00 &euro;</span>
+          </div>
+        </div>
+        <div class="card">
+          <img src="images/cloud-mango.jpg" alt="Mango & Coconut Cloud Foam" class="card-img" loading="lazy">
+          <div class="card-body">
+            <h3 data-en="Mango & Coconut Cloud Foam">Манго и кокос Cloud Foam</h3>
+            <p data-en="Mango puree, coconut milk, cloud foam topping">Манго пюре, кокосово мляко, клауд фоум топинг</p>
+            <span class="card-price">5.00 &euro;</span>
+          </div>
+        </div>
+        <div class="card">
+          <img src="images/cloud-tiramisu.jpg" alt="Tiramisu Cloud Foam" class="card-img" loading="lazy">
+          <div class="card-body">
+            <h3 data-en="Tiramisu Cloud Foam">Тирамису Cloud Foam</h3>
+            <p data-en="Espresso, mascarpone cream, cocoa, cloud foam topping">Еспресо, маскарпоне крем, какао, клауд фоум топинг</p>
+            <span class="card-price">5.00 &euro;</span>
+          </div>
+        </div>
+        <div class="card">
+          <img src="images/cloud-strawberry.jpg" alt="Strawberry Cloud Foam" class="card-img" loading="lazy">
+          <div class="card-body">
+            <h3 data-en="Strawberry Cloud Foam">Ягода Cloud Foam</h3>
+            <p data-en="Strawberry puree, milk, cloud foam topping">Ягодово пюре, мляко, клауд фоум топинг</p>
+            <span class="card-price">5.00 &euro;</span>
+          </div>
+        </div>
+        <div class="card">
+          <img src="images/cloud-blueberry.jpg" alt="Blueberry Cloud Foam" class="card-img" loading="lazy">
+          <div class="card-body">
+            <h3 data-en="Blueberry Cloud Foam">Боровинка Cloud Foam</h3>
+            <p data-en="Blueberry puree, milk, cloud foam topping">Боровинково пюре, мляко, клауд фоум топинг</p>
+            <span class="card-price">5.00 &euro;</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== SANDWICHES ========== -->
+    <section class="cat" id="sandwich" data-category="sandwich">
+      <div class="cat-head">
+        <h2 data-en="Protein Sandwiches">Протеинови Сандвичи</h2>
+      </div>
+      <div class="items items--cards">
+        <div class="card">
+          <img src="images/chicken-brioche.jpg" alt="Chicken Brioche" class="card-img" loading="lazy">
+          <div class="card-body">
+            <div class="card-top"><h3 data-en="Chicken Brioche">Пилешки Бриош</h3><span class="card-weight">350 г</span></div>
+            <p data-en="Chicken fillet, protein brioche, egg, cottage cream, lettuce, cheddar & tomato">Пилешко филе, протеинов бриош, яйце, котидж крем, зелена салата и чедър, домат</p>
+            <span class="card-price">6.00 &euro;</span>
+          </div>
+        </div>
+        <div class="card">
+          <img src="images/pork-brioche.jpg" alt="Pork Brioche" class="card-img" loading="lazy">
+          <div class="card-body">
+            <div class="card-top"><h3 data-en="Pork Brioche">Свински Бриош</h3><span class="card-weight">360 г</span></div>
+            <p data-en="Pork ribs, protein brioche, egg, smoked mayo, pickles, cheddar, lettuce & tomato">Свински каретa, протеинов бриош, яйце, пушена майонеза, краставички, чедър, зелена салата и домат</p>
+            <span class="card-price">6.50 &euro;</span>
+          </div>
+        </div>
+        <div class="card card--featured">
+          <div class="card-badge" data-en="Best Seller">Хит</div>
+          <img src="images/beef-brioche.jpg" alt="Black Angus Beef Brioche" class="card-img" loading="lazy">
+          <div class="card-body">
+            <div class="card-top"><h3 data-en="Black Angus Beef Brioche">Телешки Бриош</h3><span class="card-weight">370 г</span></div>
+            <p data-en="Black Angus patty, protein brioche, egg, cheddar, caramelized onion, pickles, lettuce & tomato">Black Angus кюфте, протеинов бриош, яйце, чедър, карамелизиран лук, кисели краставички, маруля и домат</p>
+            <span class="card-price">7.50 &euro;</span>
+          </div>
+        </div>
+        <div class="card">
+          <img src="images/turkey-brioche-wrong.jpg" alt="Turkey Brioche" class="card-img" loading="lazy">
+          <div class="card-body">
+            <div class="card-top"><h3 data-en="Turkey Brioche">Пуешки Бриош</h3><span class="card-weight">360 г</span></div>
+            <p data-en="Turkey fillet, protein brioche, tomato, herb skyr sauce, crispy onion, cheddar & pickled onion">Пуешко филе, протеинов бриош, домат, билков скир сос, хрупкав лук, чедър и маринован лук</p>
+            <span class="card-price">6.00 &euro;</span>
+          </div>
+        </div>
+        <div class="card card--featured">
+          <div class="card-badge" data-en="Premium">Премиум</div>
+          <img src="images/salmon-brioche.jpg" alt="Double Salmon Brioche" class="card-img" loading="lazy">
+          <div class="card-body">
+            <div class="card-top"><h3 data-en="Double Salmon Brioche">Двойна сьомга Бриош</h3><span class="card-weight">370 г</span></div>
+            <p data-en="Grilled & smoked salmon, herb cream cheese roll with lemon, avocado, capers, lettuce & pickled onion">Печена и пушена сьомга, рола крема сирене с билки и лимон, авокадо, каперси, маруля и маринован лук</p>
+            <span class="card-price">7.50 &euro;</span>
+          </div>
+        </div>
+        <div class="card">
+          <img src="images/veg-brioche.jpg" alt="Vegetarian Brioche" class="card-img" loading="lazy">
+          <div class="card-body">
+            <div class="card-top"><h3 data-en="Vegetarian Brioche">Вегетариански Бриош</h3><span class="card-weight">350 г</span></div>
+            <p data-en="Protein brioche, omelette, avocado, smoked mayo, tomato & lettuce">Протеинов бриош, омлет, авокадо, пушена майонеза, домат, зелена салата</p>
+            <span class="card-price">6.00 &euro;</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== PORTIONS ========== -->
+    <section class="cat" id="portion" data-category="portion">
+      <div class="cat-head">
+        <h2 data-en="Protein Portions">Протеинови Порции</h2>
+      </div>
+      <div class="items items--cards">
+        <div class="card">
+          <img src="images/chicken-portion.jpg" alt="Chicken Portion" class="card-img" loading="lazy">
+          <div class="card-body">
+            <div class="card-top"><h3 data-en="Chicken Portion">Пилешка порция</h3><span class="card-weight">470 г</span></div>
+            <p data-en="Chicken fillet, basmati rice, egg, cottage cream, pickles & vegetables">Пилешко филе, басмати ориз, яйце, котидж крем, кисели краставички, зеленчуци</p>
+            <span class="card-price">10.00 &euro;</span>
+          </div>
+        </div>
+        <div class="card">
+          <img src="images/pork-portion.jpg" alt="Pork Portion" class="card-img" loading="lazy">
+          <div class="card-body">
+            <div class="card-top"><h3 data-en="Pork Portion">Свинска порция</h3><span class="card-weight">480 г</span></div>
+            <p data-en="Pork ribs, basmati rice, egg, smoked mayo & vegetables">Свински каретa, басмати ориз, яйце, пушена майонеза, зеленчуци</p>
+            <span class="card-price">10.00 &euro;</span>
+          </div>
+        </div>
+        <div class="card card--featured">
+          <div class="card-badge" data-en="Premium">Премиум</div>
+          <img src="images/beef-portion.jpg" alt="Black Angus Beef Portion" class="card-img" loading="lazy">
+          <div class="card-body">
+            <div class="card-top"><h3 data-en="Black Angus Beef Portion">Телешка порция</h3><span class="card-weight">480 г</span></div>
+            <p data-en="Black Angus patty, basmati rice, cheddar sauce, pickles, caramelized onion & vegetables">Black Angus телешко кюфте, басмати ориз, чедър сос, кисели краставички, карамелизиран лук и зеленчуци</p>
+            <span class="card-price">12.00 &euro;</span>
+          </div>
+        </div>
+        <div class="card">
+          <img src="images/turkey-portion.jpg" alt="Turkey Portion" class="card-img" loading="lazy">
+          <div class="card-body">
+            <div class="card-top"><h3 data-en="Turkey Portion">Пуешка порция</h3><span class="card-weight">470 г</span></div>
+            <p data-en="Turkey fillet, basmati rice, herb skyr sauce, crispy onion, pickled onion & vegetables">Пуешко филе, басмати ориз, билков скир сос, хрупкав лук, маринован лук и зеленчуци</p>
+            <span class="card-price">10.00 &euro;</span>
+          </div>
+        </div>
+        <div class="card card--featured">
+          <div class="card-badge" data-en="Premium">Премиум</div>
+          <img src="images/salmon-portion.jpg" alt="Salmon Portion" class="card-img" loading="lazy">
+          <div class="card-body">
+            <div class="card-top"><h3 data-en="Salmon Portion">Сьомга порция</h3><span class="card-weight">470 г</span></div>
+            <p data-en="Grilled salmon, herb skyr sauce, lemon, avocado, basmati rice, pickled onion & vegetables">Печена сьомга, билков скир сос, лимон, авокадо, басмати ориз, маринован лук и зеленчуци</p>
+            <span class="card-price">12.00 &euro;</span>
+          </div>
+        </div>
+        <div class="card">
+          <img src="images/veg-portion.jpg" alt="Vegetarian Portion" class="card-img" loading="lazy">
+          <div class="card-body">
+            <div class="card-top"><h3 data-en="Vegetarian Portion">Вегетарианска порция</h3><span class="card-weight">450 г</span></div>
+            <p data-en="Basmati rice, herb skyr sauce, lemon, omelette, avocado & vegetables">Басмати ориз, билков скир сос, лимон, омлет, авокадо, зеленчуци</p>
+            <span class="card-price">9.00 &euro;</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== SALADS ========== -->
+    <section class="cat" id="salad" data-category="salad">
+      <div class="cat-head">
+        <h2 data-en="Fresh Salads">Салати</h2>
+      </div>
+      <div class="items items--cards">
+        <div class="card">
+          <img src="images/caesar-salad.jpg" alt="Caesar with Chicken" class="card-img" loading="lazy">
+          <div class="card-body">
+            <div class="card-top"><h3 data-en="Caesar">Цезар</h3><span class="card-weight">320 г</span></div>
+            <p data-en="Chicken, protein dressing, croutons & parmesan">Пиле, протеинов дресинг, крутони и пармезан</p>
+            <span class="card-price">6.00 &euro;</span>
+          </div>
+        </div>
+        <div class="card card--featured">
+          <div class="card-badge" data-en="Premium">Премиум</div>
+          <img src="images/salmon-salad-wrong.jpg" alt="Grilled Salmon Salad" class="card-img" loading="lazy">
+          <div class="card-body">
+            <div class="card-top"><h3 data-en="Grilled Salmon Salad">Салата печена сьомга</h3><span class="card-weight">320 г</span></div>
+            <p data-en="Green salad, herb skyr dressing, lemon, corn, olives & peppers">Зелена, билков скир дресинг, лимон, царевица, маслини и чушка</p>
+            <span class="card-price">7.00 &euro;</span>
+          </div>
+        </div>
+        <div class="card">
+          <img src="images/veg-salad.jpg" alt="Vegetarian Salad" class="card-img" loading="lazy">
+          <div class="card-body">
+            <div class="card-top"><h3 data-en="Vegetarian Salad">Вегетарианска салата</h3><span class="card-weight">310 г</span></div>
+            <p data-en="Green salad, boiled eggs, red beans, corn, peppers, cherry tomato & milk dressing">Зелена салата, варени яйца, червен боб, царевица, чушка, чери домат и млечен дресинг</p>
+            <span class="card-price">5.50 &euro;</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== DESSERTS ========== -->
+    <section class="cat" id="dessert" data-category="dessert">
+      <div class="cat-head">
+        <h2 data-en="Desserts in a Can">Десерти в кен</h2>
+        <span class="cat-sub" data-en="All desserts: 250 g">250 гр.</span>
+      </div>
+      <div class="items items--cards">
+        <div class="card">
+          <img src="images/dessert-oreo.jpg" alt="Oreo Cheesecake" class="card-img" loading="lazy">
+          <div class="card-body">
+            <h3 data-en="Oreo Protein Cheesecake">Орео протеинов чийзкейк</h3>
+            <p data-en="Oreo cookies, protein cream cheese, whey protein">Орео бисквити, протеинов крем сирене, суроватъчен протеин</p>
+            <span class="card-price">5.00 &euro;</span>
+          </div>
+        </div>
+        <div class="card">
+          <img src="images/dessert-hazelnut.jpg" alt="Hazelnut & Biscuit" class="card-img" loading="lazy">
+          <div class="card-body">
+            <h3 data-en="Protein with Biscuit & Hazelnut">Протеинов с бишкота и лешник</h3>
+            <p data-en="Hazelnut cream, biscuit base, whey protein">Лешников крем, бишкотена основа, суроватъчен протеин</p>
+            <span class="card-price">5.00 &euro;</span>
+          </div>
+        </div>
+        <div class="card">
+          <img src="images/dessert-caramel.jpg" alt="Caramel Cheesecake" class="card-img" loading="lazy">
+          <div class="card-body">
+            <h3 data-en="Caramel Biscuit Cheesecake">Карамел бисквит чийзкейк</h3>
+            <p data-en="Caramel sauce, biscuit base, protein cream cheese">Карамелен сос, бисквитена основа, протеинов крем сирене</p>
+            <span class="card-price">5.00 &euro;</span>
+          </div>
+        </div>
+        <div class="card">
+          <img src="images/dessert-mango.jpg" alt="Mango & Coconut" class="card-img" loading="lazy">
+          <div class="card-body">
+            <h3 data-en="Mango & Coconut Protein Cheesecake">Манго и кокос протеинов чийзкейк</h3>
+            <p data-en="Mango puree, coconut flakes, protein cream cheese">Манго пюре, кокосови стърготини, протеинов крем сирене</p>
+            <span class="card-price">5.00 &euro;</span>
+          </div>
+        </div>
+        <div class="card">
+          <img src="images/dessert-berry.jpg" alt="Berry & Chia" class="card-img" loading="lazy">
+          <div class="card-body">
+            <h3 data-en="Strawberry & Blueberry with Chia, Skyr & Protein">Ягода и боровинка с чиа, скир и протеин</h3>
+            <p data-en="Strawberry, blueberry, chia seeds, skyr, whey protein">Ягода, боровинка, чиа семена, скир, суроватъчен протеин</p>
+            <span class="card-price">5.00 &euro;</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== COFFEE ========== -->
+    <section class="cat" id="coffee" data-category="coffee">
+      <div class="cat-head">
+        <h2 data-en="Coffee & Classics">Coffee and Classics</h2>
+      </div>
+      <div class="items items--simple">
+        <div class="item-row"><div class="item-mid"><span class="item-name" data-en="Coffee">Кафе</span></div><span class="item-price">2.20 &euro;</span></div>
+        <div class="item-row"><div class="item-mid"><span class="item-name" data-en="Coffee with Milk">Кафе с мляко</span></div><span class="item-price">2.50 &euro;</span></div>
+        <div class="item-row"><div class="item-mid"><span class="item-name" data-en="Cappuccino">Капучино</span></div><span class="item-price">3.00 &euro;</span></div>
+        <div class="item-row"><div class="item-mid"><span class="item-name" data-en="Frappe">Фрапе</span></div><span class="item-price">3.20 &euro;</span></div>
+        <div class="item-row"><div class="item-mid"><span class="item-name" data-en="Iced Latte">Студено Late</span></div><span class="item-price">3.50 &euro;</span></div>
+        <div class="item-row"><div class="item-mid"><span class="item-name" data-en="Hot Chocolate">Горещ шоколад</span></div><span class="item-price">4.00 &euro;</span></div>
+        <div class="item-row"><div class="item-mid"><span class="item-name" data-en="Lemonade">Лимонада</span></div><span class="item-price">3.80 &euro;</span></div>
+        <div class="item-row"><div class="item-mid"><span class="item-name" data-en="Fresh Juice">Фреш</span></div><span class="item-price">3.50 &euro;</span></div>
+        <div class="item-row"><div class="item-mid"><span class="item-name" data-en="Espresso Tonic">Espresso Tonik</span></div><span class="item-price">4.00 &euro;</span></div>
+        <div class="item-row"><div class="item-mid"><span class="item-name" data-en="Tea">Чай</span></div><span class="item-price">3.00 &euro;</span></div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Order CTA -->
+  <div class="order-bar">
+    <a href="tel:+359892632470" class="order-btn">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.86 19.86 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.86 19.86 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.12.96.36 1.9.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.91.34 1.85.58 2.81.7A2 2 0 0122 16.92z"/></svg>
+      <span data-en="Order Now — +359 892 632 470">Поръчай — +359 892 632 470</span>
+    </a>
+  </div>
+
+  <script src="js/menu.js"></script>
+</body>
+</html>
