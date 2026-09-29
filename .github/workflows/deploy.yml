@@ -1,0 +1,37 @@
+name: Deploy to SuperHosting
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+concurrency:
+  group: deploy-production
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      # Plain HTML/CSS/JS site: no dependencies to install.
+      - name: Build
+        run: ./scripts/build.sh
+
+      - name: Deploy dist/ to public_html via FTPS
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.SUPERHOSTING_FTP_HOST }}
+          username: ${{ secrets.SUPERHOSTING_FTP_USERNAME }}
+          password: ${{ secrets.SUPERHOSTING_FTP_PASSWORD }}
+          protocol: ftps
+          port: 21
+          local-dir: ./dist/
+          server-dir: ./public_html/
+          log-level: standard

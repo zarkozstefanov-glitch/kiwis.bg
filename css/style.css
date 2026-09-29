@@ -26,6 +26,7 @@ body {
   min-height: 100dvh;
 }
 img { display: block; max-width: 100%; height: auto; }
+picture { display: contents; }
 a { color: inherit; text-decoration: none; }
 button { border: none; background: none; cursor: pointer; font: inherit; }
 .container { width: 100%; max-width: 1100px; margin: 0 auto; padding: 0 20px; }
