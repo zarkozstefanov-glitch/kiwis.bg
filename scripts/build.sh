@@ -6,7 +6,7 @@ set -euo pipefail
 cd "$(dirname "$0")/.."
 
 OUT=dist
-VERSION="${GITHUB_SHA:-$(git rev-parse HEAD 2>/dev/null || date +%s)}"
+VERSION="${GITHUB_SHA:-${VERCEL_GIT_COMMIT_SHA:-$(git rev-parse HEAD 2>/dev/null || date +%s)}}"
 VERSION="${VERSION:0:8}"
 LASTMOD="$(date -u +%Y-%m-%d)"
 

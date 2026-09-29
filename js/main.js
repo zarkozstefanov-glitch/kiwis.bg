@@ -21,14 +21,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const savedLang = localStorage.getItem('kiwi-lang');
   if (savedLang && savedLang !== 'bg') setLang(savedLang);
 
-  // === Preloader ===
-  const pre = document.getElementById('preloader');
-  function hidePreloader() {
-    setTimeout(() => pre.classList.add('is-hidden'), 1400);
-  }
-  window.addEventListener('load', hidePreloader);
-  if (document.readyState === 'complete') hidePreloader();
-
   // === Mobile menu ===
   const hamburger = document.getElementById('hamburger');
   const mobileMenu = document.getElementById('mobileMenu');

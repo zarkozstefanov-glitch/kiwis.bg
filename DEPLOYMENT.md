@@ -22,6 +22,9 @@
 `public_html/.ftp-deploy-sync-state.json` (блокиран за публичен достъп от `.htaccess`).
 Трие само файлове, които самият той е качил преди — други файлове в `public_html` не се пипат.
 
+Същият push deploy-ва и preview копието на Vercel (https://kivis-bg.vercel.app/, вързано с GitHub).
+`vercel.json` кара Vercel да пусне същия `scripts/build.sh` и да сервира само `dist/`.
+
 ## 5. GitHub Secrets
 Repository → Settings → Secrets and variables → Actions → New repository secret:
 
