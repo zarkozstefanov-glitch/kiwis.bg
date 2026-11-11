@@ -38,15 +38,17 @@ def viewer(vid, items, prefix="", scroll=False, show_menu_link=False, heading_le
         img = it.get("img")
         ns = shots(img)
         if img:
-            src = f"{prefix}images/cut/{img}-1-900.webp"
-            srcset = f"{prefix}images/cut/{img}-1-500.webp 500w, {prefix}images/cut/{img}-1-900.webp 900w"
-            alt2 = f' data-alt="{prefix}images/cut/{img}-2-900.webp"' if ns > 1 else ""
+            # sandwiches: the side shot (filling visible) is the main photo, the box shot is the second
+            a, b = (2, 1) if ("brioche" in img and ns > 1) else (1, 2)
+            src = f"{prefix}images/cut/{img}-{a}-900.webp"
+            srcset = f"{prefix}images/cut/{img}-{a}-500.webp 500w, {prefix}images/cut/{img}-{a}-900.webp 900w"
+            alt2 = f' data-alt="{prefix}images/cut/{img}-{b}-900.webp"' if ns > 1 else ""
             lazy = "" if i == 0 else ' loading="lazy"'
             flat = " pv-item--flat" if ("portion" in img or "salad" in img) else ""
             figs += (f'<figure class="pv-item{flat}" data-i="{i}"><img class="pv-img" src="{src}" srcset="{srcset}" '
                      f'sizes="(min-width: 960px) 460px, 70vw" width="900" height="900" alt="{e(it["bg"])}" decoding="async"{lazy}{alt2}>'
-                     f'<img class="pv-refl" src="{prefix}images/cut/{img}-1-500.webp" alt="" aria-hidden="true" decoding="async"{lazy}></figure>')
-            th = f'<img src="{prefix}images/cut/{img}-1-500.webp" alt="" width="80" height="80" decoding="async">'
+                     f'<img class="pv-refl" src="{prefix}images/cut/{img}-{a}-500.webp" alt="" aria-hidden="true" decoding="async"{lazy}></figure>')
+            th = f'<img src="{prefix}images/cut/{img}-{a}-500.webp" alt="" width="80" height="80" decoding="async">'
         else:
             figs += (f'<figure class="pv-item pv-item--soon" data-i="{i}"><span class="pv-soon">'
                      f'<img src="{prefix}images/kiwi-icon.jpg" alt="" width="72" height="72"><b data-en="Photo coming soon">Снимка очаквайте скоро</b></span></figure>')

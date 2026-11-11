@@ -131,7 +131,7 @@ def lo(cid):
     return min(float(i["price"]) for c in cats if c["id"] == cid for i in c["items"])
 OFFICE = [("portion", "chicken-portion-1", "Протеинови порции", "Protein bowls", "Басмати ориз, месо или риба и зеленчуци", "Basmati rice, meat or fish and vegetables"),
           ("salad", "salmon-salad-1", "Салати", "Salads", "Големи салати с протеинов дресинг", "Big salads with a protein dressing"),
-          ("sandwich", "turkey-brioche-1", "Бриош сандвичи", "Brioche sandwiches", "Протеинов бриош, изпечен при нас", "Protein brioche baked in-house")]
+          ("sandwich", "turkey-brioche-2", "Бриош сандвичи", "Brioche sandwiches", "Протеинов бриош, изпечен при нас", "Protein brioche baked in-house")]
 office = "".join(f'''          <a class="of-card" href="menu.html#{cid}" data-reveal="up">
             <span class="of-img"><img src="images/cut/{img}-500.webp" width="500" height="500" alt="" loading="lazy" decoding="async"></span>
             <b data-en="{en}">{bg}</b><span data-en="{den}">{dbg}</span>

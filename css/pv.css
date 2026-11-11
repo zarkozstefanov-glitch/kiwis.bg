@@ -255,9 +255,7 @@
 .pv-item--flat { width: min(86cqw, 96cqh) !important; }
 .pv-item--flat .pv-img { transform: rotateX(38deg) scale(1); filter: drop-shadow(0 24px 14px rgba(0,0,0,.45)); }
 /* the second photo of a sandwich (side view) stands up and fills the frame like the box shot */
-.pv-img[data-shot="2"] { transform: scale(1.16); transform-origin: 50% 92%; }
-.pv-img.spin[data-shot="2"] { animation: pvspin2 .7s cubic-bezier(.22,1,.36,1); }
-@keyframes pvspin2 { from { transform: rotateY(80deg) scale(1); opacity: .2; } to { transform: scale(1.16); } }
+
 /* a bit less empty stage above the dish */
 .pv--bare .pv-light { top: -14%; height: 96%; }
 

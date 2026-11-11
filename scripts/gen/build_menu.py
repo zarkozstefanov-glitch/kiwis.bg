@@ -54,7 +54,7 @@ for c in cats:
             if it["w"]:
                 d["nutrition"]["servingSize"] = it["w"].replace(" г", " g")
             if it.get("img") and it["img"] not in ("cloud-matcha", "cloud-blueberry"):
-                d["image"] = f'{BASE}images/cut/{it["img"]}-1-900.webp'
+                d["image"] = f'{BASE}images/cut/{it["img"]}-{2 if "brioche" in it["img"] else 1}-900.webp'
             if it["bg"] in VEG:
                 d["suitableForDiet"] = "https://schema.org/VegetarianDiet"
             items_ld.append(d)
