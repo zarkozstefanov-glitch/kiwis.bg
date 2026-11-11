@@ -648,3 +648,5 @@ button { border: 0; background: none; cursor: pointer; font: inherit; color: inh
 @media (min-width: 900px) { .map-load { min-height: 420px; } }
 /* header: a touch more solid while scrolling */
 .nav.is-scrolled { background: rgba(26,45,30,.88); }
+/* header while scrolling: almost solid, just a hint of what's behind */
+.nav.is-scrolled { background: rgba(26,45,30,.95); }

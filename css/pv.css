@@ -326,3 +326,7 @@
   background: radial-gradient(closest-side, rgba(0,0,0,.6), rgba(0,0,0,.25) 60%, transparent); filter: blur(8px); pointer-events: none; }
 .pv-item--flat .pv-img { filter: drop-shadow(0 18px 10px rgba(0,0,0,.45)) drop-shadow(0 4px 3px rgba(0,0,0,.35)); }
 .pv--sun.pv--bare .pv-item--flat::before { background: radial-gradient(closest-side, rgba(70,45,0,.5), rgba(70,45,0,.2) 60%, transparent); }
+/* wider spotlight on every podium */
+.pv-light { width: 110%; clip-path: polygon(34% 0, 66% 0, 100% 100%, 0 100%); }
+.pv--bare .pv-light { width: 92%; }
+.praised .pv--sun.pv--bare .pv-light { width: 92%; }
