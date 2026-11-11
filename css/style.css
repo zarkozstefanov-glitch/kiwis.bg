@@ -660,3 +660,6 @@ button { border: 0; background: none; cursor: pointer; font: inherit; color: inh
 .nest { background: var(--cream); }
 .insta { padding-top: 56px; }
 @media (min-width: 769px) { .insta { padding-top: 80px; } }
+/* praised: "Виж в менюто" is the only button now — solid */
+.praised .pv--sun.pv--bare .pv-more { background: var(--forest); color: var(--sun); border-color: var(--forest); }
+.praised .pv--sun.pv--bare .pv-more:hover { background: var(--ink); }

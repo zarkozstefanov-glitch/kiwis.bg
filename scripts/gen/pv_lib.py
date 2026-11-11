@@ -30,7 +30,7 @@ def macro_bar(label_bg, label_en, val, unit, maxv, cls):
             f'<dd><b>{val}</b>{unit}</dd><i style="--v:{pct}%"></i></div>')
 
 
-def viewer(vid, items, prefix="", scroll=False, show_menu_link=False, heading_level="h3", loop=False, bare=False, head="", extra_cls="", steps=None):
+def viewer(vid, items, prefix="", scroll=False, show_menu_link=False, heading_level="h3", loop=False, bare=False, head="", extra_cls="", steps=None, glovo=True):
     """items: dicts with img, bg, en, dbg, den, w, price, k, p, c, f, badge, badge_en, quote?, quote_by?"""
     n = len(items)
     figs, panels, thumbs = "", "", ""
@@ -59,6 +59,7 @@ def viewer(vid, items, prefix="", scroll=False, show_menu_link=False, heading_le
             quote = (f'<blockquote class="pv-quote"><p>„{e(it["quote"])}“</p>'
                      f'<cite>— {e(it["quote_by"])}, <span data-en="Google review">отзив в Google</span></cite></blockquote>')
         weight = f'<span class="pv-w">{e(it["w"])}</span>' if it.get("w") else ""
+        glovo_btn = (f'<a class="btn btn--glovo" href="{GLOVO}" target="_blank" rel="noopener" data-en="Order on Glovo">Поръчай в Glovo</a>' if glovo else "")
         menu_link = (f'<a class="btn btn--line pv-more" href="{prefix}menu.html#{it["cat"]}" data-en="See in menu">Виж в менюто</a>'
                      if show_menu_link and it.get("cat") else "")
         panels += f'''<article class="pv-panel{' is-on' if i == 0 else ''}" data-i="{i}" id="{vid}-{i}"{'' if i == 0 else ' aria-hidden="true"'}>
@@ -73,7 +74,7 @@ def viewer(vid, items, prefix="", scroll=False, show_menu_link=False, heading_le
             {macro_bar("Мазнини", "Fat", it["f"], " г", 45, "pv-m--f")}
           </dl>
           <div class="pv-buy"><span class="pv-price" data-en="{price_en(it["price"])}">{price_bg(it["price"])}</span>{weight}
-            <div class="pv-ctas">{menu_link}<a class="btn btn--glovo" href="{GLOVO}" target="_blank" rel="noopener" data-en="Order on Glovo">Поръчай в Glovo</a></div></div>
+            <div class="pv-ctas">{menu_link}{glovo_btn}</div></div>
         </article>
 '''
         thumbs += (f'<button class="pv-th{" is-on" if i == 0 else ""}" data-i="{i}" role="tab" aria-selected="{"true" if i == 0 else "false"}" '
@@ -134,6 +135,12 @@ def links(page):
 def nav(page):
     home, L, img = links(page)
     items = "".join(f'<a href="{u}" data-en="{en}"{" aria-current=\"page\" class=\"is-current\"" if k and k == page else ""}>{bg}</a>' for u, bg, en, k in L)
+    if page == "home":   # on the landing page every button leads to the menu; ordering happens from there
+        cta = f'<a href="menu.html" class="nav-cta"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h10"/></svg><span data-en="Menu">Меню</span></a>'
+        mm_cta = '<a href="menu.html" class="btn btn--glovo btn--lg mm-cta" data-en="View the menu">Виж менюто</a>'
+    else:
+        cta = f'<a href="{GLOVO}" class="nav-cta" target="_blank" rel="noopener">{BIKE}<span data-en="Order">Поръчай</span></a>'
+        mm_cta = f'<a href="{GLOVO}" class="btn btn--glovo btn--lg mm-cta" target="_blank" rel="noopener">{BIKE}<span data-en="Order on Glovo">Поръчай в Glovo</span></a>'
     mm = "".join(f'<a href="{u}" class="mm-link" data-en="{en}">{bg}</a>' for u, bg, en, k in L)
     return f'''  <a class="skip" href="#main" data-en="Skip to content">Към съдържанието</a>
   <header class="nav" id="nav">
@@ -142,7 +149,7 @@ def nav(page):
       <nav class="nav-links" aria-label="Основна навигация">{items}</nav>
       <div class="nav-right">
         <div class="lang-toggle"><button class="lang-btn is-active" data-lang="bg" aria-label="Български">BG</button><button class="lang-btn" data-lang="en" aria-label="English">EN</button></div>
-        <a href="{GLOVO}" class="nav-cta" target="_blank" rel="noopener">{BIKE}<span data-en="Order">Поръчай</span></a>
+        {cta}
         <button class="hamburger" id="hamburger" aria-label="Меню" aria-expanded="false"><span></span><span></span></button>
       </div>
     </div>
@@ -150,7 +157,7 @@ def nav(page):
   <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
     <div class="mm-inner">
       {mm}
-      <a href="{GLOVO}" class="btn btn--glovo btn--lg mm-cta" target="_blank" rel="noopener">{BIKE}<span data-en="Order on Glovo">Поръчай в Glovo</span></a>
+      {mm_cta}
       <p class="mm-info"><span data-en="Mon — Sat, 09:00 — 21:30">Пон — Съб, 09:00 — 21:30</span><br><a href="tel:+359892632470">+359 892 632 470</a></p>
       <a href="{IG}" class="mm-ig" target="_blank" rel="noopener">{IG_ICON}<span>@kiwis.bg</span></a>
     </div>

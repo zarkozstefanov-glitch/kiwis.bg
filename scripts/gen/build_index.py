@@ -153,15 +153,14 @@ body = f'''<body>
       <a href="#reviews" class="hero-rating"><span class="hr-stars">{STAR * 5}</span><b>5,0</b><span data-en="49 reviews on Google">49 отзива в Google</span></a>
       <h1 class="hero-h1" data-en="Healthy &amp;<br>Delicious">Здравословно &amp;<br>Вкусно</h1>
       <div class="hero-btns">
-        <a href="{GLOVO}" class="btn btn--glovo" target="_blank" rel="noopener">{BIKE}<span data-en="Order on Glovo">Поръчай в Glovo</span></a>
-        <a href="menu.html" class="btn" data-en="View Menu">Виж менюто</a>
+        <a href="menu.html" class="btn btn--glovo btn--lg" data-en="View the menu">Виж менюто</a>
       </div>
     </div>
     <a href="#praised" class="hero-scroll" aria-label="Надолу"><i></i></a>
   </section>
 
   <section class="sec praised" id="praised">
-    {viewer("pv-praised", praised, scroll=True, show_menu_link=True, loop=True, bare=True, extra_cls="pv--sun", head=PRAISED_HEAD, steps=2)}
+    {viewer("pv-praised", praised, scroll=True, show_menu_link=True, loop=True, bare=True, extra_cls="pv--sun", head=PRAISED_HEAD, steps=2, glovo=False)}
   </section>
 
   <section class="sec reviews" id="reviews">
@@ -189,9 +188,9 @@ body = f'''<body>
       <div class="office-copy" data-reveal="left">
         <span class="kicker" data-en="Kiwi's for the office">Kiwi's за офиса</span>
         <h2 data-en="A tasty lunch<br>for the whole team.">Вкусен обяд<br>за целия екип.</h2>
-        <p data-en="Protein bowls, salads and brioche sandwiches — every dish with its calories and macros. Order for the office on Glovo, or call us and pick the order up.">Протеинови порции, салати и бриош сандвичи — всяко ястие с калории и макроси. Поръчай за офиса през Glovo или ни се обади и вземи поръчката от място.</p>
+        <p data-en="Protein bowls, salads and brioche sandwiches — every dish with its calories and macros. Pick from the menu and order for the office, or call us and pick the order up.">Протеинови порции, салати и бриош сандвичи — всяко ястие с калории и макроси. Избери от менюто и поръчай за офиса или ни се обади и вземи поръчката от място.</p>
         <div class="office-btns">
-          <a class="btn btn--glovo" href="{GLOVO}" target="_blank" rel="noopener">{BIKE}<span data-en="Order on Glovo">Поръчай в Glovo</span></a>
+          <a class="btn btn--glovo" href="menu.html" data-en="View the menu">Виж менюто</a>
           <a class="btn btn--dark" href="tel:+359892632470">{CALL}<span>+359 892 632 470</span></a>
         </div>
       </div>
