@@ -164,6 +164,26 @@ body = f'''<body>
     {viewer("pv-praised", praised, scroll=True, show_menu_link=True, loop=True, bare=True, extra_cls="pv--sun", head=PRAISED_HEAD, steps=2)}
   </section>
 
+  <section class="sec reviews" id="reviews">
+    <div class="container rv-top">
+      <div data-reveal="left"><span class="kicker" data-en="Google reviews">Отзиви в Google</span><h2 data-en="5.0 from 49 reviews.">5,0 от 49 отзива.</h2></div>
+      <a href="{GMAP}" class="rv-score" target="_blank" rel="noopener" data-reveal="right"><span class="rv-score-stars">{STAR * 5}</span><span data-en="Read them on Google">Прочети ги в Google</span></a>
+    </div>
+    <div class="mq" aria-label="Откъси от отзиви">
+      {"".join(f'<div class="mq-row"><div class="mq-track">{r}{r}{r}</div></div>' for r in ROWS)}
+    </div>
+    <div class="container">
+      <div class="rv-grid" id="rvGrid" hidden>
+{reviews}
+      </div>
+      <div class="rv-actions">
+        <button class="btn btn--line" id="rvMore" data-en="Show all 49 reviews">Покажи всички 49 отзива</button>
+        <a href="{GMAP}" class="btn btn--dark" target="_blank" rel="noopener" data-en="Leave a review">Остави отзив</a>
+      </div>
+      <p class="rv-note" data-en="Reviews from Google Maps; names shortened.">Отзиви от Google Карти; имената са съкратени.</p>
+    </div>
+  </section>
+
   <section class="sec about" id="about">
     <div class="blob blob--a" data-speed="-0.12" aria-hidden="true"></div>
     <div class="container about-grid">
@@ -229,26 +249,6 @@ body = f'''<body>
         <div class="nl-row"><span data-en="Fat">Мазнини</span><b><span data-count="{chicken["f"]}">{chicken["f"]}</span> г</b></div>
         <p class="nl-note" data-en="Approximate values, calculated from the recipe.">Приблизителни стойности, изчислени по рецептата.</p>
       </div>
-    </div>
-  </section>
-
-  <section class="sec reviews" id="reviews">
-    <div class="container rv-top">
-      <div data-reveal="left"><span class="kicker" data-en="Google reviews">Отзиви в Google</span><h2 data-en="5.0 from 49 reviews.">5,0 от 49 отзива.</h2></div>
-      <a href="{GMAP}" class="rv-score" target="_blank" rel="noopener" data-reveal="right"><span class="rv-score-stars">{STAR * 5}</span><span data-en="Read them on Google">Прочети ги в Google</span></a>
-    </div>
-    <div class="mq" aria-label="Откъси от отзиви">
-      {"".join(f'<div class="mq-row"><div class="mq-track">{r}{r}{r}</div></div>' for r in ROWS)}
-    </div>
-    <div class="container">
-      <div class="rv-grid" id="rvGrid" hidden>
-{reviews}
-      </div>
-      <div class="rv-actions">
-        <button class="btn btn--line" id="rvMore" data-en="Show all 49 reviews">Покажи всички 49 отзива</button>
-        <a href="{GMAP}" class="btn btn--dark" target="_blank" rel="noopener" data-en="Leave a review">Остави отзив</a>
-      </div>
-      <p class="rv-note" data-en="Reviews from Google Maps; names shortened.">Отзиви от Google Карти; имената са съкратени.</p>
     </div>
   </section>
 
