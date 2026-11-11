@@ -39,25 +39,26 @@ $s->execute([$idx]);
 $row = $s->fetch();
 if ($row && $row['status'] === 'confirmed') k_json(['ok' => true, 'already' => true]);
 
-$token = bin2hex(random_bytes(24));
 $now = time();
 $data = k_encrypt(['first' => $first, 'last' => $last, 'email' => $email]);
+// single opt-in: the ticked consent box is the consent — the person is subscribed right away
 if ($row) {
-    $db->prepare('UPDATE subscribers SET data = ?, consent_text = ?, consent_at = ?, ip_hash = ?, confirm_hash = ?, confirm_expires = ? WHERE id = ?')
-       ->execute([$data, KIWIS_CONSENT_TEXT, $now, k_ip_hash(), hash('sha256', $token), $now + 172800, $row['id']]);
+    $db->prepare('UPDATE subscribers SET data = ?, status = "confirmed", consent_text = ?, consent_at = ?, ip_hash = ?, confirm_hash = NULL, confirm_expires = NULL, confirmed_at = ? WHERE id = ?')
+       ->execute([$data, KIWIS_CONSENT_TEXT, $now, k_ip_hash(), $now, $row['id']]);
+    $id = (int)$row['id'];
 } else {
-    $db->prepare('INSERT INTO subscribers(email_idx, data, status, consent_text, consent_at, ip_hash, confirm_hash, confirm_expires, created_at)
-                  VALUES(?, ?, "pending", ?, ?, ?, ?, ?, ?)')
-       ->execute([$idx, $data, KIWIS_CONSENT_TEXT, $now, k_ip_hash(), hash('sha256', $token), $now + 172800, $now]);
+    $db->prepare('INSERT INTO subscribers(email_idx, data, status, consent_text, consent_at, ip_hash, confirmed_at, created_at)
+                  VALUES(?, ?, "confirmed", ?, ?, ?, ?, ?)')
+       ->execute([$idx, $data, KIWIS_CONSENT_TEXT, $now, k_ip_hash(), $now, $now]);
+    $id = (int)$db->lastInsertId();
 }
 
-$link = KIWIS_SITE . '/api/confirm.php?t=' . $token;
-$hi = 'Здравей, ' . $first . '!';
-$text = "$hi\n\nПотвърди, че искаш да получаваш новини и промоции от Kiwi's:\n$link\n\nЛинкът е валиден 48 часа. Ако не си се записвал/а ти, просто игнорирай този имейл — няма да ти пишем.\n\nKiwi's · ул. „Никола Карев“ 14, Пловдив";
-$html = k_mail_layout($hi,
-    '<p style="line-height:1.55">Потвърди, че искаш да получаваш новини и промоции от Kiwi\'s.</p>'
-    . k_btn($link, 'Потвърждавам')
-    . '<p style="font-size:13px;color:#4A3F34;line-height:1.5">Линкът е валиден 48 часа. Ако не си се записвал/а ти, просто игнорирай този имейл — няма да ти пишем.</p>');
-k_mail($email, "Потвърди записването си в Kiwi's", $text, $html);
+// welcome email with the unsubscribe link (also tells the owner of the address, if someone else typed it)
+$unsub = k_unsub_link($id);
+$hi = 'Добре дошъл/дошла, ' . $first . '!';
+k_mail($email, "Вече си част от семейството на Kiwi's",
+    "$hi\n\nЗаписахме те за новини и промоции от Kiwi's.\n\nНе си се записвал/а ти или не искаш повече имейли? Отписване: $unsub\n\nKiwi's · ул. „Никола Карев“ 14, Пловдив",
+    k_mail_layout($hi, '<p style="line-height:1.55">Записахме те за новини и промоции от Kiwi\'s. Ще ти пишем, когато имаме нови ястия и оферти.</p>'
+        . '<p style="font-size:12px;color:#8A7E72">Не си се записвал/а ти или не искаш повече имейли? <a href="' . htmlspecialchars($unsub) . '" style="color:#3D6344">Отпиши се</a>.</p>'));
 
-k_json(['ok' => true, 'resent' => (bool)$row]);
+k_json(['ok' => true]);

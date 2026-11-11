@@ -22,7 +22,7 @@ svg = (
     '</svg>'
 )
 
-js = r"""/* "Join the Kiwi's family" — newsletter card (double opt-in, see /api/subscribe.php).
+js = r"""/* "Join the Kiwi's family" — newsletter card (see /api/subscribe.php).
    Appears 5 s after the page opens; "Не сега" hides it for 14 days, signing up hides it for good. */
 (function () {
   'use strict';
@@ -34,14 +34,14 @@ js = r"""/* "Join the Kiwi's family" — newsletter card (double opt-in, see /ap
     bg: { kicker: 'Семейството на Kiwi\'s', title: 'Стани част от семейството', text: 'Нови ястия, промоции и покани — първо при теб, директно в пощата.',
           first: 'Име', last: 'Фамилия', email: 'Имейл', consent: 'Съгласен/на съм Kiwi\'s да ми изпраща имейли с новини и промоции. Мога да се отпиша по всяко време.',
           privacy: 'Поверителност', go: 'Присъедини се', later: 'Не сега', close: 'Затвори',
-          ok: 'Почти готово! Изпратихме ти имейл — натисни линка в него, за да потвърдиш.', err: 'Нещо се обърка. Опитай пак след малко.',
+          ok: 'Готово! Вече си част от семейството на Kiwi\'s.', err: 'Нещо се обърка. Опитай пак след малко.',
           rate: 'Твърде много опити. Опитай пак по-късно.', bad: 'Провери полетата.', welcome: 'Добре дошъл/дошла в семейството на Kiwi\'s!',
           expired: 'Линкът за потвърждение е изтекъл. Запиши се отново.',
           already: 'Този имейл вече е записан — ти си част от семейството на Kiwi\'s!', resent: 'Този имейл чака потвърждение — изпратихме ти линка отново.' },
     en: { kicker: 'The Kiwi\'s family', title: 'Join the family', text: 'New dishes, offers and invitations — first to you, straight to your inbox.',
           first: 'First name', last: 'Last name', email: 'Email', consent: 'I agree that Kiwi\'s may email me news and offers. I can unsubscribe at any time.',
           privacy: 'Privacy', go: 'Join', later: 'Not now', close: 'Close',
-          ok: 'Almost there! We sent you an email — click the link in it to confirm.', err: 'Something went wrong. Please try again.',
+          ok: 'Done! You are now part of the Kiwi\'s family.', err: 'Something went wrong. Please try again.',
           rate: 'Too many attempts. Please try later.', bad: 'Please check the fields.', welcome: 'Welcome to the Kiwi\'s family!',
           expired: 'The confirmation link has expired. Please sign up again.',
           already: 'This email is already signed up — you are part of the Kiwi\'s family!', resent: 'This email is waiting for confirmation — we sent the link again.' }
@@ -104,7 +104,7 @@ js = r"""/* "Join the Kiwi's family" — newsletter card (double opt-in, see /ap
           if (r.j && r.j.ok) {
             set({ s: 'done', at: Date.now() });
             el.classList.add('is-done');
-            form.innerHTML = '<p class="kj-done">' + t(r.j.already ? 'already' : r.j.resent ? 'resent' : 'ok') + '</p>';
+            form.innerHTML = '<p class="kj-done">' + t(r.j.already ? 'already' : 'ok') + '</p>';
             setTimeout(function () { close(false); }, 7000);
           } else { msg.textContent = r.s === 429 ? t('rate') : r.s === 422 ? t('bad') : t('err'); go.disabled = false; }
         })
