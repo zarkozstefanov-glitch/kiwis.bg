@@ -144,6 +144,25 @@ document.addEventListener('DOMContentLoaded', () => {
     } catch (err) {}
   }));
 
+  // === Speed: keep the site in a local cache (sw.js) and prefetch pages before the click ===
+  if ('serviceWorker' in navigator && location.protocol === 'https:') {
+    addEventListener('load', () => navigator.serviceWorker.register('/sw.js').catch(() => {}));
+  }
+  if (HTMLScriptElement.supports && HTMLScriptElement.supports('speculationrules')) {
+    const sr = document.createElement('script');
+    sr.type = 'speculationrules';
+    sr.textContent = JSON.stringify({ prefetch: [{ source: 'document', where: { and: [{ href_matches: '/*' }, { not: { href_matches: '/(api|admin)/*' } }] }, eagerness: 'moderate' }] });
+    document.head.appendChild(sr);
+  }
+
+  // === Map: Google Maps loads only when the visitor asks for it (no Google cookies before that) ===
+  $$('.map-load').forEach(b => b.addEventListener('click', () => {
+    const f = document.createElement('iframe');
+    f.src = b.dataset.src; f.title = "Kiwi's на картата — ул. Никола Карев 14, Пловдив";
+    f.width = '100%'; f.height = '100%'; f.style.border = '0'; f.loading = 'lazy'; f.referrerPolicy = 'no-referrer-when-downgrade'; f.allowFullscreen = true;
+    b.replaceWith(f);
+  }));
+
   // === Reviews: show all ===
   const more = $('#rvMore'), grid = $('#rvGrid');
   if (more && grid) more.addEventListener('click', () => { grid.hidden = false; grid.classList.add('is-all'); more.remove(); grid.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'start' }); });

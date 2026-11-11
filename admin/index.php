@@ -24,7 +24,7 @@ session_start();
 $h = fn($s) => htmlspecialchars((string)$s, ENT_QUOTES);
 $self = '/admin/';
 $msg = '';
-$adminEmail = k_setting('admin_email');
+$adminEmail = k_setting('admin_email', KIWIS_CONTACT);
 $logged = !empty($_SESSION['ok']) && ($_SESSION['ip'] ?? '') === ($_SERVER['REMOTE_ADDR'] ?? '') && ($_SESSION['until'] ?? 0) > time();
 if (empty($_SESSION['csrf'])) $_SESSION['csrf'] = bin2hex(random_bytes(16));
 $csrfOk = fn() => hash_equals($_SESSION['csrf'], (string)($_POST['csrf'] ?? ''));
@@ -63,8 +63,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && $csrfOk()) {
         $db->prepare('DELETE FROM subscribers WHERE id = ?')->execute([(int)($_POST['id'] ?? 0)]);
         $msg = 'Записът е изтрит.';
     } elseif ($logged && $act === 'settings') {
-        foreach (['company', 'eik', 'company_address', 'contact_email'] as $k) k_set_setting($k, trim((string)($_POST[$k] ?? '')));
-        $e = mb_strtolower(trim((string)($_POST['admin_email'] ?? '')));
+                $e = mb_strtolower(trim((string)($_POST['admin_email'] ?? '')));
         if (filter_var($e, FILTER_VALIDATE_EMAIL)) { k_set_setting('admin_email', $e); $adminEmail = $e; }
         $msg = 'Настройките са запазени.';
     } elseif ($act === 'logout') {
@@ -143,13 +142,9 @@ button,.btn{background:var(--s);color:var(--i);border:0;border-radius:40px;paddi
     <?php endforeach; if (!$rows): ?><tr><td colspan="5">Все още няма записани.</td></tr><?php endif; ?>
     </table></div>
   </div>
-  <div class="card"><h2>Настройки</h2><p style="color:#4A3F34">Данните на фирмата се показват на страницата „Поверителност“ (изисква се от GDPR).</p>
+  <div class="card"><h2>Настройки</h2>
   <form method="post"><input type="hidden" name="csrf" value="<?= $h($_SESSION['csrf']) ?>"><input type="hidden" name="act" value="settings">
     <div class="grid2">
-      <div><label>Фирма (юридическо лице)</label><input type="text" name="company" value="<?= $h(k_setting('company', '')) ?>"></div>
-      <div><label>ЕИК</label><input type="text" name="eik" value="<?= $h(k_setting('eik', '')) ?>"></div>
-      <div><label>Адрес на управление</label><input type="text" name="company_address" value="<?= $h(k_setting('company_address', '')) ?>"></div>
-      <div><label>Имейл за въпроси относно данните</label><input type="email" name="contact_email" value="<?= $h(k_setting('contact_email', '')) ?>"></div>
       <div><label>Имейл за вход в панела</label><input type="email" name="admin_email" value="<?= $h($adminEmail) ?>"></div>
     </div><p><button>Запази</button></p></form></div>
 <?php endif; ?>

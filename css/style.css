@@ -630,3 +630,21 @@ button { border: 0; background: none; cursor: pointer; font: inherit; color: inh
 /* ---------- header: a little see-through once the page scrolls ---------- */
 .nav { transition: background .35s var(--ease), box-shadow .35s var(--ease); }
 .nav.is-scrolled { background: rgba(26,45,30,.72); backdrop-filter: blur(18px) saturate(1.2); -webkit-backdrop-filter: blur(18px) saturate(1.2); box-shadow: 0 8px 24px -16px rgba(0,0,0,.5); }
+/* about stats on phones: three equal boxes, the opening-hours box fits on every width */
+@media (max-width: 600px) {
+  .about-stats { gap: 8px; max-width: none; }
+  .about-stats div { padding: 12px 6px 14px; display: flex; flex-direction: column; justify-content: center; min-width: 0; }
+  .about-stats b { font-size: clamp(1.25rem, 6.2vw, 1.7rem); }
+  .about-stats div:last-child b { font-size: clamp(1rem, 4.6vw, 1.35rem); letter-spacing: -.01em; }
+  .about-stats span { font-size: clamp(.64rem, 2.9vw, .74rem); line-height: 1.25; white-space: nowrap; }
+}
+/* map placeholder: Google Maps loads on click */
+.map-load { width: 100%; height: 100%; min-height: 280px; display: grid; place-content: center; justify-items: center; gap: 6px; padding: 20px; text-align: center; color: var(--cream);
+  background: radial-gradient(70% 90% at 50% 40%, #2C4E33, var(--forest) 75%); border-radius: var(--r); transition: filter .3s; }
+.map-load:hover { filter: brightness(1.08); }
+.map-pin { width: 58px; height: 58px; border-radius: 50%; display: grid; place-items: center; background: var(--sun); color: var(--ink); margin-bottom: 6px; box-shadow: 0 12px 26px -10px rgba(255,194,68,.7); }
+.map-load b { font-family: var(--ff); font-size: 1.35rem; }
+.map-load small { font-size: .78rem; color: rgba(250,246,240,.65); max-width: 260px; }
+@media (min-width: 900px) { .map-load { min-height: 420px; } }
+/* header: a touch more solid while scrolling */
+.nav.is-scrolled { background: rgba(26,45,30,.88); }

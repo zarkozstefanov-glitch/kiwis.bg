@@ -95,3 +95,19 @@ AddDefaultCharset UTF-8
 <IfModule mod_expires.c>
   ExpiresByType image/avif "access plus 30 days"
 </IfModule>
+
+# fonts are versioned by name and never change
+<IfModule mod_expires.c>
+  ExpiresByType font/woff2 "access plus 1 year"
+</IfModule>
+<IfModule mod_mime.c>
+  AddType font/woff2 .woff2
+</IfModule>
+# the service worker itself must always be checked for updates
+<Files "sw.js">
+  <IfModule mod_headers.c>
+    Header set Cache-Control "no-cache"
+  </IfModule>
+</Files>
+# old link
+RedirectMatch 301 ^/privacy\.php$ /privacy.html

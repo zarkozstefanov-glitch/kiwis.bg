@@ -13,19 +13,20 @@ LASTMOD="$(date -u +%Y-%m-%d)"
 rm -rf "$OUT"
 mkdir -p "$OUT"
 
-cp index.html menu.html 404.html privacy.php "$OUT/"
+cp index.html menu.html 404.html privacy.html "$OUT/"
 cp .htaccess robots.txt sitemap.xml llms.txt site.webmanifest "$OUT/"
 cp favicon.ico favicon-32.png apple-touch-icon.png "$OUT/"
-cp -R css js images blog api admin "$OUT/"
+cp -R css js images fonts blog api admin "$OUT/" && cp sw.js "$OUT/"
 find "$OUT" -name ".DS_Store" -delete
 
 # Cache-busting: CSS/JS are cached for a year, so every deploy gets a new ?v=
-for f in "$OUT"/*.html "$OUT"/privacy.php; do
+for f in "$OUT"/*.html; do
   sed -i.bak -E "s#(href|src)=\"(/?)(css|js)/([a-z0-9_-]+)\.(css|js)\"#\1=\"\2\3/\4.\5?v=${VERSION}\"#g" "$f"
   rm "$f.bak"
 done
 # Cache-busting for images (cached 30 days): ?v=<content hash> on every images/... URL
 python3 -I scripts/build/imgver.py "$OUT"
+sed -i.bak "s#__V__#${VERSION}-$(date +%s)#" "$OUT/sw.js" && rm "$OUT/sw.js.bak"
 sed -i.bak "s#__LASTMOD__#${LASTMOD}#g" "$OUT/sitemap.xml" && rm "$OUT/sitemap.xml.bak"
 
 # --- Checks -----------------------------------------------------------------

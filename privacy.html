@@ -1,13 +1,3 @@
-<?php
-declare(strict_types=1);
-require __DIR__ . '/api/_lib.php';
-header('Content-Type: text/html; charset=utf-8');
-$h = fn($s) => htmlspecialchars((string)$s, ENT_QUOTES);
-try { $co = k_setting('company', ''); $eik = k_setting('eik', ''); $adr = k_setting('company_address', ''); $mail = k_setting('contact_email', ''); }
-catch (Throwable $e) { $co = $eik = $adr = $mail = ''; }
-$who = $co !== '' ? $h($co) . ($eik !== '' ? ', ЕИК ' . $h($eik) : '') . ($adr !== '' ? ', ' . $h($adr) : '') : "Kiwi's, ул. „Никола Карев“ 14, Пловдив";
-$contact = ($mail !== '' ? '<a href="mailto:' . $h($mail) . '">' . $h($mail) . '</a> или ' : '') . '<a href="tel:+359892632470">+359 892 632 470</a>';
-?>
 <!DOCTYPE html>
 <html lang="bg" data-lang="bg">
 <head>
@@ -17,7 +7,7 @@ $contact = ($mail !== '' ? '<a href="mailto:' . $h($mail) . '">' . $h($mail) . '
   <title>Поверителност — Kiwi's</title>
   <meta name="robots" content="noindex, follow">
   <link rel="icon" href="/favicon.ico" sizes="48x48">
-  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="preload" href="/fonts/fraunces-normal-latin.woff2" as="font" type="font/woff2" crossorigin><link rel="preload" href="/fonts/outfit-normal-latin.woff2" as="font" type="font/woff2" crossorigin><link rel="stylesheet" href="/css/fonts.css">
   <link rel="stylesheet" href="/css/style.css">
   <link rel="stylesheet" href="/css/blog.css">
 </head>
@@ -52,15 +42,18 @@ $contact = ($mail !== '' ? '<a href="mailto:' . $h($mail) . '">' . $h($mail) . '
       </div>
       <div class="container post-body">
 <h2>Кой обработва данните</h2>
-<p><?= $who ?>. За въпроси: <?= $contact ?>.</p>
+<p>Kiwi's, ул. „Никола Карев“ 14, Пловдив. За въпроси: <a href="mailto:kiwisplovdiv@gmail.com">kiwisplovdiv@gmail.com</a> или <a href="tel:+359892632470">+359 892 632 470</a>.</p>
 <h2>Какви данни събираме</h2>
-<p>Само когато сам/а се запишеш: име, фамилия и имейл, датата и текста на съгласието ти. Не събираме данни за посещенията ти и сайтът не използва бисквитки за реклама или проследяване.</p>
+<p>Само когато сам/а се запишеш: име, фамилия и имейл, датата и текста на съгласието ти. Не събираме данни за посещенията ти.</p>
+<h2>Бисквитки</h2>
+<p>Сайтът не използва бисквитки за реклама или проследяване. В браузъра ти пазим само избора на език и дали си затворил/а прозореца за записване (в localStorage, не се изпращат към нас). Шрифтовете и снимките се зареждат от нашия сървър.</p>
+<p>Картата в „Контакти“ е на Google Maps и се зарежда само ако натиснеш „Покажи картата“. Тогава Google може да постави свои бисквитки и да получи IP адреса ти — по правилата на Google (<a href="https://policies.google.com/privacy" target="_blank" rel="noopener">policies.google.com/privacy</a>). Без натискане към Google не се изпраща нищо.</p>
 <h2>За какво ги използваме</h2>
 <p>За да ти пращаме имейли с новини, нови ястия и промоции от Kiwi's. Основание: твоето съгласие (чл. 6, ал. 1, буква „а“ от Регламент (ЕС) 2016/679). Записването става в две стъпки — след формата ти изпращаме линк за потвърждение. Ако не го потвърдиш до 48 часа, данните се изтриват автоматично.</p>
 <h2>Как ги пазим</h2>
 <p>Данните се съхраняват криптирани на нашия сървър в България и не се дават на трети лица. Достъп до тях има само Kiwi's.</p>
 <h2>Колко време</h2>
-<p>Докато не се отпишеш. Всеки имейл от нас има линк „Отпиши се“ — с него името и имейлът ти се изтриват веднага.</p>
+<p>Докато не се отпишеш. Всеки имейл от нас има линк „Отпиши се“ — с него името и имейлът ти се изтриват веднага. Можеш да се отпишеш и <a href="/api/leave.php">оттук</a> или като ни пишеш на <a href="mailto:kiwisplovdiv@gmail.com">kiwisplovdiv@gmail.com</a>.</p>
 <h2>Твоите права</h2>
 <p>Можеш по всяко време да оттеглиш съгласието си, да поискаш достъп до данните си, поправка или изтриване, като ни пишеш или се обадиш. Имаш право и на жалба до Комисията за защита на личните данни (<a href="https://www.cpdp.bg" target="_blank" rel="noopener">cpdp.bg</a>).</p>
       </div>
@@ -75,7 +68,7 @@ $contact = ($mail !== '' ? '<a href="mailto:' . $h($mail) . '">' . $h($mail) . '
         <a href="https://www.google.com/maps?cid=1892105797985093642" target="_blank" rel="noopener" data-en="Google reviews">Отзиви в Google</a>
         <a href="https://www.instagram.com/kiwis.bg/" target="_blank" rel="noopener" class="ft-ig"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="2.5" width="19" height="19" rx="5.5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.6" cy="6.4" r="1.1" fill="currentColor" stroke="none"/></svg><span>Instagram</span></a>
         <a href="tel:+359892632470">+359 892 632 470</a>
-        <a href="/privacy.php" data-en="Privacy">Поверителност</a>
+        <a href="/privacy.html" data-en="Privacy">Поверителност</a>
       </nav>
       <p class="footer-copy">&copy; 2026 KiWi'S</p>
     </div>

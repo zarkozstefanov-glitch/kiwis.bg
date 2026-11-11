@@ -37,7 +37,7 @@ $idx = k_index('email:' . $email);
 $s = $db->prepare('SELECT id, status FROM subscribers WHERE email_idx = ?');
 $s->execute([$idx]);
 $row = $s->fetch();
-if ($row && $row['status'] === 'confirmed') k_json(['ok' => true]);   // already in — don't reveal it
+if ($row && $row['status'] === 'confirmed') k_json(['ok' => true, 'already' => true]);
 
 $token = bin2hex(random_bytes(24));
 $now = time();
@@ -60,4 +60,4 @@ $html = k_mail_layout($hi,
     . '<p style="font-size:13px;color:#4A3F34;line-height:1.5">Линкът е валиден 48 часа. Ако не си се записвал/а ти, просто игнорирай този имейл — няма да ти пишем.</p>');
 k_mail($email, "Потвърди записването си в Kiwi's", $text, $html);
 
-k_json(['ok' => true]);
+k_json(['ok' => true, 'resent' => (bool)$row]);

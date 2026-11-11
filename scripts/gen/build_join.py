@@ -16,6 +16,7 @@ svg = (
     f'<path d="{P["body"]}" fill-rule="evenodd"/>'
     f'<g class="kj-head"><path d="{P["head"]}" fill-rule="evenodd"/></g>'
     '</g>'
+    '<g class="kj-spark"><path d="M33 -10 L33 -13.5"/><path d="M28.5 -8.5 L26.3 -11"/><path d="M37.5 -8.5 L39.7 -11"/></g>'
     '<g class="kj-fruit"><ellipse cx="33" cy="-2.6" rx="3.4" ry="2.6" fill="#7FAF3A"/>'
     '<ellipse cx="33" cy="-2.6" rx="2.5" ry="1.8" fill="#A8D462"/><ellipse cx="33" cy="-2.6" rx=".8" ry=".55" fill="#FAF6F0"/></g>'
     '</svg>'
@@ -35,13 +36,15 @@ js = r"""/* "Join the Kiwi's family" — newsletter card (double opt-in, see /ap
           privacy: 'Поверителност', go: 'Присъедини се', later: 'Не сега', close: 'Затвори',
           ok: 'Почти готово! Изпратихме ти имейл — натисни линка в него, за да потвърдиш.', err: 'Нещо се обърка. Опитай пак след малко.',
           rate: 'Твърде много опити. Опитай пак по-късно.', bad: 'Провери полетата.', welcome: 'Добре дошъл/дошла в семейството на Kiwi\'s!',
-          expired: 'Линкът за потвърждение е изтекъл. Запиши се отново.' },
+          expired: 'Линкът за потвърждение е изтекъл. Запиши се отново.',
+          already: 'Този имейл вече е записан — ти си част от семейството на Kiwi\'s!', resent: 'Този имейл чака потвърждение — изпратихме ти линка отново.' },
     en: { kicker: 'The Kiwi\'s family', title: 'Join the family', text: 'New dishes, offers and invitations — first to you, straight to your inbox.',
           first: 'First name', last: 'Last name', email: 'Email', consent: 'I agree that Kiwi\'s may email me news and offers. I can unsubscribe at any time.',
           privacy: 'Privacy', go: 'Join', later: 'Not now', close: 'Close',
           ok: 'Almost there! We sent you an email — click the link in it to confirm.', err: 'Something went wrong. Please try again.',
           rate: 'Too many attempts. Please try later.', bad: 'Please check the fields.', welcome: 'Welcome to the Kiwi\'s family!',
-          expired: 'The confirmation link has expired. Please sign up again.' }
+          expired: 'The confirmation link has expired. Please sign up again.',
+          already: 'This email is already signed up — you are part of the Kiwi\'s family!', resent: 'This email is waiting for confirmation — we sent the link again.' }
   };
   var t = function (k) { return T[en() ? 'en' : 'bg'][k]; };
   var BIRD = '__SVG__';
@@ -67,7 +70,7 @@ js = r"""/* "Join the Kiwi's family" — newsletter card (double opt-in, see /ap
         '<label><span>' + t('last') + '</span><input name="last" autocomplete="family-name" maxlength="60" required></label></div>' +
         '<label><span>' + t('email') + '</span><input name="email" type="email" autocomplete="email" maxlength="160" required></label>' +
         '<label class="kj-hp" aria-hidden="true">Website<input name="website" tabindex="-1" autocomplete="off"></label>' +
-        '<label class="kj-check"><input type="checkbox" name="consent" required><span>' + t('consent') + ' <a href="/privacy.php">' + t('privacy') + '</a></span></label>' +
+        '<label class="kj-check"><input type="checkbox" name="consent" required><span>' + t('consent') + ' <a href="/privacy.html">' + t('privacy') + '</a></span></label>' +
         '<p class="kj-msg" role="status" aria-live="polite"></p>' +
         '<div class="kj-btns"><button class="kj-go" type="submit">' + t('go') + '</button><button class="kj-later" type="button">' + t('later') + '</button></div>' +
       '</form>';
@@ -82,6 +85,7 @@ js = r"""/* "Join the Kiwi's family" — newsletter card (double opt-in, see /ap
     el.querySelector('.kj-x').addEventListener('click', function () { close(true); });
     el.querySelector('.kj-later').addEventListener('click', function () { close(true); });
     document.addEventListener('keydown', function esc(e) { if (e.key === 'Escape' && document.body.contains(el)) { close(true); document.removeEventListener('keydown', esc); } });
+    form.addEventListener('input', function (e) { var l = e.target.closest('label'); if (l) l.classList.remove('bad'); if (!form.querySelector('.bad')) msg.textContent = ''; });
     form.addEventListener('submit', function (e) {
       e.preventDefault();
       var f = form.elements, bad = false;
@@ -90,6 +94,7 @@ js = r"""/* "Join the Kiwi's family" — newsletter card (double opt-in, see /ap
         f[n].closest('label').classList.toggle('bad', !ok); if (!ok) bad = true;
       });
       f.consent.closest('label').classList.toggle('bad', !f.consent.checked); if (!f.consent.checked) bad = true;
+      form.classList.add('tried');
       if (bad) { msg.textContent = t('bad'); return; }
       go.disabled = true; msg.textContent = '';
       fetch('/api/subscribe.php', { method: 'POST', headers: { 'Content-Type': 'application/json' }, credentials: 'same-origin',
@@ -99,7 +104,7 @@ js = r"""/* "Join the Kiwi's family" — newsletter card (double opt-in, see /ap
           if (r.j && r.j.ok) {
             set({ s: 'done', at: Date.now() });
             el.classList.add('is-done');
-            form.innerHTML = '<p class="kj-done">' + t('ok') + '</p>';
+            form.innerHTML = '<p class="kj-done">' + t(r.j.already ? 'already' : r.j.resent ? 'resent' : 'ok') + '</p>';
             setTimeout(function () { close(false); }, 7000);
           } else { msg.textContent = r.s === 429 ? t('rate') : r.s === 422 ? t('bad') : t('err'); go.disabled = false; }
         })

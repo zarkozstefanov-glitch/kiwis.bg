@@ -1,14 +1,14 @@
 /* ==========================================================
    "JOIN THE FAMILY" card (js/join.js) — calm, bottom-left, green like the brand
    ========================================================== */
-.kj { position: fixed; z-index: 120; left: 20px; bottom: 20px; width: min(400px, calc(100vw - 32px)); padding: 20px 20px 18px; border-radius: 24px;
+.kj { position: fixed; z-index: 120; right: 20px; bottom: 20px; width: min(400px, calc(100vw - 32px)); padding: 20px 20px 18px; border-radius: 24px;
   color: var(--cream); background: radial-gradient(120% 120% at 0% 0%, #2C4E33 0%, #1C3322 55%, #12201A 100%);
   box-shadow: 0 30px 70px -24px rgba(5,12,7,.75), inset 0 0 0 1px rgba(168,212,98,.16);
   opacity: 0; transform: translateY(24px) scale(.97); transition: opacity .5s var(--ease), transform .6s var(--ease); font-family: var(--fb); }
 .kj.in { opacity: 1; transform: none; }
 .kj-x { position: absolute; top: 10px; right: 12px; width: 34px; height: 34px; border-radius: 50%; color: rgba(250,246,240,.7); font-size: 1.5rem; line-height: 1; }
 .kj-x:hover { background: rgba(255,255,255,.08); color: #fff; }
-.kj-top { display: flex; align-items: center; gap: 12px; padding-right: 26px; }
+.kj-top { display: flex; align-items: flex-end; gap: 12px; padding-right: 26px; }
 .kj-kicker { display: block; font-size: .68rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--sun); }
 .kj h2 { font-family: var(--ff); font-weight: 700; font-size: 1.45rem; line-height: 1.1; margin-top: 2px; }
 .kj-text { font-size: .9rem; color: rgba(250,246,240,.75); margin: 10px 0 12px; line-height: 1.45; }
@@ -17,13 +17,13 @@
 .kj-form label { display: grid; gap: 4px; font-size: .72rem; font-weight: 600; color: rgba(250,246,240,.6); }
 .kj-form input:not([type=checkbox]) { width: 100%; padding: 11px 12px; border-radius: 12px; border: 1px solid rgba(255,255,255,.14); background: rgba(255,255,255,.07); color: #fff; font: inherit; font-size: .95rem; }
 .kj-form input:focus { outline: 2px solid var(--sun); outline-offset: 1px; border-color: transparent; }
-.kj-form label.bad input:not([type=checkbox]) { border-color: #E9846B; }
+.kj-form.tried label.bad input:not([type=checkbox]) { border-color: rgba(255,194,68,.9); box-shadow: 0 0 0 1px rgba(255,194,68,.5); }
 .kj-check { grid-template-columns: auto 1fr !important; align-items: start; gap: 9px !important; font-weight: 400 !important; font-size: .74rem !important; line-height: 1.4; color: rgba(250,246,240,.7) !important; margin-top: 2px; }
 .kj-check input { width: 18px; height: 18px; margin-top: 1px; accent-color: var(--sun); }
-.kj-check.bad span { color: #F2A48F; }
+.kj-form.tried .kj-check.bad span { color: var(--sun-l); }
 .kj-check a { color: var(--sun); text-decoration: underline; text-underline-offset: 2px; }
 .kj-hp { position: absolute !important; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
-.kj-msg { min-height: 1.1em; font-size: .8rem; color: #F2C4B5; }
+.kj-msg { min-height: 1.1em; font-size: .8rem; color: var(--sun-l); }
 .kj-btns { display: flex; align-items: center; gap: 10px; }
 .kj-go { flex: 1; background: var(--sun); color: var(--ink); font-weight: 700; padding: 13px 18px; border-radius: 50px; transition: transform .2s var(--ease), background .2s; }
 .kj-go:hover { background: #FFB61E; transform: translateY(-1px); }
@@ -34,27 +34,36 @@
 
 /* phones: a sheet at the bottom, above everything; compact */
 @media (max-width: 560px) {
-  .kj { left: 8px; right: 8px; bottom: max(8px, env(safe-area-inset-bottom)); width: auto; padding: 16px 16px 14px; border-radius: 22px; }
+  .kj { left: 10px; right: 10px; bottom: max(10px, env(safe-area-inset-bottom)); width: auto; padding: 16px 16px 14px; border-radius: 22px; }
   .kj h2 { font-size: 1.25rem; }
   .kj-text { font-size: .84rem; margin: 6px 0 10px; }
   .kj-form input:not([type=checkbox]) { padding: 10px 11px; font-size: 16px; }
 }
 
-/* ---- the kiwi: hops, pecks at the slice, the slice bounces ---- */
-.kj-bird { width: 76px; height: 62px; flex: none; overflow: visible; }
+/* ---- the kiwi: hops in, looks around, pecks the kiwi slice twice, the slice flips, sparkles ---- */
+.kj-bird { width: 92px; height: 76px; flex: none; overflow: visible; }
 .kj-bird path { fill: #A8D462; stroke: #A8D462; stroke-width: .5; stroke-linejoin: round; }
-.kj-shadow { fill: rgba(0,0,0,.35); transform-origin: 2px 1px; animation: kj-shadow 3.2s var(--ease) infinite; }
-.kj-hop { animation: kj-hop 3.2s var(--ease) infinite; transform-origin: 0 0; }
-.kj-head { transform-origin: 10.4px -33.7px; animation: kj-peck 3.2s cubic-bezier(.5,0,.3,1) infinite; }
-.kj-leg--b { transform-origin: -9.8px -7.5px; animation: kj-leg 3.2s var(--ease) infinite; }
-.kj-leg--f { transform-origin: 2.95px -7.1px; animation: kj-leg 3.2s var(--ease) infinite .12s; }
-.kj-fruit { transform-origin: 33px 0; animation: kj-fruit 3.2s var(--ease) infinite; }
-@keyframes kj-hop { 0%, 18%, 100% { transform: translateY(0); } 8% { transform: translateY(-5px); } }
-@keyframes kj-shadow { 0%, 18%, 100% { transform: scaleX(1); opacity: 1; } 8% { transform: scaleX(.8); opacity: .6; } }
-@keyframes kj-leg { 0%, 18%, 100% { transform: rotate(0); } 6% { transform: rotate(-14deg); } 12% { transform: rotate(8deg); } }
-@keyframes kj-peck { 0%, 30%, 62%, 100% { transform: rotate(0); } 40% { transform: rotate(34deg); } 46% { transform: rotate(26deg); } 50% { transform: rotate(36deg); } }
-@keyframes kj-fruit { 0%, 49%, 80%, 100% { transform: translateY(0) rotate(0); } 58% { transform: translateY(-9px) rotate(-30deg); } 68% { transform: translateY(0) rotate(-60deg); } 73% { transform: translateY(-2px) rotate(-60deg); } }
-@media (prefers-reduced-motion: reduce) { .kj-bird * { animation: none !important; } .kj { transition: opacity .2s; } }
+.kj-shadow { fill: rgba(0,0,0,.35); transform-box: fill-box; transform-origin: center; animation: kj-shadow 4.8s ease-in-out infinite; }
+.kj-hop { animation: kj-hop 4.8s ease-in-out infinite; }
+.kj-head { transform-origin: 10.4px -33.7px; animation: kj-peck 4.8s cubic-bezier(.45,0,.3,1) infinite; }
+.kj-leg--b { transform-origin: -9.8px -7.5px; animation: kj-leg 4.8s ease-in-out infinite; }
+.kj-leg--f { transform-origin: 2.95px -7.1px; animation: kj-leg 4.8s ease-in-out infinite .15s; }
+.kj-fruit { transform-box: fill-box; transform-origin: center; animation: kj-fruit 4.8s cubic-bezier(.3,.7,.4,1) infinite; }
+.kj-spark path { fill: none; stroke: var(--sun); stroke-width: 1.1; stroke-linecap: round; }
+.kj-spark { opacity: 0; transform-box: fill-box; transform-origin: center bottom; animation: kj-spark 4.8s ease-out infinite; }
+.kj.in .kj-bird { animation: kj-enter .9s cubic-bezier(.3,1.4,.5,1) both .2s; }
+@keyframes kj-enter { from { transform: translateX(-26px) translateY(6px); opacity: 0; } }
+/* 0-12% two little hops · 18-30% looks up and around · 40-58% two pecks · slice flips + sparkles */
+@keyframes kj-hop { 0%, 12%, 100% { transform: translate(0, 0); } 3% { transform: translate(1px, -5px); } 6% { transform: translate(2px, 0); } 9% { transform: translate(3px, -4px); }
+  12.1%, 99% { transform: translate(3px, 0); } }
+@keyframes kj-shadow { 0%, 12%, 100% { transform: scaleX(1); opacity: 1; } 3%, 9% { transform: scaleX(.75); opacity: .55; } }
+@keyframes kj-leg { 0%, 12%, 100% { transform: rotate(0); } 2%, 8% { transform: rotate(-16deg); } 5%, 11% { transform: rotate(10deg); } }
+@keyframes kj-peck { 0%, 16%, 100% { transform: rotate(0); } 20% { transform: rotate(-12deg); } 26% { transform: rotate(-6deg); } 32% { transform: rotate(-12deg); }
+  38% { transform: rotate(0); } 42% { transform: rotate(38deg); } 45% { transform: rotate(22deg); } 48% { transform: rotate(40deg); } 54% { transform: rotate(0); } }
+@keyframes kj-fruit { 0%, 47%, 100% { transform: translateY(0) rotate(0); } 52% { transform: translateY(-11px) rotate(-170deg); } 58% { transform: translateY(0) rotate(-360deg); }
+  61% { transform: translateY(-2.5px) rotate(-360deg); } 64%, 99% { transform: translateY(0) rotate(-360deg); } }
+@keyframes kj-spark { 0%, 50% { opacity: 0; transform: scale(.4); } 54% { opacity: 1; transform: scale(1); } 66%, 100% { opacity: 0; transform: scale(1.3); } }
+@media (prefers-reduced-motion: reduce) { .kj-bird, .kj-bird * { animation: none !important; } .kj { transition: opacity .2s; } }
 
 /* welcome / expired message after the confirmation link */
 .kj-toast { position: fixed; z-index: 130; left: 50%; top: calc(var(--nav-h) + 14px); transform: translate(-50%, -20px); opacity: 0; transition: all .5s var(--ease);
@@ -62,3 +71,4 @@
   box-shadow: 0 20px 40px -18px rgba(0,0,0,.6), inset 0 0 0 1px rgba(168,212,98,.2); font-weight: 600; font-size: .92rem; }
 .kj-toast.in { opacity: 1; transform: translate(-50%, 0); }
 .kj-toast .kj-bird { width: 46px; height: 38px; }
+@media (max-width: 560px) { .kj-bird { width: 74px; height: 60px; } }

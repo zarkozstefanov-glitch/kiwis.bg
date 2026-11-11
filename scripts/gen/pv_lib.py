@@ -170,7 +170,7 @@ def footer(page):
         <a href="{GMAP}" target="_blank" rel="noopener" data-en="Google reviews">Отзиви в Google</a>
         <a href="{IG}" target="_blank" rel="noopener" class="ft-ig">{IG_ICON}<span>Instagram</span></a>
         <a href="tel:+359892632470">+359 892 632 470</a>
-        <a href="/privacy.php" data-en="Privacy">Поверителност</a>
+        <a href="/privacy.html" data-en="Privacy">Поверителност</a>
       </nav>
       <p class="footer-copy">&copy; 2026 KiWi'S</p>
     </div>

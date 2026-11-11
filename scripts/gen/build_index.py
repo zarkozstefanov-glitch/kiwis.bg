@@ -157,7 +157,11 @@ body = f'''<body>
         <a href="menu.html" class="btn" data-en="View Menu">Виж менюто</a>
       </div>
     </div>
-    <a href="#about" class="hero-scroll" aria-label="Надолу"><i></i></a>
+    <a href="#praised" class="hero-scroll" aria-label="Надолу"><i></i></a>
+  </section>
+
+  <section class="sec praised" id="praised">
+    {viewer("pv-praised", praised, scroll=True, show_menu_link=True, loop=True, bare=True, extra_cls="pv--sun", head=PRAISED_HEAD, steps=2)}
   </section>
 
   <section class="sec about" id="about">
@@ -178,10 +182,6 @@ body = f'''<body>
         {photo("nest-portion", "(min-width: 960px) 460px, 100vw", "Пилешка порция в Kiwi's пред стената с логото")}
       </div>
     </div>
-  </section>
-
-  <section class="sec praised" id="praised">
-    {viewer("pv-praised", praised, scroll=True, show_menu_link=True, loop=True, bare=True, extra_cls="pv--sun", head=PRAISED_HEAD, steps=2)}
   </section>
 
   <section class="sec cats" id="categories">
@@ -311,7 +311,11 @@ body = f'''<body>
         </div>
       </div>
       <div class="visit-map" data-reveal="right">
-        <iframe src="https://maps.google.com/maps?q=Kiwi%27s%2C%20%D1%83%D0%BB.%20%D0%9D%D0%B8%D0%BA%D0%BE%D0%BB%D0%B0%20%D0%9A%D0%B0%D1%80%D0%B5%D0%B2%2014%2C%20%D0%9F%D0%BB%D0%BE%D0%B2%D0%B4%D0%B8%D0%B2&amp;z=16&amp;output=embed" width="100%" height="100%" style="border:0" loading="lazy" allowfullscreen title="Kiwi's на картата — ул. Никола Карев 14, Пловдив" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <button class="map-load" type="button" data-src="https://maps.google.com/maps?q=Kiwi%27s%2C%20%D1%83%D0%BB.%20%D0%9D%D0%B8%D0%BA%D0%BE%D0%BB%D0%B0%20%D0%9A%D0%B0%D1%80%D0%B5%D0%B2%2014%2C%20%D0%9F%D0%BB%D0%BE%D0%B2%D0%B4%D0%B8%D0%B2&amp;z=16&amp;output=embed" aria-label="Покажи картата на Google">
+          <span class="map-pin" aria-hidden="true"><svg width="30" height="30" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a7 7 0 00-7 7c0 5.2 7 13 7 13s7-7.8 7-13a7 7 0 00-7-7zm0 9.5A2.5 2.5 0 1112 6.5a2.5 2.5 0 010 5z"/></svg></span>
+          <b data-en="Show the map">Покажи картата</b>
+          <small data-en="Loads Google Maps (Google may set cookies)">Зарежда Google Maps (Google може да постави бисквитки)</small>
+        </button>
       </div>
     </div>
   </section>

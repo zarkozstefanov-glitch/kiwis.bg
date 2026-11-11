@@ -12,6 +12,8 @@ declare(strict_types=1);
 const KIWIS_SITE = 'https://kiwis.bg';
 const KIWIS_FROM = "Kiwi's <no-reply@kiwis.bg>";
 const KIWIS_FROM_ADDR = 'no-reply@kiwis.bg';
+// official Kiwi's email: shown in the privacy notice, receives replies and admin login links
+const KIWIS_CONTACT = 'kiwisplovdiv@gmail.com';
 // The admin panel answers only from these addresses (anything else gets a plain 404).
 const KIWIS_ADMIN_IPS = ['91.148.131.144'];
 const KIWIS_CONSENT_TEXT = "Съгласен/на съм Kiwi's да ми изпраща имейли с новини и промоции. Мога да се отпиша по всяко време.";
@@ -120,7 +122,7 @@ function k_mail(string $to, string $subject, string $text, string $html): bool {
     $b = 'kiwis' . bin2hex(random_bytes(8));
     $headers = implode("\r\n", [
         'From: ' . '=?UTF-8?B?' . base64_encode("Kiwi's") . '?= <' . KIWIS_FROM_ADDR . '>',
-        'Reply-To: ' . KIWIS_FROM_ADDR,
+        'Reply-To: ' . KIWIS_CONTACT,
         'MIME-Version: 1.0',
         "Content-Type: multipart/alternative; boundary=\"$b\"",
     ]);

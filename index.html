@@ -37,9 +37,9 @@
   <link rel="apple-touch-icon" href="apple-touch-icon.png">
   <link rel="manifest" href="site.webmanifest">
   <link rel="preload" as="image" type="image/webp" imagesrcset="images/hero-800.webp 800w, images/hero-1400.webp 1400w, images/hero-2000.webp 2000w" imagesizes="100vw" fetchpriority="high">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="preload" href="fonts/fraunces-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fonts/outfit-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="css/fonts.css">
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/pv.css">
   <link rel="stylesheet" href="css/join.css">
@@ -274,27 +274,7 @@
         <a href="menu.html" class="btn" data-en="View Menu">Виж менюто</a>
       </div>
     </div>
-    <a href="#about" class="hero-scroll" aria-label="Надолу"><i></i></a>
-  </section>
-
-  <section class="sec about" id="about">
-    <div class="blob blob--a" data-speed="-0.12" aria-hidden="true"></div>
-    <div class="container about-grid">
-      <div class="about-text" data-reveal="left">
-        <span class="kicker" data-en="About Kiwi's">За Kiwi's</span>
-        <h2 data-en="Food that<br><em>fuels you.</em>">Храна, която те<br><em>зарежда.</em></h2>
-        <p data-en="Kiwi's is a café for healthy food at 14 Nikola Karev St. in Plovdiv: brioche sandwiches, bowls with basmati rice, salads, protein desserts, Cloud Foam drinks and coffee.">Kiwi's е място за здравословна храна и кафе на ул. „Никола Карев“ 14 в Пловдив: сандвичи в протеинов бриош, порции с басмати ориз, салати, протеинови десерти, Cloud Foam напитки и кафе.</p>
-        <p data-en="The menu lists calories, protein, carbs and fat for every dish. You can eat in the room or in the garden, take it with you, or order on Glovo.">В менюто до всяко ястие са дадени калории, протеин, въглехидрати и мазнини. Можеш да хапнеш в залата или в градината, да вземеш за из път или да поръчаш през Glovo.</p>
-        <div class="about-stats">
-          <div><b data-count="49">49</b><span data-en="Google reviews">отзива в Google</span></div>
-          <div><b>5,0</b><span data-en="average rating">средна оценка</span></div>
-          <div><b data-en="Mon–Sat">Пон–Съб</b><span>09:00 – 21:30</span></div>
-        </div>
-      </div>
-      <div class="about-img" data-reveal="right">
-        <picture><source type="image/webp" srcset="images/nest-portion-600.webp 600w, images/nest-portion-1000.webp 1000w, images/nest-portion-1600.webp 1600w" sizes="(min-width: 960px) 460px, 100vw"><img src="images/nest-portion.jpg" width="1000" height="1333" alt="Пилешка порция в Kiwi's пред стената с логото" loading="lazy" decoding="async"></picture>
-      </div>
-    </div>
+    <a href="#praised" class="hero-scroll" aria-label="Надолу"><i></i></a>
   </section>
 
   <section class="sec praised" id="praised">
@@ -385,6 +365,26 @@
         <div class="pv-thumbs" role="tablist" aria-label="Избери"><button class="pv-th is-on" data-i="0" role="tab" aria-selected="true" aria-controls="pv-praised-0" aria-label="Манго и кокос протеинов чийзкейк"><img src="images/cut/dessert-mango-1-500.webp" alt="" width="80" height="80" decoding="async"></button><button class="pv-th" data-i="1" role="tab" aria-selected="false" aria-controls="pv-praised-1" aria-label="Телешки Бриош"><img src="images/cut/beef-brioche-2-500.webp" alt="" width="80" height="80" decoding="async"></button><button class="pv-th" data-i="2" role="tab" aria-selected="false" aria-controls="pv-praised-2" aria-label="Телешка порция"><img src="images/cut/beef-portion-1-500.webp" alt="" width="80" height="80" decoding="async"></button><button class="pv-th" data-i="3" role="tab" aria-selected="false" aria-controls="pv-praised-3" aria-label="Свински Бриош"><img src="images/cut/pork-brioche-2-500.webp" alt="" width="80" height="80" decoding="async"></button><button class="pv-th" data-i="4" role="tab" aria-selected="false" aria-controls="pv-praised-4" aria-label="Тирамису Cloud Foam"><img src="images/cut/cloud-tiramisu-1-500.webp" alt="" width="80" height="80" decoding="async"></button></div>
       </div>
     </div></div></div></div>
+  </section>
+
+  <section class="sec about" id="about">
+    <div class="blob blob--a" data-speed="-0.12" aria-hidden="true"></div>
+    <div class="container about-grid">
+      <div class="about-text" data-reveal="left">
+        <span class="kicker" data-en="About Kiwi's">За Kiwi's</span>
+        <h2 data-en="Food that<br><em>fuels you.</em>">Храна, която те<br><em>зарежда.</em></h2>
+        <p data-en="Kiwi's is a café for healthy food at 14 Nikola Karev St. in Plovdiv: brioche sandwiches, bowls with basmati rice, salads, protein desserts, Cloud Foam drinks and coffee.">Kiwi's е място за здравословна храна и кафе на ул. „Никола Карев“ 14 в Пловдив: сандвичи в протеинов бриош, порции с басмати ориз, салати, протеинови десерти, Cloud Foam напитки и кафе.</p>
+        <p data-en="The menu lists calories, protein, carbs and fat for every dish. You can eat in the room or in the garden, take it with you, or order on Glovo.">В менюто до всяко ястие са дадени калории, протеин, въглехидрати и мазнини. Можеш да хапнеш в залата или в градината, да вземеш за из път или да поръчаш през Glovo.</p>
+        <div class="about-stats">
+          <div><b data-count="49">49</b><span data-en="Google reviews">отзива в Google</span></div>
+          <div><b>5,0</b><span data-en="average rating">средна оценка</span></div>
+          <div><b data-en="Mon–Sat">Пон–Съб</b><span>09:00 – 21:30</span></div>
+        </div>
+      </div>
+      <div class="about-img" data-reveal="right">
+        <picture><source type="image/webp" srcset="images/nest-portion-600.webp 600w, images/nest-portion-1000.webp 1000w, images/nest-portion-1600.webp 1600w" sizes="(min-width: 960px) 460px, 100vw"><img src="images/nest-portion.jpg" width="1000" height="1333" alt="Пилешка порция в Kiwi's пред стената с логото" loading="lazy" decoding="async"></picture>
+      </div>
+    </div>
   </section>
 
   <section class="sec cats" id="categories">
@@ -822,7 +822,11 @@
         </div>
       </div>
       <div class="visit-map" data-reveal="right">
-        <iframe src="https://maps.google.com/maps?q=Kiwi%27s%2C%20%D1%83%D0%BB.%20%D0%9D%D0%B8%D0%BA%D0%BE%D0%BB%D0%B0%20%D0%9A%D0%B0%D1%80%D0%B5%D0%B2%2014%2C%20%D0%9F%D0%BB%D0%BE%D0%B2%D0%B4%D0%B8%D0%B2&amp;z=16&amp;output=embed" width="100%" height="100%" style="border:0" loading="lazy" allowfullscreen title="Kiwi's на картата — ул. Никола Карев 14, Пловдив" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <button class="map-load" type="button" data-src="https://maps.google.com/maps?q=Kiwi%27s%2C%20%D1%83%D0%BB.%20%D0%9D%D0%B8%D0%BA%D0%BE%D0%BB%D0%B0%20%D0%9A%D0%B0%D1%80%D0%B5%D0%B2%2014%2C%20%D0%9F%D0%BB%D0%BE%D0%B2%D0%B4%D0%B8%D0%B2&amp;z=16&amp;output=embed" aria-label="Покажи картата на Google">
+          <span class="map-pin" aria-hidden="true"><svg width="30" height="30" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a7 7 0 00-7 7c0 5.2 7 13 7 13s7-7.8 7-13a7 7 0 00-7-7zm0 9.5A2.5 2.5 0 1112 6.5a2.5 2.5 0 010 5z"/></svg></span>
+          <b data-en="Show the map">Покажи картата</b>
+          <small data-en="Loads Google Maps (Google may set cookies)">Зарежда Google Maps (Google може да постави бисквитки)</small>
+        </button>
       </div>
     </div>
   </section>
@@ -838,7 +842,7 @@
         <a href="https://www.google.com/maps?cid=1892105797985093642" target="_blank" rel="noopener" data-en="Google reviews">Отзиви в Google</a>
         <a href="https://www.instagram.com/kiwis.bg/" target="_blank" rel="noopener" class="ft-ig"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="2.5" width="19" height="19" rx="5.5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.6" cy="6.4" r="1.1" fill="currentColor" stroke="none"/></svg><span>Instagram</span></a>
         <a href="tel:+359892632470">+359 892 632 470</a>
-        <a href="/privacy.php" data-en="Privacy">Поверителност</a>
+        <a href="/privacy.html" data-en="Privacy">Поверителност</a>
       </nav>
       <p class="footer-copy">&copy; 2026 KiWi'S</p>
     </div>
