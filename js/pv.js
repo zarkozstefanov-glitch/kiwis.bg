@@ -1,7 +1,9 @@
 /* Product viewer on a green podium.
    - default: one product on the podium, the next arrives from behind on a curve
    - data-loop: endless carousel; neighbours stay visible on both sides
-   - data-scroll: on wide screens the page scroll turns the podium (pinned section) */
+   - data-scroll: on wide screens the page scroll turns the podium (pinned section);
+     with data-loop the scroll runs one full turn, back to the first dish, and the
+     arrows keep turning past the ends */
 (function () {
   'use strict';
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -21,6 +23,7 @@
     var loop = root.hasAttribute('data-loop') && n > 2;
     var wrap = root.closest('.pv-scroll');
     var cur = 0, target = 0, active = -1, W = 400, H = 400;
+    var shrink = root.querySelector('.pv-item--flat') ? 2.7 : 1.7;   // wide plates: smaller neighbours so they never overlap
 
     function measure() { W = stage.clientWidth; H = stage.clientHeight; }
 
@@ -36,7 +39,7 @@
           a = d * (Math.PI / 4.4);
           x = Math.sin(a) * W * 0.5;
           y = -(1 - Math.cos(a)) * H * 0.36;
-          s = Math.max(0.2, 1 - (1 - Math.cos(a)) * 1.7);
+          s = Math.max(0.2, 1 - (1 - Math.cos(a)) * shrink);
           op = ad < 1.05 ? 1 - ad * 0.38 : Math.max(0, 0.62 - (ad - 1.05) * 0.95);
           blur = ad * 1.6;
         } else {
@@ -95,30 +98,36 @@
       if (wrap) wrap.classList.toggle('is-pinned', pinned);
       measure(); render(cur);
     }
-    function fromScroll() {
-      if (!pinned) return;
+    var offset = 0;                                        // arrow/thumb steps taken while pinned
+    function scrollPos() {
       var r = wrap.getBoundingClientRect(), total = wrap.offsetHeight - window.innerHeight;
       var t = total > 0 ? Math.min(1, Math.max(0, -r.top / total)) : 0;
-      var raw = t * (n - 1), k = Math.floor(raw), f = raw - k;
+      // data-steps: how many dishes the page scroll turns through before the page moves on (arrows keep going)
+      var steps = wrap.hasAttribute('data-steps') ? Math.min(+wrap.dataset.steps, loop ? n : n - 1) : (loop ? n : n - 1);
+      var raw = t * steps, k = Math.floor(raw), f = raw - k;
       var g = Math.min(1, Math.max(0, (f - 0.35) / 0.3));
-      target = Math.min(n - 1, k + g * g * (3 - 2 * g));
+      return Math.min(steps, k + g * g * (3 - 2 * g));
+    }
+    function fromScroll() {
+      if (!pinned) return;
+      target = scrollPos() + offset;
       kick();
     }
     function step(dir) { go(loop ? Math.round(target) + dir : active + dir, true); }
     function go(k, relative) {
-      if (pinned) {
-        k = Math.max(0, Math.min(n - 1, k));
-        var total = wrap.offsetHeight - window.innerHeight;
-        window.scrollTo({ top: wrap.getBoundingClientRect().top + window.scrollY + total * (k / Math.max(1, n - 1)), behavior: reduce ? 'auto' : 'smooth' });
-        return;
-      }
       if (loop) {
         if (!relative) {                                   // jump to item k the short way round
           var base = Math.round(target), dd = mod(k - mod(base, n), n);
           if (dd > n / 2) dd -= n;
           k = base + dd;
         }
+        if (pinned) offset += k - target;                  // page stays where it is, only the podium turns
         target = k;
+      } else if (pinned) {
+        k = Math.max(0, Math.min(n - 1, k));
+        var total = wrap.offsetHeight - window.innerHeight;
+        window.scrollTo({ top: wrap.getBoundingClientRect().top + window.scrollY + total * (k / Math.max(1, n - 1)), behavior: reduce ? 'auto' : 'smooth' });
+        return;
       } else target = Math.max(0, Math.min(n - 1, k));
       kick();
     }

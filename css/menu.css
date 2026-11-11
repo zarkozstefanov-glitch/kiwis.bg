@@ -1,45 +1,98 @@
 /* ==========================================================
    MENU PAGE — loads after style.css and pv.css
-   Same nav as every page; category bar below it; each category
-   is a full-width green section with its own podium.
+   One continuous green page: every category is a full screen
+   with its own podium; sections blend into each other (no lines).
    ========================================================== */
-.page-menu { background: var(--forest); padding-top: var(--nav-h); }
+.page-menu { background: #12201A; padding-top: var(--nav-h); }
+.page-menu main { background: linear-gradient(180deg, #1A3020 0%, #142619 50%, #101C13 100%); }
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
 
-/* category bar under the main nav */
-.pills { position: sticky; top: var(--nav-h); z-index: 70; display: flex; gap: 6px; padding: 10px 14px; overflow-x: auto; scrollbar-width: none; background: rgba(17,29,20,.94); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border-top: 1px solid rgba(255,255,255,.06); border-bottom: 1px solid rgba(255,255,255,.06); }
-.pills::-webkit-scrollbar { display: none; }
-.pill { flex: none; padding: 8px 16px; border-radius: 50px; font-size: .82rem; font-weight: 600; color: rgba(250,246,240,.62); background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.08); transition: all .25s var(--ease); white-space: nowrap; }
-.pill:hover { color: var(--cream); }
-.pill.is-active { background: var(--sun); color: var(--ink); border-color: var(--sun); }
-@media (min-width: 960px) { .pills { justify-content: center; } }
+/* ---- category sections: one screen each, content centred ---- */
+.cat { position: relative; isolation: isolate; scroll-margin-top: var(--nav-h); color: var(--cream);
+  min-height: calc(100svh - var(--nav-h)); display: flex; flex-direction: column; justify-content: center; padding: 40px 0; }
+/* soft light behind each podium; fades out before the section edge, so nothing is cut */
+.cat::before { content: ''; position: absolute; inset: 0; z-index: -2; pointer-events: none;
+  background: radial-gradient(60% 55% at 30% 52%, rgba(62,108,70,.55) 0%, rgba(42,75,49,.25) 45%, transparent 75%); }
+.cat:nth-of-type(even)::before { background: radial-gradient(60% 55% at 70% 52%, rgba(62,108,70,.5) 0%, rgba(42,75,49,.22) 45%, transparent 75%); }
+.cat-word { position: absolute; z-index: -1; right: -2%; top: 4%; font-family: var(--ff); font-style: italic; font-weight: 800; font-size: clamp(5rem, 20vw, 15rem); line-height: .9; color: transparent; -webkit-text-stroke: 1px rgba(168,212,98,.13); pointer-events: none; white-space: nowrap; overflow: hidden; max-width: 100%; }
 
-/* intro */
-.menu-intro { padding: 34px 0 6px; color: var(--cream); background: radial-gradient(80% 140% at 50% 0%, #22402A, var(--forest) 70%); }
-.menu-intro .container { display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 10px 32px; }
-.menu-intro h1 { font-family: var(--ff); font-weight: 800; font-size: clamp(2.6rem, 9vw, 4.6rem); line-height: .95; letter-spacing: -.025em; position: relative; }
-.menu-intro h1::after { content: ''; display: block; width: 64px; height: 5px; border-radius: 4px; background: var(--sun); margin-top: 12px; }
-.menu-intro p { font-size: .9rem; color: rgba(250,246,240,.65); max-width: 480px; }
+.cat-head { display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 8px 20px; margin-bottom: 6px; }
+.cat-top { display: flex; align-items: center; gap: 12px; margin-bottom: 10px; }
+.cat-num { display: inline-block; font-family: var(--ff); font-weight: 700; font-size: .95rem; color: var(--ink); background: var(--sun); padding: 2px 10px; border-radius: 50px; }
+.cat-head h2 { font-family: var(--ff); font-size: clamp(1.8rem, 4.4vw, 3rem); font-weight: 700; line-height: 1.02; letter-spacing: -.015em; }
+.cat-meta { font-size: .8rem; font-weight: 600; padding: 6px 12px; border-radius: 50px; color: var(--sun); border: 1px solid rgba(255,194,68,.35); white-space: nowrap; }
 
-/* category sections */
-.cat { position: relative; overflow: hidden; isolation: isolate; scroll-margin-top: calc(var(--nav-h) + 54px); padding: 44px 0 40px; }
-@media (min-width: 960px) { .cat { padding: 72px 0 64px; } }
-.cat--green { background: radial-gradient(90% 70% at 30% 40%, #2A4B31 0%, #1C3322 55%, #12201A 100%); color: var(--cream); }
-.cat--green:nth-of-type(even) { background: radial-gradient(90% 70% at 70% 40%, #2A4B31 0%, #1A3020 55%, #101C13 100%); }
-.cat--green + .cat--green { border-top: 1px solid rgba(168,212,98,.1); }
-.cat-word { position: absolute; z-index: -1; right: -2%; top: 8px; font-family: var(--ff); font-style: italic; font-weight: 800; font-size: clamp(5rem, 22vw, 16rem); line-height: .9; color: transparent; -webkit-text-stroke: 1px rgba(168,212,98,.14); pointer-events: none; white-space: nowrap; }
-.cat-head { display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 8px 20px; margin-bottom: 10px; }
-.cat-num { display: inline-block; font-family: var(--ff); font-weight: 700; font-size: .95rem; color: var(--ink); background: var(--sun); padding: 2px 10px; border-radius: 50px; margin-bottom: 10px; }
-.cat-head h2 { font-family: var(--ff); font-size: clamp(1.9rem, 6vw, 3rem); font-weight: 700; line-height: 1.02; letter-spacing: -.015em; }
-.cat-head p { font-size: .94rem; margin-top: 6px; opacity: .72; }
-.cat-meta { font-size: .8rem; font-weight: 600; padding: 6px 12px; border-radius: 50px; color: var(--sun); border: 1px solid rgba(255,194,68,.35); }
-.cat--light { background: var(--cream); color: var(--ink); }
-.cat--light .cat-head h2 { color: var(--forest); }
+/* ---- drinks: same green page, list on a glass card ---- */
+.cat--drinks { min-height: 0; padding: 64px 0 40px; }
+.drinks { list-style: none; display: grid; margin-top: 18px; padding: 6px 20px; border-radius: 22px; background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.09); }
+@media (min-width: 769px) { .drinks { grid-template-columns: 1fr 1fr; column-gap: 48px; padding: 10px 30px; } }
+.drinks li { display: flex; align-items: baseline; gap: 10px; padding: 14px 0; border-bottom: 1px solid rgba(255,255,255,.07); font-weight: 600; color: var(--cream); }
+.drinks li::after { content: ''; order: 1; flex: 1; border-bottom: 1px dotted rgba(250,246,240,.25); transform: translateY(-4px); }
+.drinks li b { order: 2; font-family: var(--ff); color: var(--sun); white-space: nowrap; }
+.menu-foot { text-align: center; color: rgba(250,246,240,.5); font-size: .82rem; padding: 10px 20px 56px; }
 
-/* drinks list */
-.drinks { list-style: none; display: grid; background: var(--paper); border-radius: 22px; padding: 6px 18px; box-shadow: 0 20px 40px -32px rgba(26,45,30,.4); margin-top: 14px; }
-@media (min-width: 769px) { .drinks { grid-template-columns: 1fr 1fr; column-gap: 48px; padding: 10px 28px; } }
-.drinks li { display: flex; align-items: baseline; gap: 10px; padding: 14px 0; border-bottom: 1px solid rgba(26,45,30,.07); font-weight: 600; }
-.drinks li::after { content: ''; order: 1; flex: 1; border-bottom: 1px dotted rgba(26,45,30,.25); transform: translateY(-4px); }
-.drinks li b { order: 2; font-family: var(--ff); color: var(--leaf); white-space: nowrap; }
-.menu-foot { text-align: center; color: var(--ink3); font-size: .82rem; padding: 6px 20px 40px; background: var(--cream); max-width: none; }
-.page-menu main { background: var(--cream); }
+/* back arrow sits next to the first category number */
+.cat .back-link--dark { width: 40px; height: 40px; }
+
+/* ---- phones: the whole category (title, dish, name, macros, price) on one screen ---- */
+@media (max-width: 959px) {
+  .cat { padding: 18px 0 22px; justify-content: flex-start; }
+  .cat-head { flex-wrap: nowrap; align-items: center; margin-bottom: 0; }
+  .cat-top { margin-bottom: 6px; }
+  .cat-head h2 { font-size: clamp(1.45rem, 6.4vw, 2rem); }
+  .cat-meta { font-size: .72rem; padding: 4px 10px; align-self: flex-end; }
+  .cat-word { font-size: 26vw; top: 2%; }
+}
+@media (max-width: 400px) { .cat-meta { display: none; } }
+/* neighbours on the podium may reach past the edge — never cause sideways scrolling */
+.cat { overflow-x: clip; }
+.page-menu main { overflow-x: clip; }
+@media (max-width: 959px) { .cat-top { margin-bottom: 4px; } .cat .back-link--dark { width: 36px; height: 36px; } }
+
+/* ==========================================================
+   PHONES v4 — each category fills the screen: the podium takes all the
+   room that the text leaves, so there is no empty gap before the next one
+   ========================================================== */
+@media (max-width: 959px) {
+  .cat:not(.cat--drinks) { min-height: calc(100svh - var(--nav-h)); padding: 14px 0 18px; }
+  .cat:not(.cat--drinks) > .container { flex: 1; display: flex; flex-direction: column; }
+  .cat .pv { flex: 1; display: flex; flex-direction: column; gap: 6px; }
+  .cat .pv-stage { flex: 1 1 0; height: auto; aspect-ratio: auto !important; max-height: none !important; min-height: 15rem; }
+  .cat .pv-side { flex: none; }
+  .cat-head h2 { font-size: clamp(1.75rem, 7.8vw, 2.4rem); }
+  .cat-num { font-size: 1rem; }
+  /* dish never taller than its stage, so it never reaches into the heading */
+  .cat .pv--bare .pv-item:not(.pv-item--flat) { width: min(84cqw, 84cqh) !important; }
+  .cat .pv--bare .pv-item--flat { width: min(98cqw, 96cqh) !important; }
+  /* bigger text */
+  .cat .pv-num { font-size: 1.05rem; }
+  .cat .pv-name { font-size: clamp(1.7rem, 7.4vw, 2.2rem); }
+  .cat .pv-desc { font-size: 1rem; line-height: 1.45; height: calc(1.45em * 2); }
+  .cat .pv-m dt { font-size: .72rem; }
+  .cat .pv-m dd { font-size: .85rem; }
+  .cat .pv-m dd b { font-size: 1.35rem; }
+  .cat .pv-macros { margin: 12px 0; }
+  .cat .pv-price { font-size: 2.1rem; }
+  .cat .pv-w { font-size: .9rem; }
+  .cat .pv-ctas .btn { padding: 13px 20px; font-size: .98rem; }
+  .cat .pv-badge { font-size: .7rem; }
+}
+@media (max-width: 400px) { .cat .pv-m dt { font-size: .64rem; } .cat .pv-m dd b { font-size: 1.2rem; } .cat .pv-ctas .btn { padding: 12px 14px; font-size: .9rem; } }
+
+/* ==========================================================
+   PHONES v5 — fixed small gap between categories; every size follows the
+   screen width (320 → 430 px), so nothing wraps or gets cut on small phones
+   ========================================================== */
+@media (max-width: 959px) {
+  .cat:not(.cat--drinks) { padding: 18px 0 32px; }
+  .cat-head h2 { font-size: clamp(1.45rem, 7.4vw, 2.4rem); }
+  .cat .pv-name { font-size: clamp(1.3rem, 6.6vw, 2.1rem); line-height: 1.08; height: 2.2em; display: flex; align-items: flex-end; overflow: hidden; }
+  .cat .pv-desc { font-size: clamp(.84rem, 4vw, 1rem); }
+  .cat .pv-macros { gap: clamp(4px, 1.6vw, 8px); margin: clamp(8px, 2.6vw, 12px) 0; }
+  .cat .pv-m { padding: clamp(6px, 2vw, 9px) clamp(5px, 1.8vw, 9px) clamp(9px, 2.6vw, 12px); }
+  .cat .pv-m dt { font-size: clamp(.54rem, 2.7vw, .72rem); letter-spacing: 0; }
+  .cat .pv-m dd { font-size: clamp(.68rem, 3.2vw, .85rem); }
+  .cat .pv-m dd b { font-size: clamp(1rem, 5.2vw, 1.35rem); }
+  .cat .pv-price { font-size: clamp(1.4rem, 7.6vw, 2.1rem); }
+  .cat .pv-ctas .btn { padding: clamp(10px, 3vw, 13px) clamp(12px, 4.6vw, 20px); font-size: clamp(.78rem, 3.8vw, .98rem); }
+}

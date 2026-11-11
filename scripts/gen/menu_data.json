@@ -6,7 +6,7 @@
   "items": [
    {
     "img": "cloud-matcha",
-    "bg": "Matcha Late",
+    "bg": "Matcha Latte",
     "en": "Matcha Latte",
     "dbg": "Японско матча, мляко, клауд фоум топинг",
     "den": "Japanese matcha, milk, cloud foam topping",
@@ -135,7 +135,7 @@
     "img": "pork-brioche",
     "bg": "Свински Бриош",
     "en": "Pork Brioche",
-    "dbg": "Свински каретa, протеинов бриош, яйце, пушена майонеза, краставички, чедър, зелена салата и домат",
+    "dbg": "Свински карета, протеинов бриош, яйце, пушена майонеза, краставички, чедър, зелена салата и домат",
     "den": "Pork ribs, protein brioche, egg, smoked mayo, pickles, cheddar, lettuce & tomato",
     "w": "360 г",
     "price": "6.50",
@@ -229,10 +229,10 @@
     "badge_en": ""
    },
    {
-    "img": null,
+    "img": "turkey-portion",
     "bg": "Свинска порция",
     "en": "Pork Portion",
-    "dbg": "Свински каретa, басмати ориз, яйце, пушена майонеза, зеленчуци",
+    "dbg": "Свински карета, басмати ориз, яйце, пушена майонеза, зеленчуци",
     "den": "Pork ribs, basmati rice, egg, smoked mayo & vegetables",
     "w": "480 г",
     "price": "10.00",
@@ -368,7 +368,7 @@
     "en": "Oreo Protein Cheesecake",
     "dbg": "Орео бисквити, протеинов крем сирене, суроватъчен протеин",
     "den": "Oreo cookies, protein cream cheese, whey protein",
-    "w": "",
+    "w": "250 г",
     "price": "5.00",
     "k": 360,
     "p": 22,
@@ -383,7 +383,7 @@
     "en": "Protein with Biscuit & Hazelnut",
     "dbg": "Лешников крем, бишкотена основа, суроватъчен протеин",
     "den": "Hazelnut cream, biscuit base, whey protein",
-    "w": "",
+    "w": "250 г",
     "price": "5.00",
     "k": 350,
     "p": 22,
@@ -398,7 +398,7 @@
     "en": "Caramel Biscuit Cheesecake",
     "dbg": "Карамелен сос, бисквитена основа, протеинов крем сирене",
     "den": "Caramel sauce, biscuit base, protein cream cheese",
-    "w": "",
+    "w": "250 г",
     "price": "5.00",
     "k": 370,
     "p": 21,
@@ -413,7 +413,7 @@
     "en": "Mango & Coconut Protein Cheesecake",
     "dbg": "Манго пюре, кокосови стърготини, протеинов крем сирене",
     "den": "Mango puree, coconut flakes, protein cream cheese",
-    "w": "",
+    "w": "250 г",
     "price": "5.00",
     "k": 320,
     "p": 21,
@@ -428,7 +428,7 @@
     "en": "Strawberry & Blueberry with Chia, Skyr & Protein",
     "dbg": "Ягода, боровинка, чиа семена, скир, суроватъчен протеин",
     "den": "Strawberry, blueberry, chia seeds, skyr, whey protein",
-    "w": "",
+    "w": "250 г",
     "price": "5.00",
     "k": 260,
     "p": 20,
@@ -467,7 +467,7 @@
    ],
    [
     "Iced Latte",
-    "Студено Late",
+    "Студено лате",
     "3.50"
    ],
    [
@@ -487,7 +487,7 @@
    ],
    [
     "Espresso Tonic",
-    "Espresso Tonik",
+    "Espresso Tonic",
     "4.00"
    ],
    [

@@ -1,7 +1,7 @@
 import sys, json
 S, OUT = sys.argv[1], sys.argv[2]
 sys.path.insert(0, S)
-from pv_lib import viewer, e, GLOVO, nav, footer, sticky_order
+from pv_lib import viewer, e, GLOVO, nav, footer, sticky_order, price_bg, price_en, IG, IG_ICON
 
 head = open(f"{S}/head.html", encoding="utf-8").read()
 reviews = open(f"{S}/reviews_snippet.html", encoding="utf-8").read()
@@ -27,11 +27,11 @@ def photo(name, sizes, alt, w=1000, h=1333):
 
 # --- dishes our guests name in their Google reviews (quotes are verbatim) ---
 PRAISED = [
+    ("Манго и кокос протеинов чийзкейк", "Десертите с манго и тирамису бяха чудесен завършек на преживяването!", "Dimitar D."),
     ("Телешки Бриош", "Бриошът е абсолютен ТОР! Невероятно пухкав, ухаещ на масло и доведен до съвършенство", "Videlina S."),
     ("Свински Бриош", "Най-добрият сандвич с дърпано свинско месо", "Goran C."),
     ("Телешка порция", "Телешкото е невероятно вкусно, порциите са перфектни, а цените – повече от разумни за качеството.", "miroslava t."),
     ("Тирамису Cloud Foam", "Храната е отлична, а ice latte tiramisu беше звездата.", "Nicole G."),
-    ("Манго и кокос протеинов чийзкейк", "Десертите с манго и тирамису бяха чудесен завършек на преживяването!", "Dimitar D."),
 ]
 praised = []
 for name, q, by in PRAISED:
@@ -39,19 +39,26 @@ for name, q, by in PRAISED:
     praised.append(it)
 
 # --- menu categories ---
-CATS = [
-    ("cloud", "cloud-caramel-2", "Cloud Foam &amp; матча", "Cloud Foam &amp; matcha", "7 напитки", "7 drinks"),
-    ("sandwich", "beef-brioche-1", "Бриош сандвичи", "Brioche sandwiches", "6 вида · от 6 €", "6 kinds · from €6"),
-    ("portion", "chicken-portion-1", "Протеинови порции", "Protein bowls", "6 порции · от 9 €", "6 bowls · from €9"),
-    ("salad", "caesar-salad-1", "Салати", "Salads", "3 салати · от 5,50 €", "3 salads · from €5.50"),
-    ("dessert", "dessert-oreo-1", "Протеинови десерти", "Protein desserts", "5 вкуса · 5 €", "5 flavours · €5"),
-    ("coffee", "coffee-frappe-1", "Кафе и напитки", "Coffee &amp; drinks", "от 2,20 €", "from €2.20"),
-]
+# names, counts and prices come from the menu itself, so the cards always match menu.html
+CARD_IMG = {"cloud": "cloud-caramel-2", "sandwich": "pork-brioche-2", "portion": "chicken-portion-1",
+            "salad": "caesar-salad-1", "dessert": "dessert-oreo-1", "coffee": "coffee-frappe-1"}
+NOUN = {"cloud": ("напитки", "drinks"), "sandwich": ("сандвича", "sandwiches"), "portion": ("порции", "bowls"),
+        "salad": ("салати", "salads"), "dessert": ("десерта", "desserts"), "coffee": ("напитки", "drinks")}
+CATS = []
+for c in cats:
+    ps = sorted(float(i["price"]) for i in c["items"]) if c.get("items") else sorted(float(r[2]) for r in c["rows"])
+    cnt = len(c.get("items") or c["rows"])
+    nb, ne = NOUN[c["id"]]
+    if ps[0] == ps[-1]:
+        sub, sen = f"{cnt} {nb} · {price_bg(ps[0])}", f"{cnt} {ne} · {price_en(ps[0])}"
+    else:
+        sub, sen = f"{cnt} {nb} · от {price_bg(ps[0])}", f"{cnt} {ne} · from {price_en(ps[0])}"
+    CATS.append((c["id"], CARD_IMG[c["id"]], e(c["bg"]), e(c["en"]), sub, sen))
 cat_html = ""
 for i, (cid, img, bg, en, sub, sen) in enumerate(CATS):
     pic = (f'<img src="images/cut/{img}-500.webp" srcset="images/cut/{img}-500.webp 500w, images/cut/{img}-900.webp 900w" sizes="(min-width: 960px) 260px, 44vw" width="900" height="900" alt="" loading="lazy" decoding="async">'
            if img else '<img class="ct-photo" src="images/nest-frappe-600.webp" width="600" height="800" alt="" loading="lazy" decoding="async">')
-    cat_html += f'''        <a class="ct" href="menu.html#{cid}" data-reveal="{"left" if i % 2 == 0 else "right"}">
+    cat_html += f'''        <a class="ct ct--{cid}" href="menu.html#{cid}" data-reveal="{"left" if i % 2 == 0 else "right"}">
           <span class="ct-glow" aria-hidden="true"></span>{pic}
           <span class="ct-txt"><b data-en="{en}">{bg}</b><small data-en="{sen}">{sub}</small></span>
           <span class="ct-go" aria-hidden="true">&rarr;</span>
@@ -116,6 +123,22 @@ arts = "".join(f'''        <a class="art-card" href="{h}" data-reveal="up"><div 
 
 chicken = ITEMS["Пилешка порция"]
 
+PRAISED_HEAD = ('<div class="sec-head praised-head" data-reveal="up"><div><span class="kicker" data-en="From our reviews">От отзивите</span>'
+                '<h2 data-en="The dishes our guests write about.">Ястията, за които пишат гостите ни.</h2></div></div>')
+
+# --- lunch for the office: real dishes and prices from the menu ---
+def lo(cid):
+    return min(float(i["price"]) for c in cats if c["id"] == cid for i in c["items"])
+OFFICE = [("portion", "chicken-portion-1", "Протеинови порции", "Protein bowls", "Басмати ориз, месо или риба и зеленчуци", "Basmati rice, meat or fish and vegetables"),
+          ("salad", "salmon-salad-1", "Салати", "Salads", "Големи салати с протеинов дресинг", "Big salads with a protein dressing"),
+          ("sandwich", "turkey-brioche-1", "Бриош сандвичи", "Brioche sandwiches", "Протеинов бриош, изпечен при нас", "Protein brioche baked in-house")]
+office = "".join(f'''          <a class="of-card" href="menu.html#{cid}" data-reveal="up">
+            <span class="of-img"><img src="images/cut/{img}-500.webp" width="500" height="500" alt="" loading="lazy" decoding="async"></span>
+            <b data-en="{en}">{bg}</b><span data-en="{den}">{dbg}</span>
+            <em data-en="from {price_en(lo(cid))}">от {price_bg(lo(cid))}</em>
+          </a>
+''' for cid, img, bg, en, dbg, den in OFFICE)
+
 body = f'''<body>
   <script src="js/preloader.js"></script>
 {nav("home")}
@@ -158,13 +181,7 @@ body = f'''<body>
   </section>
 
   <section class="sec praised" id="praised">
-    <div class="container">
-      <div class="sec-head" data-reveal="up">
-        <div><span class="kicker kicker--lime" data-en="From our reviews">От отзивите</span>
-        <h2 data-en="The dishes our guests<br>write about.">Ястията, за които<br>пишат гостите ни.</h2></div>
-      </div>
-    </div>
-    {viewer("pv-praised", praised, scroll=True, show_menu_link=True).replace('class="pv"', 'class="pv pv--dark"', 1)}
+    {viewer("pv-praised", praised, scroll=True, show_menu_link=True, loop=True, bare=True, extra_cls="pv--sun", head=PRAISED_HEAD, steps=2)}
   </section>
 
   <section class="sec cats" id="categories">
@@ -175,6 +192,22 @@ body = f'''<body>
       </div>
       <div class="ct-grid">
 {cat_html}      </div>
+    </div>
+  </section>
+
+  <section class="sec office" id="office">
+    <div class="container office-grid">
+      <div class="office-copy" data-reveal="left">
+        <span class="kicker" data-en="Kiwi's for the office">Kiwi's за офиса</span>
+        <h2 data-en="A tasty lunch<br>for the whole team.">Вкусен обяд<br>за целия екип.</h2>
+        <p data-en="Protein bowls, salads and brioche sandwiches — every dish with its calories and macros. Order for the office on Glovo, or call us and pick the order up.">Протеинови порции, салати и бриош сандвичи — всяко ястие с калории и макроси. Поръчай за офиса през Glovo или ни се обади и вземи поръчката от място.</p>
+        <div class="office-btns">
+          <a class="btn btn--glovo" href="{GLOVO}" target="_blank" rel="noopener">{BIKE}<span data-en="Order on Glovo">Поръчай в Glovo</span></a>
+          <a class="btn btn--dark" href="tel:+359892632470">{CALL}<span>+359 892 632 470</span></a>
+        </div>
+      </div>
+      <div class="office-cards">
+{office}      </div>
     </div>
   </section>
 
@@ -229,10 +262,15 @@ body = f'''<body>
     </div>
   </section>
 
-  <section class="glovo-band" data-reveal="up">
-    <div class="container gb-inner">
-      <div><b data-en="Hungry at home or at work?">Гладен вкъщи или в офиса?</b><span data-en="The whole menu is on Glovo in Plovdiv.">Цялото меню е в Glovo в Пловдив.</span></div>
-      <a class="btn btn--dark btn--lg" href="{GLOVO}" target="_blank" rel="noopener">{BIKE}<span data-en="Order on Glovo">Поръчай в Glovo</span></a>
+  <section class="sec insta" id="instagram">
+    <div class="container insta-inner" data-reveal="up">
+      <a class="insta-icon" href="{IG}" target="_blank" rel="noopener" aria-label="Instagram @kiwis.bg">{IG_ICON.replace('width="18" height="18"', 'width="34" height="34"')}</a>
+      <div class="insta-copy">
+        <span class="kicker" data-en="Instagram">Instagram</span>
+        <h2 data-en="Follow us<br>@kiwis.bg">Последвай ни<br>@kiwis.bg</h2>
+        <p data-en="New drinks, dishes of the day and what's happening at Kiwi's.">Нови напитки, ястия и какво се случва в Kiwi's.</p>
+      </div>
+      <a class="btn btn--glovo btn--lg insta-btn" href="{IG}" target="_blank" rel="noopener">{IG_ICON}<span data-en="Follow on Instagram">Последвай в Instagram</span></a>
     </div>
   </section>
 
@@ -258,12 +296,14 @@ body = f'''<body>
   <section class="sec visit" id="visit">
     <div class="container visit-grid">
       <div class="visit-info h-card" data-reveal="left">
-        <span class="kicker" data-en="Find us">Намери ни</span>
+        <span class="kicker" data-en="Contact">Контакти</span>
         <h2 data-en="Come say hello.">Заповядай при нас.</h2>
         <ul class="visit-list">
           <li><b data-en="Address">Адрес</b><span class="p-adr h-adr"><span class="p-name" hidden>Kiwi's</span><span class="p-street-address" data-en="14 Nikola Karev St.">ул. „Никола Карев“ 14</span>, <span class="p-locality" data-en="Plovdiv">Пловдив</span><span class="p-country-name" hidden>България</span></span></li>
           <li><b data-en="Hours">Работно време</b><span data-en="Mon — Sat, 09:00 — 21:30 · Sunday closed">Пон — Съб, 09:00 — 21:30 · неделя почивен ден</span></li>
           <li><b data-en="Phone">Телефон</b><span><a class="p-tel" href="tel:+359892632470">+359 892 632 470</a></span></li>
+          <li><b>Instagram</b><span><a class="vl-ig" href="{IG}" target="_blank" rel="noopener">{IG_ICON}@kiwis.bg</a></span></li>
+          <li><b data-en="Delivery">Доставка</b><span><a href="{GLOVO}" target="_blank" rel="noopener">Glovo</a> <span data-en="in Plovdiv">в Пловдив</span></span></li>
         </ul>
         <div class="visit-btns">
           <a href="{DIR}" class="btn btn--dark" target="_blank" rel="noopener" data-en="Get directions">Упътване</a>

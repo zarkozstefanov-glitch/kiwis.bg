@@ -144,6 +144,7 @@ def shell(title, desc, canon, body, ld, og_img="/images/og-image.jpg"):
 <html lang="bg" data-lang="bg">
 <head>
   <meta charset="UTF-8">
+  <style>@view-transition{{navigation:auto}}</style>
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>{H.escape(title)}</title>
   <meta name="description" content="{H.escape(desc)}">

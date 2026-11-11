@@ -1,14 +1,14 @@
 /* Articles */
 .blog main { padding-top: calc(var(--nav-h) + 28px); background: var(--paper); }
 .post { padding-bottom: 72px; }
-.post-head { max-width: 860px; }
+.post-head { max-width: 53.75rem; }
 .crumbs { font-size: .82rem; color: var(--ink3); margin-bottom: 12px; }
 .crumbs a { color: var(--moss); }
 .post h1 { font-family: var(--ff); font-weight: 800; color: var(--forest); font-size: clamp(2rem, 6vw, 3.2rem); line-height: 1.05; letter-spacing: -.015em; }
 .post-meta { color: var(--ink3); margin-top: 10px; font-size: .9rem; }
-.post-hero { max-width: 860px; margin-top: 24px; }
+.post-hero { max-width: 53.75rem; margin-top: 24px; }
 .post-hero img { width: 100%; max-height: 460px; object-fit: cover; border-radius: 20px; }
-.post-body { max-width: 720px; margin-top: 28px; font-size: 1.04rem; color: var(--ink2); }
+.post-body { max-width: 45rem; margin-top: 28px; font-size: 1.04rem; color: var(--ink2); }
 .post-body h2 { font-family: var(--ff); color: var(--forest); font-size: 1.5rem; margin: 34px 0 10px; line-height: 1.2; }
 .post-body p { margin-bottom: 14px; }
 .post-body .lead { font-size: 1.18rem; color: var(--ink); }
@@ -34,5 +34,15 @@
 .blog-list { margin-top: 30px; }
 .blog-list h2 { font-family: var(--ff); font-size: 1.3rem; color: var(--forest); line-height: 1.25; }
 .blog-list p { font-size: .92rem; color: var(--ink2); }
-.back-link { display: inline-flex; align-items: center; gap: 6px; font-weight: 600; font-size: .9rem; color: var(--forest); padding: 8px 14px 8px 10px; margin-bottom: 14px; border-radius: 50px; background: var(--cream); border: 1px solid rgba(26,45,30,.1); transition: background .2s, transform .2s; }
-.back-link:hover { background: var(--sun); transform: translateX(-3px); }
+
+/* ---- one centred column: heading, photo and text share the same width ---- */
+.post-head, .post-hero, .post-body { max-width: 48.75rem; }
+.post-hero { margin-top: 26px; }
+.post-hero img { width: 100%; height: auto; max-height: none; aspect-ratio: 16 / 10; object-fit: cover; object-position: 50% 62%; border-radius: 22px; box-shadow: 0 30px 60px -36px rgba(26,45,30,.45); }
+.post-body { margin-top: 32px; }
+.blog-list { max-width: 72.5rem; }
+.blog-list .art-img { aspect-ratio: 4 / 3; }
+.blog-list .art-card { align-content: start; }
+/* list page: heading lines up with the cards */
+.post:has(.blog-list) .post-head { max-width: 72.5rem; }
+.art-img img { object-position: 50% 68%; }

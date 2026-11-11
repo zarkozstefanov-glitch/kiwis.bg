@@ -83,11 +83,19 @@ document.addEventListener('DOMContentLoaded', () => {
   const sticky = $('#stickyOrder'), hero = $('#hero');
   const blobs = $$('[data-speed]'), draws = $$('.draw');
   draws.forEach(p => { try { p.setAttribute('pathLength', '1'); } catch (e) {} });
-  let ticking = false;
+  let ticking = false, lastY = scrollY, idle = 0;
+  // order bar (phones): shows only while the visitor scrolls UP, hides when scrolling down or stopping
+  const hideBar = () => sticky && sticky.classList.remove('is-visible');
   const onScroll = () => {
     ticking = false;
-    const y = scrollY, vh = innerHeight;
-    if (sticky) sticky.classList.toggle('is-visible', hero ? y > hero.offsetHeight * 0.7 : true);
+    const y = scrollY, vh = innerHeight, dy = y - lastY;
+    lastY = y;
+    if (sticky && Math.abs(dy) > 3) {
+      const pastHero = hero ? y > hero.offsetHeight * 0.7 : y > 200;
+      sticky.classList.toggle('is-visible', dy < 0 && pastHero);
+      clearTimeout(idle);
+      if (dy < 0) idle = setTimeout(hideBar, 1400);
+    }
     if (reduce) return;
     blobs.forEach(b => {
       const r = b.parentElement.getBoundingClientRect();
