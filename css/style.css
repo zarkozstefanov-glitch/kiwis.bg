@@ -653,3 +653,10 @@ button { border: 0; background: none; cursor: pointer; font: inherit; color: inh
 /* About now sits between Articles (white) and Contacts (cream): its own soft green so the three read apart */
 .about { background: var(--gp); }
 .about-stats div { background: var(--paper); }
+/* alternate section backgrounds in the current order:
+   reviews cream · office white · macros cream · menu white · gallery cream · instagram white · faq cream · articles white · about green · contacts cream */
+.office { background: var(--paper); }
+.cats { background: var(--paper); }
+.nest { background: var(--cream); }
+.insta { padding-top: 56px; }
+@media (min-width: 769px) { .insta { padding-top: 80px; } }

@@ -184,17 +184,6 @@ body = f'''<body>
     </div>
   </section>
 
-  <section class="sec cats" id="categories">
-    <div class="container">
-      <div class="sec-head">
-        <div data-reveal="left"><span class="kicker" data-en="The menu">Менюто</span><h2 data-en="What's on the menu.">Какво има в менюто.</h2></div>
-        <a href="menu.html" class="sec-link" data-reveal="right" data-en="Full menu &rarr;">Цялото меню &rarr;</a>
-      </div>
-      <div class="ct-grid">
-{cat_html}      </div>
-    </div>
-  </section>
-
   <section class="sec office" id="office">
     <div class="container office-grid">
       <div class="office-copy" data-reveal="left">
@@ -229,6 +218,17 @@ body = f'''<body>
         <div class="nl-row"><span data-en="Fat">Мазнини</span><b><span data-count="{chicken["f"]}">{chicken["f"]}</span> г</b></div>
         <p class="nl-note" data-en="Approximate values, calculated from the recipe.">Приблизителни стойности, изчислени по рецептата.</p>
       </div>
+    </div>
+  </section>
+
+  <section class="sec cats" id="categories">
+    <div class="container">
+      <div class="sec-head">
+        <div data-reveal="left"><span class="kicker" data-en="The menu">Менюто</span><h2 data-en="What's on the menu.">Какво има в менюто.</h2></div>
+        <a href="menu.html" class="sec-link" data-reveal="right" data-en="Full menu &rarr;">Цялото меню &rarr;</a>
+      </div>
+      <div class="ct-grid">
+{cat_html}      </div>
     </div>
   </section>
 
