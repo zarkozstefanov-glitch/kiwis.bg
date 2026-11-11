@@ -1,8 +1,8 @@
 /* "Join the Kiwi's family" — newsletter card (see /api/subscribe.php).
-   Appears 5 s after the page opens; "Не сега" hides it for 14 days, signing up hides it for good. */
+   Appears 10 s after the page opens; "Не сега" hides it for 14 days, signing up hides it for good. */
 (function () {
   'use strict';
-  var KEY = 'kiwi-join', SHOW_AFTER = 5000, SNOOZE = 14 * 864e5;
+  var KEY = 'kiwi-join', SHOW_AFTER = 10000, SNOOZE = 14 * 864e5;
   var get = function () { try { return JSON.parse(localStorage.getItem(KEY) || 'null'); } catch (e) { return null; } };
   var set = function (v) { try { localStorage.setItem(KEY, JSON.stringify(v)); } catch (e) {} };
   var en = function () { return document.documentElement.getAttribute('data-lang') === 'en'; };
