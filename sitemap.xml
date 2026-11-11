@@ -4,12 +4,19 @@
     <loc>https://kiwis.bg/</loc>
     <lastmod>__LASTMOD__</lastmod>
     <image:image><image:loc>https://kiwis.bg/images/hero.jpg</image:loc></image:image>
+    <image:image><image:loc>https://kiwis.bg/images/nest-terrace.jpg</image:loc></image:image>
+    <image:image><image:loc>https://kiwis.bg/images/nest-interior.jpg</image:loc></image:image>
   </url>
   <url>
     <loc>https://kiwis.bg/menu.html</loc>
     <lastmod>__LASTMOD__</lastmod>
-    <image:image><image:loc>https://kiwis.bg/images/beef-brioche.jpg</image:loc></image:image>
-    <image:image><image:loc>https://kiwis.bg/images/matcha-cloud.jpg</image:loc></image:image>
+    <image:image><image:loc>https://kiwis.bg/images/chicken-portion.jpg</image:loc></image:image>
     <image:image><image:loc>https://kiwis.bg/images/salmon-portion.jpg</image:loc></image:image>
+    <image:image><image:loc>https://kiwis.bg/images/cloud-pumpkin.jpg</image:loc></image:image>
+    <image:image><image:loc>https://kiwis.bg/images/dessert-oreo.jpg</image:loc></image:image>
   </url>
+  <url><loc>https://kiwis.bg/blog/</loc><lastmod>__LASTMOD__</lastmod></url>
+  <url><loc>https://kiwis.bg/blog/kolko-protein-na-den.html</loc><lastmod>__LASTMOD__</lastmod></url>
+  <url><loc>https://kiwis.bg/blog/makrosi-za-nachinaeshti.html</loc><lastmod>__LASTMOD__</lastmod></url>
+  <url><loc>https://kiwis.bg/blog/zdravoslovno-hranene-navan.html</loc><lastmod>__LASTMOD__</lastmod></url>
 </urlset>

@@ -1,0 +1,500 @@
+[
+ {
+  "id": "cloud",
+  "en": "Cloud Foam & Matcha",
+  "bg": "Cloud Foam & Matcha",
+  "items": [
+   {
+    "img": "cloud-matcha",
+    "bg": "Matcha Late",
+    "en": "Matcha Latte",
+    "dbg": "Японско матча, мляко, клауд фоум топинг",
+    "den": "Japanese matcha, milk, cloud foam topping",
+    "w": "",
+    "price": "4.50",
+    "k": 190,
+    "p": 9,
+    "c": 24,
+    "f": 6,
+    "badge": "",
+    "badge_en": ""
+   },
+   {
+    "img": "cloud-pumpkin",
+    "bg": "Тиква Cloud Foam",
+    "en": "Pumpkin Cloud Foam",
+    "dbg": "Тиквено пюре с канела, мляко, клауд фоум топинг и бисквитена трошица",
+    "den": "Pumpkin puree with cinnamon, milk, cloud foam topping & biscuit crumble",
+    "w": "",
+    "price": "5.00",
+    "k": 290,
+    "p": 8,
+    "c": 42,
+    "f": 9,
+    "badge": "Ново",
+    "badge_en": "New"
+   },
+   {
+    "img": "cloud-caramel",
+    "bg": "Карамел Cloud Foam",
+    "en": "Caramel Cloud Foam",
+    "dbg": "Карамелен сироп, мляко, клауд фоум топинг",
+    "den": "Caramel syrup, milk, cloud foam topping",
+    "w": "",
+    "price": "5.00",
+    "k": 300,
+    "p": 9,
+    "c": 44,
+    "f": 9,
+    "badge": "Популярно",
+    "badge_en": "Popular"
+   },
+   {
+    "img": "cloud-mango",
+    "bg": "Манго и кокос Cloud Foam",
+    "en": "Mango & Coconut Cloud Foam",
+    "dbg": "Манго пюре, кокосово мляко, клауд фоум топинг",
+    "den": "Mango puree, coconut milk, cloud foam topping",
+    "w": "",
+    "price": "5.00",
+    "k": 270,
+    "p": 6,
+    "c": 38,
+    "f": 10,
+    "badge": "",
+    "badge_en": ""
+   },
+   {
+    "img": "cloud-tiramisu",
+    "bg": "Тирамису Cloud Foam",
+    "en": "Tiramisu Cloud Foam",
+    "dbg": "Еспресо, маскарпоне крем, какао, клауд фоум топинг",
+    "den": "Espresso, mascarpone cream, cocoa, cloud foam topping",
+    "w": "",
+    "price": "5.00",
+    "k": 310,
+    "p": 9,
+    "c": 40,
+    "f": 12,
+    "badge": "",
+    "badge_en": ""
+   },
+   {
+    "img": "cloud-strawberry",
+    "bg": "Ягода Cloud Foam",
+    "en": "Strawberry Cloud Foam",
+    "dbg": "Ягодово пюре, мляко, клауд фоум топинг",
+    "den": "Strawberry puree, milk, cloud foam topping",
+    "w": "",
+    "price": "5.00",
+    "k": 260,
+    "p": 8,
+    "c": 38,
+    "f": 8,
+    "badge": "",
+    "badge_en": ""
+   },
+   {
+    "img": "cloud-blueberry",
+    "bg": "Боровинка Cloud Foam",
+    "en": "Blueberry Cloud Foam",
+    "dbg": "Боровинково пюре, мляко, клауд фоум топинг",
+    "den": "Blueberry puree, milk, cloud foam topping",
+    "w": "",
+    "price": "5.00",
+    "k": 260,
+    "p": 8,
+    "c": 38,
+    "f": 8,
+    "badge": "",
+    "badge_en": ""
+   }
+  ]
+ },
+ {
+  "id": "sandwich",
+  "en": "Protein Sandwiches",
+  "bg": "Протеинови Сандвичи",
+  "items": [
+   {
+    "img": "chicken-brioche",
+    "bg": "Пилешки Бриош",
+    "en": "Chicken Brioche",
+    "dbg": "Пилешко филе, протеинов бриош, яйце, котидж крем, зелена салата и чедър, домат",
+    "den": "Chicken fillet, protein brioche, egg, cottage cream, lettuce, cheddar & tomato",
+    "w": "350 г",
+    "price": "6.00",
+    "k": 640,
+    "p": 52,
+    "c": 48,
+    "f": 22,
+    "badge": "",
+    "badge_en": ""
+   },
+   {
+    "img": "pork-brioche",
+    "bg": "Свински Бриош",
+    "en": "Pork Brioche",
+    "dbg": "Свински каретa, протеинов бриош, яйце, пушена майонеза, краставички, чедър, зелена салата и домат",
+    "den": "Pork ribs, protein brioche, egg, smoked mayo, pickles, cheddar, lettuce & tomato",
+    "w": "360 г",
+    "price": "6.50",
+    "k": 780,
+    "p": 46,
+    "c": 50,
+    "f": 40,
+    "badge": "",
+    "badge_en": ""
+   },
+   {
+    "img": "beef-brioche",
+    "bg": "Телешки Бриош",
+    "en": "Black Angus Beef Brioche",
+    "dbg": "Black Angus кюфте, протеинов бриош, яйце, чедър, карамелизиран лук, кисели краставички, маруля и домат",
+    "den": "Black Angus patty, protein brioche, egg, cheddar, caramelized onion, pickles, lettuce & tomato",
+    "w": "370 г",
+    "price": "7.50",
+    "k": 790,
+    "p": 48,
+    "c": 52,
+    "f": 41,
+    "badge": "Хит",
+    "badge_en": "Best Seller"
+   },
+   {
+    "img": "turkey-brioche",
+    "bg": "Пуешки Бриош",
+    "en": "Turkey Brioche",
+    "dbg": "Пуешко филе, протеинов бриош, домат, билков скир сос, хрупкав лук, чедър и маринован лук",
+    "den": "Turkey fillet, protein brioche, tomato, herb skyr sauce, crispy onion, cheddar & pickled onion",
+    "w": "360 г",
+    "price": "6.00",
+    "k": 620,
+    "p": 55,
+    "c": 50,
+    "f": 20,
+    "badge": "",
+    "badge_en": ""
+   },
+   {
+    "img": "salmon-brioche",
+    "bg": "Двойна сьомга Бриош",
+    "en": "Double Salmon Brioche",
+    "dbg": "Печена и пушена сьомга, рола крема сирене с билки и лимон, авокадо, каперси, маруля и маринован лук",
+    "den": "Grilled & smoked salmon, herb cream cheese roll with lemon, avocado, capers, lettuce & pickled onion",
+    "w": "370 г",
+    "price": "7.50",
+    "k": 690,
+    "p": 43,
+    "c": 47,
+    "f": 36,
+    "badge": "Премиум",
+    "badge_en": "Premium"
+   },
+   {
+    "img": "veg-brioche",
+    "bg": "Вегетариански Бриош",
+    "en": "Vegetarian Brioche",
+    "dbg": "Протеинов бриош, омлет, авокадо, пушена майонеза, домат, зелена салата",
+    "den": "Protein brioche, omelette, avocado, smoked mayo, tomato & lettuce",
+    "w": "350 г",
+    "price": "6.00",
+    "k": 650,
+    "p": 28,
+    "c": 46,
+    "f": 38,
+    "badge": "",
+    "badge_en": ""
+   }
+  ]
+ },
+ {
+  "id": "portion",
+  "en": "Protein Portions",
+  "bg": "Протеинови Порции",
+  "items": [
+   {
+    "img": "chicken-portion",
+    "bg": "Пилешка порция",
+    "en": "Chicken Portion",
+    "dbg": "Пилешко филе, басмати ориз, яйце, котидж крем, кисели краставички, зеленчуци",
+    "den": "Chicken fillet, basmati rice, egg, cottage cream, pickles & vegetables",
+    "w": "470 г",
+    "price": "10.00",
+    "k": 680,
+    "p": 60,
+    "c": 65,
+    "f": 15,
+    "badge": "",
+    "badge_en": ""
+   },
+   {
+    "img": null,
+    "bg": "Свинска порция",
+    "en": "Pork Portion",
+    "dbg": "Свински каретa, басмати ориз, яйце, пушена майонеза, зеленчуци",
+    "den": "Pork ribs, basmati rice, egg, smoked mayo & vegetables",
+    "w": "480 г",
+    "price": "10.00",
+    "k": 850,
+    "p": 42,
+    "c": 62,
+    "f": 43,
+    "badge": "",
+    "badge_en": ""
+   },
+   {
+    "img": "beef-portion",
+    "bg": "Телешка порция",
+    "en": "Black Angus Beef Portion",
+    "dbg": "Black Angus телешко кюфте, басмати ориз, яйце, чедър сос, кисели краставички, карамелизиран лук и зеленчуци",
+    "den": "Black Angus patty, basmati rice, egg, cheddar sauce, pickles, caramelized onion & vegetables",
+    "w": "480 г",
+    "price": "12.00",
+    "k": 890,
+    "p": 45,
+    "c": 72,
+    "f": 42,
+    "badge": "Премиум",
+    "badge_en": "Premium"
+   },
+   {
+    "img": "turkey-portion",
+    "bg": "Пуешка порция",
+    "en": "Turkey Portion",
+    "dbg": "Пуешко филе, басмати ориз, яйце, билков скир сос, хрупкав лук, маринован лук и зеленчуци",
+    "den": "Turkey fillet, basmati rice, egg, herb skyr sauce, crispy onion, pickled onion & vegetables",
+    "w": "470 г",
+    "price": "10.00",
+    "k": 660,
+    "p": 58,
+    "c": 68,
+    "f": 14,
+    "badge": "",
+    "badge_en": ""
+   },
+   {
+    "img": "salmon-portion",
+    "bg": "Сьомга порция",
+    "en": "Salmon Portion",
+    "dbg": "Печена сьомга, яйце, билков скир сос, лимон, авокадо, басмати ориз, маринован лук и зеленчуци",
+    "den": "Grilled salmon, egg, herb skyr sauce, lemon, avocado, basmati rice, pickled onion & vegetables",
+    "w": "470 г",
+    "price": "12.00",
+    "k": 760,
+    "p": 43,
+    "c": 67,
+    "f": 31,
+    "badge": "Премиум",
+    "badge_en": "Premium"
+   },
+   {
+    "img": "veg-portion",
+    "bg": "Вегетарианска порция",
+    "en": "Vegetarian Portion",
+    "dbg": "Басмати ориз, билков скир сос, лимон, омлет, авокадо, зеленчуци",
+    "den": "Basmati rice, herb skyr sauce, lemon, omelette, avocado & vegetables",
+    "w": "450 г",
+    "price": "9.00",
+    "k": 640,
+    "p": 29,
+    "c": 66,
+    "f": 25,
+    "badge": "",
+    "badge_en": ""
+   }
+  ]
+ },
+ {
+  "id": "salad",
+  "en": "Fresh Salads",
+  "bg": "Салати",
+  "items": [
+   {
+    "img": "caesar-salad",
+    "bg": "Цезар",
+    "en": "Caesar",
+    "dbg": "Пиле, протеинов дресинг, крутони и пармезан",
+    "den": "Chicken, protein dressing, croutons & parmesan",
+    "w": "320 г",
+    "price": "6.00",
+    "k": 400,
+    "p": 44,
+    "c": 22,
+    "f": 15,
+    "badge": "",
+    "badge_en": ""
+   },
+   {
+    "img": "salmon-salad",
+    "bg": "Салата печена сьомга",
+    "en": "Grilled Salmon Salad",
+    "dbg": "Печена сьомга, зелена салата, червен боб, чери домати, царевица, маслини, чушка, билков скир дресинг и лимон",
+    "den": "Grilled salmon, green salad, red beans, cherry tomatoes, corn, olives, peppers, herb skyr dressing & lemon",
+    "w": "320 г",
+    "price": "7.00",
+    "k": 390,
+    "p": 28,
+    "c": 24,
+    "f": 18,
+    "badge": "Премиум",
+    "badge_en": "Premium"
+   },
+   {
+    "img": "veg-salad",
+    "bg": "Вегетарианска салата",
+    "en": "Vegetarian Salad",
+    "dbg": "Зелена салата, варени яйца, червен боб, царевица, чушка, чери домат и млечен дресинг",
+    "den": "Green salad, boiled eggs, red beans, corn, peppers, cherry tomato & milk dressing",
+    "w": "310 г",
+    "price": "5.50",
+    "k": 330,
+    "p": 19,
+    "c": 26,
+    "f": 15,
+    "badge": "",
+    "badge_en": ""
+   }
+  ]
+ },
+ {
+  "id": "dessert",
+  "en": "Desserts in a Can",
+  "bg": "Десерти в кен",
+  "items": [
+   {
+    "img": "dessert-oreo",
+    "bg": "Орео протеинов чийзкейк",
+    "en": "Oreo Protein Cheesecake",
+    "dbg": "Орео бисквити, протеинов крем сирене, суроватъчен протеин",
+    "den": "Oreo cookies, protein cream cheese, whey protein",
+    "w": "",
+    "price": "5.00",
+    "k": 360,
+    "p": 22,
+    "c": 36,
+    "f": 14,
+    "badge": "",
+    "badge_en": ""
+   },
+   {
+    "img": "dessert-hazelnut",
+    "bg": "Протеинов с бишкота и лешник",
+    "en": "Protein with Biscuit & Hazelnut",
+    "dbg": "Лешников крем, бишкотена основа, суроватъчен протеин",
+    "den": "Hazelnut cream, biscuit base, whey protein",
+    "w": "",
+    "price": "5.00",
+    "k": 350,
+    "p": 22,
+    "c": 35,
+    "f": 13,
+    "badge": "",
+    "badge_en": ""
+   },
+   {
+    "img": "dessert-caramel",
+    "bg": "Карамел бисквит чийзкейк",
+    "en": "Caramel Biscuit Cheesecake",
+    "dbg": "Карамелен сос, бисквитена основа, протеинов крем сирене",
+    "den": "Caramel sauce, biscuit base, protein cream cheese",
+    "w": "",
+    "price": "5.00",
+    "k": 370,
+    "p": 21,
+    "c": 40,
+    "f": 14,
+    "badge": "",
+    "badge_en": ""
+   },
+   {
+    "img": "dessert-mango",
+    "bg": "Манго и кокос протеинов чийзкейк",
+    "en": "Mango & Coconut Protein Cheesecake",
+    "dbg": "Манго пюре, кокосови стърготини, протеинов крем сирене",
+    "den": "Mango puree, coconut flakes, protein cream cheese",
+    "w": "",
+    "price": "5.00",
+    "k": 320,
+    "p": 21,
+    "c": 32,
+    "f": 12,
+    "badge": "",
+    "badge_en": ""
+   },
+   {
+    "img": "dessert-berry",
+    "bg": "Ягода и боровинка с чиа, скир и протеин",
+    "en": "Strawberry & Blueberry with Chia, Skyr & Protein",
+    "dbg": "Ягода, боровинка, чиа семена, скир, суроватъчен протеин",
+    "den": "Strawberry, blueberry, chia seeds, skyr, whey protein",
+    "w": "",
+    "price": "5.00",
+    "k": 260,
+    "p": 20,
+    "c": 29,
+    "f": 7,
+    "badge": "",
+    "badge_en": ""
+   }
+  ]
+ },
+ {
+  "id": "coffee",
+  "en": "Coffee & Classics",
+  "bg": "Coffee and Classics",
+  "items": [],
+  "rows": [
+   [
+    "Coffee",
+    "Кафе",
+    "2.20"
+   ],
+   [
+    "Coffee with Milk",
+    "Кафе с мляко",
+    "2.50"
+   ],
+   [
+    "Cappuccino",
+    "Капучино",
+    "3.00"
+   ],
+   [
+    "Frappe",
+    "Фрапе",
+    "3.20"
+   ],
+   [
+    "Iced Latte",
+    "Студено Late",
+    "3.50"
+   ],
+   [
+    "Hot Chocolate",
+    "Горещ шоколад",
+    "4.00"
+   ],
+   [
+    "Lemonade",
+    "Лимонада",
+    "3.80"
+   ],
+   [
+    "Fresh Juice",
+    "Фреш",
+    "3.50"
+   ],
+   [
+    "Espresso Tonic",
+    "Espresso Tonik",
+    "4.00"
+   ],
+   [
+    "Tea",
+    "Чай",
+    "3.00"
+   ]
+  ]
+ }
+]

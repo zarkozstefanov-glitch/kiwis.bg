@@ -8,7 +8,9 @@
   var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var nav = window.performance && performance.getEntriesByType ? performance.getEntriesByType('navigation')[0] : null;
   var fromOwnPage = document.referrer.indexOf(location.origin + '/') === 0 && !(nav && nav.type === 'reload');
-  if (reduceMotion || fromOwnPage || !window.Path2D) return;
+  var seen = false;
+  try { seen = sessionStorage.getItem('kiwi-intro') === '1'; sessionStorage.setItem('kiwi-intro', '1'); } catch (e) {}
+  if (reduceMotion || fromOwnPage || seen || !window.Path2D) return;
 
   // ---------- setup ----------
   var canvas = document.createElement('canvas');

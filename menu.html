@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <title>Меню — Kiwi's Пловдив | Протеинови сандвичи, порции, салати, матча</title>
-  <meta name="description" content="Менюто на Kiwi's в Пловдив с цени: протеинови бриош сандвичи от 6 €, протеинови порции от 9 €, салати, протеинови десерти в кен, матча, Cloud Foam, кафе и фреш.">
+  <title>Меню и цени — Kiwi's Пловдив | Протеинови порции, сандвичи, салати, Cloud Foam (с калории)</title>
+  <meta name="description" content="Менюто на Kiwi's в Пловдив с цени, калории и макроси: протеинови порции до 60 г протеин, бриош сандвичи от 6 €, салати, протеинови десерти и Cloud Foam (ново: Тиква Cloud Foam). Доставка с Glovo.">
   <link rel="canonical" href="https://kiwis.bg/menu.html">
   <meta name="robots" content="index, follow, max-image-preview:large">
   <meta name="theme-color" content="#1B2E1E">
@@ -27,8 +27,10 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/pv.css">
   <link rel="stylesheet" href="css/menu.css">
-  <script type="application/ld+json">
+            <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "Menu",
@@ -51,66 +53,131 @@
           "@type": "MenuItem",
           "name": "Matcha Late",
           "description": "Японско матча, мляко, клауд фоум топинг",
-          "image": "https://kiwis.bg/images/matcha-cloud.jpg",
           "offers": {
             "@type": "Offer",
             "price": "4.50",
-            "priceCurrency": "EUR"
+            "priceCurrency": "EUR",
+            "availability": "https://schema.org/InStock"
+          },
+          "nutrition": {
+            "@type": "NutritionInformation",
+            "calories": "190 kcal",
+            "proteinContent": "9 g",
+            "carbohydrateContent": "24 g",
+            "fatContent": "6 g"
           }
+        },
+        {
+          "@type": "MenuItem",
+          "name": "Тиква Cloud Foam",
+          "description": "Тиквено пюре с канела, мляко, клауд фоум топинг и бисквитена трошица",
+          "offers": {
+            "@type": "Offer",
+            "price": "5.00",
+            "priceCurrency": "EUR",
+            "availability": "https://schema.org/InStock"
+          },
+          "nutrition": {
+            "@type": "NutritionInformation",
+            "calories": "290 kcal",
+            "proteinContent": "8 g",
+            "carbohydrateContent": "42 g",
+            "fatContent": "9 g"
+          },
+          "image": "https://kiwis.bg/images/cut/cloud-pumpkin-1-900.webp"
         },
         {
           "@type": "MenuItem",
           "name": "Карамел Cloud Foam",
           "description": "Карамелен сироп, мляко, клауд фоум топинг",
-          "image": "https://kiwis.bg/images/cloud-caramel.jpg",
           "offers": {
             "@type": "Offer",
             "price": "5.00",
-            "priceCurrency": "EUR"
-          }
+            "priceCurrency": "EUR",
+            "availability": "https://schema.org/InStock"
+          },
+          "nutrition": {
+            "@type": "NutritionInformation",
+            "calories": "300 kcal",
+            "proteinContent": "9 g",
+            "carbohydrateContent": "44 g",
+            "fatContent": "9 g"
+          },
+          "image": "https://kiwis.bg/images/cut/cloud-caramel-1-900.webp"
         },
         {
           "@type": "MenuItem",
           "name": "Манго и кокос Cloud Foam",
           "description": "Манго пюре, кокосово мляко, клауд фоум топинг",
-          "image": "https://kiwis.bg/images/cloud-mango.jpg",
           "offers": {
             "@type": "Offer",
             "price": "5.00",
-            "priceCurrency": "EUR"
-          }
+            "priceCurrency": "EUR",
+            "availability": "https://schema.org/InStock"
+          },
+          "nutrition": {
+            "@type": "NutritionInformation",
+            "calories": "270 kcal",
+            "proteinContent": "6 g",
+            "carbohydrateContent": "38 g",
+            "fatContent": "10 g"
+          },
+          "image": "https://kiwis.bg/images/cut/cloud-mango-1-900.webp"
         },
         {
           "@type": "MenuItem",
           "name": "Тирамису Cloud Foam",
           "description": "Еспресо, маскарпоне крем, какао, клауд фоум топинг",
-          "image": "https://kiwis.bg/images/cloud-tiramisu.jpg",
           "offers": {
             "@type": "Offer",
             "price": "5.00",
-            "priceCurrency": "EUR"
-          }
+            "priceCurrency": "EUR",
+            "availability": "https://schema.org/InStock"
+          },
+          "nutrition": {
+            "@type": "NutritionInformation",
+            "calories": "310 kcal",
+            "proteinContent": "9 g",
+            "carbohydrateContent": "40 g",
+            "fatContent": "12 g"
+          },
+          "image": "https://kiwis.bg/images/cut/cloud-tiramisu-1-900.webp"
         },
         {
           "@type": "MenuItem",
           "name": "Ягода Cloud Foam",
           "description": "Ягодово пюре, мляко, клауд фоум топинг",
-          "image": "https://kiwis.bg/images/cloud-strawberry.jpg",
           "offers": {
             "@type": "Offer",
             "price": "5.00",
-            "priceCurrency": "EUR"
-          }
+            "priceCurrency": "EUR",
+            "availability": "https://schema.org/InStock"
+          },
+          "nutrition": {
+            "@type": "NutritionInformation",
+            "calories": "260 kcal",
+            "proteinContent": "8 g",
+            "carbohydrateContent": "38 g",
+            "fatContent": "8 g"
+          },
+          "image": "https://kiwis.bg/images/cut/cloud-strawberry-1-900.webp"
         },
         {
           "@type": "MenuItem",
           "name": "Боровинка Cloud Foam",
           "description": "Боровинково пюре, мляко, клауд фоум топинг",
-          "image": "https://kiwis.bg/images/cloud-blueberry.jpg",
           "offers": {
             "@type": "Offer",
             "price": "5.00",
-            "priceCurrency": "EUR"
+            "priceCurrency": "EUR",
+            "availability": "https://schema.org/InStock"
+          },
+          "nutrition": {
+            "@type": "NutritionInformation",
+            "calories": "260 kcal",
+            "proteinContent": "8 g",
+            "carbohydrateContent": "38 g",
+            "fatContent": "8 g"
           }
         }
       ]
@@ -124,67 +191,122 @@
           "@type": "MenuItem",
           "name": "Пилешки Бриош",
           "description": "Пилешко филе, протеинов бриош, яйце, котидж крем, зелена салата и чедър, домат (350 г)",
-          "image": "https://kiwis.bg/images/chicken-brioche.jpg",
           "offers": {
             "@type": "Offer",
             "price": "6.00",
-            "priceCurrency": "EUR"
-          }
+            "priceCurrency": "EUR",
+            "availability": "https://schema.org/InStock"
+          },
+          "nutrition": {
+            "@type": "NutritionInformation",
+            "calories": "640 kcal",
+            "proteinContent": "52 g",
+            "carbohydrateContent": "48 g",
+            "fatContent": "22 g",
+            "servingSize": "350 g"
+          },
+          "image": "https://kiwis.bg/images/cut/chicken-brioche-1-900.webp"
         },
         {
           "@type": "MenuItem",
           "name": "Свински Бриош",
           "description": "Свински каретa, протеинов бриош, яйце, пушена майонеза, краставички, чедър, зелена салата и домат (360 г)",
-          "image": "https://kiwis.bg/images/pork-brioche.jpg",
           "offers": {
             "@type": "Offer",
             "price": "6.50",
-            "priceCurrency": "EUR"
-          }
+            "priceCurrency": "EUR",
+            "availability": "https://schema.org/InStock"
+          },
+          "nutrition": {
+            "@type": "NutritionInformation",
+            "calories": "780 kcal",
+            "proteinContent": "46 g",
+            "carbohydrateContent": "50 g",
+            "fatContent": "40 g",
+            "servingSize": "360 g"
+          },
+          "image": "https://kiwis.bg/images/cut/pork-brioche-1-900.webp"
         },
         {
           "@type": "MenuItem",
           "name": "Телешки Бриош",
           "description": "Black Angus кюфте, протеинов бриош, яйце, чедър, карамелизиран лук, кисели краставички, маруля и домат (370 г)",
-          "image": "https://kiwis.bg/images/beef-brioche.jpg",
           "offers": {
             "@type": "Offer",
             "price": "7.50",
-            "priceCurrency": "EUR"
-          }
+            "priceCurrency": "EUR",
+            "availability": "https://schema.org/InStock"
+          },
+          "nutrition": {
+            "@type": "NutritionInformation",
+            "calories": "790 kcal",
+            "proteinContent": "48 g",
+            "carbohydrateContent": "52 g",
+            "fatContent": "41 g",
+            "servingSize": "370 g"
+          },
+          "image": "https://kiwis.bg/images/cut/beef-brioche-1-900.webp"
         },
         {
           "@type": "MenuItem",
           "name": "Пуешки Бриош",
           "description": "Пуешко филе, протеинов бриош, домат, билков скир сос, хрупкав лук, чедър и маринован лук (360 г)",
-          "image": "https://kiwis.bg/images/turkey-brioche-wrong.jpg",
           "offers": {
             "@type": "Offer",
             "price": "6.00",
-            "priceCurrency": "EUR"
-          }
+            "priceCurrency": "EUR",
+            "availability": "https://schema.org/InStock"
+          },
+          "nutrition": {
+            "@type": "NutritionInformation",
+            "calories": "620 kcal",
+            "proteinContent": "55 g",
+            "carbohydrateContent": "50 g",
+            "fatContent": "20 g",
+            "servingSize": "360 g"
+          },
+          "image": "https://kiwis.bg/images/cut/turkey-brioche-1-900.webp"
         },
         {
           "@type": "MenuItem",
           "name": "Двойна сьомга Бриош",
           "description": "Печена и пушена сьомга, рола крема сирене с билки и лимон, авокадо, каперси, маруля и маринован лук (370 г)",
-          "image": "https://kiwis.bg/images/salmon-brioche.jpg",
           "offers": {
             "@type": "Offer",
             "price": "7.50",
-            "priceCurrency": "EUR"
-          }
+            "priceCurrency": "EUR",
+            "availability": "https://schema.org/InStock"
+          },
+          "nutrition": {
+            "@type": "NutritionInformation",
+            "calories": "690 kcal",
+            "proteinContent": "43 g",
+            "carbohydrateContent": "47 g",
+            "fatContent": "36 g",
+            "servingSize": "370 g"
+          },
+          "image": "https://kiwis.bg/images/cut/salmon-brioche-1-900.webp"
         },
         {
           "@type": "MenuItem",
           "name": "Вегетариански Бриош",
           "description": "Протеинов бриош, омлет, авокадо, пушена майонеза, домат, зелена салата (350 г)",
-          "image": "https://kiwis.bg/images/veg-brioche.jpg",
           "offers": {
             "@type": "Offer",
             "price": "6.00",
-            "priceCurrency": "EUR"
-          }
+            "priceCurrency": "EUR",
+            "availability": "https://schema.org/InStock"
+          },
+          "nutrition": {
+            "@type": "NutritionInformation",
+            "calories": "650 kcal",
+            "proteinContent": "28 g",
+            "carbohydrateContent": "46 g",
+            "fatContent": "38 g",
+            "servingSize": "350 g"
+          },
+          "image": "https://kiwis.bg/images/cut/veg-brioche-1-900.webp",
+          "suitableForDiet": "https://schema.org/VegetarianDiet"
         }
       ]
     },
@@ -197,67 +319,121 @@
           "@type": "MenuItem",
           "name": "Пилешка порция",
           "description": "Пилешко филе, басмати ориз, яйце, котидж крем, кисели краставички, зеленчуци (470 г)",
-          "image": "https://kiwis.bg/images/chicken-portion.jpg",
           "offers": {
             "@type": "Offer",
             "price": "10.00",
-            "priceCurrency": "EUR"
-          }
+            "priceCurrency": "EUR",
+            "availability": "https://schema.org/InStock"
+          },
+          "nutrition": {
+            "@type": "NutritionInformation",
+            "calories": "680 kcal",
+            "proteinContent": "60 g",
+            "carbohydrateContent": "65 g",
+            "fatContent": "15 g",
+            "servingSize": "470 g"
+          },
+          "image": "https://kiwis.bg/images/cut/chicken-portion-1-900.webp"
         },
         {
           "@type": "MenuItem",
           "name": "Свинска порция",
           "description": "Свински каретa, басмати ориз, яйце, пушена майонеза, зеленчуци (480 г)",
-          "image": "https://kiwis.bg/images/pork-portion.jpg",
           "offers": {
             "@type": "Offer",
             "price": "10.00",
-            "priceCurrency": "EUR"
+            "priceCurrency": "EUR",
+            "availability": "https://schema.org/InStock"
+          },
+          "nutrition": {
+            "@type": "NutritionInformation",
+            "calories": "850 kcal",
+            "proteinContent": "42 g",
+            "carbohydrateContent": "62 g",
+            "fatContent": "43 g",
+            "servingSize": "480 g"
           }
         },
         {
           "@type": "MenuItem",
           "name": "Телешка порция",
-          "description": "Black Angus телешко кюфте, басмати ориз, чедър сос, кисели краставички, карамелизиран лук и зеленчуци (480 г)",
-          "image": "https://kiwis.bg/images/beef-portion.jpg",
+          "description": "Black Angus телешко кюфте, басмати ориз, яйце, чедър сос, кисели краставички, карамелизиран лук и зеленчуци (480 г)",
           "offers": {
             "@type": "Offer",
             "price": "12.00",
-            "priceCurrency": "EUR"
-          }
+            "priceCurrency": "EUR",
+            "availability": "https://schema.org/InStock"
+          },
+          "nutrition": {
+            "@type": "NutritionInformation",
+            "calories": "890 kcal",
+            "proteinContent": "45 g",
+            "carbohydrateContent": "72 g",
+            "fatContent": "42 g",
+            "servingSize": "480 g"
+          },
+          "image": "https://kiwis.bg/images/cut/beef-portion-1-900.webp"
         },
         {
           "@type": "MenuItem",
           "name": "Пуешка порция",
-          "description": "Пуешко филе, басмати ориз, билков скир сос, хрупкав лук, маринован лук и зеленчуци (470 г)",
-          "image": "https://kiwis.bg/images/turkey-portion.jpg",
+          "description": "Пуешко филе, басмати ориз, яйце, билков скир сос, хрупкав лук, маринован лук и зеленчуци (470 г)",
           "offers": {
             "@type": "Offer",
             "price": "10.00",
-            "priceCurrency": "EUR"
-          }
+            "priceCurrency": "EUR",
+            "availability": "https://schema.org/InStock"
+          },
+          "nutrition": {
+            "@type": "NutritionInformation",
+            "calories": "660 kcal",
+            "proteinContent": "58 g",
+            "carbohydrateContent": "68 g",
+            "fatContent": "14 g",
+            "servingSize": "470 g"
+          },
+          "image": "https://kiwis.bg/images/cut/turkey-portion-1-900.webp"
         },
         {
           "@type": "MenuItem",
           "name": "Сьомга порция",
-          "description": "Печена сьомга, билков скир сос, лимон, авокадо, басмати ориз, маринован лук и зеленчуци (470 г)",
-          "image": "https://kiwis.bg/images/salmon-portion.jpg",
+          "description": "Печена сьомга, яйце, билков скир сос, лимон, авокадо, басмати ориз, маринован лук и зеленчуци (470 г)",
           "offers": {
             "@type": "Offer",
             "price": "12.00",
-            "priceCurrency": "EUR"
-          }
+            "priceCurrency": "EUR",
+            "availability": "https://schema.org/InStock"
+          },
+          "nutrition": {
+            "@type": "NutritionInformation",
+            "calories": "760 kcal",
+            "proteinContent": "43 g",
+            "carbohydrateContent": "67 g",
+            "fatContent": "31 g",
+            "servingSize": "470 g"
+          },
+          "image": "https://kiwis.bg/images/cut/salmon-portion-1-900.webp"
         },
         {
           "@type": "MenuItem",
           "name": "Вегетарианска порция",
           "description": "Басмати ориз, билков скир сос, лимон, омлет, авокадо, зеленчуци (450 г)",
-          "image": "https://kiwis.bg/images/veg-portion.jpg",
           "offers": {
             "@type": "Offer",
             "price": "9.00",
-            "priceCurrency": "EUR"
-          }
+            "priceCurrency": "EUR",
+            "availability": "https://schema.org/InStock"
+          },
+          "nutrition": {
+            "@type": "NutritionInformation",
+            "calories": "640 kcal",
+            "proteinContent": "29 g",
+            "carbohydrateContent": "66 g",
+            "fatContent": "25 g",
+            "servingSize": "450 g"
+          },
+          "image": "https://kiwis.bg/images/cut/veg-portion-1-900.webp",
+          "suitableForDiet": "https://schema.org/VegetarianDiet"
         }
       ]
     },
@@ -270,34 +446,62 @@
           "@type": "MenuItem",
           "name": "Цезар",
           "description": "Пиле, протеинов дресинг, крутони и пармезан (320 г)",
-          "image": "https://kiwis.bg/images/caesar-salad.jpg",
           "offers": {
             "@type": "Offer",
             "price": "6.00",
-            "priceCurrency": "EUR"
-          }
+            "priceCurrency": "EUR",
+            "availability": "https://schema.org/InStock"
+          },
+          "nutrition": {
+            "@type": "NutritionInformation",
+            "calories": "400 kcal",
+            "proteinContent": "44 g",
+            "carbohydrateContent": "22 g",
+            "fatContent": "15 g",
+            "servingSize": "320 g"
+          },
+          "image": "https://kiwis.bg/images/cut/caesar-salad-1-900.webp"
         },
         {
           "@type": "MenuItem",
           "name": "Салата печена сьомга",
-          "description": "Зелена, билков скир дресинг, лимон, царевица, маслини и чушка (320 г)",
-          "image": "https://kiwis.bg/images/salmon-salad-wrong.jpg",
+          "description": "Печена сьомга, зелена салата, червен боб, чери домати, царевица, маслини, чушка, билков скир дресинг и лимон (320 г)",
           "offers": {
             "@type": "Offer",
             "price": "7.00",
-            "priceCurrency": "EUR"
-          }
+            "priceCurrency": "EUR",
+            "availability": "https://schema.org/InStock"
+          },
+          "nutrition": {
+            "@type": "NutritionInformation",
+            "calories": "390 kcal",
+            "proteinContent": "28 g",
+            "carbohydrateContent": "24 g",
+            "fatContent": "18 g",
+            "servingSize": "320 g"
+          },
+          "image": "https://kiwis.bg/images/cut/salmon-salad-1-900.webp"
         },
         {
           "@type": "MenuItem",
           "name": "Вегетарианска салата",
           "description": "Зелена салата, варени яйца, червен боб, царевица, чушка, чери домат и млечен дресинг (310 г)",
-          "image": "https://kiwis.bg/images/veg-salad.jpg",
           "offers": {
             "@type": "Offer",
             "price": "5.50",
-            "priceCurrency": "EUR"
-          }
+            "priceCurrency": "EUR",
+            "availability": "https://schema.org/InStock"
+          },
+          "nutrition": {
+            "@type": "NutritionInformation",
+            "calories": "330 kcal",
+            "proteinContent": "19 g",
+            "carbohydrateContent": "26 g",
+            "fatContent": "15 g",
+            "servingSize": "310 g"
+          },
+          "image": "https://kiwis.bg/images/cut/veg-salad-1-900.webp",
+          "suitableForDiet": "https://schema.org/VegetarianDiet"
         }
       ]
     },
@@ -310,56 +514,96 @@
           "@type": "MenuItem",
           "name": "Орео протеинов чийзкейк",
           "description": "Орео бисквити, протеинов крем сирене, суроватъчен протеин",
-          "image": "https://kiwis.bg/images/dessert-oreo.jpg",
           "offers": {
             "@type": "Offer",
             "price": "5.00",
-            "priceCurrency": "EUR"
-          }
+            "priceCurrency": "EUR",
+            "availability": "https://schema.org/InStock"
+          },
+          "nutrition": {
+            "@type": "NutritionInformation",
+            "calories": "360 kcal",
+            "proteinContent": "22 g",
+            "carbohydrateContent": "36 g",
+            "fatContent": "14 g"
+          },
+          "image": "https://kiwis.bg/images/cut/dessert-oreo-1-900.webp"
         },
         {
           "@type": "MenuItem",
           "name": "Протеинов с бишкота и лешник",
           "description": "Лешников крем, бишкотена основа, суроватъчен протеин",
-          "image": "https://kiwis.bg/images/dessert-hazelnut.jpg",
           "offers": {
             "@type": "Offer",
             "price": "5.00",
-            "priceCurrency": "EUR"
-          }
+            "priceCurrency": "EUR",
+            "availability": "https://schema.org/InStock"
+          },
+          "nutrition": {
+            "@type": "NutritionInformation",
+            "calories": "350 kcal",
+            "proteinContent": "22 g",
+            "carbohydrateContent": "35 g",
+            "fatContent": "13 g"
+          },
+          "image": "https://kiwis.bg/images/cut/dessert-hazelnut-1-900.webp"
         },
         {
           "@type": "MenuItem",
           "name": "Карамел бисквит чийзкейк",
           "description": "Карамелен сос, бисквитена основа, протеинов крем сирене",
-          "image": "https://kiwis.bg/images/dessert-caramel.jpg",
           "offers": {
             "@type": "Offer",
             "price": "5.00",
-            "priceCurrency": "EUR"
-          }
+            "priceCurrency": "EUR",
+            "availability": "https://schema.org/InStock"
+          },
+          "nutrition": {
+            "@type": "NutritionInformation",
+            "calories": "370 kcal",
+            "proteinContent": "21 g",
+            "carbohydrateContent": "40 g",
+            "fatContent": "14 g"
+          },
+          "image": "https://kiwis.bg/images/cut/dessert-caramel-1-900.webp"
         },
         {
           "@type": "MenuItem",
           "name": "Манго и кокос протеинов чийзкейк",
           "description": "Манго пюре, кокосови стърготини, протеинов крем сирене",
-          "image": "https://kiwis.bg/images/dessert-mango.jpg",
           "offers": {
             "@type": "Offer",
             "price": "5.00",
-            "priceCurrency": "EUR"
-          }
+            "priceCurrency": "EUR",
+            "availability": "https://schema.org/InStock"
+          },
+          "nutrition": {
+            "@type": "NutritionInformation",
+            "calories": "320 kcal",
+            "proteinContent": "21 g",
+            "carbohydrateContent": "32 g",
+            "fatContent": "12 g"
+          },
+          "image": "https://kiwis.bg/images/cut/dessert-mango-1-900.webp"
         },
         {
           "@type": "MenuItem",
           "name": "Ягода и боровинка с чиа, скир и протеин",
           "description": "Ягода, боровинка, чиа семена, скир, суроватъчен протеин",
-          "image": "https://kiwis.bg/images/dessert-berry.jpg",
           "offers": {
             "@type": "Offer",
             "price": "5.00",
-            "priceCurrency": "EUR"
-          }
+            "priceCurrency": "EUR",
+            "availability": "https://schema.org/InStock"
+          },
+          "nutrition": {
+            "@type": "NutritionInformation",
+            "calories": "260 kcal",
+            "proteinContent": "20 g",
+            "carbohydrateContent": "29 g",
+            "fatContent": "7 g"
+          },
+          "image": "https://kiwis.bg/images/cut/dessert-berry-1-900.webp"
         }
       ]
     },
@@ -464,336 +708,579 @@
 }
   </script>
 </head>
-<body>
-
-  <!-- Header -->
-  <header class="header">
-    <div class="header-inner">
-      <a href="index.html" class="header-back" aria-label="Back">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M15 18l-6-6 6-6"/></svg>
-      </a>
-      <div class="header-brand">
-        <img src="images/kiwi-icon.jpg" alt="Kiwi's" width="34" height="34">
-        <h1 class="header-title">
-          <span class="header-name">KiWi'S</span>
-          <span class="header-sub" data-en="Menu">Меню</span>
-        </h1>
-      </div>
-      <div class="header-right">
-        <div class="lang-toggle">
-          <button class="lang-btn is-active" data-lang="bg" aria-label="Bulgarian">BG</button>
-          <button class="lang-btn" data-lang="en" aria-label="English">EN</button>
-        </div>
-        <a href="tel:+359892632470" class="header-call">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.86 19.86 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.86 19.86 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.12.96.36 1.9.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.91.34 1.85.58 2.81.7A2 2 0 0122 16.92z"/></svg>
-        </a>
+<body class="page-menu">
+  <a class="skip" href="#main" data-en="Skip to content">Към съдържанието</a>
+  <header class="nav" id="nav">
+    <div class="nav-bar">
+      <a href="index.html" class="nav-back" data-back aria-label="Назад"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg></a><a href="index.html" class="nav-logo" aria-label="Kiwi's — начало"><img src="images/kiwi-icon.jpg" alt="" width="38" height="38"><span class="nav-brand">KiWi'S</span></a>
+      <nav class="nav-links" aria-label="Основна навигация"><a href="index.html#about" data-en="About">За нас</a><a href="menu.html" data-en="Menu" aria-current="page" class="is-current">Меню</a><a href="index.html#reviews" data-en="Reviews">Отзиви</a><a href="blog/" data-en="Articles">Статии</a><a href="index.html#visit" data-en="Visit">Посети ни</a></nav>
+      <div class="nav-right">
+        <div class="lang-toggle"><button class="lang-btn is-active" data-lang="bg" aria-label="Български">BG</button><button class="lang-btn" data-lang="en" aria-label="English">EN</button></div>
+        <a href="https://glovoapp.com/bg/bg/plovdiv/stores/kiwis-pdv" class="nav-cta" target="_blank" rel="noopener"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 17h-2v-6l2-5h9l4 5h1a2 2 0 012 2v4h-2"/><circle cx="7" cy="17" r="2"/><circle cx="17" cy="17" r="2"/><path d="M9 17h6"/></svg><span data-en="Order">Поръчай</span></a>
+        <button class="hamburger" id="hamburger" aria-label="Меню" aria-expanded="false"><span></span><span></span></button>
       </div>
     </div>
   </header>
-
-  <!-- Category Pills -->
-  <nav class="pills" id="pills">
-    <button class="pill is-active" data-cat="cloud" data-en="Cloud Foam">Клауд Фоум</button>
-    <button class="pill" data-cat="sandwich" data-en="Sandwiches">Сандвичи</button>
-    <button class="pill" data-cat="portion" data-en="Portions">Порции</button>
-    <button class="pill" data-cat="salad" data-en="Salads">Салати</button>
-    <button class="pill" data-cat="dessert" data-en="Desserts">Десерти</button>
-    <button class="pill" data-cat="coffee" data-en="Drinks">Напитки</button>
-  </nav>
-
-  <!-- Menu -->
-  <main class="menu">
-
-    <!-- ========== CLOUD FOAM ========== -->
-    <section class="cat" id="cloud" data-category="cloud">
-      <div class="cat-head">
-        <h2 data-en="Cloud Foam & Matcha">Cloud Foam & Matcha</h2>
-        <span class="cat-badge" data-en="Popular">Популярно</span>
-      </div>
-      <div class="items items--cards">
-        <div class="card">
-          <picture><source type="image/webp" srcset="images/matcha-cloud-600.webp 600w, images/matcha-cloud-1000.webp 1000w, images/matcha-cloud-1600.webp 1600w" sizes="(min-width: 769px) 360px, (min-width: 480px) 50vw, 100vw"><img src="images/matcha-cloud.jpg" width="1000" height="1000" alt="Матча лате с Cloud Foam" class="card-img"></picture>
-          <div class="card-body">
-            <h3 data-en="Matcha Latte">Matcha Late</h3>
-            <p data-en="Japanese matcha, milk, cloud foam topping">Японско матча, мляко, клауд фоум топинг</p>
-            <span class="card-price">4.50 &euro;</span>
-          </div>
-        </div>
-        <div class="card card--featured">
-          <div class="card-badge" data-en="Popular">Популярно</div>
-          <picture><source type="image/webp" srcset="images/cloud-caramel-600.webp 600w, images/cloud-caramel-1000.webp 1000w" sizes="(min-width: 769px) 360px, (min-width: 480px) 50vw, 100vw"><img decoding="async" src="images/cloud-caramel.jpg" width="1000" height="1000" alt="Карамел Cloud Foam напитка" class="card-img" loading="lazy"></picture>
-          <div class="card-body">
-            <h3 data-en="Caramel Cloud Foam">Карамел Cloud Foam</h3>
-            <p data-en="Caramel syrup, milk, cloud foam topping">Карамелен сироп, мляко, клауд фоум топинг</p>
-            <span class="card-price">5.00 &euro;</span>
-          </div>
-        </div>
-        <div class="card">
-          <picture><source type="image/webp" srcset="images/cloud-mango-600.webp 600w, images/cloud-mango-1000.webp 1000w" sizes="(min-width: 769px) 360px, (min-width: 480px) 50vw, 100vw"><img decoding="async" src="images/cloud-mango.jpg" width="1000" height="1000" alt="Манго и кокос Cloud Foam напитка" class="card-img" loading="lazy"></picture>
-          <div class="card-body">
-            <h3 data-en="Mango & Coconut Cloud Foam">Манго и кокос Cloud Foam</h3>
-            <p data-en="Mango puree, coconut milk, cloud foam topping">Манго пюре, кокосово мляко, клауд фоум топинг</p>
-            <span class="card-price">5.00 &euro;</span>
-          </div>
-        </div>
-        <div class="card">
-          <picture><source type="image/webp" srcset="images/cloud-tiramisu-600.webp 600w, images/cloud-tiramisu-1000.webp 1000w" sizes="(min-width: 769px) 360px, (min-width: 480px) 50vw, 100vw"><img decoding="async" src="images/cloud-tiramisu.jpg" width="1000" height="1000" alt="Тирамису Cloud Foam напитка" class="card-img" loading="lazy"></picture>
-          <div class="card-body">
-            <h3 data-en="Tiramisu Cloud Foam">Тирамису Cloud Foam</h3>
-            <p data-en="Espresso, mascarpone cream, cocoa, cloud foam topping">Еспресо, маскарпоне крем, какао, клауд фоум топинг</p>
-            <span class="card-price">5.00 &euro;</span>
-          </div>
-        </div>
-        <div class="card">
-          <picture><source type="image/webp" srcset="images/cloud-strawberry-600.webp 600w, images/cloud-strawberry-1000.webp 1000w" sizes="(min-width: 769px) 360px, (min-width: 480px) 50vw, 100vw"><img decoding="async" src="images/cloud-strawberry.jpg" width="1000" height="1000" alt="Ягода Cloud Foam напитка" class="card-img" loading="lazy"></picture>
-          <div class="card-body">
-            <h3 data-en="Strawberry Cloud Foam">Ягода Cloud Foam</h3>
-            <p data-en="Strawberry puree, milk, cloud foam topping">Ягодово пюре, мляко, клауд фоум топинг</p>
-            <span class="card-price">5.00 &euro;</span>
-          </div>
-        </div>
-        <div class="card">
-          <picture><source type="image/webp" srcset="images/cloud-blueberry-600.webp 600w, images/cloud-blueberry-1000.webp 1000w" sizes="(min-width: 769px) 360px, (min-width: 480px) 50vw, 100vw"><img decoding="async" src="images/cloud-blueberry.jpg" width="1000" height="1000" alt="Боровинка Cloud Foam напитка" class="card-img" loading="lazy"></picture>
-          <div class="card-body">
-            <h3 data-en="Blueberry Cloud Foam">Боровинка Cloud Foam</h3>
-            <p data-en="Blueberry puree, milk, cloud foam topping">Боровинково пюре, мляко, клауд фоум топинг</p>
-            <span class="card-price">5.00 &euro;</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ========== SANDWICHES ========== -->
-    <section class="cat" id="sandwich" data-category="sandwich">
-      <div class="cat-head">
-        <h2 data-en="Protein Sandwiches">Протеинови Сандвичи</h2>
-      </div>
-      <div class="items items--cards">
-        <div class="card">
-          <picture><source type="image/webp" srcset="images/chicken-brioche-600.webp 600w, images/chicken-brioche-1000.webp 1000w, images/chicken-brioche-1600.webp 1600w" sizes="(min-width: 769px) 360px, (min-width: 480px) 50vw, 100vw"><img decoding="async" src="images/chicken-brioche.jpg" width="1000" height="1000" alt="Пилешки протеинов бриош сандвич" class="card-img" loading="lazy"></picture>
-          <div class="card-body">
-            <div class="card-top"><h3 data-en="Chicken Brioche">Пилешки Бриош</h3><span class="card-weight">350 г</span></div>
-            <p data-en="Chicken fillet, protein brioche, egg, cottage cream, lettuce, cheddar & tomato">Пилешко филе, протеинов бриош, яйце, котидж крем, зелена салата и чедър, домат</p>
-            <span class="card-price">6.00 &euro;</span>
-          </div>
-        </div>
-        <div class="card">
-          <picture><source type="image/webp" srcset="images/pork-brioche-600.webp 600w, images/pork-brioche-1000.webp 1000w, images/pork-brioche-1600.webp 1600w" sizes="(min-width: 769px) 360px, (min-width: 480px) 50vw, 100vw"><img decoding="async" src="images/pork-brioche.jpg" width="1000" height="1000" alt="Свински протеинов бриош сандвич" class="card-img" loading="lazy"></picture>
-          <div class="card-body">
-            <div class="card-top"><h3 data-en="Pork Brioche">Свински Бриош</h3><span class="card-weight">360 г</span></div>
-            <p data-en="Pork ribs, protein brioche, egg, smoked mayo, pickles, cheddar, lettuce & tomato">Свински каретa, протеинов бриош, яйце, пушена майонеза, краставички, чедър, зелена салата и домат</p>
-            <span class="card-price">6.50 &euro;</span>
-          </div>
-        </div>
-        <div class="card card--featured">
-          <div class="card-badge" data-en="Best Seller">Хит</div>
-          <picture><source type="image/webp" srcset="images/beef-brioche-600.webp 600w, images/beef-brioche-1000.webp 1000w, images/beef-brioche-1600.webp 1600w" sizes="(min-width: 769px) 360px, (min-width: 480px) 50vw, 100vw"><img decoding="async" src="images/beef-brioche.jpg" width="1000" height="1000" alt="Телешки бриош сандвич с Black Angus кюфте" class="card-img" loading="lazy"></picture>
-          <div class="card-body">
-            <div class="card-top"><h3 data-en="Black Angus Beef Brioche">Телешки Бриош</h3><span class="card-weight">370 г</span></div>
-            <p data-en="Black Angus patty, protein brioche, egg, cheddar, caramelized onion, pickles, lettuce & tomato">Black Angus кюфте, протеинов бриош, яйце, чедър, карамелизиран лук, кисели краставички, маруля и домат</p>
-            <span class="card-price">7.50 &euro;</span>
-          </div>
-        </div>
-        <div class="card">
-          <picture><source type="image/webp" srcset="images/turkey-brioche-wrong-600.webp 600w, images/turkey-brioche-wrong-1000.webp 1000w, images/turkey-brioche-wrong-1600.webp 1600w" sizes="(min-width: 769px) 360px, (min-width: 480px) 50vw, 100vw"><img decoding="async" src="images/turkey-brioche-wrong.jpg" width="1000" height="1000" alt="Пуешки протеинов бриош сандвич" class="card-img" loading="lazy"></picture>
-          <div class="card-body">
-            <div class="card-top"><h3 data-en="Turkey Brioche">Пуешки Бриош</h3><span class="card-weight">360 г</span></div>
-            <p data-en="Turkey fillet, protein brioche, tomato, herb skyr sauce, crispy onion, cheddar & pickled onion">Пуешко филе, протеинов бриош, домат, билков скир сос, хрупкав лук, чедър и маринован лук</p>
-            <span class="card-price">6.00 &euro;</span>
-          </div>
-        </div>
-        <div class="card card--featured">
-          <div class="card-badge" data-en="Premium">Премиум</div>
-          <picture><source type="image/webp" srcset="images/salmon-brioche-600.webp 600w, images/salmon-brioche-1000.webp 1000w, images/salmon-brioche-1600.webp 1600w" sizes="(min-width: 769px) 360px, (min-width: 480px) 50vw, 100vw"><img decoding="async" src="images/salmon-brioche.jpg" width="1000" height="1000" alt="Бриош сандвич с двойна сьомга и авокадо" class="card-img" loading="lazy"></picture>
-          <div class="card-body">
-            <div class="card-top"><h3 data-en="Double Salmon Brioche">Двойна сьомга Бриош</h3><span class="card-weight">370 г</span></div>
-            <p data-en="Grilled & smoked salmon, herb cream cheese roll with lemon, avocado, capers, lettuce & pickled onion">Печена и пушена сьомга, рола крема сирене с билки и лимон, авокадо, каперси, маруля и маринован лук</p>
-            <span class="card-price">7.50 &euro;</span>
-          </div>
-        </div>
-        <div class="card">
-          <picture><source type="image/webp" srcset="images/veg-brioche-600.webp 600w, images/veg-brioche-1000.webp 1000w, images/veg-brioche-1600.webp 1600w" sizes="(min-width: 769px) 360px, (min-width: 480px) 50vw, 100vw"><img decoding="async" src="images/veg-brioche.jpg" width="1000" height="1000" alt="Вегетариански протеинов бриош с омлет и авокадо" class="card-img" loading="lazy"></picture>
-          <div class="card-body">
-            <div class="card-top"><h3 data-en="Vegetarian Brioche">Вегетариански Бриош</h3><span class="card-weight">350 г</span></div>
-            <p data-en="Protein brioche, omelette, avocado, smoked mayo, tomato & lettuce">Протеинов бриош, омлет, авокадо, пушена майонеза, домат, зелена салата</p>
-            <span class="card-price">6.00 &euro;</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ========== PORTIONS ========== -->
-    <section class="cat" id="portion" data-category="portion">
-      <div class="cat-head">
-        <h2 data-en="Protein Portions">Протеинови Порции</h2>
-      </div>
-      <div class="items items--cards">
-        <div class="card">
-          <picture><source type="image/webp" srcset="images/chicken-portion-600.webp 600w, images/chicken-portion-1000.webp 1000w, images/chicken-portion-1600.webp 1600w" sizes="(min-width: 769px) 360px, (min-width: 480px) 50vw, 100vw"><img decoding="async" src="images/chicken-portion.jpg" width="1000" height="1000" alt="Пилешка протеинова порция с басмати ориз" class="card-img" loading="lazy"></picture>
-          <div class="card-body">
-            <div class="card-top"><h3 data-en="Chicken Portion">Пилешка порция</h3><span class="card-weight">470 г</span></div>
-            <p data-en="Chicken fillet, basmati rice, egg, cottage cream, pickles & vegetables">Пилешко филе, басмати ориз, яйце, котидж крем, кисели краставички, зеленчуци</p>
-            <span class="card-price">10.00 &euro;</span>
-          </div>
-        </div>
-        <div class="card">
-          <picture><source type="image/webp" srcset="images/pork-portion-600.webp 600w, images/pork-portion-1000.webp 1000w, images/pork-portion-1600.webp 1600w" sizes="(min-width: 769px) 360px, (min-width: 480px) 50vw, 100vw"><img decoding="async" src="images/pork-portion.jpg" width="1000" height="1000" alt="Свинска протеинова порция с басмати ориз" class="card-img" loading="lazy"></picture>
-          <div class="card-body">
-            <div class="card-top"><h3 data-en="Pork Portion">Свинска порция</h3><span class="card-weight">480 г</span></div>
-            <p data-en="Pork ribs, basmati rice, egg, smoked mayo & vegetables">Свински каретa, басмати ориз, яйце, пушена майонеза, зеленчуци</p>
-            <span class="card-price">10.00 &euro;</span>
-          </div>
-        </div>
-        <div class="card card--featured">
-          <div class="card-badge" data-en="Premium">Премиум</div>
-          <picture><source type="image/webp" srcset="images/beef-portion-600.webp 600w, images/beef-portion-1000.webp 1000w, images/beef-portion-1600.webp 1600w" sizes="(min-width: 769px) 360px, (min-width: 480px) 50vw, 100vw"><img decoding="async" src="images/beef-portion.jpg" width="1000" height="1000" alt="Телешка порция с Black Angus кюфте и басмати ориз" class="card-img" loading="lazy"></picture>
-          <div class="card-body">
-            <div class="card-top"><h3 data-en="Black Angus Beef Portion">Телешка порция</h3><span class="card-weight">480 г</span></div>
-            <p data-en="Black Angus patty, basmati rice, cheddar sauce, pickles, caramelized onion & vegetables">Black Angus телешко кюфте, басмати ориз, чедър сос, кисели краставички, карамелизиран лук и зеленчуци</p>
-            <span class="card-price">12.00 &euro;</span>
-          </div>
-        </div>
-        <div class="card">
-          <picture><source type="image/webp" srcset="images/turkey-portion-600.webp 600w, images/turkey-portion-1000.webp 1000w, images/turkey-portion-1600.webp 1600w" sizes="(min-width: 769px) 360px, (min-width: 480px) 50vw, 100vw"><img decoding="async" src="images/turkey-portion.jpg" width="1000" height="1000" alt="Пуешка протеинова порция с басмати ориз" class="card-img" loading="lazy"></picture>
-          <div class="card-body">
-            <div class="card-top"><h3 data-en="Turkey Portion">Пуешка порция</h3><span class="card-weight">470 г</span></div>
-            <p data-en="Turkey fillet, basmati rice, herb skyr sauce, crispy onion, pickled onion & vegetables">Пуешко филе, басмати ориз, билков скир сос, хрупкав лук, маринован лук и зеленчуци</p>
-            <span class="card-price">10.00 &euro;</span>
-          </div>
-        </div>
-        <div class="card card--featured">
-          <div class="card-badge" data-en="Premium">Премиум</div>
-          <picture><source type="image/webp" srcset="images/salmon-portion-600.webp 600w, images/salmon-portion-1000.webp 1000w, images/salmon-portion-1600.webp 1600w" sizes="(min-width: 769px) 360px, (min-width: 480px) 50vw, 100vw"><img decoding="async" src="images/salmon-portion.jpg" width="1000" height="1000" alt="Порция печена сьомга с басмати ориз и авокадо" class="card-img" loading="lazy"></picture>
-          <div class="card-body">
-            <div class="card-top"><h3 data-en="Salmon Portion">Сьомга порция</h3><span class="card-weight">470 г</span></div>
-            <p data-en="Grilled salmon, herb skyr sauce, lemon, avocado, basmati rice, pickled onion & vegetables">Печена сьомга, билков скир сос, лимон, авокадо, басмати ориз, маринован лук и зеленчуци</p>
-            <span class="card-price">12.00 &euro;</span>
-          </div>
-        </div>
-        <div class="card">
-          <picture><source type="image/webp" srcset="images/veg-portion-600.webp 600w, images/veg-portion-1000.webp 1000w, images/veg-portion-1600.webp 1600w" sizes="(min-width: 769px) 360px, (min-width: 480px) 50vw, 100vw"><img decoding="async" src="images/veg-portion.jpg" width="1000" height="1000" alt="Вегетарианска порция с омлет, авокадо и басмати ориз" class="card-img" loading="lazy"></picture>
-          <div class="card-body">
-            <div class="card-top"><h3 data-en="Vegetarian Portion">Вегетарианска порция</h3><span class="card-weight">450 г</span></div>
-            <p data-en="Basmati rice, herb skyr sauce, lemon, omelette, avocado & vegetables">Басмати ориз, билков скир сос, лимон, омлет, авокадо, зеленчуци</p>
-            <span class="card-price">9.00 &euro;</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ========== SALADS ========== -->
-    <section class="cat" id="salad" data-category="salad">
-      <div class="cat-head">
-        <h2 data-en="Fresh Salads">Салати</h2>
-      </div>
-      <div class="items items--cards">
-        <div class="card">
-          <picture><source type="image/webp" srcset="images/caesar-salad-600.webp 600w, images/caesar-salad-1000.webp 1000w, images/caesar-salad-1600.webp 1600w" sizes="(min-width: 769px) 360px, (min-width: 480px) 50vw, 100vw"><img decoding="async" src="images/caesar-salad.jpg" width="1000" height="1000" alt="Салата Цезар с пиле и пармезан" class="card-img" loading="lazy"></picture>
-          <div class="card-body">
-            <div class="card-top"><h3 data-en="Caesar">Цезар</h3><span class="card-weight">320 г</span></div>
-            <p data-en="Chicken, protein dressing, croutons & parmesan">Пиле, протеинов дресинг, крутони и пармезан</p>
-            <span class="card-price">6.00 &euro;</span>
-          </div>
-        </div>
-        <div class="card card--featured">
-          <div class="card-badge" data-en="Premium">Премиум</div>
-          <picture><source type="image/webp" srcset="images/salmon-salad-wrong-600.webp 600w, images/salmon-salad-wrong-1000.webp 1000w, images/salmon-salad-wrong-1600.webp 1600w" sizes="(min-width: 769px) 360px, (min-width: 480px) 50vw, 100vw"><img decoding="async" src="images/salmon-salad-wrong.jpg" width="1000" height="1000" alt="Салата с печена сьомга" class="card-img" loading="lazy"></picture>
-          <div class="card-body">
-            <div class="card-top"><h3 data-en="Grilled Salmon Salad">Салата печена сьомга</h3><span class="card-weight">320 г</span></div>
-            <p data-en="Green salad, herb skyr dressing, lemon, corn, olives & peppers">Зелена, билков скир дресинг, лимон, царевица, маслини и чушка</p>
-            <span class="card-price">7.00 &euro;</span>
-          </div>
-        </div>
-        <div class="card">
-          <picture><source type="image/webp" srcset="images/veg-salad-600.webp 600w, images/veg-salad-1000.webp 1000w, images/veg-salad-1600.webp 1600w" sizes="(min-width: 769px) 360px, (min-width: 480px) 50vw, 100vw"><img decoding="async" src="images/veg-salad.jpg" width="1000" height="1000" alt="Вегетарианска салата с яйца, червен боб и царевица" class="card-img" loading="lazy"></picture>
-          <div class="card-body">
-            <div class="card-top"><h3 data-en="Vegetarian Salad">Вегетарианска салата</h3><span class="card-weight">310 г</span></div>
-            <p data-en="Green salad, boiled eggs, red beans, corn, peppers, cherry tomato & milk dressing">Зелена салата, варени яйца, червен боб, царевица, чушка, чери домат и млечен дресинг</p>
-            <span class="card-price">5.50 &euro;</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ========== DESSERTS ========== -->
-    <section class="cat" id="dessert" data-category="dessert">
-      <div class="cat-head">
-        <h2 data-en="Desserts in a Can">Десерти в кен</h2>
-        <span class="cat-sub" data-en="All desserts: 250 g">250 гр.</span>
-      </div>
-      <div class="items items--cards">
-        <div class="card">
-          <picture><source type="image/webp" srcset="images/dessert-oreo-600.webp 600w, images/dessert-oreo-1000.webp 1000w, images/dessert-oreo-1600.webp 1600w" sizes="(min-width: 769px) 360px, (min-width: 480px) 50vw, 100vw"><img decoding="async" src="images/dessert-oreo.jpg" width="1000" height="1000" alt="Орео протеинов чийзкейк в кен" class="card-img" loading="lazy"></picture>
-          <div class="card-body">
-            <h3 data-en="Oreo Protein Cheesecake">Орео протеинов чийзкейк</h3>
-            <p data-en="Oreo cookies, protein cream cheese, whey protein">Орео бисквити, протеинов крем сирене, суроватъчен протеин</p>
-            <span class="card-price">5.00 &euro;</span>
-          </div>
-        </div>
-        <div class="card">
-          <picture><source type="image/webp" srcset="images/dessert-hazelnut-600.webp 600w, images/dessert-hazelnut-1000.webp 1000w, images/dessert-hazelnut-1600.webp 1600w" sizes="(min-width: 769px) 360px, (min-width: 480px) 50vw, 100vw"><img decoding="async" src="images/dessert-hazelnut.jpg" width="1000" height="1000" alt="Протеинов десерт с бишкоти и лешник в кен" class="card-img" loading="lazy"></picture>
-          <div class="card-body">
-            <h3 data-en="Protein with Biscuit & Hazelnut">Протеинов с бишкота и лешник</h3>
-            <p data-en="Hazelnut cream, biscuit base, whey protein">Лешников крем, бишкотена основа, суроватъчен протеин</p>
-            <span class="card-price">5.00 &euro;</span>
-          </div>
-        </div>
-        <div class="card">
-          <picture><source type="image/webp" srcset="images/dessert-caramel-600.webp 600w, images/dessert-caramel-1000.webp 1000w, images/dessert-caramel-1600.webp 1600w" sizes="(min-width: 769px) 360px, (min-width: 480px) 50vw, 100vw"><img decoding="async" src="images/dessert-caramel.jpg" width="1000" height="1000" alt="Карамел бисквит чийзкейк в кен" class="card-img" loading="lazy"></picture>
-          <div class="card-body">
-            <h3 data-en="Caramel Biscuit Cheesecake">Карамел бисквит чийзкейк</h3>
-            <p data-en="Caramel sauce, biscuit base, protein cream cheese">Карамелен сос, бисквитена основа, протеинов крем сирене</p>
-            <span class="card-price">5.00 &euro;</span>
-          </div>
-        </div>
-        <div class="card">
-          <picture><source type="image/webp" srcset="images/dessert-mango-600.webp 600w, images/dessert-mango-1000.webp 1000w, images/dessert-mango-1600.webp 1600w" sizes="(min-width: 769px) 360px, (min-width: 480px) 50vw, 100vw"><img decoding="async" src="images/dessert-mango.jpg" width="1000" height="1000" alt="Манго и кокос протеинов чийзкейк в кен" class="card-img" loading="lazy"></picture>
-          <div class="card-body">
-            <h3 data-en="Mango & Coconut Protein Cheesecake">Манго и кокос протеинов чийзкейк</h3>
-            <p data-en="Mango puree, coconut flakes, protein cream cheese">Манго пюре, кокосови стърготини, протеинов крем сирене</p>
-            <span class="card-price">5.00 &euro;</span>
-          </div>
-        </div>
-        <div class="card">
-          <picture><source type="image/webp" srcset="images/dessert-berry-600.webp 600w, images/dessert-berry-1000.webp 1000w, images/dessert-berry-1600.webp 1600w" sizes="(min-width: 769px) 360px, (min-width: 480px) 50vw, 100vw"><img decoding="async" src="images/dessert-berry.jpg" width="1000" height="1000" alt="Десерт с ягода, боровинка, чиа и скир в кен" class="card-img" loading="lazy"></picture>
-          <div class="card-body">
-            <h3 data-en="Strawberry & Blueberry with Chia, Skyr & Protein">Ягода и боровинка с чиа, скир и протеин</h3>
-            <p data-en="Strawberry, blueberry, chia seeds, skyr, whey protein">Ягода, боровинка, чиа семена, скир, суроватъчен протеин</p>
-            <span class="card-price">5.00 &euro;</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ========== COFFEE ========== -->
-    <section class="cat" id="coffee" data-category="coffee">
-      <div class="cat-head">
-        <h2 data-en="Coffee & Classics">Coffee and Classics</h2>
-      </div>
-      <div class="items items--simple">
-        <div class="item-row"><div class="item-mid"><span class="item-name" data-en="Coffee">Кафе</span></div><span class="item-price">2.20 &euro;</span></div>
-        <div class="item-row"><div class="item-mid"><span class="item-name" data-en="Coffee with Milk">Кафе с мляко</span></div><span class="item-price">2.50 &euro;</span></div>
-        <div class="item-row"><div class="item-mid"><span class="item-name" data-en="Cappuccino">Капучино</span></div><span class="item-price">3.00 &euro;</span></div>
-        <div class="item-row"><div class="item-mid"><span class="item-name" data-en="Frappe">Фрапе</span></div><span class="item-price">3.20 &euro;</span></div>
-        <div class="item-row"><div class="item-mid"><span class="item-name" data-en="Iced Latte">Студено Late</span></div><span class="item-price">3.50 &euro;</span></div>
-        <div class="item-row"><div class="item-mid"><span class="item-name" data-en="Hot Chocolate">Горещ шоколад</span></div><span class="item-price">4.00 &euro;</span></div>
-        <div class="item-row"><div class="item-mid"><span class="item-name" data-en="Lemonade">Лимонада</span></div><span class="item-price">3.80 &euro;</span></div>
-        <div class="item-row"><div class="item-mid"><span class="item-name" data-en="Fresh Juice">Фреш</span></div><span class="item-price">3.50 &euro;</span></div>
-        <div class="item-row"><div class="item-mid"><span class="item-name" data-en="Espresso Tonic">Espresso Tonik</span></div><span class="item-price">4.00 &euro;</span></div>
-        <div class="item-row"><div class="item-mid"><span class="item-name" data-en="Tea">Чай</span></div><span class="item-price">3.00 &euro;</span></div>
-      </div>
-    </section>
-
-  </main>
-
-  <!-- Order CTA -->
-  <div class="order-bar">
-    <a href="tel:+359892632470" class="order-btn">
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.86 19.86 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.86 19.86 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.12.96.36 1.9.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.91.34 1.85.58 2.81.7A2 2 0 0122 16.92z"/></svg>
-      <span data-en="Order Now — +359 892 632 470">Поръчай — +359 892 632 470</span>
-    </a>
+  <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+    <div class="mm-inner">
+      <a href="index.html#about" class="mm-link" data-en="About">За нас</a><a href="menu.html" class="mm-link" data-en="Menu">Меню</a><a href="index.html#reviews" class="mm-link" data-en="Reviews">Отзиви</a><a href="blog/" class="mm-link" data-en="Articles">Статии</a><a href="index.html#visit" class="mm-link" data-en="Visit">Посети ни</a>
+      <a href="https://glovoapp.com/bg/bg/plovdiv/stores/kiwis-pdv" class="btn btn--glovo btn--lg mm-cta" target="_blank" rel="noopener"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 17h-2v-6l2-5h9l4 5h1a2 2 0 012 2v4h-2"/><circle cx="7" cy="17" r="2"/><circle cx="17" cy="17" r="2"/><path d="M9 17h6"/></svg><span data-en="Order on Glovo">Поръчай в Glovo</span></a>
+      <p class="mm-info"><span data-en="Mon — Sat, 09:00 — 21:30">Пон — Съб, 09:00 — 21:30</span><br><a href="tel:+359892632470">+359 892 632 470</a></p>
+    </div>
   </div>
 
+  <nav class="pills" id="pills" aria-label="Категории"><button class="pill is-active" data-cat="cloud" data-en="Cloud Foam &amp; Matcha">Cloud Foam &amp; Matcha</button><button class="pill" data-cat="sandwich" data-en="Protein Sandwiches">Протеинови Сандвичи</button><button class="pill" data-cat="portion" data-en="Protein Portions">Протеинови Порции</button><button class="pill" data-cat="salad" data-en="Fresh Salads">Салати</button><button class="pill" data-cat="dessert" data-en="Desserts in a Can">Десерти в кен</button><button class="pill" data-cat="coffee" data-en="Coffee &amp; Classics">Coffee and Classics</button></nav>
+
+  <main class="menu" id="main">
+    <div class="menu-intro">
+      <div class="container">
+        <h1 data-en="Menu">Меню</h1>
+      </div>
+    </div>
+
+    <section class="cat cat--green" id="cloud" data-category="cloud" aria-labelledby="h-cloud">
+      <span class="cat-word" aria-hidden="true">Foam</span>
+      <div class="container">
+        <div class="cat-head" data-reveal="left">
+          <div><span class="cat-num">01</span><h2 id="h-cloud" data-en="Cloud Foam &amp; Matcha">Cloud Foam &amp; Matcha</h2></div>
+          <span class="cat-meta">7 · 4.50 – 5.00 €</span>
+        </div>
+        <div class="pv pv--bare" id="pv-cloud" data-pv data-loop tabindex="0" style="--n:7">
+      <div class="pv-stage">
+        <div class="pv-light" aria-hidden="true"></div>
+        <svg class="pv-lines" viewBox="0 0 400 400" aria-hidden="true"><circle cx="200" cy="200" r="150"/><circle cx="200" cy="200" r="178"/><circle cx="200" cy="200" r="196"/></svg>
+        <div class="pv-podium" aria-hidden="true"><div class="pd-glow"></div><div class="pd-side"></div><div class="pd-top"><i class="pd-sheen"></i><i class="pd-ring"></i></div></div>
+        <div class="pv-items"><figure class="pv-item" data-i="0"><img class="pv-img" src="images/cut/cloud-matcha-1-900.webp" srcset="images/cut/cloud-matcha-1-500.webp 500w, images/cut/cloud-matcha-1-900.webp 900w" sizes="(min-width: 960px) 460px, 70vw" width="900" height="900" alt="Matcha Late" decoding="async"><img class="pv-refl" src="images/cut/cloud-matcha-1-500.webp" alt="" aria-hidden="true" decoding="async"></figure><figure class="pv-item" data-i="1"><img class="pv-img" src="images/cut/cloud-pumpkin-1-900.webp" srcset="images/cut/cloud-pumpkin-1-500.webp 500w, images/cut/cloud-pumpkin-1-900.webp 900w" sizes="(min-width: 960px) 460px, 70vw" width="900" height="900" alt="Тиква Cloud Foam" decoding="async" loading="lazy" data-alt="images/cut/cloud-pumpkin-2-900.webp"><img class="pv-refl" src="images/cut/cloud-pumpkin-1-500.webp" alt="" aria-hidden="true" decoding="async" loading="lazy"></figure><figure class="pv-item" data-i="2"><img class="pv-img" src="images/cut/cloud-caramel-1-900.webp" srcset="images/cut/cloud-caramel-1-500.webp 500w, images/cut/cloud-caramel-1-900.webp 900w" sizes="(min-width: 960px) 460px, 70vw" width="900" height="900" alt="Карамел Cloud Foam" decoding="async" loading="lazy" data-alt="images/cut/cloud-caramel-2-900.webp"><img class="pv-refl" src="images/cut/cloud-caramel-1-500.webp" alt="" aria-hidden="true" decoding="async" loading="lazy"></figure><figure class="pv-item" data-i="3"><img class="pv-img" src="images/cut/cloud-mango-1-900.webp" srcset="images/cut/cloud-mango-1-500.webp 500w, images/cut/cloud-mango-1-900.webp 900w" sizes="(min-width: 960px) 460px, 70vw" width="900" height="900" alt="Манго и кокос Cloud Foam" decoding="async" loading="lazy" data-alt="images/cut/cloud-mango-2-900.webp"><img class="pv-refl" src="images/cut/cloud-mango-1-500.webp" alt="" aria-hidden="true" decoding="async" loading="lazy"></figure><figure class="pv-item" data-i="4"><img class="pv-img" src="images/cut/cloud-tiramisu-1-900.webp" srcset="images/cut/cloud-tiramisu-1-500.webp 500w, images/cut/cloud-tiramisu-1-900.webp 900w" sizes="(min-width: 960px) 460px, 70vw" width="900" height="900" alt="Тирамису Cloud Foam" decoding="async" loading="lazy" data-alt="images/cut/cloud-tiramisu-2-900.webp"><img class="pv-refl" src="images/cut/cloud-tiramisu-1-500.webp" alt="" aria-hidden="true" decoding="async" loading="lazy"></figure><figure class="pv-item" data-i="5"><img class="pv-img" src="images/cut/cloud-strawberry-1-900.webp" srcset="images/cut/cloud-strawberry-1-500.webp 500w, images/cut/cloud-strawberry-1-900.webp 900w" sizes="(min-width: 960px) 460px, 70vw" width="900" height="900" alt="Ягода Cloud Foam" decoding="async" loading="lazy" data-alt="images/cut/cloud-strawberry-2-900.webp"><img class="pv-refl" src="images/cut/cloud-strawberry-1-500.webp" alt="" aria-hidden="true" decoding="async" loading="lazy"></figure><figure class="pv-item" data-i="6"><img class="pv-img" src="images/cut/cloud-blueberry-1-900.webp" srcset="images/cut/cloud-blueberry-1-500.webp 500w, images/cut/cloud-blueberry-1-900.webp 900w" sizes="(min-width: 960px) 460px, 70vw" width="900" height="900" alt="Боровинка Cloud Foam" decoding="async" loading="lazy"><img class="pv-refl" src="images/cut/cloud-blueberry-1-500.webp" alt="" aria-hidden="true" decoding="async" loading="lazy"></figure></div>
+        <button class="pv-arrow pv-prev" type="button" aria-label="Предишно">&#8249;</button>
+        <button class="pv-arrow pv-next" type="button" aria-label="Следващо">&#8250;</button>
+        <button class="pv-turn" type="button" aria-label="Виж другата снимка" title="Друга снимка"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="15" height="13" rx="2"/><path d="M7 3h12a2 2 0 012 2v10"/><circle cx="8.5" cy="10" r="1.6"/><path d="M18 15l-4.5-4.5L5 18"/></svg><span class="pv-turn-n">1/2</span></button>
+        <div class="pv-dots" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+      </div>
+      <div class="pv-side">
+        <div class="pv-panels">
+<article class="pv-panel is-on" data-i="0" id="pv-cloud-0">
+          <div class="pv-meta"><span class="pv-num">01<small> / 07</small></span></div>
+          <h3 class="pv-name" data-en="Matcha Latte">Matcha Late</h3>
+          <p class="pv-desc" data-en="Japanese matcha, milk, cloud foam topping">Японско матча, мляко, клауд фоум топинг</p>
+          
+          <dl class="pv-macros" aria-label="Приблизителни хранителни стойности">
+            <div class="pv-m pv-m--k"><dt data-en="Calories">Калории</dt><dd><b>190</b> kcal</dd><i style="--v:21%"></i></div>
+            <div class="pv-m pv-m--p"><dt data-en="Protein">Протеин</dt><dd><b>9</b> г</dd><i style="--v:15%"></i></div>
+            <div class="pv-m pv-m--c"><dt data-en="Carbs">Въглехидрати</dt><dd><b>24</b> г</dd><i style="--v:30%"></i></div>
+            <div class="pv-m pv-m--f"><dt data-en="Fat">Мазнини</dt><dd><b>6</b> г</dd><i style="--v:13%"></i></div>
+          </dl>
+          <div class="pv-buy"><span class="pv-price">4.50 €</span>
+            <div class="pv-ctas"><a class="btn btn--glovo" href="https://glovoapp.com/bg/bg/plovdiv/stores/kiwis-pdv" target="_blank" rel="noopener" data-en="Order on Glovo">Поръчай в Glovo</a></div></div>
+        </article>
+<article class="pv-panel" data-i="1" id="pv-cloud-1" aria-hidden="true">
+          <div class="pv-meta"><span class="pv-num">02<small> / 07</small></span><span class="pv-badge" data-en="New">Ново</span></div>
+          <h3 class="pv-name" data-en="Pumpkin Cloud Foam">Тиква Cloud Foam</h3>
+          <p class="pv-desc" data-en="Pumpkin puree with cinnamon, milk, cloud foam topping &amp; biscuit crumble">Тиквено пюре с канела, мляко, клауд фоум топинг и бисквитена трошица</p>
+          
+          <dl class="pv-macros" aria-label="Приблизителни хранителни стойности">
+            <div class="pv-m pv-m--k"><dt data-en="Calories">Калории</dt><dd><b>290</b> kcal</dd><i style="--v:32%"></i></div>
+            <div class="pv-m pv-m--p"><dt data-en="Protein">Протеин</dt><dd><b>8</b> г</dd><i style="--v:13%"></i></div>
+            <div class="pv-m pv-m--c"><dt data-en="Carbs">Въглехидрати</dt><dd><b>42</b> г</dd><i style="--v:52%"></i></div>
+            <div class="pv-m pv-m--f"><dt data-en="Fat">Мазнини</dt><dd><b>9</b> г</dd><i style="--v:20%"></i></div>
+          </dl>
+          <div class="pv-buy"><span class="pv-price">5.00 €</span>
+            <div class="pv-ctas"><a class="btn btn--glovo" href="https://glovoapp.com/bg/bg/plovdiv/stores/kiwis-pdv" target="_blank" rel="noopener" data-en="Order on Glovo">Поръчай в Glovo</a></div></div>
+        </article>
+<article class="pv-panel" data-i="2" id="pv-cloud-2" aria-hidden="true">
+          <div class="pv-meta"><span class="pv-num">03<small> / 07</small></span><span class="pv-badge" data-en="Popular">Популярно</span></div>
+          <h3 class="pv-name" data-en="Caramel Cloud Foam">Карамел Cloud Foam</h3>
+          <p class="pv-desc" data-en="Caramel syrup, milk, cloud foam topping">Карамелен сироп, мляко, клауд фоум топинг</p>
+          
+          <dl class="pv-macros" aria-label="Приблизителни хранителни стойности">
+            <div class="pv-m pv-m--k"><dt data-en="Calories">Калории</dt><dd><b>300</b> kcal</dd><i style="--v:33%"></i></div>
+            <div class="pv-m pv-m--p"><dt data-en="Protein">Протеин</dt><dd><b>9</b> г</dd><i style="--v:15%"></i></div>
+            <div class="pv-m pv-m--c"><dt data-en="Carbs">Въглехидрати</dt><dd><b>44</b> г</dd><i style="--v:55%"></i></div>
+            <div class="pv-m pv-m--f"><dt data-en="Fat">Мазнини</dt><dd><b>9</b> г</dd><i style="--v:20%"></i></div>
+          </dl>
+          <div class="pv-buy"><span class="pv-price">5.00 €</span>
+            <div class="pv-ctas"><a class="btn btn--glovo" href="https://glovoapp.com/bg/bg/plovdiv/stores/kiwis-pdv" target="_blank" rel="noopener" data-en="Order on Glovo">Поръчай в Glovo</a></div></div>
+        </article>
+<article class="pv-panel" data-i="3" id="pv-cloud-3" aria-hidden="true">
+          <div class="pv-meta"><span class="pv-num">04<small> / 07</small></span></div>
+          <h3 class="pv-name" data-en="Mango &amp; Coconut Cloud Foam">Манго и кокос Cloud Foam</h3>
+          <p class="pv-desc" data-en="Mango puree, coconut milk, cloud foam topping">Манго пюре, кокосово мляко, клауд фоум топинг</p>
+          
+          <dl class="pv-macros" aria-label="Приблизителни хранителни стойности">
+            <div class="pv-m pv-m--k"><dt data-en="Calories">Калории</dt><dd><b>270</b> kcal</dd><i style="--v:30%"></i></div>
+            <div class="pv-m pv-m--p"><dt data-en="Protein">Протеин</dt><dd><b>6</b> г</dd><i style="--v:10%"></i></div>
+            <div class="pv-m pv-m--c"><dt data-en="Carbs">Въглехидрати</dt><dd><b>38</b> г</dd><i style="--v:48%"></i></div>
+            <div class="pv-m pv-m--f"><dt data-en="Fat">Мазнини</dt><dd><b>10</b> г</dd><i style="--v:22%"></i></div>
+          </dl>
+          <div class="pv-buy"><span class="pv-price">5.00 €</span>
+            <div class="pv-ctas"><a class="btn btn--glovo" href="https://glovoapp.com/bg/bg/plovdiv/stores/kiwis-pdv" target="_blank" rel="noopener" data-en="Order on Glovo">Поръчай в Glovo</a></div></div>
+        </article>
+<article class="pv-panel" data-i="4" id="pv-cloud-4" aria-hidden="true">
+          <div class="pv-meta"><span class="pv-num">05<small> / 07</small></span></div>
+          <h3 class="pv-name" data-en="Tiramisu Cloud Foam">Тирамису Cloud Foam</h3>
+          <p class="pv-desc" data-en="Espresso, mascarpone cream, cocoa, cloud foam topping">Еспресо, маскарпоне крем, какао, клауд фоум топинг</p>
+          
+          <dl class="pv-macros" aria-label="Приблизителни хранителни стойности">
+            <div class="pv-m pv-m--k"><dt data-en="Calories">Калории</dt><dd><b>310</b> kcal</dd><i style="--v:34%"></i></div>
+            <div class="pv-m pv-m--p"><dt data-en="Protein">Протеин</dt><dd><b>9</b> г</dd><i style="--v:15%"></i></div>
+            <div class="pv-m pv-m--c"><dt data-en="Carbs">Въглехидрати</dt><dd><b>40</b> г</dd><i style="--v:50%"></i></div>
+            <div class="pv-m pv-m--f"><dt data-en="Fat">Мазнини</dt><dd><b>12</b> г</dd><i style="--v:27%"></i></div>
+          </dl>
+          <div class="pv-buy"><span class="pv-price">5.00 €</span>
+            <div class="pv-ctas"><a class="btn btn--glovo" href="https://glovoapp.com/bg/bg/plovdiv/stores/kiwis-pdv" target="_blank" rel="noopener" data-en="Order on Glovo">Поръчай в Glovo</a></div></div>
+        </article>
+<article class="pv-panel" data-i="5" id="pv-cloud-5" aria-hidden="true">
+          <div class="pv-meta"><span class="pv-num">06<small> / 07</small></span></div>
+          <h3 class="pv-name" data-en="Strawberry Cloud Foam">Ягода Cloud Foam</h3>
+          <p class="pv-desc" data-en="Strawberry puree, milk, cloud foam topping">Ягодово пюре, мляко, клауд фоум топинг</p>
+          
+          <dl class="pv-macros" aria-label="Приблизителни хранителни стойности">
+            <div class="pv-m pv-m--k"><dt data-en="Calories">Калории</dt><dd><b>260</b> kcal</dd><i style="--v:29%"></i></div>
+            <div class="pv-m pv-m--p"><dt data-en="Protein">Протеин</dt><dd><b>8</b> г</dd><i style="--v:13%"></i></div>
+            <div class="pv-m pv-m--c"><dt data-en="Carbs">Въглехидрати</dt><dd><b>38</b> г</dd><i style="--v:48%"></i></div>
+            <div class="pv-m pv-m--f"><dt data-en="Fat">Мазнини</dt><dd><b>8</b> г</dd><i style="--v:18%"></i></div>
+          </dl>
+          <div class="pv-buy"><span class="pv-price">5.00 €</span>
+            <div class="pv-ctas"><a class="btn btn--glovo" href="https://glovoapp.com/bg/bg/plovdiv/stores/kiwis-pdv" target="_blank" rel="noopener" data-en="Order on Glovo">Поръчай в Glovo</a></div></div>
+        </article>
+<article class="pv-panel" data-i="6" id="pv-cloud-6" aria-hidden="true">
+          <div class="pv-meta"><span class="pv-num">07<small> / 07</small></span></div>
+          <h3 class="pv-name" data-en="Blueberry Cloud Foam">Боровинка Cloud Foam</h3>
+          <p class="pv-desc" data-en="Blueberry puree, milk, cloud foam topping">Боровинково пюре, мляко, клауд фоум топинг</p>
+          
+          <dl class="pv-macros" aria-label="Приблизителни хранителни стойности">
+            <div class="pv-m pv-m--k"><dt data-en="Calories">Калории</dt><dd><b>260</b> kcal</dd><i style="--v:29%"></i></div>
+            <div class="pv-m pv-m--p"><dt data-en="Protein">Протеин</dt><dd><b>8</b> г</dd><i style="--v:13%"></i></div>
+            <div class="pv-m pv-m--c"><dt data-en="Carbs">Въглехидрати</dt><dd><b>38</b> г</dd><i style="--v:48%"></i></div>
+            <div class="pv-m pv-m--f"><dt data-en="Fat">Мазнини</dt><dd><b>8</b> г</dd><i style="--v:18%"></i></div>
+          </dl>
+          <div class="pv-buy"><span class="pv-price">5.00 €</span>
+            <div class="pv-ctas"><a class="btn btn--glovo" href="https://glovoapp.com/bg/bg/plovdiv/stores/kiwis-pdv" target="_blank" rel="noopener" data-en="Order on Glovo">Поръчай в Glovo</a></div></div>
+        </article>
+        </div>
+        <div class="pv-thumbs" role="tablist" aria-label="Избери"><button class="pv-th is-on" data-i="0" role="tab" aria-selected="true" aria-controls="pv-cloud-0" aria-label="Matcha Late"><img src="images/cut/cloud-matcha-1-500.webp" alt="" width="80" height="80" decoding="async"></button><button class="pv-th" data-i="1" role="tab" aria-selected="false" aria-controls="pv-cloud-1" aria-label="Тиква Cloud Foam"><img src="images/cut/cloud-pumpkin-1-500.webp" alt="" width="80" height="80" decoding="async"></button><button class="pv-th" data-i="2" role="tab" aria-selected="false" aria-controls="pv-cloud-2" aria-label="Карамел Cloud Foam"><img src="images/cut/cloud-caramel-1-500.webp" alt="" width="80" height="80" decoding="async"></button><button class="pv-th" data-i="3" role="tab" aria-selected="false" aria-controls="pv-cloud-3" aria-label="Манго и кокос Cloud Foam"><img src="images/cut/cloud-mango-1-500.webp" alt="" width="80" height="80" decoding="async"></button><button class="pv-th" data-i="4" role="tab" aria-selected="false" aria-controls="pv-cloud-4" aria-label="Тирамису Cloud Foam"><img src="images/cut/cloud-tiramisu-1-500.webp" alt="" width="80" height="80" decoding="async"></button><button class="pv-th" data-i="5" role="tab" aria-selected="false" aria-controls="pv-cloud-5" aria-label="Ягода Cloud Foam"><img src="images/cut/cloud-strawberry-1-500.webp" alt="" width="80" height="80" decoding="async"></button><button class="pv-th" data-i="6" role="tab" aria-selected="false" aria-controls="pv-cloud-6" aria-label="Боровинка Cloud Foam"><img src="images/cut/cloud-blueberry-1-500.webp" alt="" width="80" height="80" decoding="async"></button></div>
+      </div>
+    </div>
+      </div>
+    </section>
+
+    <section class="cat cat--green" id="sandwich" data-category="sandwich" aria-labelledby="h-sandwich">
+      <span class="cat-word" aria-hidden="true">Brioche</span>
+      <div class="container">
+        <div class="cat-head" data-reveal="left">
+          <div><span class="cat-num">02</span><h2 id="h-sandwich" data-en="Protein Sandwiches">Протеинови Сандвичи</h2></div>
+          <span class="cat-meta">6 · 6.00 – 7.50 €</span>
+        </div>
+        <div class="pv pv--bare" id="pv-sandwich" data-pv data-loop tabindex="0" style="--n:6">
+      <div class="pv-stage">
+        <div class="pv-light" aria-hidden="true"></div>
+        <svg class="pv-lines" viewBox="0 0 400 400" aria-hidden="true"><circle cx="200" cy="200" r="150"/><circle cx="200" cy="200" r="178"/><circle cx="200" cy="200" r="196"/></svg>
+        <div class="pv-podium" aria-hidden="true"><div class="pd-glow"></div><div class="pd-side"></div><div class="pd-top"><i class="pd-sheen"></i><i class="pd-ring"></i></div></div>
+        <div class="pv-items"><figure class="pv-item" data-i="0"><img class="pv-img" src="images/cut/chicken-brioche-1-900.webp" srcset="images/cut/chicken-brioche-1-500.webp 500w, images/cut/chicken-brioche-1-900.webp 900w" sizes="(min-width: 960px) 460px, 70vw" width="900" height="900" alt="Пилешки Бриош" decoding="async" data-alt="images/cut/chicken-brioche-2-900.webp"><img class="pv-refl" src="images/cut/chicken-brioche-1-500.webp" alt="" aria-hidden="true" decoding="async"></figure><figure class="pv-item" data-i="1"><img class="pv-img" src="images/cut/pork-brioche-1-900.webp" srcset="images/cut/pork-brioche-1-500.webp 500w, images/cut/pork-brioche-1-900.webp 900w" sizes="(min-width: 960px) 460px, 70vw" width="900" height="900" alt="Свински Бриош" decoding="async" loading="lazy" data-alt="images/cut/pork-brioche-2-900.webp"><img class="pv-refl" src="images/cut/pork-brioche-1-500.webp" alt="" aria-hidden="true" decoding="async" loading="lazy"></figure><figure class="pv-item" data-i="2"><img class="pv-img" src="images/cut/beef-brioche-1-900.webp" srcset="images/cut/beef-brioche-1-500.webp 500w, images/cut/beef-brioche-1-900.webp 900w" sizes="(min-width: 960px) 460px, 70vw" width="900" height="900" alt="Телешки Бриош" decoding="async" loading="lazy" data-alt="images/cut/beef-brioche-2-900.webp"><img class="pv-refl" src="images/cut/beef-brioche-1-500.webp" alt="" aria-hidden="true" decoding="async" loading="lazy"></figure><figure class="pv-item" data-i="3"><img class="pv-img" src="images/cut/turkey-brioche-1-900.webp" srcset="images/cut/turkey-brioche-1-500.webp 500w, images/cut/turkey-brioche-1-900.webp 900w" sizes="(min-width: 960px) 460px, 70vw" width="900" height="900" alt="Пуешки Бриош" decoding="async" loading="lazy" data-alt="images/cut/turkey-brioche-2-900.webp"><img class="pv-refl" src="images/cut/turkey-brioche-1-500.webp" alt="" aria-hidden="true" decoding="async" loading="lazy"></figure><figure class="pv-item" data-i="4"><img class="pv-img" src="images/cut/salmon-brioche-1-900.webp" srcset="images/cut/salmon-brioche-1-500.webp 500w, images/cut/salmon-brioche-1-900.webp 900w" sizes="(min-width: 960px) 460px, 70vw" width="900" height="900" alt="Двойна сьомга Бриош" decoding="async" loading="lazy" data-alt="images/cut/salmon-brioche-2-900.webp"><img class="pv-refl" src="images/cut/salmon-brioche-1-500.webp" alt="" aria-hidden="true" decoding="async" loading="lazy"></figure><figure class="pv-item" data-i="5"><img class="pv-img" src="images/cut/veg-brioche-1-900.webp" srcset="images/cut/veg-brioche-1-500.webp 500w, images/cut/veg-brioche-1-900.webp 900w" sizes="(min-width: 960px) 460px, 70vw" width="900" height="900" alt="Вегетариански Бриош" decoding="async" loading="lazy" data-alt="images/cut/veg-brioche-2-900.webp"><img class="pv-refl" src="images/cut/veg-brioche-1-500.webp" alt="" aria-hidden="true" decoding="async" loading="lazy"></figure></div>
+        <button class="pv-arrow pv-prev" type="button" aria-label="Предишно">&#8249;</button>
+        <button class="pv-arrow pv-next" type="button" aria-label="Следващо">&#8250;</button>
+        <button class="pv-turn" type="button" aria-label="Виж другата снимка" title="Друга снимка"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="15" height="13" rx="2"/><path d="M7 3h12a2 2 0 012 2v10"/><circle cx="8.5" cy="10" r="1.6"/><path d="M18 15l-4.5-4.5L5 18"/></svg><span class="pv-turn-n">1/2</span></button>
+        <div class="pv-dots" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+      </div>
+      <div class="pv-side">
+        <div class="pv-panels">
+<article class="pv-panel is-on" data-i="0" id="pv-sandwich-0">
+          <div class="pv-meta"><span class="pv-num">01<small> / 06</small></span></div>
+          <h3 class="pv-name" data-en="Chicken Brioche">Пилешки Бриош</h3>
+          <p class="pv-desc" data-en="Chicken fillet, protein brioche, egg, cottage cream, lettuce, cheddar &amp; tomato">Пилешко филе, протеинов бриош, яйце, котидж крем, зелена салата и чедър, домат</p>
+          
+          <dl class="pv-macros" aria-label="Приблизителни хранителни стойности">
+            <div class="pv-m pv-m--k"><dt data-en="Calories">Калории</dt><dd><b>640</b> kcal</dd><i style="--v:71%"></i></div>
+            <div class="pv-m pv-m--p"><dt data-en="Protein">Протеин</dt><dd><b>52</b> г</dd><i style="--v:87%"></i></div>
+            <div class="pv-m pv-m--c"><dt data-en="Carbs">Въглехидрати</dt><dd><b>48</b> г</dd><i style="--v:60%"></i></div>
+            <div class="pv-m pv-m--f"><dt data-en="Fat">Мазнини</dt><dd><b>22</b> г</dd><i style="--v:49%"></i></div>
+          </dl>
+          <div class="pv-buy"><span class="pv-price">6.00 €</span><span class="pv-w">350 г</span>
+            <div class="pv-ctas"><a class="btn btn--glovo" href="https://glovoapp.com/bg/bg/plovdiv/stores/kiwis-pdv" target="_blank" rel="noopener" data-en="Order on Glovo">Поръчай в Glovo</a></div></div>
+        </article>
+<article class="pv-panel" data-i="1" id="pv-sandwich-1" aria-hidden="true">
+          <div class="pv-meta"><span class="pv-num">02<small> / 06</small></span></div>
+          <h3 class="pv-name" data-en="Pork Brioche">Свински Бриош</h3>
+          <p class="pv-desc" data-en="Pork ribs, protein brioche, egg, smoked mayo, pickles, cheddar, lettuce &amp; tomato">Свински каретa, протеинов бриош, яйце, пушена майонеза, краставички, чедър, зелена салата и домат</p>
+          
+          <dl class="pv-macros" aria-label="Приблизителни хранителни стойности">
+            <div class="pv-m pv-m--k"><dt data-en="Calories">Калории</dt><dd><b>780</b> kcal</dd><i style="--v:87%"></i></div>
+            <div class="pv-m pv-m--p"><dt data-en="Protein">Протеин</dt><dd><b>46</b> г</dd><i style="--v:77%"></i></div>
+            <div class="pv-m pv-m--c"><dt data-en="Carbs">Въглехидрати</dt><dd><b>50</b> г</dd><i style="--v:62%"></i></div>
+            <div class="pv-m pv-m--f"><dt data-en="Fat">Мазнини</dt><dd><b>40</b> г</dd><i style="--v:89%"></i></div>
+          </dl>
+          <div class="pv-buy"><span class="pv-price">6.50 €</span><span class="pv-w">360 г</span>
+            <div class="pv-ctas"><a class="btn btn--glovo" href="https://glovoapp.com/bg/bg/plovdiv/stores/kiwis-pdv" target="_blank" rel="noopener" data-en="Order on Glovo">Поръчай в Glovo</a></div></div>
+        </article>
+<article class="pv-panel" data-i="2" id="pv-sandwich-2" aria-hidden="true">
+          <div class="pv-meta"><span class="pv-num">03<small> / 06</small></span><span class="pv-badge" data-en="Best Seller">Хит</span></div>
+          <h3 class="pv-name" data-en="Black Angus Beef Brioche">Телешки Бриош</h3>
+          <p class="pv-desc" data-en="Black Angus patty, protein brioche, egg, cheddar, caramelized onion, pickles, lettuce &amp; tomato">Black Angus кюфте, протеинов бриош, яйце, чедър, карамелизиран лук, кисели краставички, маруля и домат</p>
+          
+          <dl class="pv-macros" aria-label="Приблизителни хранителни стойности">
+            <div class="pv-m pv-m--k"><dt data-en="Calories">Калории</dt><dd><b>790</b> kcal</dd><i style="--v:88%"></i></div>
+            <div class="pv-m pv-m--p"><dt data-en="Protein">Протеин</dt><dd><b>48</b> г</dd><i style="--v:80%"></i></div>
+            <div class="pv-m pv-m--c"><dt data-en="Carbs">Въглехидрати</dt><dd><b>52</b> г</dd><i style="--v:65%"></i></div>
+            <div class="pv-m pv-m--f"><dt data-en="Fat">Мазнини</dt><dd><b>41</b> г</dd><i style="--v:91%"></i></div>
+          </dl>
+          <div class="pv-buy"><span class="pv-price">7.50 €</span><span class="pv-w">370 г</span>
+            <div class="pv-ctas"><a class="btn btn--glovo" href="https://glovoapp.com/bg/bg/plovdiv/stores/kiwis-pdv" target="_blank" rel="noopener" data-en="Order on Glovo">Поръчай в Glovo</a></div></div>
+        </article>
+<article class="pv-panel" data-i="3" id="pv-sandwich-3" aria-hidden="true">
+          <div class="pv-meta"><span class="pv-num">04<small> / 06</small></span></div>
+          <h3 class="pv-name" data-en="Turkey Brioche">Пуешки Бриош</h3>
+          <p class="pv-desc" data-en="Turkey fillet, protein brioche, tomato, herb skyr sauce, crispy onion, cheddar &amp; pickled onion">Пуешко филе, протеинов бриош, домат, билков скир сос, хрупкав лук, чедър и маринован лук</p>
+          
+          <dl class="pv-macros" aria-label="Приблизителни хранителни стойности">
+            <div class="pv-m pv-m--k"><dt data-en="Calories">Калории</dt><dd><b>620</b> kcal</dd><i style="--v:69%"></i></div>
+            <div class="pv-m pv-m--p"><dt data-en="Protein">Протеин</dt><dd><b>55</b> г</dd><i style="--v:92%"></i></div>
+            <div class="pv-m pv-m--c"><dt data-en="Carbs">Въглехидрати</dt><dd><b>50</b> г</dd><i style="--v:62%"></i></div>
+            <div class="pv-m pv-m--f"><dt data-en="Fat">Мазнини</dt><dd><b>20</b> г</dd><i style="--v:44%"></i></div>
+          </dl>
+          <div class="pv-buy"><span class="pv-price">6.00 €</span><span class="pv-w">360 г</span>
+            <div class="pv-ctas"><a class="btn btn--glovo" href="https://glovoapp.com/bg/bg/plovdiv/stores/kiwis-pdv" target="_blank" rel="noopener" data-en="Order on Glovo">Поръчай в Glovo</a></div></div>
+        </article>
+<article class="pv-panel" data-i="4" id="pv-sandwich-4" aria-hidden="true">
+          <div class="pv-meta"><span class="pv-num">05<small> / 06</small></span><span class="pv-badge" data-en="Premium">Премиум</span></div>
+          <h3 class="pv-name" data-en="Double Salmon Brioche">Двойна сьомга Бриош</h3>
+          <p class="pv-desc" data-en="Grilled &amp; smoked salmon, herb cream cheese roll with lemon, avocado, capers, lettuce &amp; pickled onion">Печена и пушена сьомга, рола крема сирене с билки и лимон, авокадо, каперси, маруля и маринован лук</p>
+          
+          <dl class="pv-macros" aria-label="Приблизителни хранителни стойности">
+            <div class="pv-m pv-m--k"><dt data-en="Calories">Калории</dt><dd><b>690</b> kcal</dd><i style="--v:77%"></i></div>
+            <div class="pv-m pv-m--p"><dt data-en="Protein">Протеин</dt><dd><b>43</b> г</dd><i style="--v:72%"></i></div>
+            <div class="pv-m pv-m--c"><dt data-en="Carbs">Въглехидрати</dt><dd><b>47</b> г</dd><i style="--v:59%"></i></div>
+            <div class="pv-m pv-m--f"><dt data-en="Fat">Мазнини</dt><dd><b>36</b> г</dd><i style="--v:80%"></i></div>
+          </dl>
+          <div class="pv-buy"><span class="pv-price">7.50 €</span><span class="pv-w">370 г</span>
+            <div class="pv-ctas"><a class="btn btn--glovo" href="https://glovoapp.com/bg/bg/plovdiv/stores/kiwis-pdv" target="_blank" rel="noopener" data-en="Order on Glovo">Поръчай в Glovo</a></div></div>
+        </article>
+<article class="pv-panel" data-i="5" id="pv-sandwich-5" aria-hidden="true">
+          <div class="pv-meta"><span class="pv-num">06<small> / 06</small></span></div>
+          <h3 class="pv-name" data-en="Vegetarian Brioche">Вегетариански Бриош</h3>
+          <p class="pv-desc" data-en="Protein brioche, omelette, avocado, smoked mayo, tomato &amp; lettuce">Протеинов бриош, омлет, авокадо, пушена майонеза, домат, зелена салата</p>
+          
+          <dl class="pv-macros" aria-label="Приблизителни хранителни стойности">
+            <div class="pv-m pv-m--k"><dt data-en="Calories">Калории</dt><dd><b>650</b> kcal</dd><i style="--v:72%"></i></div>
+            <div class="pv-m pv-m--p"><dt data-en="Protein">Протеин</dt><dd><b>28</b> г</dd><i style="--v:47%"></i></div>
+            <div class="pv-m pv-m--c"><dt data-en="Carbs">Въглехидрати</dt><dd><b>46</b> г</dd><i style="--v:57%"></i></div>
+            <div class="pv-m pv-m--f"><dt data-en="Fat">Мазнини</dt><dd><b>38</b> г</dd><i style="--v:84%"></i></div>
+          </dl>
+          <div class="pv-buy"><span class="pv-price">6.00 €</span><span class="pv-w">350 г</span>
+            <div class="pv-ctas"><a class="btn btn--glovo" href="https://glovoapp.com/bg/bg/plovdiv/stores/kiwis-pdv" target="_blank" rel="noopener" data-en="Order on Glovo">Поръчай в Glovo</a></div></div>
+        </article>
+        </div>
+        <div class="pv-thumbs" role="tablist" aria-label="Избери"><button class="pv-th is-on" data-i="0" role="tab" aria-selected="true" aria-controls="pv-sandwich-0" aria-label="Пилешки Бриош"><img src="images/cut/chicken-brioche-1-500.webp" alt="" width="80" height="80" decoding="async"></button><button class="pv-th" data-i="1" role="tab" aria-selected="false" aria-controls="pv-sandwich-1" aria-label="Свински Бриош"><img src="images/cut/pork-brioche-1-500.webp" alt="" width="80" height="80" decoding="async"></button><button class="pv-th" data-i="2" role="tab" aria-selected="false" aria-controls="pv-sandwich-2" aria-label="Телешки Бриош"><img src="images/cut/beef-brioche-1-500.webp" alt="" width="80" height="80" decoding="async"></button><button class="pv-th" data-i="3" role="tab" aria-selected="false" aria-controls="pv-sandwich-3" aria-label="Пуешки Бриош"><img src="images/cut/turkey-brioche-1-500.webp" alt="" width="80" height="80" decoding="async"></button><button class="pv-th" data-i="4" role="tab" aria-selected="false" aria-controls="pv-sandwich-4" aria-label="Двойна сьомга Бриош"><img src="images/cut/salmon-brioche-1-500.webp" alt="" width="80" height="80" decoding="async"></button><button class="pv-th" data-i="5" role="tab" aria-selected="false" aria-controls="pv-sandwich-5" aria-label="Вегетариански Бриош"><img src="images/cut/veg-brioche-1-500.webp" alt="" width="80" height="80" decoding="async"></button></div>
+      </div>
+    </div>
+      </div>
+    </section>
+
+    <section class="cat cat--green" id="portion" data-category="portion" aria-labelledby="h-portion">
+      <span class="cat-word" aria-hidden="true">Bowls</span>
+      <div class="container">
+        <div class="cat-head" data-reveal="left">
+          <div><span class="cat-num">03</span><h2 id="h-portion" data-en="Protein Portions">Протеинови Порции</h2></div>
+          <span class="cat-meta">6 · 9.00 – 12.00 €</span>
+        </div>
+        <div class="pv pv--bare" id="pv-portion" data-pv data-loop tabindex="0" style="--n:6">
+      <div class="pv-stage">
+        <div class="pv-light" aria-hidden="true"></div>
+        <svg class="pv-lines" viewBox="0 0 400 400" aria-hidden="true"><circle cx="200" cy="200" r="150"/><circle cx="200" cy="200" r="178"/><circle cx="200" cy="200" r="196"/></svg>
+        <div class="pv-podium" aria-hidden="true"><div class="pd-glow"></div><div class="pd-side"></div><div class="pd-top"><i class="pd-sheen"></i><i class="pd-ring"></i></div></div>
+        <div class="pv-items"><figure class="pv-item pv-item--flat" data-i="0"><img class="pv-img" src="images/cut/chicken-portion-1-900.webp" srcset="images/cut/chicken-portion-1-500.webp 500w, images/cut/chicken-portion-1-900.webp 900w" sizes="(min-width: 960px) 460px, 70vw" width="900" height="900" alt="Пилешка порция" decoding="async"><img class="pv-refl" src="images/cut/chicken-portion-1-500.webp" alt="" aria-hidden="true" decoding="async"></figure><figure class="pv-item pv-item--soon" data-i="1"><span class="pv-soon"><img src="images/kiwi-icon.jpg" alt="" width="72" height="72"><b data-en="Photo coming soon">Снимка очаквайте скоро</b></span></figure><figure class="pv-item pv-item--flat" data-i="2"><img class="pv-img" src="images/cut/beef-portion-1-900.webp" srcset="images/cut/beef-portion-1-500.webp 500w, images/cut/beef-portion-1-900.webp 900w" sizes="(min-width: 960px) 460px, 70vw" width="900" height="900" alt="Телешка порция" decoding="async" loading="lazy"><img class="pv-refl" src="images/cut/beef-portion-1-500.webp" alt="" aria-hidden="true" decoding="async" loading="lazy"></figure><figure class="pv-item pv-item--flat" data-i="3"><img class="pv-img" src="images/cut/turkey-portion-1-900.webp" srcset="images/cut/turkey-portion-1-500.webp 500w, images/cut/turkey-portion-1-900.webp 900w" sizes="(min-width: 960px) 460px, 70vw" width="900" height="900" alt="Пуешка порция" decoding="async" loading="lazy"><img class="pv-refl" src="images/cut/turkey-portion-1-500.webp" alt="" aria-hidden="true" decoding="async" loading="lazy"></figure><figure class="pv-item pv-item--flat" data-i="4"><img class="pv-img" src="images/cut/salmon-portion-1-900.webp" srcset="images/cut/salmon-portion-1-500.webp 500w, images/cut/salmon-portion-1-900.webp 900w" sizes="(min-width: 960px) 460px, 70vw" width="900" height="900" alt="Сьомга порция" decoding="async" loading="lazy"><img class="pv-refl" src="images/cut/salmon-portion-1-500.webp" alt="" aria-hidden="true" decoding="async" loading="lazy"></figure><figure class="pv-item pv-item--flat" data-i="5"><img class="pv-img" src="images/cut/veg-portion-1-900.webp" srcset="images/cut/veg-portion-1-500.webp 500w, images/cut/veg-portion-1-900.webp 900w" sizes="(min-width: 960px) 460px, 70vw" width="900" height="900" alt="Вегетарианска порция" decoding="async" loading="lazy"><img class="pv-refl" src="images/cut/veg-portion-1-500.webp" alt="" aria-hidden="true" decoding="async" loading="lazy"></figure></div>
+        <button class="pv-arrow pv-prev" type="button" aria-label="Предишно">&#8249;</button>
+        <button class="pv-arrow pv-next" type="button" aria-label="Следващо">&#8250;</button>
+        <button class="pv-turn" type="button" aria-label="Виж другата снимка" title="Друга снимка"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="15" height="13" rx="2"/><path d="M7 3h12a2 2 0 012 2v10"/><circle cx="8.5" cy="10" r="1.6"/><path d="M18 15l-4.5-4.5L5 18"/></svg><span class="pv-turn-n">1/2</span></button>
+        <div class="pv-dots" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+      </div>
+      <div class="pv-side">
+        <div class="pv-panels">
+<article class="pv-panel is-on" data-i="0" id="pv-portion-0">
+          <div class="pv-meta"><span class="pv-num">01<small> / 06</small></span></div>
+          <h3 class="pv-name" data-en="Chicken Portion">Пилешка порция</h3>
+          <p class="pv-desc" data-en="Chicken fillet, basmati rice, egg, cottage cream, pickles &amp; vegetables">Пилешко филе, басмати ориз, яйце, котидж крем, кисели краставички, зеленчуци</p>
+          
+          <dl class="pv-macros" aria-label="Приблизителни хранителни стойности">
+            <div class="pv-m pv-m--k"><dt data-en="Calories">Калории</dt><dd><b>680</b> kcal</dd><i style="--v:76%"></i></div>
+            <div class="pv-m pv-m--p"><dt data-en="Protein">Протеин</dt><dd><b>60</b> г</dd><i style="--v:100%"></i></div>
+            <div class="pv-m pv-m--c"><dt data-en="Carbs">Въглехидрати</dt><dd><b>65</b> г</dd><i style="--v:81%"></i></div>
+            <div class="pv-m pv-m--f"><dt data-en="Fat">Мазнини</dt><dd><b>15</b> г</dd><i style="--v:33%"></i></div>
+          </dl>
+          <div class="pv-buy"><span class="pv-price">10.00 €</span><span class="pv-w">470 г</span>
+            <div class="pv-ctas"><a class="btn btn--glovo" href="https://glovoapp.com/bg/bg/plovdiv/stores/kiwis-pdv" target="_blank" rel="noopener" data-en="Order on Glovo">Поръчай в Glovo</a></div></div>
+        </article>
+<article class="pv-panel" data-i="1" id="pv-portion-1" aria-hidden="true">
+          <div class="pv-meta"><span class="pv-num">02<small> / 06</small></span></div>
+          <h3 class="pv-name" data-en="Pork Portion">Свинска порция</h3>
+          <p class="pv-desc" data-en="Pork ribs, basmati rice, egg, smoked mayo &amp; vegetables">Свински каретa, басмати ориз, яйце, пушена майонеза, зеленчуци</p>
+          
+          <dl class="pv-macros" aria-label="Приблизителни хранителни стойности">
+            <div class="pv-m pv-m--k"><dt data-en="Calories">Калории</dt><dd><b>850</b> kcal</dd><i style="--v:94%"></i></div>
+            <div class="pv-m pv-m--p"><dt data-en="Protein">Протеин</dt><dd><b>42</b> г</dd><i style="--v:70%"></i></div>
+            <div class="pv-m pv-m--c"><dt data-en="Carbs">Въглехидрати</dt><dd><b>62</b> г</dd><i style="--v:78%"></i></div>
+            <div class="pv-m pv-m--f"><dt data-en="Fat">Мазнини</dt><dd><b>43</b> г</dd><i style="--v:96%"></i></div>
+          </dl>
+          <div class="pv-buy"><span class="pv-price">10.00 €</span><span class="pv-w">480 г</span>
+            <div class="pv-ctas"><a class="btn btn--glovo" href="https://glovoapp.com/bg/bg/plovdiv/stores/kiwis-pdv" target="_blank" rel="noopener" data-en="Order on Glovo">Поръчай в Glovo</a></div></div>
+        </article>
+<article class="pv-panel" data-i="2" id="pv-portion-2" aria-hidden="true">
+          <div class="pv-meta"><span class="pv-num">03<small> / 06</small></span><span class="pv-badge" data-en="Premium">Премиум</span></div>
+          <h3 class="pv-name" data-en="Black Angus Beef Portion">Телешка порция</h3>
+          <p class="pv-desc" data-en="Black Angus patty, basmati rice, egg, cheddar sauce, pickles, caramelized onion &amp; vegetables">Black Angus телешко кюфте, басмати ориз, яйце, чедър сос, кисели краставички, карамелизиран лук и зеленчуци</p>
+          
+          <dl class="pv-macros" aria-label="Приблизителни хранителни стойности">
+            <div class="pv-m pv-m--k"><dt data-en="Calories">Калории</dt><dd><b>890</b> kcal</dd><i style="--v:99%"></i></div>
+            <div class="pv-m pv-m--p"><dt data-en="Protein">Протеин</dt><dd><b>45</b> г</dd><i style="--v:75%"></i></div>
+            <div class="pv-m pv-m--c"><dt data-en="Carbs">Въглехидрати</dt><dd><b>72</b> г</dd><i style="--v:90%"></i></div>
+            <div class="pv-m pv-m--f"><dt data-en="Fat">Мазнини</dt><dd><b>42</b> г</dd><i style="--v:93%"></i></div>
+          </dl>
+          <div class="pv-buy"><span class="pv-price">12.00 €</span><span class="pv-w">480 г</span>
+            <div class="pv-ctas"><a class="btn btn--glovo" href="https://glovoapp.com/bg/bg/plovdiv/stores/kiwis-pdv" target="_blank" rel="noopener" data-en="Order on Glovo">Поръчай в Glovo</a></div></div>
+        </article>
+<article class="pv-panel" data-i="3" id="pv-portion-3" aria-hidden="true">
+          <div class="pv-meta"><span class="pv-num">04<small> / 06</small></span></div>
+          <h3 class="pv-name" data-en="Turkey Portion">Пуешка порция</h3>
+          <p class="pv-desc" data-en="Turkey fillet, basmati rice, egg, herb skyr sauce, crispy onion, pickled onion &amp; vegetables">Пуешко филе, басмати ориз, яйце, билков скир сос, хрупкав лук, маринован лук и зеленчуци</p>
+          
+          <dl class="pv-macros" aria-label="Приблизителни хранителни стойности">
+            <div class="pv-m pv-m--k"><dt data-en="Calories">Калории</dt><dd><b>660</b> kcal</dd><i style="--v:73%"></i></div>
+            <div class="pv-m pv-m--p"><dt data-en="Protein">Протеин</dt><dd><b>58</b> г</dd><i style="--v:97%"></i></div>
+            <div class="pv-m pv-m--c"><dt data-en="Carbs">Въглехидрати</dt><dd><b>68</b> г</dd><i style="--v:85%"></i></div>
+            <div class="pv-m pv-m--f"><dt data-en="Fat">Мазнини</dt><dd><b>14</b> г</dd><i style="--v:31%"></i></div>
+          </dl>
+          <div class="pv-buy"><span class="pv-price">10.00 €</span><span class="pv-w">470 г</span>
+            <div class="pv-ctas"><a class="btn btn--glovo" href="https://glovoapp.com/bg/bg/plovdiv/stores/kiwis-pdv" target="_blank" rel="noopener" data-en="Order on Glovo">Поръчай в Glovo</a></div></div>
+        </article>
+<article class="pv-panel" data-i="4" id="pv-portion-4" aria-hidden="true">
+          <div class="pv-meta"><span class="pv-num">05<small> / 06</small></span><span class="pv-badge" data-en="Premium">Премиум</span></div>
+          <h3 class="pv-name" data-en="Salmon Portion">Сьомга порция</h3>
+          <p class="pv-desc" data-en="Grilled salmon, egg, herb skyr sauce, lemon, avocado, basmati rice, pickled onion &amp; vegetables">Печена сьомга, яйце, билков скир сос, лимон, авокадо, басмати ориз, маринован лук и зеленчуци</p>
+          
+          <dl class="pv-macros" aria-label="Приблизителни хранителни стойности">
+            <div class="pv-m pv-m--k"><dt data-en="Calories">Калории</dt><dd><b>760</b> kcal</dd><i style="--v:84%"></i></div>
+            <div class="pv-m pv-m--p"><dt data-en="Protein">Протеин</dt><dd><b>43</b> г</dd><i style="--v:72%"></i></div>
+            <div class="pv-m pv-m--c"><dt data-en="Carbs">Въглехидрати</dt><dd><b>67</b> г</dd><i style="--v:84%"></i></div>
+            <div class="pv-m pv-m--f"><dt data-en="Fat">Мазнини</dt><dd><b>31</b> г</dd><i style="--v:69%"></i></div>
+          </dl>
+          <div class="pv-buy"><span class="pv-price">12.00 €</span><span class="pv-w">470 г</span>
+            <div class="pv-ctas"><a class="btn btn--glovo" href="https://glovoapp.com/bg/bg/plovdiv/stores/kiwis-pdv" target="_blank" rel="noopener" data-en="Order on Glovo">Поръчай в Glovo</a></div></div>
+        </article>
+<article class="pv-panel" data-i="5" id="pv-portion-5" aria-hidden="true">
+          <div class="pv-meta"><span class="pv-num">06<small> / 06</small></span></div>
+          <h3 class="pv-name" data-en="Vegetarian Portion">Вегетарианска порция</h3>
+          <p class="pv-desc" data-en="Basmati rice, herb skyr sauce, lemon, omelette, avocado &amp; vegetables">Басмати ориз, билков скир сос, лимон, омлет, авокадо, зеленчуци</p>
+          
+          <dl class="pv-macros" aria-label="Приблизителни хранителни стойности">
+            <div class="pv-m pv-m--k"><dt data-en="Calories">Калории</dt><dd><b>640</b> kcal</dd><i style="--v:71%"></i></div>
+            <div class="pv-m pv-m--p"><dt data-en="Protein">Протеин</dt><dd><b>29</b> г</dd><i style="--v:48%"></i></div>
+            <div class="pv-m pv-m--c"><dt data-en="Carbs">Въглехидрати</dt><dd><b>66</b> г</dd><i style="--v:82%"></i></div>
+            <div class="pv-m pv-m--f"><dt data-en="Fat">Мазнини</dt><dd><b>25</b> г</dd><i style="--v:56%"></i></div>
+          </dl>
+          <div class="pv-buy"><span class="pv-price">9.00 €</span><span class="pv-w">450 г</span>
+            <div class="pv-ctas"><a class="btn btn--glovo" href="https://glovoapp.com/bg/bg/plovdiv/stores/kiwis-pdv" target="_blank" rel="noopener" data-en="Order on Glovo">Поръчай в Glovo</a></div></div>
+        </article>
+        </div>
+        <div class="pv-thumbs" role="tablist" aria-label="Избери"><button class="pv-th is-on" data-i="0" role="tab" aria-selected="true" aria-controls="pv-portion-0" aria-label="Пилешка порция"><img src="images/cut/chicken-portion-1-500.webp" alt="" width="80" height="80" decoding="async"></button><button class="pv-th" data-i="1" role="tab" aria-selected="false" aria-controls="pv-portion-1" aria-label="Свинска порция"><span class="pv-th-ph"><img src="images/kiwi-icon.jpg" alt="" width="40" height="40" loading="lazy"></span></button><button class="pv-th" data-i="2" role="tab" aria-selected="false" aria-controls="pv-portion-2" aria-label="Телешка порция"><img src="images/cut/beef-portion-1-500.webp" alt="" width="80" height="80" decoding="async"></button><button class="pv-th" data-i="3" role="tab" aria-selected="false" aria-controls="pv-portion-3" aria-label="Пуешка порция"><img src="images/cut/turkey-portion-1-500.webp" alt="" width="80" height="80" decoding="async"></button><button class="pv-th" data-i="4" role="tab" aria-selected="false" aria-controls="pv-portion-4" aria-label="Сьомга порция"><img src="images/cut/salmon-portion-1-500.webp" alt="" width="80" height="80" decoding="async"></button><button class="pv-th" data-i="5" role="tab" aria-selected="false" aria-controls="pv-portion-5" aria-label="Вегетарианска порция"><img src="images/cut/veg-portion-1-500.webp" alt="" width="80" height="80" decoding="async"></button></div>
+      </div>
+    </div>
+      </div>
+    </section>
+
+    <section class="cat cat--green" id="salad" data-category="salad" aria-labelledby="h-salad">
+      <span class="cat-word" aria-hidden="true">Fresh</span>
+      <div class="container">
+        <div class="cat-head" data-reveal="left">
+          <div><span class="cat-num">04</span><h2 id="h-salad" data-en="Fresh Salads">Салати</h2></div>
+          <span class="cat-meta">3 · 5.50 – 7.00 €</span>
+        </div>
+        <div class="pv pv--bare" id="pv-salad" data-pv data-loop tabindex="0" style="--n:3">
+      <div class="pv-stage">
+        <div class="pv-light" aria-hidden="true"></div>
+        <svg class="pv-lines" viewBox="0 0 400 400" aria-hidden="true"><circle cx="200" cy="200" r="150"/><circle cx="200" cy="200" r="178"/><circle cx="200" cy="200" r="196"/></svg>
+        <div class="pv-podium" aria-hidden="true"><div class="pd-glow"></div><div class="pd-side"></div><div class="pd-top"><i class="pd-sheen"></i><i class="pd-ring"></i></div></div>
+        <div class="pv-items"><figure class="pv-item pv-item--flat" data-i="0"><img class="pv-img" src="images/cut/caesar-salad-1-900.webp" srcset="images/cut/caesar-salad-1-500.webp 500w, images/cut/caesar-salad-1-900.webp 900w" sizes="(min-width: 960px) 460px, 70vw" width="900" height="900" alt="Цезар" decoding="async"><img class="pv-refl" src="images/cut/caesar-salad-1-500.webp" alt="" aria-hidden="true" decoding="async"></figure><figure class="pv-item pv-item--flat" data-i="1"><img class="pv-img" src="images/cut/salmon-salad-1-900.webp" srcset="images/cut/salmon-salad-1-500.webp 500w, images/cut/salmon-salad-1-900.webp 900w" sizes="(min-width: 960px) 460px, 70vw" width="900" height="900" alt="Салата печена сьомга" decoding="async" loading="lazy"><img class="pv-refl" src="images/cut/salmon-salad-1-500.webp" alt="" aria-hidden="true" decoding="async" loading="lazy"></figure><figure class="pv-item pv-item--flat" data-i="2"><img class="pv-img" src="images/cut/veg-salad-1-900.webp" srcset="images/cut/veg-salad-1-500.webp 500w, images/cut/veg-salad-1-900.webp 900w" sizes="(min-width: 960px) 460px, 70vw" width="900" height="900" alt="Вегетарианска салата" decoding="async" loading="lazy"><img class="pv-refl" src="images/cut/veg-salad-1-500.webp" alt="" aria-hidden="true" decoding="async" loading="lazy"></figure></div>
+        <button class="pv-arrow pv-prev" type="button" aria-label="Предишно">&#8249;</button>
+        <button class="pv-arrow pv-next" type="button" aria-label="Следващо">&#8250;</button>
+        <button class="pv-turn" type="button" aria-label="Виж другата снимка" title="Друга снимка"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="15" height="13" rx="2"/><path d="M7 3h12a2 2 0 012 2v10"/><circle cx="8.5" cy="10" r="1.6"/><path d="M18 15l-4.5-4.5L5 18"/></svg><span class="pv-turn-n">1/2</span></button>
+        <div class="pv-dots" aria-hidden="true"><i></i><i></i><i></i></div>
+      </div>
+      <div class="pv-side">
+        <div class="pv-panels">
+<article class="pv-panel is-on" data-i="0" id="pv-salad-0">
+          <div class="pv-meta"><span class="pv-num">01<small> / 03</small></span></div>
+          <h3 class="pv-name" data-en="Caesar">Цезар</h3>
+          <p class="pv-desc" data-en="Chicken, protein dressing, croutons &amp; parmesan">Пиле, протеинов дресинг, крутони и пармезан</p>
+          
+          <dl class="pv-macros" aria-label="Приблизителни хранителни стойности">
+            <div class="pv-m pv-m--k"><dt data-en="Calories">Калории</dt><dd><b>400</b> kcal</dd><i style="--v:44%"></i></div>
+            <div class="pv-m pv-m--p"><dt data-en="Protein">Протеин</dt><dd><b>44</b> г</dd><i style="--v:73%"></i></div>
+            <div class="pv-m pv-m--c"><dt data-en="Carbs">Въглехидрати</dt><dd><b>22</b> г</dd><i style="--v:28%"></i></div>
+            <div class="pv-m pv-m--f"><dt data-en="Fat">Мазнини</dt><dd><b>15</b> г</dd><i style="--v:33%"></i></div>
+          </dl>
+          <div class="pv-buy"><span class="pv-price">6.00 €</span><span class="pv-w">320 г</span>
+            <div class="pv-ctas"><a class="btn btn--glovo" href="https://glovoapp.com/bg/bg/plovdiv/stores/kiwis-pdv" target="_blank" rel="noopener" data-en="Order on Glovo">Поръчай в Glovo</a></div></div>
+        </article>
+<article class="pv-panel" data-i="1" id="pv-salad-1" aria-hidden="true">
+          <div class="pv-meta"><span class="pv-num">02<small> / 03</small></span><span class="pv-badge" data-en="Premium">Премиум</span></div>
+          <h3 class="pv-name" data-en="Grilled Salmon Salad">Салата печена сьомга</h3>
+          <p class="pv-desc" data-en="Grilled salmon, green salad, red beans, cherry tomatoes, corn, olives, peppers, herb skyr dressing &amp; lemon">Печена сьомга, зелена салата, червен боб, чери домати, царевица, маслини, чушка, билков скир дресинг и лимон</p>
+          
+          <dl class="pv-macros" aria-label="Приблизителни хранителни стойности">
+            <div class="pv-m pv-m--k"><dt data-en="Calories">Калории</dt><dd><b>390</b> kcal</dd><i style="--v:43%"></i></div>
+            <div class="pv-m pv-m--p"><dt data-en="Protein">Протеин</dt><dd><b>28</b> г</dd><i style="--v:47%"></i></div>
+            <div class="pv-m pv-m--c"><dt data-en="Carbs">Въглехидрати</dt><dd><b>24</b> г</dd><i style="--v:30%"></i></div>
+            <div class="pv-m pv-m--f"><dt data-en="Fat">Мазнини</dt><dd><b>18</b> г</dd><i style="--v:40%"></i></div>
+          </dl>
+          <div class="pv-buy"><span class="pv-price">7.00 €</span><span class="pv-w">320 г</span>
+            <div class="pv-ctas"><a class="btn btn--glovo" href="https://glovoapp.com/bg/bg/plovdiv/stores/kiwis-pdv" target="_blank" rel="noopener" data-en="Order on Glovo">Поръчай в Glovo</a></div></div>
+        </article>
+<article class="pv-panel" data-i="2" id="pv-salad-2" aria-hidden="true">
+          <div class="pv-meta"><span class="pv-num">03<small> / 03</small></span></div>
+          <h3 class="pv-name" data-en="Vegetarian Salad">Вегетарианска салата</h3>
+          <p class="pv-desc" data-en="Green salad, boiled eggs, red beans, corn, peppers, cherry tomato &amp; milk dressing">Зелена салата, варени яйца, червен боб, царевица, чушка, чери домат и млечен дресинг</p>
+          
+          <dl class="pv-macros" aria-label="Приблизителни хранителни стойности">
+            <div class="pv-m pv-m--k"><dt data-en="Calories">Калории</dt><dd><b>330</b> kcal</dd><i style="--v:37%"></i></div>
+            <div class="pv-m pv-m--p"><dt data-en="Protein">Протеин</dt><dd><b>19</b> г</dd><i style="--v:32%"></i></div>
+            <div class="pv-m pv-m--c"><dt data-en="Carbs">Въглехидрати</dt><dd><b>26</b> г</dd><i style="--v:32%"></i></div>
+            <div class="pv-m pv-m--f"><dt data-en="Fat">Мазнини</dt><dd><b>15</b> г</dd><i style="--v:33%"></i></div>
+          </dl>
+          <div class="pv-buy"><span class="pv-price">5.50 €</span><span class="pv-w">310 г</span>
+            <div class="pv-ctas"><a class="btn btn--glovo" href="https://glovoapp.com/bg/bg/plovdiv/stores/kiwis-pdv" target="_blank" rel="noopener" data-en="Order on Glovo">Поръчай в Glovo</a></div></div>
+        </article>
+        </div>
+        <div class="pv-thumbs" role="tablist" aria-label="Избери"><button class="pv-th is-on" data-i="0" role="tab" aria-selected="true" aria-controls="pv-salad-0" aria-label="Цезар"><img src="images/cut/caesar-salad-1-500.webp" alt="" width="80" height="80" decoding="async"></button><button class="pv-th" data-i="1" role="tab" aria-selected="false" aria-controls="pv-salad-1" aria-label="Салата печена сьомга"><img src="images/cut/salmon-salad-1-500.webp" alt="" width="80" height="80" decoding="async"></button><button class="pv-th" data-i="2" role="tab" aria-selected="false" aria-controls="pv-salad-2" aria-label="Вегетарианска салата"><img src="images/cut/veg-salad-1-500.webp" alt="" width="80" height="80" decoding="async"></button></div>
+      </div>
+    </div>
+      </div>
+    </section>
+
+    <section class="cat cat--green" id="dessert" data-category="dessert" aria-labelledby="h-dessert">
+      <span class="cat-word" aria-hidden="true">Sweet</span>
+      <div class="container">
+        <div class="cat-head" data-reveal="left">
+          <div><span class="cat-num">05</span><h2 id="h-dessert" data-en="Desserts in a Can">Десерти в кен</h2></div>
+          <span class="cat-meta">5 · 5.00 €</span>
+        </div>
+        <div class="pv pv--bare" id="pv-dessert" data-pv data-loop tabindex="0" style="--n:5">
+      <div class="pv-stage">
+        <div class="pv-light" aria-hidden="true"></div>
+        <svg class="pv-lines" viewBox="0 0 400 400" aria-hidden="true"><circle cx="200" cy="200" r="150"/><circle cx="200" cy="200" r="178"/><circle cx="200" cy="200" r="196"/></svg>
+        <div class="pv-podium" aria-hidden="true"><div class="pd-glow"></div><div class="pd-side"></div><div class="pd-top"><i class="pd-sheen"></i><i class="pd-ring"></i></div></div>
+        <div class="pv-items"><figure class="pv-item" data-i="0"><img class="pv-img" src="images/cut/dessert-oreo-1-900.webp" srcset="images/cut/dessert-oreo-1-500.webp 500w, images/cut/dessert-oreo-1-900.webp 900w" sizes="(min-width: 960px) 460px, 70vw" width="900" height="900" alt="Орео протеинов чийзкейк" decoding="async"><img class="pv-refl" src="images/cut/dessert-oreo-1-500.webp" alt="" aria-hidden="true" decoding="async"></figure><figure class="pv-item" data-i="1"><img class="pv-img" src="images/cut/dessert-hazelnut-1-900.webp" srcset="images/cut/dessert-hazelnut-1-500.webp 500w, images/cut/dessert-hazelnut-1-900.webp 900w" sizes="(min-width: 960px) 460px, 70vw" width="900" height="900" alt="Протеинов с бишкота и лешник" decoding="async" loading="lazy"><img class="pv-refl" src="images/cut/dessert-hazelnut-1-500.webp" alt="" aria-hidden="true" decoding="async" loading="lazy"></figure><figure class="pv-item" data-i="2"><img class="pv-img" src="images/cut/dessert-caramel-1-900.webp" srcset="images/cut/dessert-caramel-1-500.webp 500w, images/cut/dessert-caramel-1-900.webp 900w" sizes="(min-width: 960px) 460px, 70vw" width="900" height="900" alt="Карамел бисквит чийзкейк" decoding="async" loading="lazy"><img class="pv-refl" src="images/cut/dessert-caramel-1-500.webp" alt="" aria-hidden="true" decoding="async" loading="lazy"></figure><figure class="pv-item" data-i="3"><img class="pv-img" src="images/cut/dessert-mango-1-900.webp" srcset="images/cut/dessert-mango-1-500.webp 500w, images/cut/dessert-mango-1-900.webp 900w" sizes="(min-width: 960px) 460px, 70vw" width="900" height="900" alt="Манго и кокос протеинов чийзкейк" decoding="async" loading="lazy"><img class="pv-refl" src="images/cut/dessert-mango-1-500.webp" alt="" aria-hidden="true" decoding="async" loading="lazy"></figure><figure class="pv-item" data-i="4"><img class="pv-img" src="images/cut/dessert-berry-1-900.webp" srcset="images/cut/dessert-berry-1-500.webp 500w, images/cut/dessert-berry-1-900.webp 900w" sizes="(min-width: 960px) 460px, 70vw" width="900" height="900" alt="Ягода и боровинка с чиа, скир и протеин" decoding="async" loading="lazy"><img class="pv-refl" src="images/cut/dessert-berry-1-500.webp" alt="" aria-hidden="true" decoding="async" loading="lazy"></figure></div>
+        <button class="pv-arrow pv-prev" type="button" aria-label="Предишно">&#8249;</button>
+        <button class="pv-arrow pv-next" type="button" aria-label="Следващо">&#8250;</button>
+        <button class="pv-turn" type="button" aria-label="Виж другата снимка" title="Друга снимка"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="15" height="13" rx="2"/><path d="M7 3h12a2 2 0 012 2v10"/><circle cx="8.5" cy="10" r="1.6"/><path d="M18 15l-4.5-4.5L5 18"/></svg><span class="pv-turn-n">1/2</span></button>
+        <div class="pv-dots" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
+      </div>
+      <div class="pv-side">
+        <div class="pv-panels">
+<article class="pv-panel is-on" data-i="0" id="pv-dessert-0">
+          <div class="pv-meta"><span class="pv-num">01<small> / 05</small></span></div>
+          <h3 class="pv-name" data-en="Oreo Protein Cheesecake">Орео протеинов чийзкейк</h3>
+          <p class="pv-desc" data-en="Oreo cookies, protein cream cheese, whey protein">Орео бисквити, протеинов крем сирене, суроватъчен протеин</p>
+          
+          <dl class="pv-macros" aria-label="Приблизителни хранителни стойности">
+            <div class="pv-m pv-m--k"><dt data-en="Calories">Калории</dt><dd><b>360</b> kcal</dd><i style="--v:40%"></i></div>
+            <div class="pv-m pv-m--p"><dt data-en="Protein">Протеин</dt><dd><b>22</b> г</dd><i style="--v:37%"></i></div>
+            <div class="pv-m pv-m--c"><dt data-en="Carbs">Въглехидрати</dt><dd><b>36</b> г</dd><i style="--v:45%"></i></div>
+            <div class="pv-m pv-m--f"><dt data-en="Fat">Мазнини</dt><dd><b>14</b> г</dd><i style="--v:31%"></i></div>
+          </dl>
+          <div class="pv-buy"><span class="pv-price">5.00 €</span>
+            <div class="pv-ctas"><a class="btn btn--glovo" href="https://glovoapp.com/bg/bg/plovdiv/stores/kiwis-pdv" target="_blank" rel="noopener" data-en="Order on Glovo">Поръчай в Glovo</a></div></div>
+        </article>
+<article class="pv-panel" data-i="1" id="pv-dessert-1" aria-hidden="true">
+          <div class="pv-meta"><span class="pv-num">02<small> / 05</small></span></div>
+          <h3 class="pv-name" data-en="Protein with Biscuit &amp; Hazelnut">Протеинов с бишкота и лешник</h3>
+          <p class="pv-desc" data-en="Hazelnut cream, biscuit base, whey protein">Лешников крем, бишкотена основа, суроватъчен протеин</p>
+          
+          <dl class="pv-macros" aria-label="Приблизителни хранителни стойности">
+            <div class="pv-m pv-m--k"><dt data-en="Calories">Калории</dt><dd><b>350</b> kcal</dd><i style="--v:39%"></i></div>
+            <div class="pv-m pv-m--p"><dt data-en="Protein">Протеин</dt><dd><b>22</b> г</dd><i style="--v:37%"></i></div>
+            <div class="pv-m pv-m--c"><dt data-en="Carbs">Въглехидрати</dt><dd><b>35</b> г</dd><i style="--v:44%"></i></div>
+            <div class="pv-m pv-m--f"><dt data-en="Fat">Мазнини</dt><dd><b>13</b> г</dd><i style="--v:29%"></i></div>
+          </dl>
+          <div class="pv-buy"><span class="pv-price">5.00 €</span>
+            <div class="pv-ctas"><a class="btn btn--glovo" href="https://glovoapp.com/bg/bg/plovdiv/stores/kiwis-pdv" target="_blank" rel="noopener" data-en="Order on Glovo">Поръчай в Glovo</a></div></div>
+        </article>
+<article class="pv-panel" data-i="2" id="pv-dessert-2" aria-hidden="true">
+          <div class="pv-meta"><span class="pv-num">03<small> / 05</small></span></div>
+          <h3 class="pv-name" data-en="Caramel Biscuit Cheesecake">Карамел бисквит чийзкейк</h3>
+          <p class="pv-desc" data-en="Caramel sauce, biscuit base, protein cream cheese">Карамелен сос, бисквитена основа, протеинов крем сирене</p>
+          
+          <dl class="pv-macros" aria-label="Приблизителни хранителни стойности">
+            <div class="pv-m pv-m--k"><dt data-en="Calories">Калории</dt><dd><b>370</b> kcal</dd><i style="--v:41%"></i></div>
+            <div class="pv-m pv-m--p"><dt data-en="Protein">Протеин</dt><dd><b>21</b> г</dd><i style="--v:35%"></i></div>
+            <div class="pv-m pv-m--c"><dt data-en="Carbs">Въглехидрати</dt><dd><b>40</b> г</dd><i style="--v:50%"></i></div>
+            <div class="pv-m pv-m--f"><dt data-en="Fat">Мазнини</dt><dd><b>14</b> г</dd><i style="--v:31%"></i></div>
+          </dl>
+          <div class="pv-buy"><span class="pv-price">5.00 €</span>
+            <div class="pv-ctas"><a class="btn btn--glovo" href="https://glovoapp.com/bg/bg/plovdiv/stores/kiwis-pdv" target="_blank" rel="noopener" data-en="Order on Glovo">Поръчай в Glovo</a></div></div>
+        </article>
+<article class="pv-panel" data-i="3" id="pv-dessert-3" aria-hidden="true">
+          <div class="pv-meta"><span class="pv-num">04<small> / 05</small></span></div>
+          <h3 class="pv-name" data-en="Mango &amp; Coconut Protein Cheesecake">Манго и кокос протеинов чийзкейк</h3>
+          <p class="pv-desc" data-en="Mango puree, coconut flakes, protein cream cheese">Манго пюре, кокосови стърготини, протеинов крем сирене</p>
+          
+          <dl class="pv-macros" aria-label="Приблизителни хранителни стойности">
+            <div class="pv-m pv-m--k"><dt data-en="Calories">Калории</dt><dd><b>320</b> kcal</dd><i style="--v:36%"></i></div>
+            <div class="pv-m pv-m--p"><dt data-en="Protein">Протеин</dt><dd><b>21</b> г</dd><i style="--v:35%"></i></div>
+            <div class="pv-m pv-m--c"><dt data-en="Carbs">Въглехидрати</dt><dd><b>32</b> г</dd><i style="--v:40%"></i></div>
+            <div class="pv-m pv-m--f"><dt data-en="Fat">Мазнини</dt><dd><b>12</b> г</dd><i style="--v:27%"></i></div>
+          </dl>
+          <div class="pv-buy"><span class="pv-price">5.00 €</span>
+            <div class="pv-ctas"><a class="btn btn--glovo" href="https://glovoapp.com/bg/bg/plovdiv/stores/kiwis-pdv" target="_blank" rel="noopener" data-en="Order on Glovo">Поръчай в Glovo</a></div></div>
+        </article>
+<article class="pv-panel" data-i="4" id="pv-dessert-4" aria-hidden="true">
+          <div class="pv-meta"><span class="pv-num">05<small> / 05</small></span></div>
+          <h3 class="pv-name" data-en="Strawberry &amp; Blueberry with Chia, Skyr &amp; Protein">Ягода и боровинка с чиа, скир и протеин</h3>
+          <p class="pv-desc" data-en="Strawberry, blueberry, chia seeds, skyr, whey protein">Ягода, боровинка, чиа семена, скир, суроватъчен протеин</p>
+          
+          <dl class="pv-macros" aria-label="Приблизителни хранителни стойности">
+            <div class="pv-m pv-m--k"><dt data-en="Calories">Калории</dt><dd><b>260</b> kcal</dd><i style="--v:29%"></i></div>
+            <div class="pv-m pv-m--p"><dt data-en="Protein">Протеин</dt><dd><b>20</b> г</dd><i style="--v:33%"></i></div>
+            <div class="pv-m pv-m--c"><dt data-en="Carbs">Въглехидрати</dt><dd><b>29</b> г</dd><i style="--v:36%"></i></div>
+            <div class="pv-m pv-m--f"><dt data-en="Fat">Мазнини</dt><dd><b>7</b> г</dd><i style="--v:16%"></i></div>
+          </dl>
+          <div class="pv-buy"><span class="pv-price">5.00 €</span>
+            <div class="pv-ctas"><a class="btn btn--glovo" href="https://glovoapp.com/bg/bg/plovdiv/stores/kiwis-pdv" target="_blank" rel="noopener" data-en="Order on Glovo">Поръчай в Glovo</a></div></div>
+        </article>
+        </div>
+        <div class="pv-thumbs" role="tablist" aria-label="Избери"><button class="pv-th is-on" data-i="0" role="tab" aria-selected="true" aria-controls="pv-dessert-0" aria-label="Орео протеинов чийзкейк"><img src="images/cut/dessert-oreo-1-500.webp" alt="" width="80" height="80" decoding="async"></button><button class="pv-th" data-i="1" role="tab" aria-selected="false" aria-controls="pv-dessert-1" aria-label="Протеинов с бишкота и лешник"><img src="images/cut/dessert-hazelnut-1-500.webp" alt="" width="80" height="80" decoding="async"></button><button class="pv-th" data-i="2" role="tab" aria-selected="false" aria-controls="pv-dessert-2" aria-label="Карамел бисквит чийзкейк"><img src="images/cut/dessert-caramel-1-500.webp" alt="" width="80" height="80" decoding="async"></button><button class="pv-th" data-i="3" role="tab" aria-selected="false" aria-controls="pv-dessert-3" aria-label="Манго и кокос протеинов чийзкейк"><img src="images/cut/dessert-mango-1-500.webp" alt="" width="80" height="80" decoding="async"></button><button class="pv-th" data-i="4" role="tab" aria-selected="false" aria-controls="pv-dessert-4" aria-label="Ягода и боровинка с чиа, скир и протеин"><img src="images/cut/dessert-berry-1-500.webp" alt="" width="80" height="80" decoding="async"></button></div>
+      </div>
+    </div>
+      </div>
+    </section>
+
+    <section class="cat cat--light" id="coffee" data-category="coffee" aria-labelledby="h-coffee">
+      <div class="container">
+        <div class="cat-head"><div><h2 id="h-coffee" data-en="Coffee &amp; Classics">Coffee and Classics</h2></div></div>
+        <ul class="drinks"><li><span data-en="Coffee">Кафе</span><b>2.20 €</b></li><li><span data-en="Coffee with Milk">Кафе с мляко</span><b>2.50 €</b></li><li><span data-en="Cappuccino">Капучино</span><b>3.00 €</b></li><li><span data-en="Frappe">Фрапе</span><b>3.20 €</b></li><li><span data-en="Iced Latte">Студено Late</span><b>3.50 €</b></li><li><span data-en="Hot Chocolate">Горещ шоколад</span><b>4.00 €</b></li><li><span data-en="Lemonade">Лимонада</span><b>3.80 €</b></li><li><span data-en="Fresh Juice">Фреш</span><b>3.50 €</b></li><li><span data-en="Espresso Tonic">Espresso Tonik</span><b>4.00 €</b></li><li><span data-en="Tea">Чай</span><b>3.00 €</b></li></ul>
+      </div>
+    </section>
+
+    <p class="menu-foot container" data-en="Allergens and ingredients — ask our team or call +359 892 632 470.">Алергени и съставки — попитайте на място или на +359 892 632 470.</p>
+  </main>
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-brand"><img src="images/kiwi-icon.jpg" alt="" width="40" height="40"><div><strong>KiWi'S</strong><span data-en="14 Nikola Karev St., Plovdiv · Mon–Sat 09:00–21:30">ул. „Никола Карев“ 14, Пловдив · Пон–Съб 09:00–21:30</span></div></div>
+      <nav class="footer-links" aria-label="Footer">
+        <a href="menu.html" data-en="Menu">Меню</a><a href="blog/" data-en="Articles">Статии</a>
+        <a href="https://glovoapp.com/bg/bg/plovdiv/stores/kiwis-pdv" target="_blank" rel="noopener">Glovo</a>
+        <a href="https://www.google.com/maps?cid=1892105797985093642" target="_blank" rel="noopener" data-en="Google reviews">Отзиви в Google</a>
+        <a href="tel:+359892632470">+359 892 632 470</a>
+      </nav>
+      <p class="footer-copy">&copy; 2026 KiWi'S</p>
+    </div>
+  </footer>
+
+  <div class="sticky-order" id="stickyOrder">
+    <a href="https://glovoapp.com/bg/bg/plovdiv/stores/kiwis-pdv" class="so-btn so-btn--glovo" target="_blank" rel="noopener"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 17h-2v-6l2-5h9l4 5h1a2 2 0 012 2v4h-2"/><circle cx="7" cy="17" r="2"/><circle cx="17" cy="17" r="2"/><path d="M9 17h6"/></svg><span data-en="Order on Glovo">Поръчай в Glovo</span></a>
+    <a href="tel:+359892632470" class="so-btn so-btn--call" aria-label="Обади се"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.86 19.86 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.86 19.86 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.12.96.36 1.9.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.91.34 1.85.58 2.81.7A2 2 0 0122 16.92z"/></svg></a>
+  </div>
+
+
+  <script src="js/pv.js"></script>
+  <script src="js/main.js"></script>
   <script src="js/menu.js"></script>
 </body>
 </html>

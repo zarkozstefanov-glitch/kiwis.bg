@@ -6,8 +6,8 @@ set -euo pipefail
 cd "$(dirname "$0")/.."
 
 OUT=dist
-VERSION="${GITHUB_SHA:-${VERCEL_GIT_COMMIT_SHA:-$(git rev-parse HEAD 2>/dev/null || date +%s)}}"
-VERSION="${VERSION:0:8}"
+# cache-busting key = hash of the actual CSS/JS, so any change reaches visitors immediately
+VERSION="$(cat css/*.css js/*.js | shasum | cut -c1-8)"
 LASTMOD="$(date -u +%Y-%m-%d)"
 
 rm -rf "$OUT"
@@ -16,7 +16,7 @@ mkdir -p "$OUT"
 cp index.html menu.html 404.html "$OUT/"
 cp .htaccess robots.txt sitemap.xml llms.txt site.webmanifest "$OUT/"
 cp favicon.ico favicon-32.png apple-touch-icon.png "$OUT/"
-cp -R css js images "$OUT/"
+cp -R css js images blog "$OUT/"
 find "$OUT" -name ".DS_Store" -delete
 
 # Cache-busting: CSS/JS are cached for a year, so every deploy gets a new ?v=
@@ -45,9 +45,15 @@ while read -r ref; do
   fi
 done <<< "$refs"
 
+# CSS must be well-formed: one unclosed brace silently drops every rule after it
+for f in "$OUT"/css/*.css; do
+  o=$(tr -cd '{' < "$f" | wc -c); c=$(tr -cd '}' < "$f" | wc -c)
+  if [[ "$o" -ne "$c" ]]; then echo "Unbalanced braces in $f ({=$o }=$c)"; fail=1; fi
+done
+
 # No development leftovers or insecure URLs
 if grep -rnE 'localhost|127\.0\.0\.1|/Users/|C:\\|http://' "$OUT" --include='*.html' --include='*.css' --include='*.js' --include='*.txt' --include='*.xml' --include='*.webmanifest' \
-     | grep -v 'http://www.sitemaps.org\|http://www.google.com/schemas'; then
+     | grep -v 'http://www.sitemaps.org\|http://www.google.com/schemas\|http://www.w3.org'; then
   echo "Found development paths or http:// URLs (see above)"; fail=1
 fi
 if grep -rn 'console\.log' "$OUT"/js; then
