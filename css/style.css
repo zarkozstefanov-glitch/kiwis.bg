@@ -459,7 +459,7 @@ button { border: 0; background: none; cursor: pointer; font: inherit; color: inh
 .ct img { top: 7%; left: 50%; width: 80%; height: 60%; object-fit: contain; object-position: 50% 100%; transform: translateX(-50%); }
 .ct:hover img { transform: translateX(-50%) translateY(-6px) scale(1.04); }
 @media (max-width: 959px) { .ct { min-height: 15.5rem; } .ct img { top: 6%; height: 50%; width: 84%; } }
-.art-img img { object-position: 50% 68%; }
+.art-img img { object-position: 50% 50%; }
 
 /* ==========================================================
    v3 — PRAISED: one flat yellow (no gradient that shifts while scrolling),
@@ -605,3 +605,18 @@ button { border: 0; background: none; cursor: pointer; font: inherit; color: inh
 @media (max-width: 959px) { .praised .pv-quote { height: 5.2em !important; } }
 /* desktop: price + weight left, the two buttons stay side by side */
 @media (min-width: 960px) { .praised .pv-ctas { flex-wrap: nowrap; } .praised .pv-ctas .btn { padding: 12px 20px; font-size: .92rem; } }
+.about-stats b { white-space: nowrap; font-size: clamp(1.2rem, 5.4vw, 1.8rem); }
+
+/* HERO on phones v2: title and buttons scale with the screen and sit higher on tall phones */
+@media (max-width: 768px) {
+  .hero-content { padding-bottom: clamp(28px, calc(100svh - 640px), 150px); }
+  .hero-content { padding-bottom: max(clamp(28px, 18svh - 90px, 150px), env(safe-area-inset-bottom)); }
+  .hero-h1 { font-size: clamp(2.6rem, min(13.4vw, 7.4svh), 4.4rem); margin-bottom: clamp(14px, 2.4svh, 26px); }
+  .hero-btns { margin-top: clamp(14px, 2.6svh, 28px); gap: clamp(8px, 1.4svh, 14px); }
+  .hero-btns .btn { padding: clamp(13px, 2svh, 18px) 16px; font-size: clamp(.95rem, 4.4vw, 1.1rem); }
+  .hero-rating { font-size: clamp(.85rem, 3.9vw, 1rem); }
+}
+@media (max-width: 768px) {
+  .hero-content { padding-bottom: max(clamp(32px, 30svh - 140px, 170px), env(safe-area-inset-bottom)); }
+  .hero-h1 { font-size: clamp(2.5rem, min(12.2vw, 7svh), 4.2rem); }
+}

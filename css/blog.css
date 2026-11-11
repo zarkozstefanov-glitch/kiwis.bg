@@ -38,11 +38,11 @@
 /* ---- one centred column: heading, photo and text share the same width ---- */
 .post-head, .post-hero, .post-body { max-width: 48.75rem; }
 .post-hero { margin-top: 26px; }
-.post-hero img { width: 100%; height: auto; max-height: none; aspect-ratio: 16 / 10; object-fit: cover; object-position: 50% 62%; border-radius: 22px; box-shadow: 0 30px 60px -36px rgba(26,45,30,.45); }
+.post-hero img { width: 100%; height: auto; max-height: none; aspect-ratio: 16 / 10; object-fit: cover; object-position: 50% 50%; border-radius: 22px; box-shadow: 0 30px 60px -36px rgba(26,45,30,.45); }
 .post-body { margin-top: 32px; }
 .blog-list { max-width: 72.5rem; }
 .blog-list .art-img { aspect-ratio: 4 / 3; }
 .blog-list .art-card { align-content: start; }
 /* list page: heading lines up with the cards */
 .post:has(.blog-list) .post-head { max-width: 72.5rem; }
-.art-img img { object-position: 50% 68%; }
+.art-img img { object-position: 50% 50%; }

@@ -98,7 +98,7 @@ NEST = [
 gal = ""
 for i, (img, cap, cen, cls, w, h) in enumerate(NEST):
     full = "images/hero-2000.webp" if img == "hero" else f"images/{img}-1600.webp"
-    gal += f'          <button class="g {cls}" data-reveal="up" data-full="{full}" aria-label="{cap}">{photo(img, "(min-width: 960px) 420px, 50vw", cap, w, h)}<span class="g-cap" data-en="{cen}">{cap}</span></button>\n'
+    gal += f'          <button class="g {cls}" data-reveal="up" data-full="{full}" aria-label="{cap}">{photo(img, "(min-width: 960px) 420px, 50vw", cap, w, h)}</button>\n'
 
 FAQ = [
     ("Къде се намира Kiwi's?", "Where is Kiwi's?", "На ул. „Никола Карев“ 14 в Пловдив. Имаме зала и тераса в градината.", "At 14 Nikola Karev St., Plovdiv, with an indoor room and a garden terrace."),
@@ -114,11 +114,11 @@ faq_ld = json.dumps({"@context": "https://schema.org", "@type": "FAQPage", "main
     {"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}} for q, _, a, _ in FAQ]}, ensure_ascii=False, indent=2)
 
 ARTS = [
-    ("blog/kolko-protein-na-den.html", "Колко протеин ти трябва на ден?", "How much protein do you need a day?", "nest-portion", 1333, "6"),
-    ("blog/makrosi-za-nachinaeshti.html", "Макроси за начинаещи", "Macros for beginners", "nest-dessert", 1333, "5"),
-    ("blog/zdravoslovno-hranene-navan.html", "Как да се храниш здравословно, когато ядеш навън", "Eating well when you eat out", "nest-terrace", 750, "5"),
+    ("blog/kolko-protein-na-den.html", "Колко протеин ти трябва на ден?", "How much protein do you need a day?", "article-protein", 1200, "6"),
+    ("blog/makrosi-za-nachinaeshti.html", "Макроси за начинаещи", "Macros for beginners", "article-macros", 1200, "5"),
+    ("blog/zdravoslovno-hranene-navan.html", "Как да се храниш здравословно, когато ядеш навън", "Eating well when you eat out", "article-eatout", 1200, "5"),
 ]
-arts = "".join(f'''        <a class="art-card" href="{h}" data-reveal="up"><div class="art-img">{photo(img, "(min-width: 960px) 360px, 90vw", "", 1000, ih)}</div><span class="art-meta">{m} <span data-en="min read">мин четене</span></span><h3 data-en="{te}">{t}</h3></a>
+arts = "".join(f'''        <a class="art-card" href="{h}" data-reveal="up"><div class="art-img">{photo(img, "(min-width: 960px) 360px, 90vw", "", 1600, ih)}</div><span class="art-meta">{m} <span data-en="min read">мин четене</span></span><h3 data-en="{te}">{t}</h3></a>
 ''' for h, t, te, img, ih, m in ARTS)
 
 chicken = ITEMS["Пилешка порция"]
@@ -166,12 +166,12 @@ body = f'''<body>
       <div class="about-text" data-reveal="left">
         <span class="kicker" data-en="About Kiwi's">За Kiwi's</span>
         <h2 data-en="Food that<br><em>fuels you.</em>">Храна, която те<br><em>зарежда.</em></h2>
-        <p data-en="We bake protein brioche, cook bowls with basmati rice and make our desserts in-house — fresh, every day, at 14 Nikola Karev St. in Plovdiv.">Печем протеинов бриош, готвим порции с басмати ориз и правим десертите си на място — прясно, всеки ден, на ул. „Никола Карев“ 14 в Пловдив.</p>
-        <p data-en="Every dish on the menu shows its calories, protein, carbs and fat. No guessing.">До всяко ястие в менюто пише колко калории, протеин, въглехидрати и мазнини има. Без догадки.</p>
+        <p data-en="Kiwi's is a café for healthy food at 14 Nikola Karev St. in Plovdiv: brioche sandwiches, bowls with basmati rice, salads, protein desserts, Cloud Foam drinks and coffee.">Kiwi's е място за здравословна храна и кафе на ул. „Никола Карев“ 14 в Пловдив: сандвичи в протеинов бриош, порции с басмати ориз, салати, протеинови десерти, Cloud Foam напитки и кафе.</p>
+        <p data-en="The menu lists calories, protein, carbs and fat for every dish. You can eat in the room or in the garden, take it with you, or order on Glovo.">В менюто до всяко ястие са дадени калории, протеин, въглехидрати и мазнини. Можеш да хапнеш в залата или в градината, да вземеш за из път или да поръчаш през Glovo.</p>
         <div class="about-stats">
           <div><b data-count="49">49</b><span data-en="Google reviews">отзива в Google</span></div>
           <div><b>5,0</b><span data-en="average rating">средна оценка</span></div>
-          <div><b data-count="27">27</b><span data-en="dishes with macros">ястия с макроси</span></div>
+          <div><b data-en="Mon–Sat">Пон–Съб</b><span>09:00 – 21:30</span></div>
         </div>
       </div>
       <div class="about-img" data-reveal="right">
@@ -216,7 +216,7 @@ body = f'''<body>
       <div class="label-copy" data-reveal="left">
         <span class="kicker" data-en="Know what you eat">Знаеш какво ядеш</span>
         <h2 data-en="Every dish comes<br>with its numbers.">Всяко ястие идва<br>със своите числа.</h2>
-        <p data-en="Training, counting calories or simply curious — the menu lists approximate calories, protein, carbs and fat for each of our 27 dishes, calculated from our recipes.">Тренираш, броиш калории или просто ти е интересно — в менюто до всяко от 27-те ни ястия има приблизителни калории, протеин, въглехидрати и мазнини, изчислени по рецептите ни.</p>
+        <p data-en="The menu lists approximate calories, protein, carbs and fat for every dish, calculated from our recipes.">В менюто до всяко ястие има приблизителни калории, протеин, въглехидрати и мазнини, изчислени по рецептите ни.</p>
         <a href="menu.html" class="btn btn--dark" data-en="Open the menu">Отвори менюто</a>
       </div>
       <div class="nlabel" data-reveal="right" aria-label="Хранителни стойности: Пилешка порция">

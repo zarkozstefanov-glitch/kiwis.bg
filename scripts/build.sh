@@ -24,6 +24,8 @@ for f in "$OUT"/*.html; do
   sed -i.bak -E "s#(href|src)=\"(/?)(css|js)/([a-z0-9_-]+)\.(css|js)\"#\1=\"\2\3/\4.\5?v=${VERSION}\"#g" "$f"
   rm "$f.bak"
 done
+# Cache-busting for images (cached 30 days): ?v=<content hash> on every images/... URL
+python3 -I scripts/build/imgver.py "$OUT"
 sed -i.bak "s#__LASTMOD__#${LASTMOD}#g" "$OUT/sitemap.xml" && rm "$OUT/sitemap.xml.bak"
 
 # --- Checks -----------------------------------------------------------------
@@ -59,7 +61,7 @@ fi
 if grep -rn 'console\.log' "$OUT"/js; then
   echo "console.log left in production JS"; fail=1
 fi
-if find "$OUT" -name '.env*' -o -name '*.md' -o -name '*.map' | grep -q .; then
+if find "$OUT" -name '.env*' -o -name '*.md' -o -name '*.map' -o -name '*.py' | grep -q .; then
   echo "Internal files found in dist/"; fail=1
 fi
 

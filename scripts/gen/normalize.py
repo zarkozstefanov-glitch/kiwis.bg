@@ -17,9 +17,12 @@ def trim_plate(im):
     Keep the plate only around the box (1.7x its width) and fade it out softly at the sides."""
     a = np.array(im.getchannel("A")).astype(float)
     H, W = a.shape
-    rows = [(a[y] > 128).sum() for y in range(int(H * .45), int(H * .66))]
+    ys = list(range(int(H * .45), int(H * .66)))
+    rows = [(a[y] > 128).sum() for y in ys]
+    yb = ys[int(np.argmin(rows))]
     box = max(min(rows), W * .2)                      # narrowest row between sandwich and plate = the box
-    cx = W / 2
+    xs = np.where(a[yb] > 128)[0]
+    cx = (xs[0] + xs[-1]) / 2 if len(xs) else W / 2  # centre of the box, not of the photo
     x = np.abs(np.arange(W) - cx)
     inner, outer = box * .85, box * 1.15
     g = np.clip((outer - x) / (outer - inner), 0, 1); g = g * g * (3 - 2 * g)
@@ -57,6 +60,9 @@ def trim_side_plate(im):
     if not len(cols):
         return im
     x0, x1 = cols[0], cols[-1]
+    card = (a > 0) & ((mx - mn) / np.maximum(mx, 1) < .14) & (mn > 150)
+    card[:, : int(x0 + (x1 - x0) * .7)] = False        # only on the far side of the sandwich
+    a = np.where(card, 0, a)
     pad, ramp = (x1 - x0) * .03, (x1 - x0) * .09
     x = np.arange(W)
     d = np.maximum(x0 - pad - x, x - x1 - pad)
@@ -66,6 +72,8 @@ def trim_side_plate(im):
     return im.crop(im.getchannel("A").point(lambda v: 255 if v > 24 else 0).getbbox())
 
 FIXED = {}
+# photos the photographer cropped on the left: fade that straight edge (fraction of the width)
+SOFT_LEFT = {"salmon-salad-1": .07}
 for p in sorted(src.glob("*.png")):
     if only and p.stem not in only:
         continue
@@ -73,6 +81,10 @@ for p in sorted(src.glob("*.png")):
     bb = im.getchannel("A").point(lambda v: 255 if v > 24 else 0).getbbox()
     im = im.crop(bb)
     im = largest_part(im)
+    if p.stem in SOFT_LEFT:
+        a = np.array(im.getchannel("A")).astype(float)
+        x = np.arange(a.shape[1]); g = np.clip(x / (a.shape[1] * SOFT_LEFT[p.stem]), 0, 1); g = g * g * (3 - 2 * g)
+        im.putalpha(Image.fromarray((a * g[None, :]).astype(np.uint8)))
     if p.stem.endswith("-brioche-1"):
         im = trim_plate(im)
     elif p.stem.endswith("-brioche-2"):

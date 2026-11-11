@@ -155,7 +155,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const open = k => {
       n = (k + items.length) % items.length;
       img.src = items[n].dataset.full;
-      img.alt = cap.textContent = items[n].querySelector('.g-cap').textContent;
+      img.alt = items[n].getAttribute('aria-label') || '';
+      cap.textContent = '';
       lb.hidden = false; document.body.style.overflow = 'hidden';
     };
     const close = () => { lb.hidden = true; document.body.style.overflow = ''; if (last) last.focus(); };
