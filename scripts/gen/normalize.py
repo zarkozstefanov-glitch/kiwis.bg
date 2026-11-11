@@ -73,7 +73,9 @@ def trim_side_plate(im):
 
 FIXED = {}
 # photos the photographer cropped on the left: fade that straight edge (fraction of the width)
-SOFT_LEFT = {"salmon-salad-1": .07}
+SOFT_LEFT = {}
+# masters already cleaned by hand (card and plate removed), no automatic side trimming
+CLEAN = {"pork-brioche-2"}
 for p in sorted(src.glob("*.png")):
     if only and p.stem not in only:
         continue
@@ -87,7 +89,7 @@ for p in sorted(src.glob("*.png")):
         im.putalpha(Image.fromarray((a * g[None, :]).astype(np.uint8)))
     if p.stem.endswith("-brioche-1"):
         im = trim_plate(im)
-    elif p.stem.endswith("-brioche-2"):
+    elif p.stem.endswith("-brioche-2") and p.stem not in CLEAN:
         im = trim_side_plate(im)
     if p.stem in FIXED:
         f = FIXED[p.stem]
