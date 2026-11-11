@@ -650,3 +650,6 @@ button { border: 0; background: none; cursor: pointer; font: inherit; color: inh
 .nav.is-scrolled { background: rgba(26,45,30,.88); }
 /* header while scrolling: almost solid, just a hint of what's behind */
 .nav.is-scrolled { background: rgba(26,45,30,.95); }
+/* About now sits between Articles (white) and Contacts (cream): its own soft green so the three read apart */
+.about { background: var(--gp); }
+.about-stats div { background: var(--paper); }

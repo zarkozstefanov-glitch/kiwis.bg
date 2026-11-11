@@ -184,26 +184,6 @@ body = f'''<body>
     </div>
   </section>
 
-  <section class="sec about" id="about">
-    <div class="blob blob--a" data-speed="-0.12" aria-hidden="true"></div>
-    <div class="container about-grid">
-      <div class="about-text" data-reveal="left">
-        <span class="kicker" data-en="About Kiwi's">За Kiwi's</span>
-        <h2 data-en="Food that<br><em>fuels you.</em>">Храна, която те<br><em>зарежда.</em></h2>
-        <p data-en="Kiwi's is a café for healthy food at 14 Nikola Karev St. in Plovdiv: brioche sandwiches, bowls with basmati rice, salads, protein desserts, Cloud Foam drinks and coffee.">Kiwi's е място за здравословна храна и кафе на ул. „Никола Карев“ 14 в Пловдив: сандвичи в протеинов бриош, порции с басмати ориз, салати, протеинови десерти, Cloud Foam напитки и кафе.</p>
-        <p data-en="The menu lists calories, protein, carbs and fat for every dish. You can eat in the room or in the garden, take it with you, or order on Glovo.">В менюто до всяко ястие са дадени калории, протеин, въглехидрати и мазнини. Можеш да хапнеш в залата или в градината, да вземеш за из път или да поръчаш през Glovo.</p>
-        <div class="about-stats">
-          <div><b data-count="49">49</b><span data-en="Google reviews">отзива в Google</span></div>
-          <div><b>5,0</b><span data-en="average rating">средна оценка</span></div>
-          <div><b data-en="Mon–Sat">Пон–Съб</b><span>09:00 – 21:30</span></div>
-        </div>
-      </div>
-      <div class="about-img" data-reveal="right">
-        {photo("nest-portion", "(min-width: 960px) 460px, 100vw", "Пилешка порция в Kiwi's пред стената с логото")}
-      </div>
-    </div>
-  </section>
-
   <section class="sec cats" id="categories">
     <div class="container">
       <div class="sec-head">
@@ -290,6 +270,26 @@ body = f'''<body>
       </div>
       <div class="art-grid">
 {arts}      </div>
+    </div>
+  </section>
+
+  <section class="sec about" id="about">
+    <div class="blob blob--a" data-speed="-0.12" aria-hidden="true"></div>
+    <div class="container about-grid">
+      <div class="about-text" data-reveal="left">
+        <span class="kicker" data-en="About Kiwi's">За Kiwi's</span>
+        <h2 data-en="Food that<br><em>fuels you.</em>">Храна, която те<br><em>зарежда.</em></h2>
+        <p data-en="Kiwi's is a café for healthy food at 14 Nikola Karev St. in Plovdiv: brioche sandwiches, bowls with basmati rice, salads, protein desserts, Cloud Foam drinks and coffee.">Kiwi's е място за здравословна храна и кафе на ул. „Никола Карев“ 14 в Пловдив: сандвичи в протеинов бриош, порции с басмати ориз, салати, протеинови десерти, Cloud Foam напитки и кафе.</p>
+        <p data-en="The menu lists calories, protein, carbs and fat for every dish. You can eat in the room or in the garden, take it with you, or order on Glovo.">В менюто до всяко ястие са дадени калории, протеин, въглехидрати и мазнини. Можеш да хапнеш в залата или в градината, да вземеш за из път или да поръчаш през Glovo.</p>
+        <div class="about-stats">
+          <div><b data-count="49">49</b><span data-en="Google reviews">отзива в Google</span></div>
+          <div><b>5,0</b><span data-en="average rating">средна оценка</span></div>
+          <div><b data-en="Mon–Sat">Пон–Съб</b><span>09:00 – 21:30</span></div>
+        </div>
+      </div>
+      <div class="about-img" data-reveal="right">
+        {photo("nest-portion", "(min-width: 960px) 460px, 100vw", "Пилешка порция в Kiwi's пред стената с логото")}
+      </div>
     </div>
   </section>
 
