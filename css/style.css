@@ -620,3 +620,13 @@ button { border: 0; background: none; cursor: pointer; font: inherit; color: inh
   .hero-content { padding-bottom: max(clamp(32px, 30svh - 140px, 170px), env(safe-area-inset-bottom)); }
   .hero-h1 { font-size: clamp(2.5rem, min(12.2vw, 7svh), 4.2rem); }
 }
+
+/* ---------- phone order bar: no white strip, just the two buttons, slightly see-through ---------- */
+.sticky-order { background: none; border-top: 0; backdrop-filter: none; -webkit-backdrop-filter: none; pointer-events: none; padding: 0 14px max(14px, env(safe-area-inset-bottom)); }
+.sticky-order .so-btn { pointer-events: auto; backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); box-shadow: 0 10px 26px -10px rgba(0,0,0,.45); border-radius: 50px; }
+.so-btn--glovo { background: rgba(255,194,68,.88); }
+.so-btn--call { background: rgba(46,74,50,.86); width: 52px; }
+
+/* ---------- header: a little see-through once the page scrolls ---------- */
+.nav { transition: background .35s var(--ease), box-shadow .35s var(--ease); }
+.nav.is-scrolled { background: rgba(26,45,30,.72); backdrop-filter: blur(18px) saturate(1.2); -webkit-backdrop-filter: blur(18px) saturate(1.2); box-shadow: 0 8px 24px -16px rgba(0,0,0,.5); }

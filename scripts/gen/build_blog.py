@@ -165,6 +165,7 @@ def shell(title, desc, canon, body, ld, og_img="/images/og-image.jpg"):
   {FONT}
   <link rel="stylesheet" href="/css/style.css">
   <link rel="stylesheet" href="/css/blog.css">
+  <link rel="stylesheet" href="/css/join.css">
   <script type="application/ld+json">
 {json.dumps(ld, ensure_ascii=False, indent=2)}
   </script>
@@ -176,6 +177,7 @@ def shell(title, desc, canon, body, ld, og_img="/images/og-image.jpg"):
   </main>
 {footer("blog")}
   <script src="/js/main.js"></script>
+  <script src="/js/join.js" defer></script>
 </body>
 </html>
 '''

@@ -1,0 +1,64 @@
+/* ==========================================================
+   "JOIN THE FAMILY" card (js/join.js) — calm, bottom-left, green like the brand
+   ========================================================== */
+.kj { position: fixed; z-index: 120; left: 20px; bottom: 20px; width: min(400px, calc(100vw - 32px)); padding: 20px 20px 18px; border-radius: 24px;
+  color: var(--cream); background: radial-gradient(120% 120% at 0% 0%, #2C4E33 0%, #1C3322 55%, #12201A 100%);
+  box-shadow: 0 30px 70px -24px rgba(5,12,7,.75), inset 0 0 0 1px rgba(168,212,98,.16);
+  opacity: 0; transform: translateY(24px) scale(.97); transition: opacity .5s var(--ease), transform .6s var(--ease); font-family: var(--fb); }
+.kj.in { opacity: 1; transform: none; }
+.kj-x { position: absolute; top: 10px; right: 12px; width: 34px; height: 34px; border-radius: 50%; color: rgba(250,246,240,.7); font-size: 1.5rem; line-height: 1; }
+.kj-x:hover { background: rgba(255,255,255,.08); color: #fff; }
+.kj-top { display: flex; align-items: center; gap: 12px; padding-right: 26px; }
+.kj-kicker { display: block; font-size: .68rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--sun); }
+.kj h2 { font-family: var(--ff); font-weight: 700; font-size: 1.45rem; line-height: 1.1; margin-top: 2px; }
+.kj-text { font-size: .9rem; color: rgba(250,246,240,.75); margin: 10px 0 12px; line-height: 1.45; }
+.kj-form { display: grid; gap: 8px; }
+.kj-row { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.kj-form label { display: grid; gap: 4px; font-size: .72rem; font-weight: 600; color: rgba(250,246,240,.6); }
+.kj-form input:not([type=checkbox]) { width: 100%; padding: 11px 12px; border-radius: 12px; border: 1px solid rgba(255,255,255,.14); background: rgba(255,255,255,.07); color: #fff; font: inherit; font-size: .95rem; }
+.kj-form input:focus { outline: 2px solid var(--sun); outline-offset: 1px; border-color: transparent; }
+.kj-form label.bad input:not([type=checkbox]) { border-color: #E9846B; }
+.kj-check { grid-template-columns: auto 1fr !important; align-items: start; gap: 9px !important; font-weight: 400 !important; font-size: .74rem !important; line-height: 1.4; color: rgba(250,246,240,.7) !important; margin-top: 2px; }
+.kj-check input { width: 18px; height: 18px; margin-top: 1px; accent-color: var(--sun); }
+.kj-check.bad span { color: #F2A48F; }
+.kj-check a { color: var(--sun); text-decoration: underline; text-underline-offset: 2px; }
+.kj-hp { position: absolute !important; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+.kj-msg { min-height: 1.1em; font-size: .8rem; color: #F2C4B5; }
+.kj-btns { display: flex; align-items: center; gap: 10px; }
+.kj-go { flex: 1; background: var(--sun); color: var(--ink); font-weight: 700; padding: 13px 18px; border-radius: 50px; transition: transform .2s var(--ease), background .2s; }
+.kj-go:hover { background: #FFB61E; transform: translateY(-1px); }
+.kj-go:disabled { opacity: .6; }
+.kj-later { color: rgba(250,246,240,.65); font-weight: 600; font-size: .88rem; padding: 10px 6px; }
+.kj-later:hover { color: #fff; }
+.kj-done { font-size: .95rem; line-height: 1.5; color: var(--cream); background: rgba(255,194,68,.12); border-radius: 14px; padding: 12px 14px; }
+
+/* phones: a sheet at the bottom, above everything; compact */
+@media (max-width: 560px) {
+  .kj { left: 8px; right: 8px; bottom: max(8px, env(safe-area-inset-bottom)); width: auto; padding: 16px 16px 14px; border-radius: 22px; }
+  .kj h2 { font-size: 1.25rem; }
+  .kj-text { font-size: .84rem; margin: 6px 0 10px; }
+  .kj-form input:not([type=checkbox]) { padding: 10px 11px; font-size: 16px; }
+}
+
+/* ---- the kiwi: hops, pecks at the slice, the slice bounces ---- */
+.kj-bird { width: 76px; height: 62px; flex: none; overflow: visible; }
+.kj-bird path { fill: #A8D462; stroke: #A8D462; stroke-width: .5; stroke-linejoin: round; }
+.kj-shadow { fill: rgba(0,0,0,.35); transform-origin: 2px 1px; animation: kj-shadow 3.2s var(--ease) infinite; }
+.kj-hop { animation: kj-hop 3.2s var(--ease) infinite; transform-origin: 0 0; }
+.kj-head { transform-origin: 10.4px -33.7px; animation: kj-peck 3.2s cubic-bezier(.5,0,.3,1) infinite; }
+.kj-leg--b { transform-origin: -9.8px -7.5px; animation: kj-leg 3.2s var(--ease) infinite; }
+.kj-leg--f { transform-origin: 2.95px -7.1px; animation: kj-leg 3.2s var(--ease) infinite .12s; }
+.kj-fruit { transform-origin: 33px 0; animation: kj-fruit 3.2s var(--ease) infinite; }
+@keyframes kj-hop { 0%, 18%, 100% { transform: translateY(0); } 8% { transform: translateY(-5px); } }
+@keyframes kj-shadow { 0%, 18%, 100% { transform: scaleX(1); opacity: 1; } 8% { transform: scaleX(.8); opacity: .6; } }
+@keyframes kj-leg { 0%, 18%, 100% { transform: rotate(0); } 6% { transform: rotate(-14deg); } 12% { transform: rotate(8deg); } }
+@keyframes kj-peck { 0%, 30%, 62%, 100% { transform: rotate(0); } 40% { transform: rotate(34deg); } 46% { transform: rotate(26deg); } 50% { transform: rotate(36deg); } }
+@keyframes kj-fruit { 0%, 49%, 80%, 100% { transform: translateY(0) rotate(0); } 58% { transform: translateY(-9px) rotate(-30deg); } 68% { transform: translateY(0) rotate(-60deg); } 73% { transform: translateY(-2px) rotate(-60deg); } }
+@media (prefers-reduced-motion: reduce) { .kj-bird * { animation: none !important; } .kj { transition: opacity .2s; } }
+
+/* welcome / expired message after the confirmation link */
+.kj-toast { position: fixed; z-index: 130; left: 50%; top: calc(var(--nav-h) + 14px); transform: translate(-50%, -20px); opacity: 0; transition: all .5s var(--ease);
+  display: flex; align-items: center; gap: 10px; max-width: calc(100vw - 24px); padding: 10px 18px 10px 10px; border-radius: 50px; background: var(--forest); color: var(--cream);
+  box-shadow: 0 20px 40px -18px rgba(0,0,0,.6), inset 0 0 0 1px rgba(168,212,98,.2); font-weight: 600; font-size: .92rem; }
+.kj-toast.in { opacity: 1; transform: translate(-50%, 0); }
+.kj-toast .kj-bird { width: 46px; height: 38px; }

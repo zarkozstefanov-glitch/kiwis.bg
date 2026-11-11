@@ -99,6 +99,7 @@ body = f'''  <script type="application/ld+json">
 
   <script src="js/pv.js"></script>
   <script src="js/main.js"></script>
+  <script src="js/join.js" defer></script>
 </body>
 </html>
 '''

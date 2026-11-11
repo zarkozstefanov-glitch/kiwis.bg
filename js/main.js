@@ -80,7 +80,7 @@ document.addEventListener('DOMContentLoaded', () => {
   $$('[data-count]').forEach(el => cio.observe(el));
 
   // === Scroll-linked: nav, sticky bar, parallax shapes, line drawing ===
-  const sticky = $('#stickyOrder'), hero = $('#hero');
+  const sticky = $('#stickyOrder'), hero = $('#hero'), navEl = $('#nav');
   const blobs = $$('[data-speed]'), draws = $$('.draw');
   draws.forEach(p => { try { p.setAttribute('pathLength', '1'); } catch (e) {} });
   let ticking = false, lastY = scrollY, idle = 0;
@@ -89,6 +89,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const onScroll = () => {
     ticking = false;
     const y = scrollY, vh = innerHeight, dy = y - lastY;
+    if (navEl) navEl.classList.toggle('is-scrolled', y > 24);
     lastY = y;
     if (sticky && Math.abs(dy) > 3) {
       const pastHero = hero ? y > hero.offsetHeight * 0.7 : y > 200;
