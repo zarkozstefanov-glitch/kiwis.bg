@@ -207,7 +207,7 @@ CLOSE_R = {"beef-portion-1": 24}
 # photos the photographer cropped on the left: fade that straight edge (fraction of the width)
 SOFT_LEFT = {}
 # masters already cleaned by hand (card and plate removed), no automatic side trimming
-CLEAN = {"pork-brioche-2"}
+CLEAN = {"pulled-pork-brioche-2", "pork-brioche-2"}   # pork-brioche-2 = DSCF8698 seen from above, nothing to trim
 for p in sorted(src.glob("*.png")):
     if only and p.stem not in only:
         continue

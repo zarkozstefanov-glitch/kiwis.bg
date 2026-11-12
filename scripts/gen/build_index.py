@@ -30,7 +30,7 @@ PRAISED = [
     ("Манго и кокос протеинов чийзкейк", "Десертите с манго и тирамису бяха чудесен завършек на преживяването!", "Dimitar D."),
     ("Телешки Бриош", "Бриошът е абсолютен ТОР! Невероятно пухкав, ухаещ на масло и доведен до съвършенство", "Videlina S."),
     ("Телешка порция", "Телешкото е невероятно вкусно, порциите са перфектни, а цените – повече от разумни за качеството.", "miroslava t."),
-    ("Свински Бриош", "Най-добрият сандвич с дърпано свинско месо", "Goran C."),
+    ("Дърпано свинско Бриош", "Най-добрият сандвич с дърпано свинско месо", "Goran C."),
     ("Тирамису Cloud Foam", "Храната е отлична, а ice latte tiramisu беше звездата.", "Nicole G."),
 ]
 praised = []
@@ -40,7 +40,7 @@ for name, q, by in PRAISED:
 
 # --- menu categories ---
 # names, counts and prices come from the menu itself, so the cards always match menu.html
-CARD_IMG = {"cloud": "cloud-caramel-2", "sandwich": "pork-brioche-2", "portion": "chicken-portion-1",
+CARD_IMG = {"cloud": "cloud-caramel-2", "sandwich": "pulled-pork-brioche-2", "portion": "chicken-portion-1",
             "salad": "caesar-salad-1", "dessert": "dessert-oreo-1", "coffee": "coffee-frappe-1"}
 NOUN = {"cloud": ("напитки", "drinks"), "sandwich": ("сандвича", "sandwiches"), "portion": ("порции", "bowls"),
         "salad": ("салати", "salads"), "dessert": ("десерта", "desserts"), "coffee": ("напитки", "drinks")}
@@ -104,9 +104,9 @@ FAQ = [
     ("Къде се намира Kiwi's?", "Where is Kiwi's?", "На ул. „Никола Карев“ 14 в Пловдив. Имаме зала и тераса в градината.", "At 14 Nikola Karev St., Plovdiv, with an indoor room and a garden terrace."),
     ("Какво е работното време?", "What are the opening hours?", "Понеделник – събота, 09:00 – 21:30. В неделя почиваме.", "Monday – Saturday, 09:00 – 21:30. Closed on Sundays."),
     ("Имате ли доставка?", "Do you deliver?", "Да — през Glovo в Пловдив. За взимане на място можете да поръчате на +359 892 632 470.", "Yes — through Glovo in Plovdiv. For pick-up, call +359 892 632 470."),
-    ("Колко протеин има в ястията?", "How much protein is in the dishes?", "Протеиновите порции са между 29 и 60 г протеин, бриош сандвичите между 28 и 55 г, салатите между 19 и 44 г. В менюто до всяко ястие има приблизителни калории, протеин, въглехидрати и мазнини.", "Protein bowls have 29–60 g of protein, brioche sandwiches 28–55 g, salads 19–44 g. Every item in the menu lists approximate calories, protein, carbs and fat."),
+    ("Колко протеин има в ястията?", "How much protein is in the dishes?", "Протеиновите порции са между 32 и 64 г протеин, бриош сандвичите между 28 и 55 г, салатите между 19 и 44 г. В менюто до всяко ястие има приблизителни калории, протеин, въглехидрати и мазнини.", "Protein bowls have 32–64 g of protein, brioche sandwiches 28–55 g, salads 19–44 g. Every item in the menu lists approximate calories, protein, carbs and fat."),
     ("Имате ли вегетариански ястия?", "Do you have vegetarian options?", "Да — вегетарианска порция, вегетариански бриош и вегетарианска салата, както и протеиновите десерти.", "Yes — a vegetarian bowl, vegetarian brioche and vegetarian salad, plus the protein desserts."),
-    ("Какви са цените?", "What are the prices?", "Кафе от 2,20 €, Cloud Foam и протеинови десерти по 5 €, бриош сандвичи от 6 до 7,50 €, протеинови порции от 9 до 12 €.", "Coffee from €2.20, Cloud Foam and protein desserts €5, brioche sandwiches €6–7.50, protein bowls €9–12."),
+    ("Какви са цените?", "What are the prices?", "Кафе от 2,20 €, Cloud Foam и протеинови десерти по 5 €, бриош сандвичи от 5 до 7,50 €, протеинови порции от 9 до 12 €.", "Coffee from €2.20, Cloud Foam and protein desserts €5, brioche sandwiches €5–7.50, protein bowls €9–12."),
 ]
 faq = "".join(f'''        <details class="faq-item" data-reveal="up"><summary data-en="{qe}">{q}</summary><p data-en="{ae}">{a}</p></details>
 ''' for q, qe, a, ae in FAQ)
