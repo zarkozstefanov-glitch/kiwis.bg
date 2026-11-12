@@ -1,12 +1,12 @@
 """Recolour the dip in a portion cut-out so it matches the menu (the photo shoot used the same
 orange sauce for several bowls). Keeps the light and shading of the original sauce.
-usage: python sauce.py <in.png> <out.png> <colour: cheddar|white|herb> x0 x1 y0 y1   (box around the dip cup)"""
+usage: python sauce.py <in.png> <out.png> <colour: cheddar|white|herb|smoked> x0 x1 y0 y1   (box around the dip cup)"""
 import sys
 import numpy as np
 from PIL import Image, ImageFilter
 from scipy import ndimage
 
-TARGET = {"cheddar": (247, 176, 32), "white": (246, 243, 234), "herb": (232, 236, 214)}
+TARGET = {"cheddar": (247, 176, 32), "white": (246, 243, 234), "herb": (232, 236, 214), "smoked": (247, 201, 163)}   # smoked = the beef photo's original dip
 src, dst, colour = sys.argv[1], sys.argv[2], sys.argv[3]
 im = Image.open(src).convert("RGBA"); a = np.asarray(im).astype(float)
 r, g, b, al = a[..., 0], a[..., 1], a[..., 2], a[..., 3]
@@ -27,7 +27,7 @@ m = np.asarray(m).astype(float) / 255
 L = 0.3 * r + 0.59 * g + 0.11 * b
 s = L / np.median(L[sauce])
 t = np.array(TARGET[colour], float)
-new = np.clip(t[None, None, :] * s[..., None] ** (1.25 if colour != "cheddar" else 1.0), 0, 255)
+new = np.clip(t[None, None, :] * s[..., None] ** (1.25 if colour in ("white", "herb") else 1.0), 0, 255)
 out = a.copy()
 out[..., :3] = a[..., :3] * (1 - m[..., None]) + new * m[..., None]
 Image.fromarray(out.astype(np.uint8), "RGBA").save(dst)
