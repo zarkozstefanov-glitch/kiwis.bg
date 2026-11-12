@@ -200,14 +200,14 @@ def fill_lower_rim(im):
     im.putalpha(Image.fromarray(a.astype(np.uint8)))
     return im
 
-FIXED = {}
+FIXED = {"pork-brioche-2": round(1200 * 0.64 / 988, 4)}   # shot from above: as tall as the other side shots, not taller
 # beef portion: the white plate rim between the rice and the thin outer rim line was lost in the
 # matting (up to ~65 px); a wider closing bridges it
 CLOSE_R = {"beef-portion-1": 24}
 # photos the photographer cropped on the left: fade that straight edge (fraction of the width)
 SOFT_LEFT = {}
 # masters already cleaned by hand (card and plate removed), no automatic side trimming
-CLEAN = {"pulled-pork-brioche-2", "pork-brioche-2"}   # pork-brioche-2 = DSCF8698 seen from above, nothing to trim
+CLEAN = {"pulled-pork-brioche-2", "pork-brioche-2"}   # pork-brioche-2 = DSCF8698 (shot from above), box cut off and turned 90° so the layers lie flat
 for p in sorted(src.glob("*.png")):
     if only and p.stem not in only:
         continue
