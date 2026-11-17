@@ -72,11 +72,20 @@ button { border: 0; background: none; cursor: pointer; font: inherit; color: inh
 @media (min-width: 960px) { .nav-links { display: flex; } .hamburger { display: none; } }
 @media (max-width: 370px) { .nav-cta span { display: none; } .lang-btn { padding: 5px 7px; } }
 @media (max-width: 600px) {
-  .nav-brand { display: none; }
   .nav-bar { padding: 0 12px; gap: 8px; }
   .nav-right { gap: 6px; }
   .nav-delivery .btn { padding: 10px; font-size: .76rem; }
   .hamburger { width: 32px; flex: none; }
+}
+@media (max-width: 400px) {
+  .nav-bar { padding: 0 8px; gap: 6px; }
+  .nav-logo { gap: 6px; }
+  .nav-logo img { width: 28px; height: 28px; }
+  .nav-brand { font-size: .94rem; }
+  .nav-right, .nav-delivery { gap: 4px; }
+  .nav-delivery .btn { padding: 10px 8px; font-size: .7rem; }
+  .lang-btn { padding: 5px; font-size: .62rem; }
+  .hamburger { width: 28px; }
 }
 
 .mobile-menu { position: fixed; inset: 0; z-index: 85; background: var(--forest); display: grid; place-items: safe center; overflow-y: auto; opacity: 0; visibility: hidden; transition: opacity .3s, visibility .3s; }
