@@ -12,6 +12,10 @@ document.addEventListener('DOMContentLoaded', () => {
       if (!el.dataset.bg) el.dataset.bg = el.innerHTML;
       el.innerHTML = lang === 'en' ? el.dataset.en : el.dataset.bg;
     });
+    $$('[data-en-aria-label]').forEach(el => {
+      if (!el.dataset.bgAriaLabel) el.dataset.bgAriaLabel = el.getAttribute('aria-label');
+      el.setAttribute('aria-label', lang === 'en' ? el.dataset.enAriaLabel : el.dataset.bgAriaLabel);
+    });
     $$('.lang-btn').forEach(b => b.classList.toggle('is-active', b.dataset.lang === lang));
     updateOpenStatus();
     document.dispatchEvent(new CustomEvent('kiwi:lang'));

@@ -63,7 +63,7 @@ def viewer(vid, items, prefix="", scroll=False, show_menu_link=False, heading_le
         badge = f'<span class="pv-badge" data-en="{e(it.get("badge_en", ""))}">{e(it["badge"])}</span>' if it.get("badge") else ""
         quote = ""
         if it.get("quote"):
-            quote = (f'<blockquote class="pv-quote"><p>„{e(it["quote"])}“</p>'
+            quote = (f'<blockquote class="pv-quote"><p data-en="{e("“" + e(it["quote_en"]) + "”")}">„{e(it["quote"])}“</p>'
                      f'<cite>— {e(it["quote_by"])}, <span data-en="Google review">отзив в Google</span></cite></blockquote>')
         weight = f'<span class="pv-w">{e(it["w"])}</span>' if it.get("w") else ""
         delivery_btn = delivery_links() if delivery else ""

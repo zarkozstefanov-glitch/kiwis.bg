@@ -198,6 +198,8 @@ button { border: 0; background: none; cursor: pointer; font: inherit; color: inh
 .rv--short .rv-stars { margin-bottom: 0; }
 .rv-actions { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin-top: 20px; }
 .rv-note { text-align: center; font-size: .74rem; color: var(--ink3); margin-top: 14px; }
+.review-translation-note { display: none; margin-top: 8px; font-size: .67rem; line-height: 1.4; color: var(--ink2); }
+html[data-lang="en"] .review-translation-note { display: block; }
 
 /* ---------- NEST gallery ---------- */
 .nest { background: var(--paper); }

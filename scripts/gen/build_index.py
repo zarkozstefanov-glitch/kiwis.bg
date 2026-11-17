@@ -2,6 +2,7 @@ import sys, json
 S, OUT = sys.argv[1], sys.argv[2]
 sys.path.insert(0, S)
 from pv_lib import viewer, e, BOLT_FOOD, GLOVO, delivery_links, nav, footer, sticky_order, price_bg, price_en, IG, IG_ICON
+from review_lib import text_en
 
 head = open(f"{S}/head.html", encoding="utf-8").read()
 reviews = open(f"{S}/reviews_snippet.html", encoding="utf-8").read()
@@ -25,17 +26,17 @@ def photo(name, sizes, alt, w=1000, h=1333):
             f'<img src="images/{name}.jpg" width="{w}" height="{h}" alt="{alt}" loading="lazy" decoding="async"></picture>')
 
 
-# --- dishes our guests name in their Google reviews (quotes are verbatim) ---
+# --- Bulgarian quotes are verbatim; English quotes are translations ---
 PRAISED = [
-    ("Манго и кокос протеинов чийзкейк", "Десертите с манго и тирамису бяха чудесен завършек на преживяването!", "Dimitar D."),
-    ("Телешки Бриош", "Бриошът е абсолютен ТОР! Невероятно пухкав, ухаещ на масло и доведен до съвършенство", "Videlina S."),
-    ("Телешка порция", "Телешкото е невероятно вкусно, порциите са перфектни, а цените – повече от разумни за качеството.", "miroslava t."),
-    ("Дърпано свинско Бриош", "Най-добрият сандвич с дърпано свинско месо", "Goran C."),
-    ("Тирамису Cloud Foam", "Храната е отлична, а ice latte tiramisu беше звездата.", "Nicole G."),
+    ("Манго и кокос протеинов чийзкейк", "Десертите с манго и тирамису бяха чудесен завършек на преживяването!", "Dimitar D.", "The mango and tiramisu desserts were a wonderful finish to the experience!"),
+    ("Телешки Бриош", "Бриошът е абсолютен ТОР! Невероятно пухкав, ухаещ на масло и доведен до съвършенство", "Videlina S.", "The brioche is absolutely TOP-NOTCH! Incredibly fluffy, fragrant with butter and perfected"),
+    ("Телешка порция", "Телешкото е невероятно вкусно, порциите са перфектни, а цените – повече от разумни за качеството.", "miroslava t.", "The beef is incredibly tasty, the portions are perfect, and the prices are more than reasonable for the quality."),
+    ("Дърпано свинско Бриош", "Най-добрият сандвич с дърпано свинско месо", "Goran C.", "The best pulled pork sandwich"),
+    ("Тирамису Cloud Foam", "Храната е отлична, а ice latte tiramisu беше звездата.", "Nicole G.", "The food is excellent, and the iced tiramisu latte was the star."),
 ]
 praised = []
-for name, q, by in PRAISED:
-    it = dict(ITEMS[name]); it["quote"], it["quote_by"] = q, by
+for name, q, by, qe in PRAISED:
+    it = dict(ITEMS[name]); it["quote"], it["quote_by"], it["quote_en"] = q, by, qe
     praised.append(it)
 
 # --- menu categories ---
@@ -78,7 +79,8 @@ def short(n):
 
 def mcard(r, k):
     t = e(r[5].strip().replace("​", "").replace("\n", " "))
-    return (f'<figure class="mq-card"><div class="mq-stars">{STAR * 5}</div><blockquote>„{t}“</blockquote>'
+    en = e(e('“' + text_en(r).strip().replace("\n", " ") + '”'))
+    return (f'<figure class="mq-card"><div class="mq-stars">{STAR * 5}</div><blockquote data-en="{en}">„{t}“</blockquote>'
             f'<figcaption><span class="mq-av" style="background:{COLORS[k % 6]}">{e(short(r[0])[0].upper())}</span>{e(short(r[0]))}</figcaption></figure>')
 
 
@@ -124,7 +126,8 @@ arts = "".join(f'''        <a class="art-card" href="{h}" data-reveal="up"><div 
 chicken = ITEMS["Пилешка порция"]
 
 PRAISED_HEAD = ('<div class="sec-head praised-head" data-reveal="up"><div><span class="kicker" data-en="From our reviews">От отзивите</span>'
-                '<h2 data-en="The dishes our guests write about.">Ястията, за които пишат гостите ни.</h2></div></div>')
+                '<h2 data-en="The dishes our guests write about.">Ястията, за които пишат гостите ни.</h2>'
+                '<p class="review-translation-note">Translated from Bulgarian.</p></div></div>')
 
 # --- lunch for the office: real dishes and prices from the menu ---
 def lo(cid):
@@ -165,10 +168,10 @@ body = f'''<body>
 
   <section class="sec reviews" id="reviews">
     <div class="container rv-top">
-      <div data-reveal="left"><span class="kicker" data-en="Google reviews">Отзиви в Google</span><h2 data-en="5.0 from 49 reviews.">5,0 от 49 отзива.</h2></div>
+      <div data-reveal="left"><span class="kicker" data-en="Google reviews">Отзиви в Google</span><h2 data-en="5.0 from 49 reviews.">5,0 от 49 отзива.</h2><p class="review-translation-note">Translated from Bulgarian.</p></div>
       <a href="{GMAP}" class="rv-score" target="_blank" rel="noopener" data-reveal="right"><span class="rv-score-stars">{STAR * 5}</span><span data-en="Read them on Google">Прочети ги в Google</span></a>
     </div>
-    <div class="mq" aria-label="Откъси от отзиви">
+    <div class="mq" aria-label="Откъси от отзиви" data-en-aria-label="Review excerpts">
       {"".join(f'<div class="mq-row"><div class="mq-track">{r}{r}{r}</div></div>' for r in ROWS)}
     </div>
     <div class="container">
