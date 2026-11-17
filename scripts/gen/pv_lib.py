@@ -4,6 +4,13 @@ from pathlib import Path
 
 CUT = Path("/Users/zarko.stefanov/Kivi's/website/images/cut")
 BOLT_FOOD = "https://food.bolt.eu/en/2128-plovdiv/p/5452989-kiwis/"
+GLOVO = "https://glovoapp.com/bg/bg/plovdiv/stores/kiwis-pdv"
+
+
+def delivery_links(extra_cls=""):
+    return (f'<div class="delivery-links {extra_cls}" role="group" aria-label="Поръчай с доставка">'
+            f'<a class="btn btn--glovo" href="{GLOVO}" target="_blank" rel="noopener" aria-label="Поръчай в Glovo">Glovo</a>'
+            f'<a class="btn btn--bolt" href="{BOLT_FOOD}" target="_blank" rel="noopener" aria-label="Поръчай в Bolt Food">Bolt Food</a></div>')
 
 
 def e(s):
@@ -59,7 +66,7 @@ def viewer(vid, items, prefix="", scroll=False, show_menu_link=False, heading_le
             quote = (f'<blockquote class="pv-quote"><p>„{e(it["quote"])}“</p>'
                      f'<cite>— {e(it["quote_by"])}, <span data-en="Google review">отзив в Google</span></cite></blockquote>')
         weight = f'<span class="pv-w">{e(it["w"])}</span>' if it.get("w") else ""
-        delivery_btn = (f'<a class="btn btn--delivery" href="{BOLT_FOOD}" target="_blank" rel="noopener" data-en="Order on Bolt Food">Поръчай в Bolt Food</a>' if delivery else "")
+        delivery_btn = delivery_links() if delivery else ""
         menu_link = (f'<a class="btn btn--line pv-more" href="{prefix}menu.html#{it["cat"]}" data-en="See in menu">Виж в менюто</a>'
                      if show_menu_link and it.get("cat") else "")
         panels += f'''<article class="pv-panel{' is-on' if i == 0 else ''}" data-i="{i}" id="{vid}-{i}"{'' if i == 0 else ' aria-hidden="true"'}>
@@ -73,7 +80,7 @@ def viewer(vid, items, prefix="", scroll=False, show_menu_link=False, heading_le
             {macro_bar("Въглехидрати", "Carbs", it["c"], " г", 80, "pv-m--c")}
             {macro_bar("Мазнини", "Fat", it["f"], " г", 45, "pv-m--f")}
           </dl>
-          <div class="pv-buy"><span class="pv-price" data-en="{price_en(it["price"])}">{price_bg(it["price"])}</span>{weight}
+          <div class="pv-buy{' pv-buy--delivery' if delivery else ''}"><span class="pv-price" data-en="{price_en(it["price"])}">{price_bg(it["price"])}</span>{weight}
             <div class="pv-ctas">{menu_link}{delivery_btn}</div></div>
         </article>
 '''
@@ -135,12 +142,8 @@ def links(page):
 def nav(page):
     home, L, img = links(page)
     items = "".join(f'<a href="{u}" data-en="{en}"{" aria-current=\"page\" class=\"is-current\"" if k and k == page else ""}>{bg}</a>' for u, bg, en, k in L)
-    if page == "home":   # on the landing page every button leads to the menu; ordering happens from there
-        cta = f'<a href="menu.html" class="nav-cta"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h10"/></svg><span data-en="Menu">Меню</span></a>'
-        mm_cta = '<a href="menu.html" class="btn btn--delivery btn--lg mm-cta" data-en="View the menu">Виж менюто</a>'
-    else:
-        cta = f'<a href="{BOLT_FOOD}" class="nav-cta" target="_blank" rel="noopener">{BIKE}<span data-en="Order">Поръчай</span></a>'
-        mm_cta = f'<a href="{BOLT_FOOD}" class="btn btn--delivery btn--lg mm-cta" target="_blank" rel="noopener">{BIKE}<span data-en="Order on Bolt Food">Поръчай в Bolt Food</span></a>'
+    cta = delivery_links("nav-delivery")
+    mm_cta = delivery_links("mm-cta")
     mm = "".join(f'<a href="{u}" class="mm-link" data-en="{en}">{bg}</a>' for u, bg, en, k in L)
     return f'''  <a class="skip" href="#main" data-en="Skip to content">Към съдържанието</a>
   <header class="nav" id="nav">
@@ -173,6 +176,7 @@ def footer(page):
       <div class="footer-brand"><img src="{img}kiwi-icon.jpg" alt="" width="40" height="40"><div><strong>KiWi'S</strong><span data-en="14 Nikola Karev St., Plovdiv · Mon–Sat 09:00–21:30">ул. „Никола Карев“ 14, Пловдив · Пон–Съб 09:00–21:30</span></div></div>
       <nav class="footer-links" aria-label="Footer">
         <a href="{m}" data-en="Menu">Меню</a><a href="{b}" data-en="Articles">Статии</a>
+        <a href="{GLOVO}" target="_blank" rel="noopener">Glovo</a>
         <a href="{BOLT_FOOD}" target="_blank" rel="noopener">Bolt Food</a>
         <a href="{GMAP}" target="_blank" rel="noopener" data-en="Google reviews">Отзиви в Google</a>
         <a href="{IG}" target="_blank" rel="noopener" class="ft-ig">{IG_ICON}<span>Instagram</span></a>
@@ -187,7 +191,7 @@ def footer(page):
 
 def sticky_order():
     return f'''  <div class="sticky-order" id="stickyOrder">
-    <a href="{BOLT_FOOD}" class="so-btn so-btn--delivery" target="_blank" rel="noopener">{BIKE}<span data-en="Order on Bolt Food">Поръчай в Bolt Food</span></a>
+    {delivery_links("sticky-delivery")}
     <a href="tel:+359892632470" class="so-btn so-btn--call" aria-label="Обади се">{CALL}</a>
   </div>
 '''

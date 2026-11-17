@@ -102,6 +102,7 @@
 .pv-price { font-family: var(--ff); font-weight: 700; font-size: 2rem; color: var(--forest); line-height: 1; }
 .pv-w { font-size: .82rem; color: var(--moss); background: var(--gp); padding: 4px 10px; border-radius: 50px; font-weight: 600; }
 .pv-ctas { display: flex; flex-wrap: wrap; gap: 8px; margin-left: auto; }
+.pv-ctas .delivery-links .btn { padding: 12px 20px; }
 @media (max-width: 520px) { .pv-ctas { margin-left: 0; width: 100%; } .pv-ctas .btn { flex: 1; } }
 
 .pv-thumbs { display: flex; gap: 8px; margin-top: 20px; overflow-x: auto; scrollbar-width: none; padding: 4px 2px 6px; scroll-snap-type: x proximity; }
@@ -330,3 +331,14 @@
 .pv-light { width: 110%; clip-path: polygon(34% 0, 66% 0, 100% 100%, 0 100%); }
 .pv--bare .pv-light { width: 92%; }
 .praised .pv--sun.pv--bare .pv-light { width: 92%; }
+
+/* Both delivery providers stay together; on phones they get a full row. */
+.pv-buy--delivery { flex-wrap: wrap; }
+.pv-buy--delivery .pv-ctas { flex-wrap: wrap; }
+@media (max-width: 959px) {
+  .pv-buy--delivery { display: grid; grid-template-columns: auto 1fr; }
+  .pv-buy--delivery .pv-w { justify-self: start; }
+  .pv-buy--delivery .pv-ctas { grid-column: 1 / -1; width: 100%; margin-left: 0; }
+  .pv-buy--delivery .delivery-links { width: 100%; }
+  .pv-buy--delivery .delivery-links .btn { flex: 1; min-width: 0; padding: 12px 16px; }
+}

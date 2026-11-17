@@ -53,6 +53,7 @@ document.addEventListener('DOMContentLoaded', () => {
       document.body.style.overflow = open ? 'hidden' : '';
     });
     $$('a', mm).forEach(a => a.addEventListener('click', closeMenu));
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeMenu(); });
   }
 
   // === Reveal from left / right / below ===

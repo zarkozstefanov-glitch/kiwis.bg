@@ -35,6 +35,12 @@ button { border: 0; background: none; cursor: pointer; font: inherit; color: inh
 .btn--lg { padding: 15px 30px; }
 .btn--delivery { background: var(--sun); color: var(--ink); }
 .btn--delivery:hover { background: #FFB61E; }
+.delivery-links { display: flex; align-items: stretch; gap: 8px; }
+.delivery-links .btn { min-height: 44px; }
+.btn--glovo { background: var(--sun); color: var(--ink); }
+.btn--glovo:hover { background: #FFB61E; }
+.btn--bolt { background: #34D186; color: var(--ink); }
+.btn--bolt:hover { background: #29BA74; }
 .btn--ghost { background: rgba(255,255,255,.12); color: #fff; border: 1.5px solid rgba(255,255,255,.4); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); }
 .btn--ghost:hover { background: rgba(255,255,255,.2); }
 .btn--dark { background: var(--leaf); color: var(--cream); }
@@ -54,6 +60,8 @@ button { border: 0; background: none; cursor: pointer; font: inherit; color: inh
 .nav-links a:hover { color: var(--cream); }
 .nav-right { display: flex; align-items: center; gap: 8px; }
 .nav-cta { display: inline-flex; align-items: center; gap: 6px; background: var(--sun); color: var(--ink); font-weight: 600; font-size: .84rem; padding: 8px 14px; border-radius: 50px; }
+.nav-delivery { gap: 6px; }
+.nav-delivery .btn { padding: 10px 14px; font-size: .82rem; }
 .lang-toggle { display: flex; background: rgba(255,255,255,.08); border-radius: 50px; padding: 2px; gap: 2px; }
 .lang-btn { padding: 5px 9px; border-radius: 50px; font-size: .7rem; font-weight: 700; color: rgba(250,246,240,.45); }
 .lang-btn.is-active { background: var(--cream); color: var(--forest); }
@@ -63,15 +71,23 @@ button { border: 0; background: none; cursor: pointer; font: inherit; color: inh
 .hamburger.is-active span:last-child { transform: translateY(-4px) rotate(-45deg); }
 @media (min-width: 960px) { .nav-links { display: flex; } .hamburger { display: none; } }
 @media (max-width: 370px) { .nav-cta span { display: none; } .lang-btn { padding: 5px 7px; } }
+@media (max-width: 600px) {
+  .nav-brand { display: none; }
+  .nav-bar { padding: 0 12px; gap: 8px; }
+  .nav-right { gap: 6px; }
+  .nav-delivery .btn { padding: 10px; font-size: .76rem; }
+  .hamburger { width: 32px; flex: none; }
+}
 
-.mobile-menu { position: fixed; inset: 0; z-index: 85; background: var(--forest); display: grid; place-items: center; opacity: 0; visibility: hidden; transition: opacity .3s, visibility .3s; }
+.mobile-menu { position: fixed; inset: 0; z-index: 85; background: var(--forest); display: grid; place-items: safe center; overflow-y: auto; opacity: 0; visibility: hidden; transition: opacity .3s, visibility .3s; }
 .mobile-menu.is-open { opacity: 1; visibility: visible; }
-.mm-inner { text-align: center; display: grid; gap: 4px; padding: 80px 20px 40px; }
+.mm-inner { text-align: center; display: grid; gap: 4px; width: 100%; max-width: 400px; padding: 80px 20px 40px; }
 .mm-link { font-family: var(--ff); font-size: 2rem; font-weight: 600; color: var(--cream); padding: 6px; opacity: 0; transform: translateY(12px); transition: all .4s var(--ease); }
 .mobile-menu.is-open .mm-link { opacity: 1; transform: none; }
 .mobile-menu.is-open .mm-link:nth-child(2) { transition-delay: .05s; } .mobile-menu.is-open .mm-link:nth-child(3) { transition-delay: .1s; }
 .mobile-menu.is-open .mm-link:nth-child(4) { transition-delay: .15s; } .mobile-menu.is-open .mm-link:nth-child(5) { transition-delay: .2s; }
-.mm-cta { margin: 20px auto 0; }
+.mm-cta { margin: 20px auto 0; width: 100%; }
+.mm-cta .btn { flex: 1; }
 .mm-info { margin-top: 20px; color: rgba(250,246,240,.45); font-size: .9rem; }
 .mm-info a { color: var(--cream); font-weight: 600; }
 
@@ -623,7 +639,9 @@ button { border: 0; background: none; cursor: pointer; font: inherit; color: inh
 
 /* ---------- phone order bar: no white strip, just the two buttons, slightly see-through ---------- */
 .sticky-order { background: none; border-top: 0; backdrop-filter: none; -webkit-backdrop-filter: none; pointer-events: none; padding: 0 14px max(14px, env(safe-area-inset-bottom)); }
-.sticky-order .so-btn { pointer-events: auto; backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); box-shadow: 0 10px 26px -10px rgba(0,0,0,.45); border-radius: 50px; }
+.sticky-order .so-btn, .sticky-order .btn { pointer-events: auto; backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); box-shadow: 0 10px 26px -10px rgba(0,0,0,.45); border-radius: 50px; }
+.sticky-delivery { flex: 1; min-width: 0; }
+.sticky-delivery .btn { flex: 1; min-width: 0; padding: 13px 12px; }
 .so-btn--delivery { background: rgba(255,194,68,.88); }
 .so-btn--call { background: rgba(46,74,50,.86); width: 52px; }
 
