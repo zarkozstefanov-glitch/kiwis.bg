@@ -259,7 +259,9 @@ html[data-lang="en"] .review-translation-note { display: block; }
 .visit-list li { display: grid; gap: 2px; padding: 12px 0; border-bottom: 1px solid rgba(26,45,30,.08); }
 .visit-list b { font-size: .74rem; text-transform: uppercase; letter-spacing: .1em; color: var(--moss); }
 .visit-list a { color: var(--forest); font-weight: 700; }
-.visit-btns { display: flex; flex-wrap: wrap; gap: 10px; }
+.visit-btns { display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(0, 2fr); gap: 8px; align-items: stretch; }
+.visit-btns .delivery-links { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; min-width: 0; }
+.visit-btns .btn { min-width: 0; min-height: 44px; padding: 12px 8px; font-size: clamp(.78rem, 2.4vw, .92rem); }
 .visit-map { border-radius: var(--r); overflow: hidden; background: var(--sand); }
 .visit-map iframe { display: block; min-height: 280px; }
 @media (min-width: 900px) { .visit-grid { grid-template-columns: 1fr 1.2fr; gap: 56px; align-items: center; } .visit-map iframe { min-height: 420px; } }
