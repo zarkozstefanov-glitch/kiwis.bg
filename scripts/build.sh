@@ -8,33 +8,33 @@ cd "$(dirname "$0")/.."
 OUT=dist
 # cache-busting key = hash of the actual CSS/JS, so any change reaches visitors immediately
 VERSION="$(cat css/*.css js/*.js | shasum | cut -c1-8)"
-LASTMOD="$(date -u +%Y-%m-%d)"
 
 rm -rf "$OUT"
 mkdir -p "$OUT"
 
 cp index.html menu.html 404.html privacy.html "$OUT/"
-cp .htaccess robots.txt sitemap.xml llms.txt site.webmanifest "$OUT/"
+cp .htaccess robots.txt llms.txt site.webmanifest "$OUT/"
 cp favicon.ico favicon-32.png apple-touch-icon.png "$OUT/"
 cp -R css js images fonts blog api admin "$OUT/" && cp sw.js "$OUT/"
 find "$OUT" -name ".DS_Store" -delete
+python3 -B -I scripts/gen/seo.py "$OUT"
+HTML=("$OUT"/*.html "$OUT"/blog/*.html "$OUT"/en/*.html "$OUT"/en/blog/*.html)
 
 # Cache-busting: CSS/JS are cached for a year, so every deploy gets a new ?v=
-for f in "$OUT"/*.html "$OUT"/blog/*.html; do
+for f in "${HTML[@]}"; do
   sed -i.bak -E "s#(href|src)=\"(/?)(css|js)/([a-z0-9_-]+)\.(css|js)\"#\1=\"\2\3/\4.\5?v=${VERSION}\"#g" "$f"
   rm "$f.bak"
 done
 # Cache-busting for images (cached 30 days): ?v=<content hash> on every images/... URL
 python3 -I scripts/build/imgver.py "$OUT"
 sed -i.bak "s#__V__#${VERSION}-$(date +%s)#" "$OUT/sw.js" && rm "$OUT/sw.js.bak"
-sed -i.bak "s#__LASTMOD__#${LASTMOD}#g" "$OUT/sitemap.xml" && rm "$OUT/sitemap.xml.bak"
 
 # --- Checks -----------------------------------------------------------------
 fail=0
 
 # Every local asset referenced from HTML/CSS/manifest must exist in dist/
-refs=$(grep -hoE ' (src|href)="[^"]+"' "$OUT"/*.html | sed -E 's/^ [a-z]+="//; s/"$//')
-refs+=$'\n'$(grep -hoE '(srcset|imagesrcset)="[^"]+"' "$OUT"/*.html \
+refs=$(grep -hoE ' (src|href)="[^"]+"' "${HTML[@]}" | sed -E 's/^ [a-z]+="//; s/"$//')
+refs+=$'\n'$(grep -hoE '(srcset|imagesrcset)="[^"]+"' "${HTML[@]}" \
          | sed -E 's/^[a-z]+="//; s/"$//' | tr ',' '\n' | awk '{print $1}')
 refs+=$'\n'$( (grep -hoE 'url\([^)]+\)' "$OUT"/css/*.css || true) | sed -E "s/url\(['\"]?//; s/['\"]?\)$//")
 refs+=$'\n'$(grep -hoE '"src": *"[^"]+"' "$OUT/site.webmanifest" | sed -E 's/.*"(\/[^"]+)"$/\1/')
@@ -67,5 +67,6 @@ if find "$OUT" -name '.env*' -o -name '*.md' -o -name '*.map' -o -name '*.py' | 
 fi
 
 [[ $fail -eq 0 ]] || { echo "Build checks FAILED"; exit 1; }
+python3 -B -I scripts/build/check_seo.py "$OUT"
 
 echo "Build OK (version ${VERSION}): $(find "$OUT" -type f | wc -l | tr -d ' ') files, $(du -sh "$OUT" | cut -f1)"

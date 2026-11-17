@@ -15,7 +15,7 @@ def ver(path):
 
 
 pat = re.compile(r'(?P<pre>/?)(?P<path>images/[A-Za-z0-9_./-]+\.(?:webp|jpg|jpeg|png|avif|svg))(?![?\w])')
-for page in list(out.glob("*.html")) + list(out.glob("blog/*.html")):
+for page in out.rglob("*.html"):
     s = page.read_text(encoding="utf-8")
     s = pat.sub(lambda m: m.group(0) + (f"?v={ver(m.group('path'))}" if ver(m.group("path")) else ""), s)
     page.write_text(s, encoding="utf-8")

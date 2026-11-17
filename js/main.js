@@ -20,10 +20,15 @@ document.addEventListener('DOMContentLoaded', () => {
     updateOpenStatus();
     document.dispatchEvent(new CustomEvent('kiwi:lang'));
   }
-  $$('.lang-btn').forEach(b => b.addEventListener('click', () => setLang(b.dataset.lang)));
-  let saved = null;
-  try { saved = localStorage.getItem('kiwi-lang'); } catch (e) {}
-  if (saved && saved !== 'bg') setLang(saved);
+  $$('.lang-btn').forEach(b => b.addEventListener('click', () => {
+    try { localStorage.setItem('kiwi-lang', b.dataset.lang); } catch (e) {}
+    if (b.tagName === 'A') {
+      if (location.hash) { const url = new URL(b.href); url.hash = location.hash; b.href = url.href; }
+    } else setLang(b.dataset.lang);
+  }));
+  // A language URL always renders its own language, independently of old preferences.
+  // Build-localized documents already contain the final text; do not repaint their DOM.
+  if (document.documentElement.dataset.localized !== 'true') setLang(document.documentElement.lang === 'en' ? 'en' : 'bg');
 
   // === Open / closed (Plovdiv time, Mon–Sat 09:00–21:30) ===
   function updateOpenStatus() {
@@ -145,7 +150,8 @@ document.addEventListener('DOMContentLoaded', () => {
   // === "Back" links: return to the exact page the visitor came from on this site ===
   $$('[data-back]').forEach(a => a.addEventListener('click', e => {
     try {
-      if (document.referrer && new URL(document.referrer).origin === location.origin && history.length > 1) { e.preventDefault(); history.back(); }
+      const ref = document.referrer && new URL(document.referrer);
+      if (ref && ref.origin === location.origin && ref.pathname.startsWith('/en/') === location.pathname.startsWith('/en/') && history.length > 1) { e.preventDefault(); history.back(); }
     } catch (err) {}
   }));
 

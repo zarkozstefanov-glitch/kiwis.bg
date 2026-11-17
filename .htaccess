@@ -10,19 +10,17 @@ AddDefaultCharset UTF-8
 <IfModule mod_rewrite.c>
   RewriteEngine On
 
-  # HTTPS + non-www. Uncomment once AutoSSL has issued the certificate for kiwis.bg (see DEPLOYMENT.md).
-  # RewriteCond %{HTTPS} !=on [OR]
-  # RewriteCond %{HTTP_HOST} ^www\. [NC]
-  # RewriteRule ^ https://kiwis.bg%{REQUEST_URI} [L,R=301]
+  # One public origin; SSL for both hostnames is verified before enabling this.
+  RewriteCond %{THE_REQUEST} \s/+[^\s?]*index\.html[\s?] [NC]
+  RewriteRule ^(.*/)?index\.html$ https://kiwis.bg/$1 [L,R=301]
+  RewriteCond %{HTTPS} !=on [OR]
+  RewriteCond %{HTTP_HOST} ^www\. [NC]
+  RewriteRule ^ https://kiwis.bg%{REQUEST_URI} [L,R=301]
 
   # Smaller images: browsers that accept AVIF get the .avif made by scripts/gen/avif.py
   RewriteCond %{HTTP_ACCEPT} image/avif
   RewriteCond %{REQUEST_FILENAME}.avif -f
   RewriteRule ^(images/.+\.(?:webp|jpe?g))$ $1.avif [T=image/avif,E=AVIF:1,L]
-
-  # /index.html -> /
-  RewriteCond %{THE_REQUEST} \s/index\.html[\s?] [NC]
-  RewriteRule ^index\.html$ / [L,R=301]
 
   # Block hidden files (.git, .env, .ftp-deploy-sync-state.json, ...) but keep ACME validation working
   RewriteRule (^|/)\.(?!well-known/) - [F,L]
@@ -84,6 +82,7 @@ AddDefaultCharset UTF-8
 <FilesMatch "\.php$">
   <IfModule mod_headers.c>
     Header set Cache-Control "no-store"
+    Header set X-Robots-Tag "noindex, nofollow"
   </IfModule>
 </FilesMatch>
 # images may differ per browser (AVIF or WebP/JPEG)

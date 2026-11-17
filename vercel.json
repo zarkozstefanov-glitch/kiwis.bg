@@ -3,5 +3,13 @@
   "framework": null,
   "installCommand": "",
   "buildCommand": "bash scripts/build.sh",
-  "outputDirectory": "dist"
+  "outputDirectory": "dist",
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        { "key": "X-Robots-Tag", "value": "noindex, nofollow" }
+      ]
+    }
+  ]
 }

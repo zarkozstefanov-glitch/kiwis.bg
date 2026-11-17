@@ -162,7 +162,7 @@ def nav(page):
       <a href="{home}" class="nav-logo" aria-label="Kiwi's — начало"><img src="{img}kiwi-icon.jpg" alt="" width="38" height="38"><span class="nav-brand">KiWi'S</span></a>
       <nav class="nav-links" aria-label="Основна навигация">{items}</nav>
       <div class="nav-right">
-        <div class="lang-toggle"><button class="lang-btn is-active" data-lang="bg" aria-label="Български">BG</button><button class="lang-btn" data-lang="en" aria-label="English">EN</button></div>
+        <div class="lang-toggle"><a href="/" class="lang-btn is-active" data-lang="bg" lang="bg" hreflang="bg" aria-label="Български">BG</a><a href="/en/" class="lang-btn" data-lang="en" lang="en" hreflang="en" aria-label="English">EN</a></div>
         {cta}
         <button class="hamburger" id="hamburger" aria-label="Меню" aria-expanded="false"><span></span><span></span></button>
       </div>

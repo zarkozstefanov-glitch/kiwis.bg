@@ -1,0 +1,45 @@
+{
+  "/": {
+    "file": "index.html", "en": "/en/", "kind": "home",
+    "title": {"bg": "Kiwi’s Пловдив | Протеинова храна, матча и доставка", "en": "Kiwi’s Plovdiv | Protein Food, Matcha & Delivery"},
+    "description": {"bg": "Протеинови порции, бриош сандвичи, салати, десерти и матча в Kiwi’s, Пловдив. Виж менюто с цени и макроси. Ул. Никола Карев 14. Доставка с Glovo и Bolt Food.", "en": "Protein bowls, brioche sandwiches, salads, desserts and matcha at Kiwi’s in Plovdiv. See prices and macros. 14 Nikola Karev St. Glovo and Bolt Food delivery."}
+  },
+  "/menu.html": {
+    "file": "menu.html", "en": "/en/menu.html", "kind": "menu",
+    "title": {"bg": "Меню и цени | Kiwi’s Пловдив — храна и матча", "en": "Menu & Prices | Kiwi’s Plovdiv — Food & Matcha"},
+    "description": {"bg": "Менюто на Kiwi’s Пловдив: протеинови порции, бриош сандвичи, салати, десерти, матча и Cloud Foam. Цени в евро, грамажи, калории и макроси за всяко ястие.", "en": "Explore the Kiwi’s Plovdiv menu: protein bowls, brioche sandwiches, salads, desserts, matcha and Cloud Foam. Prices in euros, portions, calories and macros."}
+  },
+  "/blog/": {
+    "file": "blog/index.html", "en": "/en/blog/", "kind": "blog",
+    "title": {"bg": "Хранене, протеин и макроси — статии | Kiwi’s Пловдив", "en": "Nutrition, Protein & Macros — Articles | Kiwi’s Plovdiv"},
+    "description": {"bg": "Статии от Kiwi’s за протеина, калориите и макросите и практични насоки за хранене навън. С посочени източници и примери от менюто ни в Пловдив.", "en": "Kiwi’s articles on protein, calories, macros and eating well when dining out, with references and examples from our menu in Plovdiv."}
+  },
+  "/blog/kolko-protein-na-den.html": {
+    "file": "blog/kolko-protein-na-den.html", "en": "/en/blog/how-much-protein-per-day.html", "kind": "article",
+    "heading": {"bg": "Колко протеин ти трябва на ден?", "en": "How much protein do you need per day?"},
+    "title": {"bg": "Колко протеин ти трябва на ден? | Kiwi’s Пловдив", "en": "How Much Protein Do You Need per Day? | Kiwi’s Plovdiv"},
+    "description": {"bg": "Колко протеин на ден е нужен според теглото, тренировките и възрастта? Препоръки на EFSA, ISSN и PROT-AGE с примери и посочени източници.", "en": "How much protein do you need for your weight, training and age? EFSA, ISSN and PROT-AGE recommendations with practical examples and references."}
+  },
+  "/blog/makrosi-za-nachinaeshti.html": {
+    "file": "blog/makrosi-za-nachinaeshti.html", "en": "/en/blog/macros-for-beginners.html", "kind": "article",
+    "heading": {"bg": "Макроси за начинаещи: калории, протеин, въглехидрати, мазнини", "en": "Macros for beginners: calories, protein, carbs and fat"},
+    "title": {"bg": "Макроси за начинаещи: калории и протеин | Kiwi’s", "en": "Macros for Beginners: Calories, Protein, Carbs & Fat | Kiwi’s"},
+    "description": {"bg": "Какво са макросите и как се смятат калориите от протеин, въглехидрати и мазнини? Обяснения и пример с ястие от менюто на Kiwi’s Пловдив.", "en": "What are macros, and how do protein, carbs and fat add up to calories? A beginner’s guide with a real menu example from Kiwi’s in Plovdiv."}
+  },
+  "/blog/zdravoslovno-hranene-navan.html": {
+    "file": "blog/zdravoslovno-hranene-navan.html", "en": "/en/blog/healthy-eating-out.html", "kind": "article",
+    "heading": {"bg": "Как да се храниш здравословно, когато ядеш навън", "en": "How to eat well when dining out"},
+    "title": {"bg": "Здравословно хранене навън: практични насоки | Kiwi’s", "en": "Healthy Eating When Dining Out | Kiwi’s Plovdiv"},
+    "description": {"bg": "Практични насоки за хранене навън: балансирана чиния, протеин, сосове, напитки и сол. С източници от Harvard и СЗО и примери от Kiwi’s.", "en": "Practical tips for eating out: a balanced plate, protein, sauces, drinks and salt. With Harvard and WHO references and examples from Kiwi’s."}
+  },
+  "/privacy.html": {
+    "file": "privacy.html", "en": "/en/privacy.html", "kind": "privacy", "noindex": true,
+    "title": {"bg": "Поверителност | Kiwi’s Пловдив", "en": "Privacy | Kiwi’s Plovdiv"},
+    "description": {"bg": "Как Kiwi’s обработва и съхранява данните при записване за новини, как да се отпишеш и какви са правата ти.", "en": "How Kiwi’s handles and stores newsletter subscription data, how to unsubscribe and how to exercise your rights."}
+  },
+  "/404.html": {
+    "file": "404.html", "en": "/en/404.html", "kind": "error", "noindex": true,
+    "title": {"bg": "Страницата не е намерена | Kiwi’s", "en": "Page Not Found | Kiwi’s"},
+    "description": {"bg": "Тази страница не е намерена. Върни се към началната страница или менюто на Kiwi’s.", "en": "This page could not be found. Return to the Kiwi’s homepage or menu."}
+  }
+}

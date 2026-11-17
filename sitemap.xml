@@ -1,22 +1,75 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+<?xml version='1.0' encoding='utf-8'?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://kiwis.bg/</loc>
-    <lastmod>__LASTMOD__</lastmod>
-    <image:image><image:loc>https://kiwis.bg/images/hero.jpg</image:loc></image:image>
-    <image:image><image:loc>https://kiwis.bg/images/nest-terrace.jpg</image:loc></image:image>
-    <image:image><image:loc>https://kiwis.bg/images/nest-interior.jpg</image:loc></image:image>
+    <xhtml:link rel="alternate" hreflang="bg" href="https://kiwis.bg/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://kiwis.bg/en/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://kiwis.bg/" />
+  </url>
+  <url>
+    <loc>https://kiwis.bg/en/</loc>
+    <xhtml:link rel="alternate" hreflang="bg" href="https://kiwis.bg/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://kiwis.bg/en/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://kiwis.bg/" />
   </url>
   <url>
     <loc>https://kiwis.bg/menu.html</loc>
-    <lastmod>__LASTMOD__</lastmod>
-    <image:image><image:loc>https://kiwis.bg/images/chicken-portion.jpg</image:loc></image:image>
-    <image:image><image:loc>https://kiwis.bg/images/salmon-portion.jpg</image:loc></image:image>
-    <image:image><image:loc>https://kiwis.bg/images/cloud-pumpkin.jpg</image:loc></image:image>
-    <image:image><image:loc>https://kiwis.bg/images/dessert-oreo.jpg</image:loc></image:image>
+    <xhtml:link rel="alternate" hreflang="bg" href="https://kiwis.bg/menu.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://kiwis.bg/en/menu.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://kiwis.bg/menu.html" />
   </url>
-  <url><loc>https://kiwis.bg/blog/</loc><lastmod>__LASTMOD__</lastmod></url>
-  <url><loc>https://kiwis.bg/blog/kolko-protein-na-den.html</loc><lastmod>__LASTMOD__</lastmod></url>
-  <url><loc>https://kiwis.bg/blog/makrosi-za-nachinaeshti.html</loc><lastmod>__LASTMOD__</lastmod></url>
-  <url><loc>https://kiwis.bg/blog/zdravoslovno-hranene-navan.html</loc><lastmod>__LASTMOD__</lastmod></url>
+  <url>
+    <loc>https://kiwis.bg/en/menu.html</loc>
+    <xhtml:link rel="alternate" hreflang="bg" href="https://kiwis.bg/menu.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://kiwis.bg/en/menu.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://kiwis.bg/menu.html" />
+  </url>
+  <url>
+    <loc>https://kiwis.bg/blog/</loc>
+    <xhtml:link rel="alternate" hreflang="bg" href="https://kiwis.bg/blog/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://kiwis.bg/en/blog/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://kiwis.bg/blog/" />
+  </url>
+  <url>
+    <loc>https://kiwis.bg/en/blog/</loc>
+    <xhtml:link rel="alternate" hreflang="bg" href="https://kiwis.bg/blog/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://kiwis.bg/en/blog/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://kiwis.bg/blog/" />
+  </url>
+  <url>
+    <loc>https://kiwis.bg/blog/kolko-protein-na-den.html</loc>
+    <xhtml:link rel="alternate" hreflang="bg" href="https://kiwis.bg/blog/kolko-protein-na-den.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://kiwis.bg/en/blog/how-much-protein-per-day.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://kiwis.bg/blog/kolko-protein-na-den.html" />
+  </url>
+  <url>
+    <loc>https://kiwis.bg/en/blog/how-much-protein-per-day.html</loc>
+    <xhtml:link rel="alternate" hreflang="bg" href="https://kiwis.bg/blog/kolko-protein-na-den.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://kiwis.bg/en/blog/how-much-protein-per-day.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://kiwis.bg/blog/kolko-protein-na-den.html" />
+  </url>
+  <url>
+    <loc>https://kiwis.bg/blog/makrosi-za-nachinaeshti.html</loc>
+    <xhtml:link rel="alternate" hreflang="bg" href="https://kiwis.bg/blog/makrosi-za-nachinaeshti.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://kiwis.bg/en/blog/macros-for-beginners.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://kiwis.bg/blog/makrosi-za-nachinaeshti.html" />
+  </url>
+  <url>
+    <loc>https://kiwis.bg/en/blog/macros-for-beginners.html</loc>
+    <xhtml:link rel="alternate" hreflang="bg" href="https://kiwis.bg/blog/makrosi-za-nachinaeshti.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://kiwis.bg/en/blog/macros-for-beginners.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://kiwis.bg/blog/makrosi-za-nachinaeshti.html" />
+  </url>
+  <url>
+    <loc>https://kiwis.bg/blog/zdravoslovno-hranene-navan.html</loc>
+    <xhtml:link rel="alternate" hreflang="bg" href="https://kiwis.bg/blog/zdravoslovno-hranene-navan.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://kiwis.bg/en/blog/healthy-eating-out.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://kiwis.bg/blog/zdravoslovno-hranene-navan.html" />
+  </url>
+  <url>
+    <loc>https://kiwis.bg/en/blog/healthy-eating-out.html</loc>
+    <xhtml:link rel="alternate" hreflang="bg" href="https://kiwis.bg/blog/zdravoslovno-hranene-navan.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://kiwis.bg/en/blog/healthy-eating-out.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://kiwis.bg/blog/zdravoslovno-hranene-navan.html" />
+  </url>
 </urlset>

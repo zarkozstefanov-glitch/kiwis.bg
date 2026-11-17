@@ -1,15 +1,15 @@
 # Deployment — kiwis.bg
 
 ## 1. Технология
-Статичен сайт: чист HTML + CSS + JavaScript. Няма framework, няма backend, няма `npm` зависимости.
-Страници: `index.html`, `menu.html`, `404.html`.
+HTML + CSS + JavaScript, с PHP endpoint за бюлетина. Няма framework или `npm` зависимости за build.
+Build-ът създава BG и EN версии на началната страница, менюто, статиите, страницата за поверителност и 404.
 
 ## 2. Build команда
 ```bash
 ./scripts/build.sh
 ```
-Копира само нужните файлове, добавя `?v=<commit>` към CSS/JS (cache-busting), попълва датата в `sitemap.xml`
-и проверява за липсващи assets, `localhost`, `http://`, `console.log`, `.env`/`.md` файлове. При проблем build-ът спира.
+Копира само нужните файлове, генерира английски HTML и двуезичен `sitemap.xml`, добавя `?v=<hash>`
+към CSS/JS/снимките и проверява SEO адресите, вътрешните линкове, JSON-LD и assets. При проблем build-ът спира.
 
 ## 3. Build output
 `dist/` — само тази папка се качва на хостинга. (`dist/` не се commit-ва.)
@@ -23,7 +23,8 @@
 Трие само файлове, които самият той е качил преди — други файлове в `public_html` не се пипат.
 
 Същият push deploy-ва и preview копието на Vercel (https://kivis-bg.vercel.app/, вързано с GitHub).
-`vercel.json` кара Vercel да пусне същия `scripts/build.sh` и да сервира само `dist/`.
+`vercel.json` кара Vercel да пусне същия `scripts/build.sh`, да сервира само `dist/` и да маркира
+preview копието с `X-Robots-Tag: noindex, nofollow`. Основният публичен адрес е `https://kiwis.bg/`.
 
 ## 5. GitHub Secrets
 Repository → Settings → Secrets and variables → Actions → New repository secret:
@@ -57,16 +58,12 @@ git push origin main      # deploy-ва предишното състояние
 - cPanel → SSL/TLS Status → AutoSSL да е издал сертификат за `kiwis.bg` и `www.kiwis.bg`.
 - Ако deploy-ът не може да се свърже: проверете дали FTP паролата е вярна и дали FTPS не е блокиран.
 
-## 10. След като kiwis.bg се активира
-1. Изчакайте AutoSSL да издаде сертификат и проверете `https://kiwis.bg/`.
-2. В `.htaccess` разкоментирайте трите реда под „HTTPS + non-www“ и push-нете → всички http/www заявки
-   се пренасочват към `https://kiwis.bg`.
-3. Google Search Console: добавете `kiwis.bg` (Domain property), подайте `https://kiwis.bg/sitemap.xml`.
-4. Bing Webmaster Tools: импорт от Search Console (Bing захранва ChatGPT/Copilot търсенето).
-5. Google Business Profile: създайте/верифицирайте „Kiwi's“ с адрес ул. Никола Карев 14, Пловдив,
-   работно време, телефон, сайт `https://kiwis.bg/`, линк към менюто и снимки. Това е най-важното за „в Пловдив“ търсения и Google Maps.
-6. Проверете structured data: https://search.google.com/test/rich-results
-7. Добавете линк към Instagram/Facebook профила в JSON-LD (`sameAs` в `index.html`) щом имате финалните URL-и.
+## 10. SEO след deploy
+- `.htaccess` пренасочва HTTP, `www` и `index.html` вариантите към каноничните адреси. Провери ги с `curl -I`.
+- Публичният `https://kiwis.bg/sitemap.xml` съдържа BG/EN адресите и reciprocal `hreflang`.
+- Подай sitemap в Google Search Console и Bing Webmaster Tools от акаунта на собственика. Няма свързан акаунт за автоматично подаване.
+- Поддържай сайта, менюто, телефона и социалните линкове в Google Business Profile и външните директории.
+- Текущият SEO опис и проверката на публичните препратки са в [SEO.md](SEO.md).
 
 ## Снимки
 Оригиналите (master) са в `assets-src/images/` и **не** се качват. Уеб версиите (WebP 600/1000/1600 + JPG fallback)
