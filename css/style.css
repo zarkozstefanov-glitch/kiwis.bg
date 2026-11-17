@@ -33,8 +33,8 @@ button { border: 0; background: none; cursor: pointer; font: inherit; color: inh
 @media (min-width: 769px) { .btn { padding: 14px 30px; font-size: 1rem; } }
 .btn:hover { transform: translateY(-2px); box-shadow: 0 10px 24px -8px rgba(0,0,0,.25); }
 .btn--lg { padding: 15px 30px; }
-.btn--glovo { background: var(--sun); color: var(--ink); }
-.btn--glovo:hover { background: #FFB61E; }
+.btn--delivery { background: var(--sun); color: var(--ink); }
+.btn--delivery:hover { background: #FFB61E; }
 .btn--ghost { background: rgba(255,255,255,.12); color: #fff; border: 1.5px solid rgba(255,255,255,.4); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); }
 .btn--ghost:hover { background: rgba(255,255,255,.2); }
 .btn--dark { background: var(--leaf); color: var(--cream); }
@@ -89,7 +89,7 @@ button { border: 0; background: none; cursor: pointer; font: inherit; color: inh
 .hero-h1 { font-family: var(--ff); font-weight: 800; font-size: clamp(2.7rem, 11vw, 5.8rem); line-height: .95; letter-spacing: -.02em; margin: 18px 0 14px; text-shadow: 0 4px 30px rgba(0,0,0,.5), 0 2px 8px rgba(0,0,0,.3); }
 .hero-sub { font-size: clamp(.95rem, 2.6vw, 1.15rem); color: rgba(255,255,255,.88); text-shadow: 0 2px 10px rgba(0,0,0,.4); }
 .hero-btns { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-top: 26px; }
-@media (max-width: 480px) { .hero-btns .btn { flex: 1 1 calc(50% - 10px); padding: 13px 14px; } .hero-btns .btn--glovo { flex-basis: 100%; } }
+@media (max-width: 480px) { .hero-btns .btn { flex: 1 1 calc(50% - 10px); padding: 13px 14px; } .hero-btns .btn--delivery { flex-basis: 100%; } }
 .open-status { display: inline-flex; align-items: center; gap: 8px; font-weight: 600; }
 .open-status::before { content: ''; width: 8px; height: 8px; border-radius: 50%; background: var(--gold); }
 .open-status.is-open::before { background: #5BD17A; box-shadow: 0 0 0 4px rgba(91,209,122,.25); animation: pulse 2s infinite; }
@@ -249,7 +249,7 @@ button { border: 0; background: none; cursor: pointer; font: inherit; color: inh
 .sticky-order { position: fixed; left: 0; right: 0; bottom: 0; z-index: 80; display: flex; gap: 8px; padding: 10px 14px max(10px, env(safe-area-inset-bottom)); background: rgba(250,246,240,.94); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border-top: 1px solid rgba(26,45,30,.08); transform: translateY(110%); transition: transform .4s var(--ease); }
 .sticky-order.is-visible { transform: none; }
 .so-btn { display: flex; align-items: center; justify-content: center; gap: 8px; padding: 13px 16px; border-radius: 14px; font-weight: 600; }
-.so-btn--glovo { flex: 1; background: var(--sun); color: var(--ink); }
+.so-btn--delivery { flex: 1; background: var(--sun); color: var(--ink); }
 .so-btn--call { background: var(--leaf); color: var(--cream); }
 @media (min-width: 900px) { .sticky-order { display: none; } }
 @media (max-width: 899px) { .footer { padding-bottom: 96px; } }
@@ -337,9 +337,9 @@ button { border: 0; background: none; cursor: pointer; font: inherit; color: inh
 .rv-score { grid-auto-flow: row; }
 
 /* ==========================================================
-   GLOVO BAND
+   BOLT_FOOD BAND
    ========================================================== */
-.glovo-band { background: var(--sun); color: var(--ink); padding: 34px 0; }
+.delivery-band { background: var(--sun); color: var(--ink); padding: 34px 0; }
 .gb-inner { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px 30px; }
 .gb-inner b { display: block; font-family: var(--ff); font-size: clamp(1.4rem, 4vw, 2rem); line-height: 1.1; }
 .gb-inner span { font-size: .95rem; }
@@ -443,8 +443,8 @@ button { border: 0; background: none; cursor: pointer; font: inherit; color: inh
 .pv--sun.pv--bare .pv-w { background: rgba(26,45,30,.1); color: var(--forest); }
 .praised .pv--sun.pv--bare .pv-more { color: var(--forest); border-color: rgba(26,45,30,.35); background: transparent; }
 .praised .pv--sun.pv--bare .pv-more:hover { background: rgba(255,255,255,.5); border-color: var(--forest); }
-.pv--sun.pv--bare .btn--glovo { background: var(--forest); color: var(--cream); }
-.pv--sun.pv--bare .btn--glovo:hover { background: var(--ink); }
+.pv--sun.pv--bare .btn--delivery { background: var(--forest); color: var(--cream); }
+.pv--sun.pv--bare .btn--delivery:hover { background: var(--ink); }
 .praised .pv--sun.pv--bare .pv-th { background: var(--forest); border-color: transparent; opacity: .7; }
 .praised .pv--sun.pv--bare .pv-th.is-on { border-color: var(--forest); box-shadow: 0 0 0 2px var(--sun), 0 0 0 4px var(--forest); opacity: 1; }
 
@@ -624,7 +624,7 @@ button { border: 0; background: none; cursor: pointer; font: inherit; color: inh
 /* ---------- phone order bar: no white strip, just the two buttons, slightly see-through ---------- */
 .sticky-order { background: none; border-top: 0; backdrop-filter: none; -webkit-backdrop-filter: none; pointer-events: none; padding: 0 14px max(14px, env(safe-area-inset-bottom)); }
 .sticky-order .so-btn { pointer-events: auto; backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); box-shadow: 0 10px 26px -10px rgba(0,0,0,.45); border-radius: 50px; }
-.so-btn--glovo { background: rgba(255,194,68,.88); }
+.so-btn--delivery { background: rgba(255,194,68,.88); }
 .so-btn--call { background: rgba(46,74,50,.86); width: 52px; }
 
 /* ---------- header: a little see-through once the page scrolls ---------- */

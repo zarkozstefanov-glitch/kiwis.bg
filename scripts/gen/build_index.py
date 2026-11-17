@@ -1,7 +1,7 @@
 import sys, json
 S, OUT = sys.argv[1], sys.argv[2]
 sys.path.insert(0, S)
-from pv_lib import viewer, e, GLOVO, nav, footer, sticky_order, price_bg, price_en, IG, IG_ICON
+from pv_lib import viewer, e, BOLT_FOOD, nav, footer, sticky_order, price_bg, price_en, IG, IG_ICON
 
 head = open(f"{S}/head.html", encoding="utf-8").read()
 reviews = open(f"{S}/reviews_snippet.html", encoding="utf-8").read()
@@ -103,7 +103,7 @@ for i, (img, cap, cen, cls, w, h) in enumerate(NEST):
 FAQ = [
     ("Къде се намира Kiwi's?", "Where is Kiwi's?", "На ул. „Никола Карев“ 14 в Пловдив. Имаме зала и тераса в градината.", "At 14 Nikola Karev St., Plovdiv, with an indoor room and a garden terrace."),
     ("Какво е работното време?", "What are the opening hours?", "Понеделник – събота, 09:00 – 21:30. В неделя почиваме.", "Monday – Saturday, 09:00 – 21:30. Closed on Sundays."),
-    ("Имате ли доставка?", "Do you deliver?", "Да — през Glovo в Пловдив. За взимане на място можете да поръчате на +359 892 632 470.", "Yes — through Glovo in Plovdiv. For pick-up, call +359 892 632 470."),
+    ("Имате ли доставка?", "Do you deliver?", "Да — през Bolt Food в Пловдив. За взимане на място можете да поръчате на +359 892 632 470.", "Yes — through Bolt Food in Plovdiv. For pick-up, call +359 892 632 470."),
     ("Колко протеин има в ястията?", "How much protein is in the dishes?", "Протеиновите порции са между 32 и 64 г протеин, бриош сандвичите между 28 и 55 г, салатите между 19 и 44 г. В менюто до всяко ястие има приблизителни калории, протеин, въглехидрати и мазнини.", "Protein bowls have 32–64 g of protein, brioche sandwiches 28–55 g, salads 19–44 g. Every item in the menu lists approximate calories, protein, carbs and fat."),
     ("Имате ли вегетариански ястия?", "Do you have vegetarian options?", "Да — вегетарианска порция, вегетариански бриош и вегетарианска салата, както и протеиновите десерти.", "Yes — a vegetarian bowl, vegetarian brioche and vegetarian salad, plus the protein desserts."),
     ("Какви са цените?", "What are the prices?", "Кафе от 2,20 €, Cloud Foam и протеинови десерти по 5 €, бриош сандвичи от 5 до 7,50 €, протеинови порции от 9 до 12 €.", "Coffee from €2.20, Cloud Foam and protein desserts €5, brioche sandwiches €5–7.50, protein bowls €9–12."),
@@ -153,14 +153,14 @@ body = f'''<body>
       <a href="#reviews" class="hero-rating"><span class="hr-stars">{STAR * 5}</span><b>5,0</b><span data-en="49 reviews on Google">49 отзива в Google</span></a>
       <h1 class="hero-h1" data-en="Healthy &amp;<br>Delicious">Здравословно &amp;<br>Вкусно</h1>
       <div class="hero-btns">
-        <a href="menu.html" class="btn btn--glovo btn--lg" data-en="View the menu">Виж менюто</a>
+        <a href="menu.html" class="btn btn--delivery btn--lg" data-en="View the menu">Виж менюто</a>
       </div>
     </div>
     <a href="#praised" class="hero-scroll" aria-label="Надолу"><i></i></a>
   </section>
 
   <section class="sec praised" id="praised">
-    {viewer("pv-praised", praised, scroll=True, show_menu_link=True, loop=True, bare=True, extra_cls="pv--sun", head=PRAISED_HEAD, steps=2, glovo=False)}
+    {viewer("pv-praised", praised, scroll=True, show_menu_link=True, loop=True, bare=True, extra_cls="pv--sun", head=PRAISED_HEAD, steps=2, delivery=False)}
   </section>
 
   <section class="sec reviews" id="reviews">
@@ -190,7 +190,7 @@ body = f'''<body>
         <h2 data-en="A tasty lunch<br>for the whole team.">Вкусен обяд<br>за целия екип.</h2>
         <p data-en="Protein bowls, salads and brioche sandwiches — every dish with its calories and macros. Pick from the menu and order for the office, or call us and pick the order up.">Протеинови порции, салати и бриош сандвичи — всяко ястие с калории и макроси. Избери от менюто и поръчай за офиса или ни се обади и вземи поръчката от място.</p>
         <div class="office-btns">
-          <a class="btn btn--glovo" href="menu.html" data-en="View the menu">Виж менюто</a>
+          <a class="btn btn--delivery" href="menu.html" data-en="View the menu">Виж менюто</a>
           <a class="btn btn--dark" href="tel:+359892632470">{CALL}<span>+359 892 632 470</span></a>
         </div>
       </div>
@@ -249,7 +249,7 @@ body = f'''<body>
         <h2 data-en="Follow us<br>@kiwis.bg">Последвай ни<br>@kiwis.bg</h2>
         <p data-en="New drinks, dishes of the day and what's happening at Kiwi's.">Нови напитки, ястия и какво се случва в Kiwi's.</p>
       </div>
-      <a class="btn btn--glovo btn--lg insta-btn" href="{IG}" target="_blank" rel="noopener">{IG_ICON}<span data-en="Follow on Instagram">Последвай в Instagram</span></a>
+      <a class="btn btn--delivery btn--lg insta-btn" href="{IG}" target="_blank" rel="noopener">{IG_ICON}<span data-en="Follow on Instagram">Последвай в Instagram</span></a>
     </div>
   </section>
 
@@ -301,11 +301,11 @@ body = f'''<body>
           <li><b data-en="Hours">Работно време</b><span data-en="Mon — Sat, 09:00 — 21:30 · Sunday closed">Пон — Съб, 09:00 — 21:30 · неделя почивен ден</span></li>
           <li><b data-en="Phone">Телефон</b><span><a class="p-tel" href="tel:+359892632470">+359 892 632 470</a></span></li>
           <li><b>Instagram</b><span><a class="vl-ig" href="{IG}" target="_blank" rel="noopener">{IG_ICON}@kiwis.bg</a></span></li>
-          <li><b data-en="Delivery">Доставка</b><span><a href="{GLOVO}" target="_blank" rel="noopener">Glovo</a> <span data-en="in Plovdiv">в Пловдив</span></span></li>
+          <li><b data-en="Delivery">Доставка</b><span><a href="{BOLT_FOOD}" target="_blank" rel="noopener">Bolt Food</a> <span data-en="in Plovdiv">в Пловдив</span></span></li>
         </ul>
         <div class="visit-btns">
           <a href="{DIR}" class="btn btn--dark" target="_blank" rel="noopener" data-en="Get directions">Упътване</a>
-          <a href="{GLOVO}" class="btn btn--glovo" target="_blank" rel="noopener">{BIKE}<span data-en="Glovo delivery">Доставка с Glovo</span></a>
+          <a href="{BOLT_FOOD}" class="btn btn--delivery" target="_blank" rel="noopener">{BIKE}<span data-en="Bolt Food delivery">Доставка с Bolt Food</span></a>
         </div>
       </div>
       <div class="visit-map" data-reveal="right">

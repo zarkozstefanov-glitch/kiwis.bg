@@ -3,7 +3,7 @@ sys.path.insert(0, __import__('os').path.dirname(__import__('os').path.abspath(_
 from pv_lib import nav, footer
 OUT = sys.argv[1]  # website/blog
 os.makedirs(OUT, exist_ok=True)
-GLOVO = "https://glovoapp.com/bg/bg/plovdiv/stores/kiwis-pdv"
+BOLT_FOOD = "https://food.bolt.eu/en/2128-plovdiv/p/5452989-kiwis/"
 TODAY = "2026-11-11"
 
 ARTICLES = [
@@ -202,7 +202,7 @@ for a in ARTICLES:
         <aside class="sources"><h2>Източници</h2><ol>{src}</ol></aside>
         <div class="post-cta">
           <div><strong>Гладен ли си?</strong><span>Протеинова храна с калории и макроси на всяко ястие — ул. „Никола Карев“ 14, Пловдив.</span></div>
-          <div class="post-cta-btns"><a class="btn btn--glovo" href="{GLOVO}" target="_blank" rel="noopener">Поръчай в Glovo</a><a class="btn btn--dark" href="/menu.html">Виж менюто</a></div>
+          <div class="post-cta-btns"><a class="btn btn--delivery" href="{BOLT_FOOD}" target="_blank" rel="noopener">Поръчай в Bolt Food</a><a class="btn btn--dark" href="/menu.html">Виж менюто</a></div>
         </div>
         <aside class="more"><h2>Още статии</h2><ul>{others}</ul></aside>
       </div>

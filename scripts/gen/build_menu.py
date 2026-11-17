@@ -1,6 +1,6 @@
 import json, sys, re
 sys.path.insert(0, sys.argv[1])
-from pv_lib import viewer, e, GLOVO, nav, footer, sticky_order, price_bg, price_en
+from pv_lib import viewer, e, BOLT_FOOD, nav, footer, sticky_order, price_bg, price_en
 S, OUT = sys.argv[1], sys.argv[2]
 cats = json.load(open(f"{S}/menu_data.json"))
 BASE = "https://kiwis.bg/"
@@ -53,7 +53,7 @@ for c in cats:
                                "carbohydrateContent": f'{it["c"]} g', "fatContent": f'{it["f"]} g'}}
             if it["w"]:
                 d["nutrition"]["servingSize"] = it["w"].replace(" г", " g")
-            if it.get("img") and it["img"] not in ("cloud-matcha", "cloud-blueberry"):
+            if it.get("img"):
                 d["image"] = f'{BASE}images/cut/{it["img"]}-{2 if "brioche" in it["img"] else 1}-900.webp'
             if it["bg"] in VEG:
                 d["suitableForDiet"] = "https://schema.org/VegetarianDiet"
