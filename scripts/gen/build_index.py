@@ -7,6 +7,7 @@ from review_lib import text_en
 head = open(f"{S}/head.html", encoding="utf-8").read()
 reviews = open(f"{S}/reviews_snippet.html", encoding="utf-8").read()
 revs = json.load(open(f"{S}/rv/all.json"))
+TOTAL_REVIEWS = json.load(open(f"{S}/rv/summary.json"))["count"]
 cats = json.load(open(f"{S}/menu_data.json"))
 ITEMS = {it["bg"]: dict(it, cat=c["id"]) for c in cats for it in c.get("items", [])}
 
@@ -153,7 +154,7 @@ body = f'''<body>
       <div class="hero-overlay"></div>
     </div>
     <div class="hero-content">
-      <a href="#reviews" class="hero-rating"><span class="hr-stars">{STAR * 5}</span><b>5,0</b><span data-en="49 reviews on Google">49 отзива в Google</span></a>
+      <a href="#reviews" class="hero-rating"><span class="hr-stars">{STAR * 5}</span><b>5,0</b><span data-en="{TOTAL_REVIEWS} reviews on Google">{TOTAL_REVIEWS} отзива в Google</span></a>
       <h1 class="hero-h1" data-en="Healthy &amp;<br>Delicious">Здравословно &amp;<br>Вкусно</h1>
       <div class="hero-btns">
         <a href="menu.html" class="btn btn--delivery btn--lg" data-en="View the menu">Виж менюто</a>
@@ -168,7 +169,7 @@ body = f'''<body>
 
   <section class="sec reviews" id="reviews">
     <div class="container rv-top">
-      <div data-reveal="left"><span class="kicker" data-en="Google reviews">Отзиви в Google</span><h2 data-en="5.0 from 49 reviews.">5,0 от 49 отзива.</h2><p class="review-translation-note">Translated from Bulgarian.</p></div>
+      <div data-reveal="left"><span class="kicker" data-en="Google reviews">Отзиви в Google</span><h2 data-en="5.0 from {TOTAL_REVIEWS} reviews.">5,0 от {TOTAL_REVIEWS} отзива.</h2><p class="review-translation-note">Translated from Bulgarian.</p></div>
       <a href="{GMAP}" class="rv-score" target="_blank" rel="noopener" data-reveal="right"><span class="rv-score-stars">{STAR * 5}</span><span data-en="Read them on Google">Прочети ги в Google</span></a>
     </div>
     <div class="mq" aria-label="Откъси от отзиви" data-en-aria-label="Review excerpts">
@@ -179,7 +180,7 @@ body = f'''<body>
 {reviews}
       </div>
       <div class="rv-actions">
-        <button class="btn btn--line" id="rvMore" data-en="Show all 49 reviews">Покажи всички 49 отзива</button>
+        <button class="btn btn--line" id="rvMore" data-en="Show reviews">Покажи отзивите</button>
         <a href="{GMAP}" class="btn btn--dark" target="_blank" rel="noopener" data-en="Leave a review">Остави отзив</a>
       </div>
       <p class="rv-note" data-en="Reviews from Google Maps; names shortened.">Отзиви от Google Карти; имената са съкратени.</p>
@@ -286,7 +287,7 @@ body = f'''<body>
         <h2 data-en="Food that<br><em>fuels you.</em>">Храна, която те<br><em>зарежда.</em></h2>
         <p data-en="Healthy protein food made in our kitchen: meat or salmon bowls, protein brioche sandwiches, salads and desserts, matcha and Cloud Foam drinks. Eat with us, take it with you, or order to the office or home.">Здравословна протеинова храна, приготвена в нашата кухня: порции с месо или сьомга, протеинови бриош сандвичи, салати и десерти, матча и Cloud Foam напитки. Хапни при нас, вземи за из път или поръчай за офиса и вкъщи.</p>
         <div class="about-stats">
-          <div><b data-count="49">49</b><span data-en="Google reviews">отзива в Google</span></div>
+          <div><b data-count="{TOTAL_REVIEWS}">{TOTAL_REVIEWS}</b><span data-en="Google reviews">отзива в Google</span></div>
           <div><b>5,0</b><span data-en="average rating">средна оценка</span></div>
           <div><b data-en="Mon–Sat">Пон–Съб</b><span>09:00 – 21:30</span></div>
         </div>
