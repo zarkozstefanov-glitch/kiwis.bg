@@ -161,6 +161,7 @@
     window.addEventListener('resize', function () { setMode(); fromScroll(); });
     if (wide.addEventListener) wide.addEventListener('change', setMode);
     setMode(); fromScroll(); render(cur);
+    root.dataset.ready = 'true';
 
     new IntersectionObserver(function (es, o) {
       if (es[0].isIntersecting) { root.classList.add('in'); o.disconnect(); }

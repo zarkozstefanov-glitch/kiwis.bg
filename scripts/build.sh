@@ -20,7 +20,7 @@ cp -R css js images fonts blog api admin "$OUT/" && cp sw.js "$OUT/"
 find "$OUT" -name ".DS_Store" -delete
 
 # Cache-busting: CSS/JS are cached for a year, so every deploy gets a new ?v=
-for f in "$OUT"/*.html; do
+for f in "$OUT"/*.html "$OUT"/blog/*.html; do
   sed -i.bak -E "s#(href|src)=\"(/?)(css|js)/([a-z0-9_-]+)\.(css|js)\"#\1=\"\2\3/\4.\5?v=${VERSION}\"#g" "$f"
   rm "$f.bak"
 done

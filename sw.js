@@ -1,24 +1,29 @@
-/* Kiwi's service worker — the first visit loads everything, the next ones open instantly.
-   - pages: shown from the cache right away and refreshed in the background; after 12 h the
-     network is tried first, so a new day starts with the newest version
+/* Kiwi's service worker.
+   - pages: always use the current HTML online; cached pages are only an offline fallback
    - css / js / fonts / images: cache first (their URLs change when the file changes: ?v=hash)
    - /api/ and /admin/ are never touched */
 const V = '__V__';
-const PAGES = 'kiwis-pages-' + V, ASSETS = 'kiwis-assets-v1', FRESH = 12 * 3600 * 1000;
+const PAGES = 'kiwis-pages-' + V, ASSETS = 'kiwis-assets-v2';
 
 self.addEventListener('install', e => {
-  e.waitUntil(caches.open(PAGES).then(c => c.addAll(['/', '/menu.html'])).catch(() => {}).then(() => self.skipWaiting()));
+  e.waitUntil(caches.open(PAGES).then(c => c.addAll(['/', '/menu.html'].map(path => new Request(new URL(path, self.location.origin), { cache: 'reload' })))).catch(() => {}).then(() => self.skipWaiting()));
 });
 
 self.addEventListener('activate', e => {
-  e.waitUntil(caches.keys().then(keys => Promise.all(keys.filter(k => k.startsWith('kiwis-pages-') && k !== PAGES).map(k => caches.delete(k))))
-    .then(() => self.clients.claim()));
+  e.waitUntil((async () => {
+    const keys = await caches.keys();
+    const legacy = keys.includes('kiwis-assets-v1');
+    await Promise.all(keys.filter(k => (k.startsWith('kiwis-pages-') && k !== PAGES) || (k.startsWith('kiwis-assets-') && k !== ASSETS)).map(k => caches.delete(k)));
+    await self.clients.claim();
+    // One-time migration: old tabs may already contain the obsolete cached header.
+    // Refresh those documents once; future activations do not reload open pages.
+    if (legacy) {
+      const windows = await self.clients.matchAll({ type: 'window' });
+      // Do not await navigation here: WebKit waits for activation to finish first.
+      windows.filter(c => !/^\/(api|admin)\//.test(new URL(c.url).pathname)).forEach(c => { c.navigate(c.url).catch(() => {}); });
+    }
+  })());
 });
-
-const stamp = res => {                       // remember when a page was fetched
-  const h = new Headers(res.headers); h.set('x-kiwis-at', String(Date.now()));
-  return res.blob().then(b => new Response(b, { status: res.status, statusText: res.statusText, headers: h }));
-};
 
 self.addEventListener('fetch', e => {
   const req = e.request, url = new URL(req.url);
@@ -27,11 +32,13 @@ self.addEventListener('fetch', e => {
   if (req.mode === 'navigate') {
     const key = url.pathname === '/index.html' ? '/' : url.pathname;
     e.respondWith(caches.open(PAGES).then(async c => {
-      const cached = await c.match(key);
-      const net = fetch(req).then(async r => { if (r.ok && r.type === 'basic') await c.put(key, await stamp(r.clone())); return r; });
-      const age = cached ? Date.now() - Number(cached.headers.get('x-kiwis-at') || 0) : Infinity;
-      if (cached && age < FRESH) { e.waitUntil(net.catch(() => {})); return cached; }
-      return net.catch(() => cached || caches.match('/'));
+      try {
+        const r = await fetch(req, { cache: 'no-cache' });
+        if (r.ok && r.type === 'basic') await c.put(key, r.clone()).catch(() => {});
+        return r;
+      } catch (err) {
+        return await c.match(key) || await c.match('/') || Response.error();
+      }
     }));
     return;
   }
@@ -41,7 +48,7 @@ self.addEventListener('fetch', e => {
       const hit = await c.match(req);
       if (hit) return hit;
       const r = await fetch(req);
-      if (r.ok && r.type === 'basic') c.put(req, r.clone());
+      if (r.ok && r.type === 'basic') e.waitUntil(c.put(req, r.clone()).catch(() => {}));
       return r;
     }));
   }

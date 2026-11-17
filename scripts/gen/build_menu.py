@@ -77,7 +77,7 @@ ld = {"@context": "https://schema.org", "@type": "Menu", "@id": f"{BASE}menu.htm
 
 old = open(OUT, encoding="utf-8").read()
 head = old[:old.index('<script type="application/ld+json">')]
-VT = '<style>@view-transition{navigation:auto}</style>'   # must be inline: Chrome ignores the opt-in from an external sheet here
+VT = '<style>@view-transition{navigation:none}</style>'   # native navigation avoids fixed-header snapshot glitches in Safari
 if VT not in head:
     head = head.replace('<meta charset="UTF-8">', '<meta charset="UTF-8">\n  ' + VT, 1)
 head = head.replace('<link rel="stylesheet" href="css/menu.css">', '<link rel="stylesheet" href="css/pv.css">\n  <link rel="stylesheet" href="css/menu.css">') if 'css/pv.css' not in head else head

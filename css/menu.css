@@ -96,3 +96,13 @@
   .cat .pv-price { font-size: clamp(1.4rem, 7.6vw, 2.1rem); }
   .cat .pv-ctas .btn { padding: clamp(10px, 3vw, 13px) clamp(12px, 4.6vw, 20px); font-size: clamp(.78rem, 3.8vw, .98rem); }
 }
+
+/* The menu is visible from its first paint, without entrance delays or layout jumps. */
+.page-menu [data-reveal] { opacity: 1; transform: none; transition: none; }
+.page-menu .pv .pv-items, .page-menu .pv .pv-side { opacity: 1; transform: none; transition: none; }
+.page-menu .pv .pv-podium { opacity: 1; transform: none; transition: none; }
+.page-menu .pv .pv-light { opacity: 1; transition: none; }
+.page-menu .pv-lines circle { stroke-dashoffset: 0; transition: none; }
+.page-menu .pv-m i { transition: none; }
+.page-menu .back-link--dark { animation: none; }
+.page-menu .pv:not([data-ready]) .pv-item:not(:first-child) { visibility: hidden; }

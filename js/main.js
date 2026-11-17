@@ -150,8 +150,10 @@ document.addEventListener('DOMContentLoaded', () => {
   }));
 
   // === Speed: keep the site in a local cache (sw.js) and prefetch pages before the click ===
-  if ('serviceWorker' in navigator && location.protocol === 'https:') {
-    addEventListener('load', () => navigator.serviceWorker.register('/sw.js').catch(() => {}));
+  if ('serviceWorker' in navigator && window.isSecureContext) {
+    const register = () => navigator.serviceWorker.register('/sw.js', { updateViaCache: 'none' }).catch(() => {});
+    if (document.readyState === 'complete') register();
+    else addEventListener('load', register, { once: true });
   }
   if (HTMLScriptElement.supports && HTMLScriptElement.supports('speculationrules')) {
     const sr = document.createElement('script');
