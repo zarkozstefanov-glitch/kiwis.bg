@@ -1,7 +1,7 @@
 import sys, json
 S, OUT = sys.argv[1], sys.argv[2]
 sys.path.insert(0, S)
-from pv_lib import viewer, e, BOLT_FOOD, GLOVO, delivery_links, nav, footer, sticky_order, price_bg, price_en, IG, IG_ICON
+from pv_lib import viewer, e, BOLT_FOOD, GLOVO, delivery_links, nav, footer, sticky_order, price_bg, price_en, IG, IG_ICON, FB, FB_ICON, social_links
 from review_lib import text_en
 
 head = open(f"{S}/head.html", encoding="utf-8").read()
@@ -246,13 +246,16 @@ body = f'''<body>
 
   <section class="sec insta" id="instagram">
     <div class="container insta-inner" data-reveal="up">
-      <a class="insta-icon" href="{IG}" target="_blank" rel="noopener" aria-label="Instagram @kiwis.bg">{IG_ICON.replace('width="18" height="18"', 'width="34" height="34"')}</a>
+      <div class="social-marks">
+        <a class="insta-icon btn--instagram" href="{IG}" target="_blank" rel="noopener" aria-label="Instagram @kiwis.bg">{IG_ICON.replace('width="18" height="18"', 'width="34" height="34"')}</a>
+        <a class="insta-icon btn--facebook" href="{FB}" target="_blank" rel="noopener" aria-label="Facebook Kiwi’s Plovdiv">{FB_ICON.replace('width="18" height="18"', 'width="34" height="34"')}</a>
+      </div>
       <div class="insta-copy">
-        <span class="kicker" data-en="Instagram">Instagram</span>
-        <h2 data-en="Follow us<br>@kiwis.bg">Последвай ни<br>@kiwis.bg</h2>
+        <span class="kicker" data-en="Social media">Социални мрежи</span>
+        <h2 data-en="Follow Kiwi’s.">Последвай Kiwi’s.</h2>
         <p data-en="New drinks, dishes of the day and what's happening at Kiwi's.">Нови напитки, ястия и какво се случва в Kiwi's.</p>
       </div>
-      <a class="btn btn--delivery btn--lg insta-btn" href="{IG}" target="_blank" rel="noopener">{IG_ICON}<span data-en="Follow on Instagram">Последвай в Instagram</span></a>
+      {social_links("insta-social")}
     </div>
   </section>
 
@@ -303,7 +306,7 @@ body = f'''<body>
           <li><b data-en="Address">Адрес</b><span class="p-adr h-adr"><span class="p-name" hidden>Kiwi's</span><span class="p-street-address" data-en="14 Nikola Karev St.">ул. „Никола Карев“ 14</span>, <span class="p-locality" data-en="Plovdiv">Пловдив</span><span class="p-country-name" hidden>България</span></span></li>
           <li><b data-en="Hours">Работно време</b><span data-en="Mon — Sat, 09:00 — 21:30 · Sunday closed">Пон — Съб, 09:00 — 21:30 · неделя почивен ден</span></li>
           <li><b data-en="Phone">Телефон</b><span><a class="p-tel" href="tel:+359892632470">+359 892 632 470</a></span></li>
-          <li><b>Instagram</b><span><a class="vl-ig" href="{IG}" target="_blank" rel="noopener">{IG_ICON}@kiwis.bg</a></span></li>
+          <li><b data-en="Social media">Социални мрежи</b>{social_links("contact-social")}</li>
           <li><b data-en="Delivery">Доставка</b><span><a href="{GLOVO}" target="_blank" rel="noopener">Glovo</a> <span data-en="and">и</span> <a href="{BOLT_FOOD}" target="_blank" rel="noopener">Bolt Food</a> <span data-en="in Plovdiv">в Пловдив</span></span></li>
         </ul>
         <div class="visit-btns">

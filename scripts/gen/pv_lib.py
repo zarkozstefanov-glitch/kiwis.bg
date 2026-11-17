@@ -119,7 +119,15 @@ BIKE = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="curr
 CALL = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.86 19.86 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.86 19.86 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.12.96.36 1.9.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.91.34 1.85.58 2.81.7A2 2 0 0122 16.92z"/></svg>'
 GMAP = "https://www.google.com/maps?cid=1892105797985093642"
 IG = "https://www.instagram.com/kiwis.bg/"
+FB = "https://www.facebook.com/people/Kiwis-Plovdiv/61596483960957/"
 IG_ICON = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="2.5" width="19" height="19" rx="5.5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.6" cy="6.4" r="1.1" fill="currentColor" stroke="none"/></svg>'
+FB_ICON = '<svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M14 22v-9h3l.5-4H14V6.5c0-1.1.3-1.8 1.8-1.8H18V1.1C17.6 1 16.3 1 14.8 1 11.5 1 9 3 9 6.4V9H6v4h3v9z"/></svg>'
+
+
+def social_links(extra_cls=""):
+    return (f'<div class="social-links {extra_cls}">'
+            f'<a class="btn btn--instagram" href="{IG}" target="_blank" rel="noopener">{IG_ICON}<span>Instagram</span></a>'
+            f'<a class="btn btn--facebook" href="{FB}" target="_blank" rel="noopener">{FB_ICON}<span>Facebook</span></a></div>')
 
 
 def links(page):
@@ -142,7 +150,10 @@ def links(page):
 def nav(page):
     home, L, img = links(page)
     items = "".join(f'<a href="{u}" data-en="{en}"{" aria-current=\"page\" class=\"is-current\"" if k and k == page else ""}>{bg}</a>' for u, bg, en, k in L)
-    cta = delivery_links("nav-delivery")
+    if page == "home":
+        cta = '<a href="menu.html" class="nav-cta"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h10"/></svg><span data-en="Menu">Меню</span></a>'
+    else:
+        cta = '<a href="/" class="nav-cta" data-back><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg><span data-en="Back">Назад</span></a>'
     mm_cta = delivery_links("mm-cta")
     mm = "".join(f'<a href="{u}" class="mm-link" data-en="{en}">{bg}</a>' for u, bg, en, k in L)
     return f'''  <a class="skip" href="#main" data-en="Skip to content">Към съдържанието</a>
@@ -162,7 +173,7 @@ def nav(page):
       {mm}
       {mm_cta}
       <p class="mm-info"><span data-en="Mon — Sat, 09:00 — 21:30">Пон — Съб, 09:00 — 21:30</span><br><a href="tel:+359892632470">+359 892 632 470</a></p>
-      <a href="{IG}" class="mm-ig" target="_blank" rel="noopener">{IG_ICON}<span>@kiwis.bg</span></a>
+      {social_links("mm-social")}
     </div>
   </div>
 '''
@@ -180,6 +191,7 @@ def footer(page):
         <a href="{BOLT_FOOD}" target="_blank" rel="noopener">Bolt Food</a>
         <a href="{GMAP}" target="_blank" rel="noopener" data-en="Google reviews">Отзиви в Google</a>
         <a href="{IG}" target="_blank" rel="noopener" class="ft-ig">{IG_ICON}<span>Instagram</span></a>
+        <a href="{FB}" target="_blank" rel="noopener" class="ft-ig">{FB_ICON}<span>Facebook</span></a>
         <a href="tel:+359892632470">+359 892 632 470</a>
         <a href="/privacy.html" data-en="Privacy">Поверителност</a>
       </nav>
